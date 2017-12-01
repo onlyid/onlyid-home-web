@@ -42,15 +42,13 @@ redirect_uri=您的redirect uri</pre>
 
     <h2>3. 获取用户信息</h2>
     <p>得到token后，GET方式请求：</p>
-    <pre>https://oauth.onlyid.net/user</pre>
-    <p>设置首部字段：</p>
-    <pre>Authorization: Bearer（空格）获取到的access token</pre>
+    <pre>https://oauth.onlyid.net/user?access_token=获取到的access token</pre>
     <p>获取用户信息。</p>
     <p>成功示例：</p>
     <pre>{
     "headImgUrl": "https://onlyid.net/headimg/599fd5af4ce32128b7bfd771.png",
     "nickname": "ltb4",
-    "sex": "",  // 可能为"male","female"或""
+    "sex": "",  // 可能为"male","female"或"unknown"
     "mobile": "18588237889",
     "id": "599fd5af4ce32128b7bfd771"
 }</pre>
@@ -70,7 +68,7 @@ redirect_uri=您的redirect uri</pre>
 client_secret=您的client secret
 grant_type=refresh_token
 refresh_token=之前获取到的refresh token</pre>
-    <p>得到token后，获取用户信息见步骤4。</p>
+    <p>得到token后，获取用户信息见步骤3。</p>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
-  <div class="content-bg">
-    <div class="content">
+  <div id="content-bg">
+    <div id="content">
       <el-row>
         <el-col :span="4">
           <el-menu :default-active="activeIndex" id="docs-menu" :router="true" background-color="#fafafa">
@@ -68,9 +68,9 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .content-bg {
+  #content-bg {
   }
-  .content {
+  #content {
     padding: 50px 0px;
     width: 980px;
     margin: 0 auto;

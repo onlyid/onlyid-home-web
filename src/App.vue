@@ -6,15 +6,15 @@
           <el-col :span="3"><img src="./assets/logo1.png" width="100px" @click="home" style="cursor: pointer; vertical-align: middle"></el-col>
           <el-col :span="9">
             <el-menu :default-active="activeIndex" mode="horizontal" background-color="#7f7f7f" text-color="#fff"
-                     active-text-color="#ffda00" :router="true">
-              <el-menu-item index="/user" style="border-right: dashed 1px #ccc">账号设置</el-menu-item>
+                     active-text-color="#ffda00" @select="select">
+              <el-menu-item index="/user">账号设置</el-menu-item>
               <el-menu-item index="/docs">文档</el-menu-item>
               <el-menu-item index="/console">控制台</el-menu-item>
             </el-menu>
           </el-col>
         </el-row>
       </div>
-      <router-view id="main"/>
+      <router-view/>
       <div id="footer-placeholder"/>
     </div>
     <p id="footer">唯一ID &copy; 2017</p>
@@ -25,6 +25,7 @@
   import ElMenuItem from '../node_modules/element-ui/packages/menu/src/menu-item.vue'
   import ElRow from 'element-ui/packages/row/src/row'
   import ElCol from 'element-ui/packages/col/src/col'
+  import config from './config'
 
   export default {
     components: {
@@ -34,18 +35,24 @@
     name: 'app',
     data () {
       return {
-        activeIndex: '/' + this.$route.path.toString().split('/')[1]
+        activeIndex: '/' + this.$route.path.split('/')[1]
       }
     },
     methods: {
       home () {
         this.$router.push('/')
+      },
+      select (key) {
+        if (key === '/user') {
+          return location.assign(config.userUrl)
+        }
+        this.$router.push(key)
       }
     },
     created () {
       this.$router.beforeEach((to, from, next) => {
         // 只匹配第一层路径 比如 /docs/android -> /docs
-        this.activeIndex = '/' + to.path.toString().split('/')[1]
+        this.activeIndex = '/' + to.path.split('/')[1]
         next()
       })
     }
@@ -92,9 +99,28 @@
     /*margin-top: 6px;*/
     border-bottom: hidden;
   }
-  .gradient_hr {
+  .gradient-hr {
     background:linear-gradient( to right, rgba(220,220,220,0) 0%, rgba(220,220,220,1) 10%, rgba(220,220,220,1) 90%, rgba(220,220,220,0) 100% );
     height:1px;
+  }
+  .gradient-hr-title {
+    position: relative;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .gradient-hr-title p {
+    display: inline-block;
+    position: relative;
+    background: white;
+    padding: 0 10px;
+    z-index:2;
+  }
+  .gradient-hr-title div {
+    top: 50%;
+    position: absolute;
+    background:linear-gradient( to right, rgba(220,220,220,0) 0%, rgba(220,220,220,1) 10%, rgba(220,220,220,1) 90%, rgba(220,220,220,0) 100% );
+    height:1px;
+    width:100%
   }
 
   /* 高度不够时，footer置底效果 */
@@ -168,8 +194,32 @@
   }
   /** font end **/
 
-  /* docs ios */
+  .el-form-item__label,
+  .el-popover,
+  .el-form-item__error,
+  .el-radio__label,
+  .el-input,
+  .el-button,
+  .el-message__content,
+  .el-breadcrumb,
   .docs-ios-tabs .el-tabs__item {
     font-size: 17px;
   }
+  .dialog-content {
+    font-size: 22px;
+  }
+  .el-input-group__append {
+    background-color: white;
+  }
+  .el-input-group__append:hover {
+    background-color: #ecf4ff;
+    color: #5a9bf9;
+  }
+  .el-table .row-bg {
+    background: #fafafa;
+  }
+  .el-table__empty-block {
+    background: #fafafa;
+  }
+
 </style>

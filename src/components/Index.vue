@@ -1,11 +1,25 @@
 <template>
   <div>
+    <el-popover
+      ref="popover1"
+      placement="top"
+      width="500"
+      trigger="click">
+      <div style="padding: 20px">
+        <p>如果您认同我们的使命；</p>
+        <p>如果您熟悉Java、Swift、JavaScript中的一门编程语言；</p>
+        <p>如果您享受从原始的地方出发，天马行空，脚踏实地。</p>
+        <div class="gradient-hr"></div>
+        <p>请附上简历来信：join@onlyid.net</p>
+      </div>
+    </el-popover>
+
     <div id="banner-bg">
       <el-row id="banner" type="flex" justify="space-between">
         <el-col :span="12" id="intro">
           <p>专业、极简</p>
           <p>手机账号解决方案</p>
-          <el-button type="success">接入</el-button>
+          <el-button type="primary" @click="use">接 入</el-button>
         </el-col>
         <el-col :span="7">
           <img src="../assets/temp.png" width="250px" style="vertical-align: middle;"/>
@@ -54,7 +68,7 @@
             </el-col>
           </el-row>
         </div>
-        <div class="gradient_hr"/>
+        <div class="gradient-hr"/>
         <el-row type="flex" justify="space-around" id="contact">
           <el-col :span="7">
             <p class="contact-title">业务咨询：18588237889</p>
@@ -64,13 +78,16 @@
             <p class="contact-title">技术支持：15521312099</p>
             <img src="../assets/wechat-155.jpeg" width="150px">
           </el-col>
+          <el-col :span="7">
+            <p class="contact-title">开发者QQ群：23831587</p>
+          </el-col>
         </el-row>
       </div>
     </div>
     <div id="mission-bg">
       <div id="mission">
         <p>“我们的使命是建立全球统一的账号和认证体系，为世界带来秩序。” &nbsp; &nbsp; &nbsp; —— 唯一ID创始人梁庭宾</p>
-        <el-button type="info" id="join-us">加入我们</el-button>
+        <el-button type="info" v-popover:popover1>加入我们</el-button>
       </div>
     </div>
   </div>
@@ -86,7 +103,15 @@
       ElButton,
       ElCol,
       ElRow},
-    name: 'Index'
+    data () {
+      return {
+      }
+    },
+    methods: {
+      use () {
+        this.$router.push('/console')
+      }
+    }
   }
 </script>
 
@@ -169,7 +194,5 @@
     margin: 60px 0px;
     font-size: 22px;
   }
-  #join-us {
-    font-size: 17px;
-  }
+
 </style>

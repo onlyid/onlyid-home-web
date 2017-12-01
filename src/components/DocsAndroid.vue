@@ -2,11 +2,11 @@
   <div>
     <!-- 修改内容时，检查是否需要改另外两个文档 -->
     <p>SDK地址：</p>
-    <pre>https://gitee.com/lltb/onlyID_SDK_Android</pre>
+    <pre>https://gitee.com/lltb/onlyid-sdk-android</pre>
     <p>开源示例：</p>
-    <pre>https://gitee.com/lltb/SOS_Android
-https://gitee.com/lltb/SOS_Backend</pre>
-    <p>* 可直接在应用商店搜索“一键呼救”体验。</p>
+    <pre>https://gitee.com/lltb/sos-android
+https://gitee.com/lltb/sos-backend</pre>
+    <p>* 下载“<a :href="downloadSos">一键呼救</a>”体验。</p>
 
     <h2>1. 集成SDK</h2>
     <p>SDK托管在jcenter，在app模块的build.gradle添加：</p>
@@ -66,15 +66,13 @@ redirect_uri=https://oauth.onlyid.net/default_redirect_uri</pre>
 
     <h2>4. 获取用户信息</h2>
     <p>得到token后，GET方式请求：</p>
-    <pre>https://oauth.onlyid.net/user</pre>
-    <p>设置首部字段：</p>
-    <pre>Authorization: Bearer（空格）获取到的access token</pre>
+    <pre>https://oauth.onlyid.net/user?access_token=获取到的access token</pre>
     <p>获取用户信息。</p>
     <p>成功示例：</p>
     <pre>{
     "headImgUrl": "https://onlyid.net/headimg/599fd5af4ce32128b7bfd771.png",
     "nickname": "ltb4",
-    "sex": "",  // 可能为"male","female"或""
+    "sex": "",  // 可能为"male","female"或"unknown"
     "mobile": "18588237889",
     "id": "599fd5af4ce32128b7bfd771"
 }</pre>
@@ -94,16 +92,15 @@ redirect_uri=https://oauth.onlyid.net/default_redirect_uri</pre>
 client_secret=您的client secret
 grant_type=refresh_token
 refresh_token=之前获取到的refresh token</pre>
-    <p>得到token后，获取用户信息见步骤5。</p>
+    <p>得到token后，获取用户信息见步骤4。</p>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'DocsAndroid',
     data () {
       return {
-        msg: 'Android'
+        downloadSos: 'https://onlyid.net/static/app-release.apk'
       }
     }
   }
