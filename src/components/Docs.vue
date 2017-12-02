@@ -34,15 +34,9 @@
   import DocsWeb from './DocsWeb.vue'
   import DocsAndroid from './DocsAndroid.vue'
   import DocsIOS from './Docs-iOS.vue'
-  import ElMenu from '../../node_modules/element-ui/packages/menu/src/menu.vue'
-  import ElRow from 'element-ui/packages/row/src/row'
-  import ElCol from 'element-ui/packages/col/src/col'
 
   export default {
     components: {
-      ElCol,
-      ElRow,
-      ElMenu,
       DocsIOS,
       DocsAndroid,
       DocsWeb},

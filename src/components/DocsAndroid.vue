@@ -70,7 +70,7 @@ redirect_uri=https://oauth.onlyid.net/default_redirect_uri</pre>
     <p>获取用户信息。</p>
     <p>成功示例：</p>
     <pre>{
-    "headImgUrl": "https://onlyid.net/headimg/599fd5af4ce32128b7bfd771.png",
+    "headImgUrl": "https://onlyid.net/head-img/599fd5af4ce32128b7bfd771.png",
     "nickname": "ltb4",
     "sex": "",  // 可能为"male","female"或"unknown"
     "mobile": "18588237889",

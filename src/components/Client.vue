@@ -47,13 +47,7 @@
 </template>
 
 <script>
-  import ElButton from '../../node_modules/element-ui/packages/button/src/button.vue'
-  import ElCol from 'element-ui/packages/col/src/col'
-
   export default {
-    components: {
-      ElCol,
-      ElButton},
     data () {
       return {
         client: {},

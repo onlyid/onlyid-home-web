@@ -13,7 +13,7 @@ https://gitee.com/lltb/sos-backend</pre>
       <el-tab-pane label="CocoaPods">
         <p>在Podfile添加：</p>
         <pre>pod 'OnlyID_SDK', :git => 'https://gitee.com/lltb/onlyID_SDK_iOS.git',
-  :tag => '1.0.4'</pre>
+  :tag => '1.0.5'</pre>
         <p>集成SDK。</p>
       </el-tab-pane>
       <el-tab-pane label="源码">
@@ -113,7 +113,7 @@ redirect_uri=https://oauth.onlyid.net/default_redirect_uri</pre>
     <p>获取用户信息。</p>
     <p>成功示例：</p>
     <pre>{
-    "headImgUrl": "https://onlyid.net/headimg/599fd5af4ce32128b7bfd771.png",
+    "headImgUrl": "https://onlyid.net/head-img/599fd5af4ce32128b7bfd771.png",
     "nickname": "ltb4",
     "sex": "",  // 可能为"male","female"或"unknown"
     "mobile": "18588237889",
@@ -140,10 +140,7 @@ refresh_token=之前获取到的refresh token</pre>
 </template>
 
 <script>
-  import ElTabPane from '../../node_modules/element-ui/packages/tabs/src/tab-pane.vue'
-
   export default {
-    components: {ElTabPane},
     name: 'Docs-iOS',
     data () {
       return {

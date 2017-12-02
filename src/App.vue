@@ -22,16 +22,9 @@
 </template>
 
 <script>
-  import ElMenuItem from '../node_modules/element-ui/packages/menu/src/menu-item.vue'
-  import ElRow from 'element-ui/packages/row/src/row'
-  import ElCol from 'element-ui/packages/col/src/col'
   import config from './config'
 
   export default {
-    components: {
-      ElCol,
-      ElRow,
-      ElMenuItem},
     name: 'app',
     data () {
       return {

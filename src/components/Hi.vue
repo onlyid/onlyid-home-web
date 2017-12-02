@@ -1,5 +1,9 @@
 <template>
   <div id="content">
+    <transition name="fade">
+      <p v-if="show">hello</p>
+    </transition>
+    <el-button @click="testTransition">testTransition</el-button>
     <i class="material-icons" style="font-size: 300px; color: #fff">account_circle</i>
     <el-form ref="form" :model="form" :rules="rules">
       <el-form-item prop="name">
@@ -48,11 +52,6 @@
 
 <script>
   import Vue from 'vue'
-  import ElButton from '../../node_modules/element-ui/packages/button/src/button.vue'
-  import ElForm from '../../node_modules/element-ui/packages/form/src/form.vue'
-  import ElFormItem from '../../node_modules/element-ui/packages/form/src/form-item.vue'
-  import ElInput from '../../node_modules/element-ui/packages/input/src/input.vue'
-  import ElRadio from '../../node_modules/element-ui/packages/radio/src/radio.vue'
 
   Vue.component('my-component', {
     template: '<div><p>{{ msg }}</p></div>',
@@ -100,10 +99,14 @@
         message: '',
         list: [{name: 'ltb', sex: 'male', id: 1}, {name: 'hbj', sex: 'male', id: 2}],
         name: 'lll',
-        activeIndex: '1'
+        activeIndex: '1',
+        show: false
       }
     },
     methods: {
+      testTransition () {
+        this.show = !this.show
+      },
       testRadio () {
         this.$refs.form.validate((valid) => {
           if (!valid) {
@@ -140,13 +143,6 @@
 //        this.$refs.c.msg = 'hi'
       }
     },
-    components: {
-      ElRadio,
-      ElInput,
-      ElFormItem,
-      ElForm,
-      ElButton
-    },
     filters: {
       capitalize (value) {
 //        debugger
@@ -171,5 +167,11 @@
   }
   #id1 {
     font-size: 60px;
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+    opacity: 0
   }
 </style>

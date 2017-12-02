@@ -18,11 +18,9 @@
 </template>
 
 <script>
-  import ElButton from '../../node_modules/element-ui/packages/button/src/button.vue'
   import config from '../config'
 
   export default {
-    components: {ElButton},
     name: 'User',
     data () {
       return {

@@ -62,16 +62,9 @@
 </template>
 
 <script>
-import ElInput from '../../node_modules/element-ui/packages/input/src/input.vue'
-import ElButton from '../../node_modules/element-ui/packages/button/src/button.vue'
 import config from '../config'
-import ElRadioGroup from '../../node_modules/element-ui/packages/radio/src/radio-group.vue'
 
 export default {
-  components: {
-    ElRadioGroup,
-    ElButton,
-    ElInput},
   data () {
     return {
       form: {

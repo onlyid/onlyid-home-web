@@ -22,7 +22,18 @@
           <el-button type="primary" @click="use">接 入</el-button>
         </el-col>
         <el-col :span="7">
-          <img src="../assets/temp.png" width="250px" style="vertical-align: middle;"/>
+          <!--<div style="background-color: #7f7f7f; width: 252px; height: 15px; position: relative; z-index: 2"></div>-->
+          <!--<video style="border: solid #afafaf 1px; " width="250px" autoplay loop poster="/static/demo-poster.jpeg">-->
+            <!--<source src="../assets/demo-720p.mp4" type="video/mp4" />-->
+            <!--Your browser does not support the video tag.-->
+          <!--</video>-->
+
+          <div style="height: 447px;">
+            <transition name="fade">
+            <img :src="demoImg" :key="demoImg" width="250px" style="vertical-align: middle; position: absolute; border: solid #afafaf 1px;"/>
+            </transition>
+          </div>
+
         </el-col>
       </el-row>
     </div>
@@ -94,23 +105,26 @@
 </template>
 
 <script>
-  import ElRow from 'element-ui/packages/row/src/row'
-  import ElCol from 'element-ui/packages/col/src/col'
-  import ElButton from '../../node_modules/element-ui/packages/button/src/button.vue'
-
   export default {
-    components: {
-      ElButton,
-      ElCol,
-      ElRow},
     data () {
       return {
+        demoImgIndex: 1,
+        demoImg: '/static/demo1.png'
       }
     },
     methods: {
       use () {
         this.$router.push('/console')
       }
+    },
+    created () {
+      setInterval(() => {
+        this.demoImgIndex++
+        if (this.demoImgIndex > 3) {
+          this.demoImgIndex = 1
+        }
+        this.demoImg = '/static/demo' + this.demoImgIndex + '.png'
+      }, 3000)
     }
   }
 </script>
@@ -194,5 +208,10 @@
     margin: 60px 0px;
     font-size: 22px;
   }
-
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity 1.0s
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+    opacity: 0
+  }
 </style>
