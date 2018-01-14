@@ -3,11 +3,10 @@
     <div id="wrapper">
       <div id="header-bg">
         <el-row id="header">
-          <el-col :span="3"><img src="./assets/logo1.png" width="100px" @click="home" style="cursor: pointer; vertical-align: middle"></el-col>
+          <el-col :span="3"><img src="./assets/logo2.png" width="100px" @click="home" style="cursor: pointer; vertical-align: middle"></el-col>
           <el-col :span="9">
             <el-menu :default-active="activeIndex" mode="horizontal" background-color="#7f7f7f" text-color="#fff"
                      active-text-color="#ffda00" @select="select">
-              <el-menu-item index="/user">账号设置</el-menu-item>
               <el-menu-item index="/docs">文档</el-menu-item>
               <el-menu-item index="/console">控制台</el-menu-item>
             </el-menu>
@@ -17,13 +16,11 @@
       <router-view/>
       <div id="footer-placeholder"/>
     </div>
-    <p id="footer">唯一ID &copy; 2017</p>
+    <p id="footer"><a href="http://gdcainfo.miitbeian.gov.cn" style="color: #fff; text-decoration: none" target="_blank">粤ICP备16120960号-3</a></p>
   </div>
 </template>
 
 <script>
-  import config from './config'
-
   export default {
     name: 'app',
     data () {
@@ -36,9 +33,6 @@
         this.$router.push('/')
       },
       select (key) {
-        if (key === '/user') {
-          return location.assign(config.userUrl)
-        }
         this.$router.push(key)
       }
     },

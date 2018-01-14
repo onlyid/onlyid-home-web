@@ -27,7 +27,7 @@ const prod = {
     ]
   },
   defaultRedirectUri: 'https://oauth.onlyid.net/default_redirect_uri',
-  userUrl: 'https://user.onlyid.net'
+  staticUrl: 'https://static.onlyid.net/onlyid'
 }
 
 const dev = {
@@ -35,7 +35,8 @@ const dev = {
   authorizeUrl: 'http://oauth.onlyid.net:3001/authorize?response_type=code&client_id=' +
   clientId + '&state=123&redirect_uri=' + encodeURIComponent(redirectUri),
   defaultRedirectUri: 'http://oauth.onlyid.net:3001/default_redirect_uri',
-  userUrl: 'http://user.onlyid.net:8082'
+  userUrl: 'http://user.onlyid.net:8082',
+  staticUrl: '/static'
 }
 
 if (process.env.NODE_ENV !== 'production') {

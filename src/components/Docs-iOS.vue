@@ -2,22 +2,22 @@
   <div>
     <!-- 修改内容时，检查是否需要改另外两个文档 -->
     <p>SDK地址：</p>
-    <pre>https://gitee.com/lltb/onlyid-sdk-ios</pre>
+    <pre><a href="https://gitee.com/lltb/onlyid-sdk-ios" target="_blank">https://gitee.com/lltb/onlyid-sdk-ios</a></pre>
     <p>开源示例：</p>
-    <pre>https://gitee.com/lltb/sos-ios
-https://gitee.com/lltb/sos-backend</pre>
-    <p>* 可在App Store搜索“一键呼救”体验。</p>
+    <pre><a href="https://gitee.com/lltb/sos-ios" target="_blank">https://gitee.com/lltb/sos-ios</a>
+<a href="https://gitee.com/lltb/sos-backend">https://gitee.com/lltb/sos-backend</a></pre>
+    <!--<p>* 可在App Store搜索“一键呼救”体验。</p>-->
 
     <h2>1. 集成SDK</h2>
     <el-tabs class="docs-ios-tabs">
       <el-tab-pane label="CocoaPods">
         <p>在Podfile添加：</p>
-        <pre>pod 'OnlyID_SDK', :git => 'https://gitee.com/lltb/onlyID_SDK_iOS.git',
+        <pre>pod 'OnlyID_SDK', :git => 'https://gitee.com/lltb/onlyid-sdk-ios.git',
   :tag => '1.0.5'</pre>
         <p>集成SDK。</p>
       </el-tab-pane>
       <el-tab-pane label="源码">
-        <p>直接<a href="https://gitee.com/lltb/onlyID_SDK_iOS/tree/1.0.4/OnlyID_SDK" target="_blank">下载</a>AuthViewController.swift和OnlyID_SDK.swift，添加到您的项目。</p>
+        <p>直接<a href="https://gitee.com/lltb/onlyid-sdk-ios/tree/master/OnlyID_SDK" target="_blank">下载</a>AuthViewController.swift和OnlyID_SDK.swift，添加到您的项目。</p>
       </el-tab-pane>
     </el-tabs>
 
@@ -82,7 +82,7 @@ class LoginViewController: UIViewController, AuthDelegate {
       </el-tab-pane>
     </el-tabs>
 
-    <p style="margin-top: 50px">* <span class="warn">以下步骤3、4和5应在后台进行，以防泄露您的client secret和token。</span></p>
+    <p style="margin-top: 50px">* <span class="warn">以下步骤3、4和5建议在后台进行，以防泄露您的client secret和token。</span></p>
     <h2 style="margin-top: 0px">3. 获取token</h2>
     <p>得到code后，POST方式请求：</p>
     <pre>https://oauth.onlyid.net/token</pre>

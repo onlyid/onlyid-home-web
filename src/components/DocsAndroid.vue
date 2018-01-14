@@ -2,11 +2,11 @@
   <div>
     <!-- 修改内容时，检查是否需要改另外两个文档 -->
     <p>SDK地址：</p>
-    <pre>https://gitee.com/lltb/onlyid-sdk-android</pre>
+    <pre><a href="https://gitee.com/lltb/onlyid-sdk-android" target="_blank">https://gitee.com/lltb/onlyid-sdk-android</a></pre>
     <p>开源示例：</p>
-    <pre>https://gitee.com/lltb/sos-android
-https://gitee.com/lltb/sos-backend</pre>
-    <p>* 下载“<a :href="downloadSos">一键呼救</a>”体验。</p>
+    <pre><a href="https://gitee.com/lltb/sos-android" target="_blank">https://gitee.com/lltb/sos-android</a>
+<a href="https://gitee.com/lltb/sos-backend" target="_blank">https://gitee.com/lltb/sos-backend</a></pre>
+    <p>* 下载“<a href="https://static.onlyid.net/downloads/app-release.apk">一键呼救</a>”体验。</p>
 
     <h2>1. 集成SDK</h2>
     <p>SDK托管在jcenter，在app模块的build.gradle添加：</p>
@@ -39,7 +39,7 @@ LoginActivity extends Activity implements OnlyID.AuthListener {
 }
 </pre>
 
-    <p style="margin-top: 50px">* <span class="warn">以下步骤3、4和5应在后台进行，以防泄露您的client secret和token。</span></p>
+    <p style="margin-top: 50px">* <span class="warn">以下步骤3、4和5建议在后台进行，以防泄露您的client secret和token。</span></p>
     <h2 style="margin-top: 0px">3. 获取token</h2>
     <p>得到code后，POST方式请求：</p>
     <pre>https://oauth.onlyid.net/token</pre>
@@ -100,7 +100,6 @@ refresh_token=之前获取到的refresh token</pre>
   export default {
     data () {
       return {
-        downloadSos: 'https://onlyid.net/static/app-release.apk'
       }
     }
   }

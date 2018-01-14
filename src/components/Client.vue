@@ -72,20 +72,6 @@
       }
     },
     created () {
-      const segue = sessionStorage.getItem('segue')
-      sessionStorage.removeItem('segue')
-      if (segue === 'add') {
-        this.$message({
-          message: '已创建',
-          type: 'success'
-        })
-      } else if (segue === 'update') { // 'update'
-        this.$message({
-          message: '已修改',
-          type: 'success'
-        })
-      }
-
       this.$axios.get('/clients/' + this.$route.params.id).then((res) => {
         this.client = res.data.client
         this.confirmDeleteText = '删除' + this.client.name + '？'

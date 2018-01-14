@@ -17,8 +17,8 @@
     <div id="banner-bg">
       <el-row id="banner" type="flex" justify="space-between">
         <el-col :span="12" id="intro">
-          <p>专业、极简</p>
-          <p>手机账号解决方案</p>
+          <p>免费的</p>
+          <p>短信验证码登录</p>
           <el-button type="primary" @click="use">接 入</el-button>
         </el-col>
         <el-col :span="7">
@@ -39,14 +39,14 @@
     </div>
     <div id="content-bg">
       <div id="content">
-        <p id="intro1">唯一ID是全球首家账号服务商，为初创和小型app/网站提供专业的手机账号解决方案。</p>
+        <p id="intro1">我们为app和网站提供手机号验真服务，广泛应用于短信验证码登录，三方登录绑定手机号等场景。</p>
         <div>
           <el-row class="intro2">
             <el-col :span="2" :offset="4">
               <i class="material-icons intro2-image" id="textsms">textsms</i>
             </el-col>
             <el-col :span="14" :offset="3">
-              <p class="intro2-title">不限量注册短信免费发</p>
+              <p class="intro2-title">不限量验证短信免费发</p>
               <p class="intro2-detail">所有服务免费，包括不限量的短信验证码服务。</p>
             </el-col>
           </el-row>
@@ -54,7 +54,7 @@
             <el-col :span="14" :offset="4">
               <p class="intro2-title">银行级团队为安全保驾护航</p>
               <p class="intro2-detail">标准OAuth实现，全程HTTPS加密，密码安全存储。</p>
-              <p class="intro2-detail">团队成员来自国内某知名银行，为唯一ID带来银行级的安全和稳定。</p>
+              <p class="intro2-detail">团队成员来自国内某知名银行，为唯ID带来银行级的安全和稳定。</p>
             </el-col>
             <el-col :span="2">
               <i class="material-icons intro2-image" id="security">security</i>
@@ -62,20 +62,11 @@
           </el-row>
           <el-row class="intro2">
             <el-col :span="2" :offset="4">
-              <i class="material-icons intro2-image" id="contact_phone">contact_phone</i>
+              <i class="material-icons intro2-image" id="developer_mode">developer_mode</i>
             </el-col>
             <el-col :span="14" :offset="3">
-              <p class="intro2-title">返回真实登录手机号</p>
-              <p class="intro2-detail">不同于现有三方登录，唯一ID返回真实登录账号。</p>
-            </el-col>
-          </el-row>
-          <el-row class="intro2">
-            <el-col :span="14" :offset="4">
               <p class="intro2-title">极简API，半小时闪电接入</p>
               <p class="intro2-detail">SDK覆盖Web、Android、iOS全平台。</p>
-            </el-col>
-            <el-col :span="2">
-              <i class="material-icons intro2-image" id="developer_mode">developer_mode</i>
             </el-col>
           </el-row>
         </div>
@@ -97,19 +88,23 @@
     </div>
     <div id="mission-bg">
       <div id="mission">
-        <p>“我们的使命是建立全球统一的账号和认证体系，为世界带来秩序。” &nbsp; &nbsp; &nbsp; —— 唯一ID创始人梁庭宾</p>
+        <!--<p>“我们的使命是建立全球统一的账号和认证体系，为世界带来秩序。” &nbsp; &nbsp; &nbsp; —— 唯ID团队</p>-->
+        <p>“用心做好中国版Account Kit” &nbsp; &nbsp; &nbsp; —— 唯ID团队</p>
         <el-button type="info" v-popover:popover1>加入我们</el-button>
+        <p style="font-size: 17px; color: #eee; text-align: left">* Account Kit是Facebook旗下项目，与唯ID无关。</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import config from '../config'
+
   export default {
     data () {
       return {
         demoImgIndex: 1,
-        demoImg: '/static/demo1.png'
+        demoImg: config.staticUrl + '/demo1.png'
       }
     },
     methods: {
@@ -123,7 +118,7 @@
         if (this.demoImgIndex > 3) {
           this.demoImgIndex = 1
         }
-        this.demoImg = '/static/demo' + this.demoImgIndex + '.png'
+        this.demoImg = config.staticUrl + '/demo' + this.demoImgIndex + '.png'
       }, 3000)
     }
   }
@@ -203,9 +198,10 @@
     padding: 1px;
   }
   #mission {
+    width: 980px;
     color: #fff;
     text-align: center;
-    margin: 60px 0px;
+    margin: 60px auto;
     font-size: 22px;
   }
   .fade-enter-active, .fade-leave-active {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 修改内容时，检查是否需要改另外两个文档 -->
-    <p>* 以下步骤1由前端发起；<span class="warn">步骤2、3和4应在后台进行，以防泄露您的client secret和token。</span></p>
+    <p>* 以下步骤1由前端发起；<span class="warn">步骤2、3和4建议在后台进行，以防泄露您的client secret和token。</span></p>
     <h2 style="margin-top: 0px">1. 获取code</h2>
     <p>需要登录时，GET方式请求：</p>
     <pre>https://oauth.onlyid.net/authorize?response_type=code&client_id=您的client id

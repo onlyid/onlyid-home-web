@@ -75,7 +75,10 @@
             }
           }).then((res) => {
             console.log(res.data)
-            sessionStorage.setItem('segue', 'add')
+            this.$message({
+              message: '已创建，请继续阅读文档完成接入',
+              type: 'success'
+            })
             this.$router.replace('/console/clients/' + res.data.client._id)
           }).catch((err) => {
             console.log(err)

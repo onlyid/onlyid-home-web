@@ -1,5 +1,8 @@
 <template>
   <div id="content">
+    <i class="material-icons1 intro2-image">textsms</i>
+    <el-button @click="CORS">CORS</el-button>
+    <el-button @click="testPolyfill">testPolyfill</el-button>
     <transition name="fade">
       <p v-if="show">hello</p>
     </transition>
@@ -52,6 +55,8 @@
 
 <script>
   import Vue from 'vue'
+  import common from 'onlyid-frontend-common'
+  import axios from 'axios'
 
   Vue.component('my-component', {
     template: '<div><p>{{ msg }}</p></div>',
@@ -104,6 +109,18 @@
       }
     },
     methods: {
+      CORS () {
+        axios.get('http://onlyid.net:3000/hi1/1', {
+          withCredentials: true
+        }).then((res) => {
+          console.log(res.data)
+        }).catch((err) => {
+          console.error(err)
+        })
+      },
+      testPolyfill () {
+        common.hi()
+      },
       testTransition () {
         this.show = !this.show
       },
@@ -174,4 +191,36 @@
   .fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
     opacity: 0
   }
+  /*@font-face {*/
+    /*font-family: 'Material Icons1';*/
+    /*font-style: normal;*/
+    /*font-weight: 400;*/
+    /*src: url(http://static.onlyid.net:8084/MaterialIcons-Regular.woff2) format('woff2'),*/
+    /*url(http://static.onlyid.net:8084/MaterialIcons-Regular.woff) format('woff'),*/
+    /*url(http://static.onlyid.net:8084/MaterialIcons-Regular.ttf) format('truetype');*/
+  /*}*/
+  /*.material-icons1 {*/
+    /*font-family: 'Material Icons1';*/
+    /*font-weight: normal;*/
+    /*font-style: normal;*/
+    /*font-size: 48px;  !* Preferred icon size *!*/
+    /*display: inline-block;*/
+    /*line-height: 1;*/
+    /*text-transform: none;*/
+    /*letter-spacing: normal;*/
+    /*word-wrap: normal;*/
+    /*white-space: nowrap;*/
+    /*direction: ltr;*/
+
+    /*!* Support for all WebKit browsers. *!*/
+    /*-webkit-font-smoothing: antialiased;*/
+    /*!* Support for Safari and Chrome. *!*/
+    /*text-rendering: optimizeLegibility;*/
+
+    /*!* Support for Firefox. *!*/
+    /*-moz-osx-font-smoothing: grayscale;*/
+
+    /*!* Support for IE. *!*/
+    /*font-feature-settings: 'liga';*/
+  /*}*/
 </style>

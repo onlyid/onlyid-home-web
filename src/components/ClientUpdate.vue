@@ -112,7 +112,10 @@ export default {
         this.$axios.put('/clients/' + this.$route.params.id, {
           client
         }).then((res) => {
-          sessionStorage.setItem('segue', 'update')
+          this.$message({
+            message: '已修改',
+            type: 'success'
+          })
           this.$router.replace('/console/clients/' + this.$route.params.id)
         }).catch((err) => {
           console.log(err)
