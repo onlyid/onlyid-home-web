@@ -1,0 +1,117 @@
+body {
+  font-family: PingFangSC-Light,"Microsoft YaHei",sans-serif;
+  margin: 0px;
+  font-size: 14px;
+  -webkit-text-size-adjust: none;
+  color: #303133;
+  line-height: 1.5;
+}
+
+/* font start */
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'),
+  local('MaterialIcons-Regular'),
+  url(./MaterialIcons-Regular.woff2) format('woff2'),
+  url(./MaterialIcons-Regular.woff) format('woff'),
+  url(./MaterialIcons-Regular.ttf) format('truetype');
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 48px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+@font-face {
+  font-family: 'iconfont';  /* project id 545468 */
+  src: url('//at.alicdn.com/t/font_545468_jlyh01bxjnvobt9.eot');
+  src: url('//at.alicdn.com/t/font_545468_jlyh01bxjnvobt9.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_545468_jlyh01bxjnvobt9.woff') format('woff'),
+  url('//at.alicdn.com/t/font_545468_jlyh01bxjnvobt9.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_545468_jlyh01bxjnvobt9.svg#iconfont') format('svg');
+}
+.iconfont{
+  font-family:"iconfont";
+  font-size:24px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* font end */
+
+.gradient-hr {
+  background:linear-gradient( to right, rgba(220,220,220,0) 0%, rgba(220,220,220,1) 10%, rgba(220,220,220,1) 90%, rgba(220,220,220,0) 100% );
+  height:1px;
+}
+.gradient-hr-title {
+  position: relative;
+  text-align: center;
+}
+.gradient-hr-title p {
+  display: inline-block;
+  position: relative;
+  background: white;
+  padding: 0 10px;
+  z-index:2;
+  margin: 0px;
+}
+.gradient-hr-title div {
+  top: 50%;
+  position: absolute;
+  background:linear-gradient( to right, rgba(220,220,220,0) 0%, rgba(220,220,220,1) 10%, rgba(220,220,220,1) 90%, rgba(220,220,220,0) 100% );
+  height:1px;
+  width:100%
+}
+#banner1 {
+  margin: 0;
+  padding: 50px 0;
+  background-color: #3b5898;
+  background-image: url("./mask.png");
+  background-size: cover;
+  color: white;
+  text-align: center;
+  font-size: 30px;
+}
+.section {
+  margin: 50px auto;
+  width: 980px;
+}
+.section-title {
+  text-align: center;
+  font-size: 30px;
+  margin: 0;
+}
+.section-summary {
+  text-align: center;
+  font-size: 18px;
+  color: #7f7f7f;
+}
+.section-bg-dark {
+  background-color: #4b5056;
+  color: #fff;
+  padding: 1px;
+}
+.section-bg-dark .section-summary {
+  color: #E6A23C;
+}

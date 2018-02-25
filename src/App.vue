@@ -1,22 +1,89 @@
 <template>
   <div id="app">
-    <div id="wrapper">
-      <div id="header-bg">
-        <el-row id="header">
-          <el-col :span="3"><img src="./assets/logo2.png" width="100px" @click="home" style="cursor: pointer; vertical-align: middle"></el-col>
-          <el-col :span="9">
-            <el-menu :default-active="activeIndex" mode="horizontal" background-color="#7f7f7f" text-color="#fff"
-                     active-text-color="#ffda00" @select="select">
-              <el-menu-item index="/docs">文档</el-menu-item>
-              <el-menu-item index="/console">控制台</el-menu-item>
-            </el-menu>
+    <el-popover
+      ref="popover1"
+      placement="right"
+      trigger="hover">
+      <div>
+        <img src="./assets/wechat-185.jpeg" width="215"/>
+      </div>
+    </el-popover>
+    <el-popover
+      ref="popover2"
+      placement="right"
+      trigger="hover">
+      <div>
+        <img src="./assets/wechat-155.jpeg" width="215"/>
+      </div>
+    </el-popover>
+
+    <div id="header-bg">
+      <el-row id="header">
+        <el-col :span="2">
+          <router-link to="/">
+            <img src="./assets/logo.png" width="66px" style="cursor: pointer; vertical-align: middle; padding-top: 14px">
+          </router-link>
+        </el-col>
+        <el-col :span="18">
+          <el-menu id="nav" :default-active="activeIndex" mode="horizontal" @select="select">
+            <el-menu-item index="/docs">文档</el-menu-item>
+            <el-menu-item index="/downloads">下载</el-menu-item>
+            <el-menu-item index="/pricing">价格</el-menu-item>
+            <el-menu-item index="/experience">在线体验</el-menu-item>
+            <el-menu-item index="/console">控制台</el-menu-item>
+          </el-menu>
+        </el-col>
+        <el-col :span="4">
+          <div style="padding-top: 12px">
+            <router-link to="/console"><el-button size="medium">登录</el-button></router-link>
+            <router-link to="/console" style="margin-left: 10px"><el-button size="medium" type="primary">注册</el-button></router-link>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+    <router-view/>
+    <div id="footer-bg">
+      <div id="footer">
+        <div v-show="showFooter" style="margin: 40px 0;">
+        <el-row>
+          <el-col :span="10">
+            <p class="footer-title">联系我们</p>
+            <ul>
+              <li>客户经理（业务咨询）：18588237889 <i class="iconfont" v-popover:popover1>&#xe7e5;</i></li>
+              <li>技术支持：15521312099 <i class="iconfont" v-popover:popover2>&#xe7e5;</i></li>
+              <li>技术支持邮箱：<a href="mailto:help@onlyid.net">help@onlyid.net</a></li>
+              <li>开发者QQ群：23831587</li>
+            </ul>
+          </el-col>
+          <el-col :span="8">
+            <p class="footer-title">开发者服务</p>
+            <ul>
+              <li><router-link to="/pricing">续费充值</router-link></li>
+              <li><router-link to="/pricing">Android SDK</router-link></li>
+              <li><router-link to="/pricing">iOS SDK</router-link></li>
+              <li><router-link to="/docs/changelog">SDK 更新记录</router-link></li>
+              <li><router-link to="/docs/faq">常见问题</router-link></li>
+            </ul>
+          </el-col>
+          <el-col :span="6">
+            <p class="footer-title">关于唯ID</p>
+            <ul>
+              <li><router-link to="/about-us">关于我们</router-link></li>
+              <li><router-link to="/about-us#contact">联系方式</router-link></li>
+              <li><router-link to="/careers">加入我们</router-link></li>
+              <li><router-link to="/privacy">隐私权政策</router-link></li>
+              <li><router-link to="/agreement">服务条款</router-link></li>
+            </ul>
           </el-col>
         </el-row>
+        </div>
+        <div style="text-align: center; color: #ccc; font-size: 13px;">
+          <span>深圳市友全科技有限公司</span>
+          <span style="margin-left: 100px">唯ID &nbsp; © &nbsp; {{ currentYear }}</span>
+          <a href="http://www.miitbeian.gov.cn/" style="margin-left: 100px;" target="_blank">粤ICP备16120960号-3</a>
+        </div>
       </div>
-      <router-view/>
-      <div id="footer-placeholder"/>
     </div>
-    <p id="footer"><a href="http://gdcainfo.miitbeian.gov.cn" style="color: #fff; text-decoration: none" target="_blank">粤ICP备16120960号-3</a></p>
   </div>
 </template>
 
@@ -25,13 +92,11 @@
     name: 'app',
     data () {
       return {
-        activeIndex: '/' + this.$route.path.split('/')[1]
+        activeIndex: '/' + this.$route.path.split('/')[1],
+        currentYear: new Date().getFullYear()
       }
     },
     methods: {
-      home () {
-        this.$router.push('/')
-      },
       select (key) {
         this.$router.push(key)
       }
@@ -42,171 +107,64 @@
         this.activeIndex = '/' + to.path.split('/')[1]
         next()
       })
+    },
+    computed: {
+      // 文档页面不显示footer的主体内容
+      showFooter () {
+        return this.activeIndex !== '/docs'
+      }
     }
   }
 </script>
 
-<style>
-  /*
-  small font size 17px
-  medium font size 22px
-  large font size 30px
-   */
-  .small-font-size {
-    font-size: 17px;
-  }
-  .medium-font-size {
-    font-size: 22px;
-  }
-  .large-font-size {
-    font-size: 30px;
-  }
-  body {
-    font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
-    margin: 0px;
-    background-color: #fafafa;
-  }
-  #app {
-    min-width: 980px;
-    /*color: #fff;*/
-  }
+<style scoped>
   #header-bg {
-    background-color: #7f7f7f;
+    background-color: #fff;
   }
   #header {
     width: 980px;
     margin: 0 auto;
   }
-  .el-menu--horizontal > .el-menu-item {
-    font-size: 22px;
-    height: 50px;
-    line-height: 50px;
+  #nav {
+    border-bottom: none;
   }
-  .el-menu--horizontal {
-    /*margin-top: 6px;*/
-    border-bottom: hidden;
+  #nav > .el-menu-item {
+    font-size: 16px;
   }
-  .gradient-hr {
-    background:linear-gradient( to right, rgba(220,220,220,0) 0%, rgba(220,220,220,1) 10%, rgba(220,220,220,1) 90%, rgba(220,220,220,0) 100% );
-    height:1px;
-  }
-  .gradient-hr-title {
-    position: relative;
-    text-align: center;
-    margin: 0 auto;
-  }
-  .gradient-hr-title p {
-    display: inline-block;
-    position: relative;
-    background: white;
-    padding: 0 10px;
-    z-index:2;
-  }
-  .gradient-hr-title div {
-    top: 50%;
-    position: absolute;
-    background:linear-gradient( to right, rgba(220,220,220,0) 0%, rgba(220,220,220,1) 10%, rgba(220,220,220,1) 90%, rgba(220,220,220,0) 100% );
-    height:1px;
-    width:100%
-  }
-
-  /* 高度不够时，footer置底效果 */
-  html, body, #app {
-    height: 100%;
-  }
-  #wrapper {
-    min-height: 100%;
-    margin-bottom: -50px;
+  #footer-bg {
+    background-color: #4b5056;
+    padding: 1px;
   }
   #footer {
-    background-color: #7f7f7f;
+    margin: 20px auto;
+    width: 980px;
     color: #fff;
-    margin: 0px;
-    padding: 15px 0px;
-    font-size: 17px;
-    text-align: center;
-    height: 20px;
   }
-  #footer-placeholder {
-    height: 50px;
-  }
-
-  /** font start **/
-  @font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Material Icons'),
-    local('MaterialIcons-Regular'),
-    url(./assets/MaterialIcons-Regular.woff2) format('woff2'),
-    url(./assets/MaterialIcons-Regular.woff) format('woff'),
-    url(./assets/MaterialIcons-Regular.ttf) format('truetype');
-  }
-  .material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 48px;  /* Preferred icon size */
+  .footer-title {
+    font-size: 18px;
     display: inline-block;
-    line-height: 1;
-    text-transform: none;
-    letter-spacing: normal;
-    word-wrap: normal;
-    white-space: nowrap;
-    direction: ltr;
-
-    /* Support for all WebKit browsers. */
-    -webkit-font-smoothing: antialiased;
-    /* Support for Safari and Chrome. */
-    text-rendering: optimizeLegibility;
-
-    /* Support for Firefox. */
-    -moz-osx-font-smoothing: grayscale;
-
-    /* Support for IE. */
-    font-feature-settings: 'liga';
+    padding-bottom: 5px;
+    border-bottom: #fff solid 1px;
   }
-  @font-face {
-    font-family: 'iconfont';
-    src: url(./assets/iconfont.woff) format('woff'),
-    url(./assets/iconfont.ttf) format('truetype');
+  #footer ul {
+    padding: 0px;
   }
-  .iconfont{
-    font-family:"iconfont";
-    font-size:24px;
-    font-style:normal;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.2px;
-    -moz-osx-font-smoothing: grayscale;
+  #footer li {
+    list-style: none;
+    font-size: 14px;
+    margin: 15px 0;
+    height: 25px;
+    color: #ccc;
   }
-  /** font end **/
-
-  .el-form-item__label,
-  .el-popover,
-  .el-form-item__error,
-  .el-radio__label,
-  .el-input,
-  .el-button,
-  .el-message__content,
-  .el-breadcrumb,
-  .docs-ios-tabs .el-tabs__item {
-    font-size: 17px;
+  #footer .iconfont {
+    font-size: 18px;
+    margin-left: 15px;
   }
-  .dialog-content {
-    font-size: 22px;
+  #footer a {
+    color: #ccc;
+    text-decoration: none;
   }
-  .el-input-group__append {
-    background-color: white;
+  #footer a:hover {
+    color: #fff;
   }
-  .el-input-group__append:hover {
-    background-color: #ecf4ff;
-    color: #5a9bf9;
-  }
-  .el-table .row-bg {
-    background: #fafafa;
-  }
-  .el-table__empty-block {
-    background: #fafafa;
-  }
-
 </style>

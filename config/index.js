@@ -8,10 +8,10 @@ const path = require('path')
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../../dist/index/onlyid.html'),
-    assetsRoot: path.resolve(__dirname, '../../dist/static/onlyid'),
+    index: path.resolve(__dirname, '../../dist/index/onlyid-main.html'),
+    assetsRoot: path.resolve(__dirname, '../../dist/onlyid-static/onlyid-main'),
     assetsSubDirectory: '',
-    assetsPublicPath: 'https://static.onlyid.net/onlyid/',
+    assetsPublicPath: 'https://static.onlyid.net/onlyid-main/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
