@@ -13,7 +13,7 @@
         <el-col :span="7">
           <div style="height: 445px;">
             <transition name="fade">
-              <img :src="demoImg" :key="demoImg" width="250px" style="vertical-align: middle; position: absolute;"/>
+              <img :src="demoImg" :key="demoImgIndex" width="250px" style="position: absolute;"/>
             </transition>
           </div>
         </el-col>
@@ -21,7 +21,7 @@
     </div>
     <div id="content">
       <div class="section">
-        <p style="color: #7f7f7f; text-align: center;">唯ID将于2018年4月正式商业化，详情请查阅
+        <p style="text-align: center; " class="note">唯ID将于2018年4月正式商业化，详情请查阅
           <router-link to="/pricing"><el-button type="text">价格</el-button></router-link>
         </p>
         <p class="intro">我们为app和网站提供简单、可信赖的手机号验证服务。开发者无需关心发送短信、比对验证码等细节，轻松获取用户手机号。可广泛应用于短信验证码登录、三方登录绑定手机号等场景。</p>
@@ -185,7 +185,7 @@
             <router-link to="/pricing"><el-button type="success" plain round>价格</el-button></router-link>
           </el-col>
         </el-row>
-        <p style="color: #7f7f7f">* 仅适用公有云部署方式，专有云部署方式价格请联系客户经理</p>
+        <p class="note">* 仅适用公有云部署方式，专有云部署方式价格请联系客户经理</p>
       </div>
       <div class="section-bg-dark">
         <div class="section" id="mission">
@@ -199,8 +199,6 @@
 </template>
 
 <script>
-  let loopTabsHandler
-
   export default {
     data () {
       return {
@@ -211,18 +209,18 @@
     },
     methods: {
       stopLoopTabs () {
-        if (loopTabsHandler) {
-          clearInterval(loopTabsHandler)
-          loopTabsHandler = null
+        if (this.timer1) {
+          clearInterval(this.timer1)
+          this.timer1 = null
         }
       },
       startLoopTabs () {
         // 如果正在循环，就不用再设置
-        if (loopTabsHandler) {
+        if (this.timer1) {
           return
         }
-        loopTabsHandler = setInterval(() => {
-          console.log(this.tabsActiveName)
+        this.timer1 = setInterval(() => {
+          console.log('tabsActiveName= ' + this.tabsActiveName)
           if (this.tabsActiveName === '3') {
             this.tabsActiveName = '1'
             return
@@ -231,15 +229,20 @@
         }, 5000)
       }
     },
-    created () {
-      setInterval(() => {
+    mounted () {
+      this.timer = setInterval(() => {
         this.demoImgIndex++
         if (this.demoImgIndex > 3) {
           this.demoImgIndex = 1
         }
+        console.log('demoImg= ' + this.demoImgIndex)
         this.demoImg = require('../assets/demo' + this.demoImgIndex + '.png')
       }, 3000)
       this.startLoopTabs()
+    },
+    beforeDestroy () {
+      clearInterval(this.timer)
+      clearInterval(this.timer1)
     }
   }
 </script>
@@ -255,6 +258,9 @@
     width: 980px;
     margin: 0 auto;
   }
+  #content {
+    font-size: 16px;
+  }
   .intro {
     font-size: 20px;
     text-indent: 40px;
@@ -265,17 +271,13 @@
     font-size: 24px;
     margin-right: 5px;
   }
-  .scene-tag {
-    font-size: 16px;
-  }
   .scene-title {
     font-size: 20px;
     vertical-align: middle;
     margin-left: 20px;
   }
   .scene-detail {
-    height: 300px;
-    font-size: 16px;
+    height: 240px;
   }
   .scene-button {
     margin: 20px;
@@ -299,7 +301,6 @@
     padding: 0px;
   }
   .deployment-detail li {
-    font-size: 16px;
     /*list-style-type: circle;*/
     margin: 15px 0;
     list-style: none;
@@ -320,8 +321,6 @@
     margin-top: 10px;
   }
   .advantage-detail {
-    text-align: left;
-    font-size: 16px;
   }
   #textsms {
     color: #67C23A;
@@ -339,7 +338,7 @@
   .fade-enter-active, .fade-leave-active {
     transition: opacity 1.0s
   }
-  .fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+  .fade-enter, .fade-leave-to {
     opacity: 0
   }
   #tabs >>> .el-tabs__item {

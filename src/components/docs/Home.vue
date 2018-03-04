@@ -180,7 +180,7 @@
     float: left;
   }
   .step:hover {
-    background-color: #eee;
+    background-color: #EBEEF5;
   }
   .step-title {
     font-size: 18px;

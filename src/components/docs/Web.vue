@@ -77,7 +77,7 @@ refresh_token=之前获取到的refresh token</pre>
 </template>
 
 <script>
-  import Notice from './Notice'
+  import Notice from './Note'
 
   export default {
     components: {

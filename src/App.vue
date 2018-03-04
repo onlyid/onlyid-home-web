@@ -59,8 +59,8 @@
             <p class="footer-title">开发者服务</p>
             <ul>
               <li><router-link to="/pricing">续费充值</router-link></li>
-              <li><router-link to="/pricing">Android SDK</router-link></li>
-              <li><router-link to="/pricing">iOS SDK</router-link></li>
+              <li><router-link to="/downloads#android-sdk">Android SDK</router-link></li>
+              <li><router-link to="/downloads#ios-sdk">iOS SDK</router-link></li>
               <li><router-link to="/docs/changelog">SDK 更新记录</router-link></li>
               <li><router-link to="/docs/faq">常见问题</router-link></li>
             </ul>

@@ -22,7 +22,7 @@ body {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 48px;  /* Preferred icon size */
+  font-size: 48px;
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -44,11 +44,11 @@ body {
 }
 @font-face {
   font-family: 'iconfont';  /* project id 545468 */
-  src: url('//at.alicdn.com/t/font_545468_jlyh01bxjnvobt9.eot');
-  src: url('//at.alicdn.com/t/font_545468_jlyh01bxjnvobt9.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_545468_jlyh01bxjnvobt9.woff') format('woff'),
-  url('//at.alicdn.com/t/font_545468_jlyh01bxjnvobt9.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_545468_jlyh01bxjnvobt9.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_545468_w42pd0m6l84cxr.eot');
+  src: url('//at.alicdn.com/t/font_545468_w42pd0m6l84cxr.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_545468_w42pd0m6l84cxr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_545468_w42pd0m6l84cxr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_545468_w42pd0m6l84cxr.svg#iconfont') format('svg');
 }
 .iconfont{
   font-family:"iconfont";
@@ -97,6 +97,10 @@ body {
   margin: 50px auto;
   width: 980px;
 }
+.section+.gradient-hr {
+  width: 980px;
+  margin: 0 auto;
+}
 .section-title {
   text-align: center;
   font-size: 30px;
@@ -114,4 +118,18 @@ body {
 }
 .section-bg-dark .section-summary {
   color: #E6A23C;
+}
+.section-bg-gradient {
+  padding: 1px;
+  background: linear-gradient(180deg,#F6F9FC 0,rgba(255,255,255,0) 100%);
+}
+.note {
+  color: #7f7f7f;
+  font-size: 14px
+}
+/* 引用程序代码的样式 */
+pre {
+  font-size: 14px;
+  padding: 20px;
+  background-color: #f7f8f9;
 }

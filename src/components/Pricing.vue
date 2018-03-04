@@ -2,7 +2,7 @@
   <div>
     <p id="banner1">我们提供极具竞争力的价格</p>
     <div id="content">
-      <div style="margin: 50px auto 0; width: 800px;">
+      <div style="width: 800px;" class="section">
         <div style="text-align: center;">
           <el-tag style="font-size: 20px">商业化公告</el-tag>
         </div>
@@ -20,7 +20,7 @@
           </div>
         </div>
       </div>
-      <div class="gradient-hr" style="margin-top: 50px"/>
+      <div class="gradient-hr"/>
       <div class="section" id="pricing-features">
         <p class="section-title">价格与功能</p>
         <p class="section-summary">极简定价，透明收费</p>
@@ -110,16 +110,16 @@
                 </el-tabs>
               </div>
               <p style="text-align: center; margin-top: 40px">
-                <el-button type="primary" round @click="goAnchor('businessService')">联系客户经理</el-button>
+                <el-button type="primary" round @click="common.goAnchor('#business-service')">联系客户经理</el-button>
               </p>
             </el-card>
           </el-col>
         </el-row>
-        <p style="color: #7f7f7f; margin-top: 40px">* client指app或网站，同个app不区分平台（一个app的iOS和Android版视为一个client）</p>
-        <p style="color: #7f7f7f;">** 其他未尽事宜，请联系客户经理；唯ID拥有在法律范围内的最终解释权。</p>
+        <p style="margin-top: 40px" class="note">* client指app或网站，同个app不区分平台（一个app的iOS和Android版视为一个client）</p>
+        <p class="note">** 其他未尽事宜，请联系客户经理；唯ID拥有在法律范围内的最终解释权。</p>
       </div>
       <div class="gradient-hr"/>
-      <div class="section" ref="businessService">
+      <div class="section" id="business-service">
         <p class="section-title">大客户商务服务</p>
         <p class="section-summary">百分服务助您安心购，无忧用</p>
         <div style="margin-top: 60px">
@@ -144,55 +144,51 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      activeNamePublic: '1',
-      activeNamePrivate: '1'
-    }
-  },
-  methods: {
-    renew () {
-      this.$alert('暂未开放')
-    },
-    goTab (index, tabs) {
-      if (tabs === 'public') {
-        this.activeNamePublic = index
-      } else { // === private
-        this.activeNamePrivate = index
+  import common from 'onlyid-frontend-common'
+
+  export default {
+    data () {
+      return {
+        activeNamePublic: '1',
+        activeNamePrivate: '1',
+        common
       }
     },
-    goAnchor (selector) {
-      this.$refs[selector].scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      })
-    }
-  },
-  watch: {
-    activeNamePublic (value) {
-      if (value === '1') {
-        this.activeNamePrivate = '1'
-      } else { // == 2
-        this.activeNamePrivate = '2'
+    methods: {
+      renew () {
+        this.$alert('暂未开放')
+      },
+      goTab (index, tabs) {
+        if (tabs === 'public') {
+          this.activeNamePublic = index
+        } else { // === private
+          this.activeNamePrivate = index
+        }
       }
     },
-    activeNamePrivate (value) {
-      if (value === '1') {
-        this.activeNamePublic = '1'
-      } else if (value === '2') {
-        this.activeNamePublic = '2'
+    watch: {
+      activeNamePublic (value) {
+        if (value === '1') {
+          this.activeNamePrivate = '1'
+        } else { // == 2
+          this.activeNamePrivate = '2'
+        }
+      },
+      activeNamePrivate (value) {
+        if (value === '1') {
+          this.activeNamePublic = '1'
+        } else if (value === '2') {
+          this.activeNamePublic = '2'
+        }
       }
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  #content {
-    width: 980px;
-    margin: 0 auto;
+  #banner1 {
+    background-image: url("../assets/mask.png"), linear-gradient(223.56deg,#6CECA2 0,#005EFF 100%);
   }
   #announcement {
     margin-top: 30px;

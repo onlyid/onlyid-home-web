@@ -30,7 +30,7 @@
                     <li>多来自国内优秀的科技企业</li>
                     <li>平均年龄不到30岁，年轻有活力</li>
                   </ul>
-                  <p style="margin: 0">作为国内较早从事IDaaS服务行业的团队，我们见证了IDaaS在国内的快速发展，也积累了丰富的行业相关经验，为我们的客户带来极高 <router-link to="#" @click.native="goAnchor('economicImpact')">经济收益</router-link>。</p>
+                  <p style="margin: 0">作为国内较早从事IDaaS服务行业的团队，我们见证了IDaaS在国内的快速发展，也积累了丰富的行业相关经验，为我们的客户带来极高 <router-link to="#" @click.native="common.goAnchor('#economic-impact')">经济收益</router-link>。</p>
                 </el-card>
               </el-col>
             </el-row>
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="gradient-hr"/>
-      <div class="section" ref="economicImpact">
+      <div class="section" id="economic-impact">
         <p class="section-title">经济收益</p>
         <p class="section-summary">用唯ID降低成本，提升用户满意度</p>
         <div class="about">
@@ -142,28 +142,22 @@
 </template>
 
 <script>
-export default {
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App'
-    }
-  },
-  methods: {
-    goAnchor (selector) {
-      this.$refs[selector].scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      })
+  import common from 'onlyid-frontend-common'
+
+  export default {
+    data () {
+      return {
+        common
+      }
+    },
+    methods: {
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   #content {
-    width: 980px;
-    margin: 0 auto;
     font-size: 16px;
   }
   .header-hehe {
@@ -181,6 +175,8 @@ export default {
   }
   #banner {
     padding: 50px 0;
+    width: 980px;
+    margin: 0 auto;
     color: white;
   }
   .about {

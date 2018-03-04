@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import Notice from './Notice'
+import Notice from './Note'
 
 export default {
   components: {

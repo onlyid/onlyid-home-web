@@ -29,6 +29,9 @@ export default {
         this.backTopVisible = false
       }
     }
+  },
+  beforeDestroy () {
+    window.onscroll = null
   }
 }
 </script>

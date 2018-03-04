@@ -95,10 +95,6 @@
     font-weight: normal;
     margin-top: 25px;
   }
-  #docs >>> pre {
-    padding: 10px;
-    background-color: #f7f8f9;
-  }
   #docs >>> .glossary-dl dt {
     margin: 20px 0 5px;
     font-weight: bold;

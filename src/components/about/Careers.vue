@@ -9,22 +9,22 @@
           <p>我们永远在寻找聪明、创新、足智多谋的高素质人才加入唯ID。</p>
           <el-row style="margin-top: 40px" type="flex" justify="space-around">
             <el-col :span="4">
-              <position count="3" title="工程师" @click.native="goAnchor('allPositions')">
+              <position :count="this.allPositions[0].length" title="工程师" @click.native="goTab(1)">
                 <img src="../../assets/jianpan.png"/>
               </position>
             </el-col>
             <el-col :span="4">
-              <position count="3" title="产品">
+              <position :count="this.allPositions[1].length" title="产品" @click.native="goTab(2)">
                 <img src="../../assets/yinhang.png"/>
               </position>
             </el-col>
             <el-col :span="4">
-              <position count="3" title="设计师">
+              <position :count="this.allPositions[2].length" title="设计师" @click.native="goTab(3)">
                 <img src="../../assets/zhaopian.png"/>
               </position>
             </el-col>
             <el-col :span="4">
-              <position count="3" title="营销&销售">
+              <position :count="this.allPositions[3].length" title="营销&销售" @click.native="goTab(4)">
                 <img src="../../assets/kanban.png"/>
               </position>
             </el-col>
@@ -70,10 +70,49 @@
           </div>
         </div>
       </div>
-      <div class="section" ref="allPositions">
+      <div class="section" id="all-positions">
         <p class="section-title">所有职位</p>
         <p class="section-summary">加入我们，共创未来</p>
-        <p>我们当前有18个公开职位供您选择。</p>
+        <div style="margin-top: 40px">
+          <p>我们当前有{{ allPositionsCount }}个公开职位供您选择。
+          所有职位特别优秀者可忽略学历、工作年限要求。请投递简历至：join@onlyid.net。</p>
+          <div style="margin-top: 40px;">
+            <el-tabs tab-position="left" id="tabs" v-model="tabsActiveName" style="float: left; height: 500px" @tab-click="handleTabClick">
+              <el-tab-pane name="1">
+                <span slot="label"><img src="../../assets/jianpan.png" class="tab-icon"/>工程师</span>
+              </el-tab-pane>
+              <el-tab-pane name="2">
+                <span slot="label"><img src="../../assets/yinhang.png" class="tab-icon"/>产品</span>
+              </el-tab-pane>
+              <el-tab-pane name="3">
+                <span slot="label"><img src="../../assets/zhaopian.png" class="tab-icon"/>设计师</span>
+              </el-tab-pane>
+              <el-tab-pane name="4">
+                <span slot="label"><img src="../../assets/kanban.png" class="tab-icon"/>营销&销售</span>
+              </el-tab-pane>
+            </el-tabs>
+            <el-table
+              ref="table"
+              :data="positions"
+              :show-header="false"
+              style="width: 230px; float: left; margin-left: 25px"
+              @current-change="handleCurrentChange"
+              highlight-current-row>
+              <el-table-column
+                prop="position"
+                label="职位">
+              </el-table-column>
+            </el-table>
+            <el-card style="min-height: 500px; float: left; width: 480px; margin-left: 35px;">
+              <p style="color: #7f7f7f">岗位职责</p>
+              <p style="font-size: 14px" v-html="positionResponsibility"></p>
+              <p style="color: #7f7f7f; margin-top: 40px">任职要求</p>
+              <p style="font-size: 14px" v-html="positionRequirement"></p>
+            </el-card>
+            <div style="clear: both"></div>
+          </div>
+          <p class="note" style="margin-top: 40px;">2018年2月更新</p>
+        </div>
       </div>
     </div>
   </div>
@@ -82,6 +121,7 @@
 <script>
   import Position from './Position'
   import Benefit from './Benefit'
+  import common from 'onlyid-frontend-common'
 
   export default {
     components: {
@@ -90,15 +130,174 @@
     },
     data () {
       return {
+        tabsActiveName: '1',
+        positionResponsibility: '',
+        positionRequirement: '',
+        allPositions: [
+          [
+            {position: 'Web工程师（Vue.js）'},
+            {position: 'Node.js工程师'},
+            {position: 'Android工程师'},
+            {position: 'iOS工程师'}
+          ],
+          [
+            {position: '产品经理'},
+            {position: '产品运营'}
+          ],
+          [
+            {position: 'UI设计师'}
+          ],
+          [
+            {position: '销售经理'},
+            {position: '电话销售'},
+            {position: '客服专员'}
+          ]
+        ]
       }
     },
     methods: {
-      goAnchor (selector) {
-        this.$refs[selector].scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        })
+      goTab (index) {
+        this.tabsActiveName = String(index)
+        this.$refs.table.setCurrentRow(this.allPositions[index - 1][0])
+        // dom在更新时 滑动不了
+        setTimeout(() => {
+          common.goAnchor('#all-positions')
+        }, 50)
+      },
+      handleTabClick (tab, event) {
+        this.$refs.table.setCurrentRow(this.allPositions[Number(tab.name) - 1][0])
+      },
+      handleCurrentChange (val) {
+        // 当点击上面的图标滑到下面时，会出现val为null
+        if (!val) {
+          return
+        }
+
+        switch (val.position) {
+          case 'Web工程师（Vue.js）':
+            this.positionResponsibility = '负责开发公司各平台系统的前端功能及交互效果的实现；<br/>' +
+              '跟设计师和后端工程师相互配合共同完成完整的产品功能；<br/>' +
+              '负责PC、移动Web、APP版本H5页面的制作。'
+            this.positionRequirement = '具备1年以上前端工作经验，本科及以上学历；<br/>' +
+              '精通HTML5和CSS3技术和JavaScript开发语言；<br/>' +
+              '熟练掌握Vue.js前端开发框架；<br/>' +
+              '熟练掌握各种浏览器的兼容性匹配技术、前端页面性能调试和优化技术；<br/>' +
+              '熟悉Git代码管理，代码风格规范严谨工整；<br/>' +
+              '有管理经验优先。'
+            break
+          case 'Node.js工程师':
+            this.positionResponsibility = '唯ID官网开发；<br/>' +
+              '唯ID服务管理系统开发；<br/>' +
+              '唯ID业务管理系统开发；<br/>' +
+              '唯ID开放平台系统开发。'
+            this.positionRequirement = '本科及以上学历，相关工作经验1年及以上；<br/>' +
+              '熟悉Node.js、Web开发流程、具备软件架构设计能力；<br/>' +
+              '精通JavaScript语言，熟练使用至少一种Node.js应用框架，如Express；<br/>' +
+              '熟悉nginx常用配置<br/>精通XML、JSON等接口开发；<br/>' +
+              '熟悉LINUX操作系统及常用的LINUX操作命令，熟悉网络编程；<br/>' +
+              'Github使用者、有开源项目贡献者优先考。<br/>'
+            break
+          case 'Android工程师':
+            this.positionResponsibility = '与产品经理一起设计唯ID SDK 能力与唯ID组件的功能定义、界面定制化方案；<br/>' +
+              '唯ID SDK 开发；<br/>' +
+              '唯ID组件开发（手机号验证系列、IDaaS系列）。'
+            this.positionRequirement = '精通 Android 平台的模块化设计架构，能够设计出 SDK 和 UI 组件方案，并实现定制化 UI 组件界面（布局、颜色、纹理等）；<br/>' +
+              '熟悉 Android 平台的界面开发技术，能够根据产品需要完成丰富的交互功能和 UI 展现；<br/>' +
+              '熟悉 Android 平台的内存管理机制，懂得内存优化技术；<br/>' +
+              '对界面美观有苛刻的要求，完美主义者，了解 Android Design 的设计风格和元素；<br/>' +
+              '掌握基本的产品设计、交互设计、用户体验知识；<br/>' +
+              '能够与产品经理、设计师、用户进行深入的沟通和交流；<br/>' +
+              '热衷于学习与自我修炼，喜欢阅读英文原版技术资料；<br/>' +
+              'Github 使用者、有开源项目贡献者优先考虑。'
+            break
+          case 'iOS工程师':
+            this.positionResponsibility = '负责 iOS 平台的开发，iOS SDK 的开发；<br/>' +
+              '负责参与公司核心业务线的开发；<br/>' +
+              '指导客户集成公司产品，负责支持公司技术支持和客服团队等。<br/>'
+            this.positionRequirement = '本科以上学历、计算机等相关专业经验者，优先；<br/>' +
+              '精通 iOS 开发，熟练理解设计模式和 iOS UI 框架，熟悉开源项目；<br/>' +
+              '有优秀的团队合作意识，负责任的态度；<br/>' +
+              '对代码规范有较高的认识和要求；<br/>' +
+              '有丰富完整的 iOS 开发经验，有代表性产品或上线产品优先；<br/>' +
+              '公司提供广阔的上升空间，愿意与公司共同快速发展，有擅长特殊领域技能者优先。'
+            break
+          case '产品经理':
+            this.positionResponsibility = '理解产品架构和业务发展，对面向开发者的平台需求和易用性负责；<br/>' +
+              '主要负责“手机号验证服务”等平台产品的功能策划和产品设计工作；<br/>' +
+              '协助团队掌握需求，推动团队紧密合作达成产品目标；<br/>' +
+              '关注产品运营的全过程，不断优化迭代、提升产品质量。'
+            this.positionRequirement = '1年以上的平台产品或商业产品经验，能将产品知识和经验充分应用于实践；<br/>' +
+              '对面向开发者的产品有深入的理解，熟悉开放平台等平台类产品；<br/>' +
+              '对移动互联网有深刻的认识和理解，了解多种云服务业务；<br/>' +
+              '具备敏锐的商业意识、广阔的视野、良好的洞察力和创造性的思维。'
+            break
+          case '产品运营':
+            this.positionResponsibility = '理解产品架构和业务发展，对平台生态和产品运营效果负责；<br/>' +
+              '运营现有平台产品，通过理解客户推动产品迭代，促进使用；<br/>' +
+              '跟踪业务数据变化，持续不断的以增长为目标进行优化；<br/>' +
+              '分析客户行为和市场趋势，发现商业机会和客户需求。'
+            this.positionRequirement = '1年以上的产品运营和用户运营经验，能将运营手段和经验充分应用于工作；<br/>' +
+              '对功能型产品的产品运营有深入的理解，熟悉开放平台等平台类产品；<br/>' +
+              '善于对数据进行分析和使用，具备将运营手段和数据结果对应的能力；<br/>' +
+              '具备敏锐的商业意识、广阔的视野、良好的洞察力和创造性的思维。'
+            break
+          case 'UI设计师':
+            this.positionResponsibility = '负责维护现有产品 (主要为手机号验证服务和企业IDaaS解决方案)；<br/>' +
+              '负责完善各平台UI设计规范&流程，推动效果落地；<br/>' +
+              '负责项目中各种交互界面、图标、LOGO、按钮等相关元素的设计与制作；<br/>' +
+              '准确抓取需求重点，协助产品经理优化交互原型，提升用户体验；<br/>' +
+              '收集和分析用户对GUI的需求，与产品经理/交互设计师共同研究更合适的功能/交互/界面设计；<br/>' +
+              '与开发保持沟通配合并跟踪上线效果和还原度。<br/>'
+            this.positionRequirement = '大专以上学历，美术、广告、视觉设计等相关专业，1年以上相关经验；<br/>' +
+              '精通PS，AI, Sketch等流行设计软件, 熟悉Axure, Xmind, Flinto, Principle 等主流原型/交互设计软件；<br/>' +
+              '对产品/ 交互设计有深入研究；<br/>' +
+              '专注研究移动端GUI 趋势, 并能合适应用在设计任务当中；<br/>' +
+              '具备良好沟通能力，与需求方进行深入讨论，完善视觉/使用效果；<br/>' +
+              '支持创新，对新事物具有良好的接受性，能在团队里提出新思路，并付诸行动。'
+            break
+          case '销售经理':
+            this.positionResponsibility = '负责唯ID相关产品的销售，完成销售指标。<br/>'
+            this.positionRequirement = '大专以上学历，1年以上销售经验；<br/>' +
+              '熟悉大客户销售的不同阶段，运用相应销售策略，促进签单回款；<br/>' +
+              '具有很强的沟通能力和亲和力，积极主动有热情；<br/>' +
+              '执行力强，注重结果。'
+            break
+          case '电话销售':
+            this.positionResponsibility = '通过电话销售，挖掘潜在客户；<br/>' +
+              '协调内外部资源，满足客户需求，完成销售目标。'
+            this.positionRequirement = '大专以上学历，1年以上电话销售经验；<br/>' +
+              '具有较强的客户需求挖掘、引导能力，沟通能力强；<br/>' +
+              '了解互联网、移动互联网行业，学习能力强；<br/>' +
+              '工作积极主动有热情，声音甜美，有亲和力。'
+            break
+          case '客服专员':
+            this.positionResponsibility = '负责大客户日常的维护和管理；<br/>' +
+              '负责协调内部各相关部门，解决客户集成中的技术问题和产品需求；<br/>' +
+              '构建大客户服务体系，不断总结形成方法论，并对典型客户进行梳理总结，树立样板客户；<br/>' +
+              '客户集成上线后，保持与客户的沟通，及时跟踪客户反馈。'
+            this.positionRequirement = '具备较强的资源协调能力及客户服务意识；<br/>' +
+              '具备优秀的沟通和执行能力；<br/>' +
+              '具备团队合作精神与较强的责任心，有一定的团队协调能力；<br/>' +
+              '乐观向上，能够承受工作压力，适应快节奏高效的工作生活；<br/>' +
+              '熟悉移动互联网产品流程，具有计算机开发经验者优先。'
+            break
+        }
       }
+    },
+    computed: {
+      positions () {
+        return this.allPositions[Number(this.tabsActiveName) - 1]
+      },
+      allPositionsCount () {
+        let count = 0
+        for (let i = 0; i < this.allPositions.length; i++) {
+          count += this.allPositions[i].length
+        }
+        return count
+      }
+    },
+    mounted () {
+      this.$refs.table.setCurrentRow(this.allPositions[0][0])
     }
   }
 </script>
@@ -109,6 +308,20 @@
     background-image: url("../../assets/banner.jpg");
   }
   #content {
+    font-size: 16px;
+  }
+  #tabs >>> .el-tabs__item {
+    font-size: 16px;
+    height: 60px;
+    line-height: 60px;
+    text-align: left;
+  }
+  .tab-icon {
+    vertical-align: middle;
+    margin-right: 20px;
+    width: 32px;
+  }
+  .el-table {
     font-size: 16px;
   }
 </style>

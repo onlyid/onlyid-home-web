@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="content-bg">
     <p id="banner1">唯ID用户使用协议</p>
     <div id="content">
       <h4>一、特别提示</h4>
@@ -92,9 +92,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   #content {
-    /*padding: 50px 0px;*/
+    padding: 50px 0px;
     width: 980px;
-    margin: 50px auto;
+    margin: 0 auto;
   }
   #banner1 {
     background-color: #f7f8f9;

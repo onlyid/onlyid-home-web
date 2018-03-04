@@ -1,12 +1,24 @@
 <template>
   <div id="content">
-    <section>
-      <p>hi</p>
-    </section>
-    <my-component>
-      <p slot="header">hi</p>
-      <p>hi 1</p>
-    </my-component>
+    <div class="div1">
+      <div class="div2"></div>
+      <p>div1 content</p>
+    </div>
+    <!--<div style="height: 50px;">-->
+    <!--<transition name="fade">-->
+      <!--<p :key="name" style="position: absolute;">{{ name }}</p>-->
+    <!--</transition>-->
+    <!--</div>-->
+    <!--<el-button @click="toggle">toggle</el-button>-->
+    <!--<span class="wave1 center-box"><i class="waves"></i></span>-->
+    <!--<i v-html="myHtml"></i>-->
+    <!--<section>-->
+      <!--<p>hi</p>-->
+    <!--</section>-->
+    <!--<my-component>-->
+      <!--&lt;!&ndash;<p slot="header">hi my component</p>&ndash;&gt;-->
+      <!--<p>hi 1</p>-->
+    <!--</my-component>-->
     <!--<div class="bar">-->
       <!--<div class="box b1"></div><div class="box b2"></div>-->
     <!--</div>-->
@@ -70,7 +82,7 @@
   import axios from 'axios'
 
   Vue.component('my-component', {
-    template: '<div><slot name="header">fallback content</slot><slot>fallback content2</slot></div>'
+    template: '<div><slot name="header">fallback content</slot><slot>fallback content2</slot><p style="font-size: 20px;">test</p></div>'
   })
 
   export default {
@@ -81,6 +93,9 @@
         address: '上海市普陀区金沙江路 1518 弄'
       }
       return {
+        isWidth100: false,
+        img: require('../assets/logo.png'),
+        myHtml: '<a href="sogou.com">hi</a>',
         books: [
           {name: 'ltb'},
           {name: 'hbj'},
@@ -107,6 +122,9 @@
       }
     },
     methods: {
+      toggle () {
+        this.name = 'hbj'
+      },
       CORS () {
         axios.get('http://onlyid.net:3000/hi1/1', {
           withCredentials: true
@@ -165,15 +183,83 @@
         return value.charAt(0).toUpperCase() + value.slice(1)
       }
     },
+    created () {
+      console.log('created')
+    },
     mounted () {
-      console.log(typeof Date())
-      console.log(typeof new Date())
+      console.log('mounted')
+    },
+    beforeDestroy () {
+      console.log('beforeDestroy')
     }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .div1 {
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 3px 5px 0 rgba(24,44,79,.05), 0 5px 15px 0 rgba(24,44,79,.1);
+    margin-bottom: 50px;
+    margin-left: 50px;
+    position: relative;
+    background-color: white;
+  }
+  .div2 {
+    position: absolute;
+    left: 100%;
+    top: 20px;
+    width: 20px;
+    height: 40px;
+    /*background-color: #E6A23C;*/
+    overflow: hidden;
+  }
+  .div2::after {
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    box-shadow: 0 3px 5px 0 rgba(24,44,79,.05), 0 5px 15px 0 rgba(24,44,79,.1);
+    transform: translateX(-50%) rotate(-45deg);
+  }
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to {
+    opacity: 0;
+  }
+  .waves::before {
+    position: absolute;
+    background: radial-gradient(circle,rgba(255,255,255,0) 0,#67C23A 100%);
+    margin-left: -12px;
+    margin-top: -12px;
+    width: 50px;
+    height: 50px;
+    content: "";
+    display: block;
+    border-radius: 50%;
+    /*animation: wave-animate 3s infinite ease-out;*/
+  }
+  @keyframes wave-animate {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 1;
+      -webkit-transform-origin: center;
+      transform-origin: center
+    }
+    100% {
+      -webkit-transform: scale(3);
+      transform: scale(3);
+      opacity: 0;
+      -webkit-transform-origin: center;
+      transform-origin: center
+    }
+  }
   .bar {
     width:200px; height:20px;
     background-color: red;

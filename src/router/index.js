@@ -115,7 +115,8 @@ const router = new Router({
     }
   ],
   scrollBehavior (to, from, savedPosition) {
-    if (to.hash) {
+    // 只有#不行，#后面要接具体锚点值
+    if (to.hash && to.hash.length > 1) {
       return {
         selector: to.hash
       }

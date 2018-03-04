@@ -8,7 +8,7 @@
 <a href="https://gitee.com/lltb/sos-backend" target="_blank">https://gitee.com/lltb/sos-backend</a></pre>
     <p>* 下载“<a href="https://static.onlyid.net/downloads/app-release.apk">一键呼救</a>”体验。</p>
 
-    <h2>1. 集成SDK</h2>
+    <h2 id="step1">1. 集成SDK</h2>
     <p>SDK托管在jcenter，在app模块的build.gradle添加：</p>
     <pre>compile 'net.onlyid:onlyid-sdk:[1,2)'</pre>
     <p>集成SDK。</p>
@@ -107,15 +107,4 @@ refresh_token=之前获取到的refresh token</pre>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  h2 {
-    font-size: 20px;
-    margin-top: 50px;
-  }
-  pre {
-    padding: 10px;
-    background-color: #f7f8f9;
-  }
-  .warn {
-    color: #fa5555;
-  }
 </style>

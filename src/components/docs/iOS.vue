@@ -8,10 +8,10 @@
 <a href="https://gitee.com/lltb/sos-backend">https://gitee.com/lltb/sos-backend</a></pre>
     <!--<p>* 可在App Store搜索“一键呼救”体验。</p>-->
 
-    <h2>1. 集成SDK</h2>
+    <h2 id="step1">1. 集成SDK</h2>
     <el-tabs class="docs-ios-tabs">
       <el-tab-pane label="CocoaPods">
-        <p>在Podfile添加：</p>
+        <p>在项目的Podfile添加：</p>
         <pre>pod 'OnlyID_SDK', :git => 'https://gitee.com/lltb/onlyid-sdk-ios.git',
   :tag => '1.0.5'</pre>
         <p>集成SDK。</p>
@@ -152,15 +152,4 @@ refresh_token=之前获取到的refresh token</pre>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  h2 {
-    font-size: 20px;
-    margin-top: 50px;
-  }
-  pre {
-    padding: 10px;
-    background-color: #f7f7f7;
-  }
-  .warn {
-    color: #fa5555;
-  }
 </style>
