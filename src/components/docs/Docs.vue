@@ -63,13 +63,11 @@
     },
     methods: {
     },
-    created () {
-      this.$router.beforeEach((to, from, next) => {
-        console.log('beforeEach')
-        this.activeIndex = to.path.split('/')[2]
-        this.isDocsIndex = to.path === '/docs'
-        next()
-      })
+    beforeRouteUpdate (to, from, next) {
+      console.log('beforeRouteUpdate')
+      this.activeIndex = to.path.split('/')[2]
+      this.isDocsIndex = to.path === '/docs'
+      next()
     }
   }
 </script>

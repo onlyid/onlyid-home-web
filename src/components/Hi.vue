@@ -1,9 +1,11 @@
 <template>
   <div id="content">
-    <div class="div1">
-      <div class="div2"></div>
-      <p>div1 content</p>
-    </div>
+    <el-button @click="changeName">changeName</el-button>
+    <p>{{ computedName }}</p>
+    <!--<div class="div1">-->
+      <!--<div class="div2"></div>-->
+      <!--<p>div1 content</p>-->
+    <!--</div>-->
     <!--<div style="height: 50px;">-->
     <!--<transition name="fade">-->
       <!--<p :key="name" style="position: absolute;">{{ name }}</p>-->
@@ -81,6 +83,8 @@
   import common from 'onlyid-frontend-common'
   import axios from 'axios'
 
+  let name = 'ltb'
+
   Vue.component('my-component', {
     template: '<div><slot name="header">fallback content</slot><slot>fallback content2</slot><p style="font-size: 20px;">test</p></div>'
   })
@@ -122,6 +126,10 @@
       }
     },
     methods: {
+      changeName () {
+        name = 'hbj'
+        console.log(name)
+      },
       toggle () {
         this.name = 'hbj'
       },
@@ -191,6 +199,11 @@
     },
     beforeDestroy () {
       console.log('beforeDestroy')
+    },
+    computed: {
+      computedName () {
+        return name
+      }
     }
   }
 </script>

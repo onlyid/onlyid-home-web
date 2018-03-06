@@ -48,6 +48,7 @@ export default {
     border-radius: 20px;
     cursor: pointer;
     box-shadow: 0 0 6px rgba(0,0,0,.12);
+    z-index: 1;
   }
   #back-top i {
     color: #409eff;

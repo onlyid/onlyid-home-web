@@ -35,8 +35,14 @@
         </el-col>
         <el-col :span="4">
           <div style="padding-top: 12px">
-            <router-link to="/console"><el-button size="medium">登录</el-button></router-link>
-            <router-link to="/console" style="margin-left: 10px"><el-button size="medium" type="primary">注册</el-button></router-link>
+            <template v-if="isLogin">
+              <span class="username">{{ username }}</span>
+              <el-button size="medium" style="margin-left: 10px" @click="logout">退出</el-button>
+            </template>
+            <template v-else>
+              <router-link to="/console"><el-button size="medium">登录</el-button></router-link>
+              <router-link to="/console" style="margin-left: 10px"><el-button size="medium" type="primary">注册</el-button></router-link>
+            </template>
           </div>
         </el-col>
       </el-row>
@@ -92,21 +98,39 @@
     name: 'app',
     data () {
       return {
+        username: '',
         activeIndex: '/' + this.$route.path.split('/')[1],
-        currentYear: new Date().getFullYear()
+        currentYear: new Date().getFullYear(),
+        isLogin: false
       }
     },
     methods: {
+      logout () {
+        this.$axios.post('/logout').then((res) => {
+          sessionStorage.clear()
+          // this.$router.replace('/')
+        }).catch((err) => {
+          console.error(err)
+        })
+      },
       select (key) {
         this.$router.push(key)
       }
     },
-    created () {
+    mounted () {
       this.$router.beforeEach((to, from, next) => {
+        console.log('beforeEach from app')
         // 只匹配第一层路径 比如 /docs/android -> /docs
         this.activeIndex = '/' + to.path.split('/')[1]
         next()
       })
+
+      const user = sessionStorage.getObj('user')
+      console.log('user= ' + user)
+      if (user) {
+        this.username = user.name
+        this.isLogin = true
+      }
     },
     computed: {
       // 文档页面不显示footer的主体内容
@@ -118,6 +142,13 @@
 </script>
 
 <style scoped>
+  .username {
+    font-size: 16px;
+    color: #7f7f7f;
+  }
+  .username:hover {
+    color: #303133;
+  }
   #header-bg {
     background-color: #fff;
   }

@@ -33,7 +33,7 @@ import AboutUs from '@/components/about/AboutUs'
 import Agreement from '@/components/about/Agreement'
 import Privacy from '@/components/about/Privacy'
 
-import config from '@/config'
+// import config from '@/config'
 
 Vue.use(Router)
 
@@ -130,6 +130,7 @@ router.beforeEach((to, from, next) => {
   if (!path.startsWith('/console')) {
     return next()
   }
+  console.log('beforeEach from router/index')
 
   if (sessionStorage.getObj('user')) {
     return next()
@@ -137,7 +138,7 @@ router.beforeEach((to, from, next) => {
 
   next(false)
   sessionStorage.fromRoute = path
-  location.assign(config.authorizeUrl)
+  // location.assign(config.authorizeUrl)
 })
 
 export default router
