@@ -4,7 +4,6 @@ import axios from 'axios'
 import config from './config'
 
 function install (Vue) {
-  // 初始化onlyID的
   let instance = axios.create({
     baseURL: config.baseUrl,
     withCredentials: true

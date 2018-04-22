@@ -28,7 +28,7 @@ export default {
   .position-img {
     background-color: #f7f8f9;
     padding: 30px;
-    border-radius: 62px;
+    border-radius: 50%;
     width: 64px;
     height: 64px;
     margin: 0 auto;

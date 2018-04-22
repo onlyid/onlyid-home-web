@@ -24,7 +24,7 @@
             <img src="./assets/logo.png" width="66px" style="cursor: pointer; vertical-align: middle; padding-top: 14px">
           </router-link>
         </el-col>
-        <el-col :span="18">
+        <el-col :span="17">
           <el-menu id="nav" :default-active="activeIndex" mode="horizontal" @select="select">
             <el-menu-item index="/docs">文档</el-menu-item>
             <el-menu-item index="/downloads">下载</el-menu-item>
@@ -33,26 +33,24 @@
             <el-menu-item index="/console">控制台</el-menu-item>
           </el-menu>
         </el-col>
-        <el-col :span="4">
-          <div style="padding-top: 12px">
+        <el-col :span="5">
+          <div style="padding-top: 12px; float: right">
             <template v-if="isLogin">
-              <span class="username">{{ username }}</span>
-              <el-button size="medium" style="margin-left: 10px" @click="logout">退出</el-button>
+              <span class="username" @click="goAccount">{{ developerName }}</span>
+              <el-button size="medium" style="margin-left: 20px" @click="logout">退出</el-button>
             </template>
             <template v-else>
-              <router-link to="/console"><el-button size="medium">登录</el-button></router-link>
-              <router-link to="/console" style="margin-left: 10px"><el-button size="medium" type="primary">注册</el-button></router-link>
+              <router-link to="/console"><el-button size="medium" type="primary">登录 / 注册</el-button></router-link>
             </template>
           </div>
         </el-col>
       </el-row>
     </div>
     <router-view/>
-    <div id="footer-bg">
+    <div id="footer-bg" v-show="showFooter">
       <div id="footer">
-        <div v-show="showFooter" style="margin: 40px 0;">
-        <el-row>
-          <el-col :span="10">
+        <el-row style="margin: 40px 0;">
+          <el-col :span="10" :offset="1">
             <p class="footer-title">联系我们</p>
             <ul>
               <li>客户经理（业务咨询）：18588237889 <i class="iconfont" v-popover:popover1>&#xe7e5;</i></li>
@@ -71,7 +69,7 @@
               <li><router-link to="/docs/faq">常见问题</router-link></li>
             </ul>
           </el-col>
-          <el-col :span="6">
+          <el-col :span="5">
             <p class="footer-title">关于唯ID</p>
             <ul>
               <li><router-link to="/about-us">关于我们</router-link></li>
@@ -82,7 +80,6 @@
             </ul>
           </el-col>
         </el-row>
-        </div>
         <div style="text-align: center; color: #ccc; font-size: 13px;">
           <span>深圳市友全科技有限公司</span>
           <span style="margin-left: 100px">唯ID &nbsp; © &nbsp; {{ currentYear }}</span>
@@ -94,21 +91,36 @@
 </template>
 
 <script>
+  function updateLogin () {
+    const developer = sessionStorage.getObj('developer')
+    console.log('developer=', developer)
+    if (developer) {
+      this.developerName = developer.name
+      this.isLogin = true
+    }
+  }
+
   export default {
     name: 'app',
     data () {
       return {
-        username: '',
-        activeIndex: '/' + this.$route.path.split('/')[1],
+        developerName: '',
         currentYear: new Date().getFullYear(),
         isLogin: false
       }
     },
     methods: {
+      goAccount () {
+        this.$router.push('/console/account')
+      },
       logout () {
         this.$axios.post('/logout').then((res) => {
           sessionStorage.clear()
-          // this.$router.replace('/')
+          // 当前处于控制台时，跳回首页
+          if (this.$route.path.startsWith('/console')) {
+            this.$router.replace('/')
+          }
+          this.isLogin = false
         }).catch((err) => {
           console.error(err)
         })
@@ -118,24 +130,25 @@
       }
     },
     mounted () {
-      this.$router.beforeEach((to, from, next) => {
-        console.log('beforeEach from app')
-        // 只匹配第一层路径 比如 /docs/android -> /docs
-        this.activeIndex = '/' + to.path.split('/')[1]
-        next()
+      updateLogin.call(this)
+      this.$bus.$on('login', () => {
+        updateLogin.call(this)
       })
-
-      const user = sessionStorage.getObj('user')
-      console.log('user= ' + user)
-      if (user) {
-        this.username = user.name
-        this.isLogin = true
-      }
     },
     computed: {
-      // 文档页面不显示footer的主体内容
+      activeIndex () {
+        return '/' + this.$route.path.split('/')[1]
+      },
+      // 文档和控制台不显示footer
       showFooter () {
-        return this.activeIndex !== '/docs'
+        if (this.activeIndex === '/docs' ||
+          this.activeIndex === '/console' ||
+          this.activeIndex === '/auth' ||
+          this.activeIndex === '/signup'
+        ) {
+          return false
+        }
+        return true
       }
     }
   }
@@ -143,8 +156,16 @@
 
 <style scoped>
   .username {
-    font-size: 16px;
+    font-size: 15px;
     color: #7f7f7f;
+    width: 100px;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: right;
+    cursor: pointer;
   }
   .username:hover {
     color: #303133;

@@ -9,6 +9,7 @@
         <div id="announcement">
           <p style="font-size: 20px; text-align: center">我们将于2018年4月正式商业化</p>
           <div style="font-size: 15px">
+            <p>尊敬的客户：</p>
             <p>唯ID自上线以来，获得了广大开发者和企业客户的一致好评。为了提供更好的服务，我们将于2018年4月正式商业化。</p>
             <p>对于公用云部署方式，将收取每位开发者<span>365元人民币/年</span>的费用，用于公司的日常运营支出。</p>
             <p>除账号年费外，不收取其他任何费用，您仍然可以享受<span>无限量的短信验证码服务</span>。</p>
@@ -16,6 +17,7 @@
             <p>以上价格方案仅适用公有云部署方式，专有云（大客户方案）的价格请联系客户经理。</p>
             <p>衷心感谢您过去的信任和支持，未来我们一定会为您提供更好的服务。</p>
             <p>有任何疑问，请联系客户经理。</p>
+            <p>特此公告。</p>
             <p style="text-align: right">—— 唯ID团队 2018年1月</p>
           </div>
         </div>
@@ -37,7 +39,7 @@
                       <li>基础年费（人民币）<span>365元</span></li>
                       <li>短信费用<span>免费</span></li>
                       <div class="gradient-hr"/>
-                      <li>可建client<span>10个 *</span></li>
+                      <li>可建client<span>5个 *</span></li>
                       <li>自定义选项<span><el-button @click="goTab('2','public')" type="text" class="pricing-button">基础</el-button></span></li>
                       <li>验证请求量<span>无限制</span></li>
                       <li>统计数据<span>基础</span></li>
@@ -48,7 +50,7 @@
                     <ul>
                       <li>主题界面<span>两种（黑、白）</span></li>
                       <li>缩放大小<span>两种（标准、大）</span></li>
-                      <li>验证方式<span>两种（SDK直接验证、服务端中转）</span></li>
+                      <li>验证方式<span>两种（客户端Token、服务端中转）</span></li>
                     </ul>
                   </el-tab-pane>
                 </el-tabs>
@@ -73,7 +75,7 @@
                       <li>计算节点和数据库<span>以合同为准</span></li>
                       <li>定制和其他费用<span>以合同为准</span></li>
                       <div class="gradient-hr"/>
-                      <li>可建client<span>100个 *</span></li>
+                      <li>可建client<span>50个 *</span></li>
                       <li>自定义选项<span><el-button @click="goTab('2','private')" type="text" class="pricing-button">丰富</el-button></span></li>
                       <li>验证请求量<span>无限制</span></li>
                       <li>统计数据<span><el-button @click="goTab('4','private')" type="text" class="pricing-button">丰富</el-button></span></li>
@@ -156,7 +158,8 @@
     },
     methods: {
       renew () {
-        this.$alert('暂未开放')
+        // this.$alert('暂未开放')
+        this.$router.push('/console/account#product-info')
       },
       goTab (index, tabs) {
         if (tabs === 'public') {

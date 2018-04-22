@@ -1,5 +1,13 @@
 <template>
   <div id="content">
+    <el-dialog :show-close="false" :visible="dialogVisible" width="30%">
+      <p class="dialog-content">{{ confirmDeleteText }}</p>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取消</el-button>
+        <el-button type="danger" @click="delete1">删除</el-button>
+      </span>
+    </el-dialog>
+
     <el-breadcrumb>
       <el-breadcrumb-item :to="{ path: '/console' }">控制台</el-breadcrumb-item>
       <el-breadcrumb-item>client</el-breadcrumb-item>
@@ -35,14 +43,6 @@
         </el-row>
       </div>
     </div>
-
-    <el-dialog :show-close="false" :visible="dialogVisible" width="30%">
-      <p class="dialog-content">{{ confirmDeleteText }}</p>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false">取消</el-button>
-        <el-button type="danger" @click="delete1">删除</el-button>
-      </span>
-    </el-dialog>
   </div>
 </template>
 
@@ -59,13 +59,18 @@
       confirmDelete () {
         this.dialogVisible = true
       },
-      delete1 () {
-        this.$axios.delete('/clients/' + this.client._id).then((res) => {
-          sessionStorage.setItem('segue', 'delete')
+      async delete1 () {
+        try {
+          await this.$axios.delete('/clients/' + this.client._id)
+          this.$message({
+            message: '已删除client',
+            type: 'success'
+          })
+
           this.$router.replace('/console')
-        }).catch((err) => {
-          console.log(err)
-        })
+        } catch (err) {
+          console.error(err)
+        }
       },
       update () {
         this.$router.push('/console/clients/' + this.$route.params.id + '/update')

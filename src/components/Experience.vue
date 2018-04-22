@@ -24,7 +24,7 @@
         <p class="section-title">在线体验</p>
         <p class="section-summary">体验公有云版手机号验证服务</p>
         <div style="margin-top: 40px;">
-          <el-card class="card1">
+          <el-card class="card1" :body-style="{ padding: '0px' }">
             <iframe src="" width="320" height="480" class="demo-iframe"></iframe>
             <div class="tooltip">
               <div class="tooltip__arrow"></div>
@@ -131,9 +131,6 @@
     background-size: 200%;
     background-position: right center;
     position: relative;
-  }
-  .card1 >>> .el-card__body {
-    padding: 0;
   }
   .demo-iframe {
     border: 0;

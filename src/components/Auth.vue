@@ -10,23 +10,34 @@
   export default {
     data () {
       return {
-        msg: '登录中 . . .'
+        msg: '请稍候 . . .'
       }
     },
-    created () {
-      this.$axios.get('/auth', {
-        params: {
-          code: common.urlArgs()['code']
+    async created () {
+      try {
+        const code = common.urlArgs()['code']
+        // 如果存在auth4 则跳转原路由处理
+        if (sessionStorage.auth4) {
+          sessionStorage.code = code
+          location.replace('/#' + sessionStorage.fromRoute)
+        } else { // 否则按登录处理
+          const res = await this.$axios.post('/login', {
+            code
+          })
+          if (res.data.developer) {
+            sessionStorage.setObj('developer', res.data.developer)
+            // 不能用router.replace 因为要删掉location.search
+            // 跳回第一级路由
+            location.replace('/#/' + sessionStorage.fromRoute.split('/')[1])
+          } else { // 新用户注册
+            sessionStorage.setObj('user', res.data.user)
+            location.replace('/#/signup')
+          }
         }
-      }).then((res) => {
-        sessionStorage.setObj('user', res.data.user)
-        // 不能用router.replace 因为要删掉location.search
-        // 跳回第一级路由
-        location.replace('/#/' + sessionStorage.fromRoute.split('/')[1])
-      }).catch((err) => {
+      } catch (err) {
         this.msg = '登录出错'
-        console.log(err)
-      })
+        console.error(err)
+      }
     }
   }
 </script>

@@ -8,6 +8,13 @@
       trigger="hover"
       content="用户登录后，唯一ID会带上code请求您的redirect uri，您使用code继续完成授权；对于app，code通过sdk返回，redirect uri为默认值">
     </el-popover>
+    <el-dialog :visible.sync="dialogVisible" width="500px" title="重置secret" center="">
+      <p class="dialog-content">重置后原secret马上失效（一般只在secret泄露才需重置）</p>
+      <span slot="footer">
+        <el-button @click="dialogVisible = false">取消</el-button>
+        <el-button type="danger" @click="resetSecret">重置</el-button>
+      </span>
+    </el-dialog>
 
     <el-breadcrumb>
       <el-breadcrumb-item :to="{ path: '/console' }">控制台</el-breadcrumb-item>
@@ -24,7 +31,7 @@
         </el-form-item>
         <el-form-item label="client secret：">
           <el-input v-model="form.secret" class="item-detail" disabled>
-            <el-button slot="append" @click="confirmResetSecret" type="primary">重置</el-button>
+            <el-button slot="append" @click="dialogVisible = true" type="primary">重置</el-button>
           </el-input>
         </el-form-item>
         <el-form-item prop="type" label="类型：">
@@ -42,7 +49,7 @@
       <div style="padding-top: 30px">
         <el-row :gutter="100" type="flex" justify="center">
           <el-col :span="5">
-            <el-button @click="cancel">取消</el-button>
+            <el-button @click="$router.back()">取消</el-button>
           </el-col>
           <el-col :span="5">
             <el-button type="primary" @click="submit">修改</el-button>
@@ -50,14 +57,6 @@
         </el-row>
       </div>
     </div>
-
-    <el-dialog :show-close="false" :visible="dialogVisible" width="500px">
-      <p class="dialog-content">{{ confirmResetSecretText }}</p>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false">取消</el-button>
-        <el-button type="danger" @click="resetSecret">重置</el-button>
-      </span>
-    </el-dialog>
   </div>
 </template>
 
@@ -75,21 +74,14 @@ export default {
         type: ''
       },
       rules: config.rules,
-      dialogVisible: false,
-      confirmResetSecretText: '重置secret？您一般只在secret泄露才需重置，重置后原secret马上失效'
+      dialogVisible: false
     }
   },
   methods: {
-    confirmResetSecret () {
-      this.dialogVisible = true
-    },
-    cancel () {
-      this.$router.back()
-    },
     resetSecret () {
       this.$axios.put('/clients/' + this.$route.params.id + '/secret').then((res) => {
         this.$message({
-          message: '已重置',
+          message: '已重置secret',
           type: 'success'
         })
         this.form.secret = res.data.secret
@@ -113,7 +105,7 @@ export default {
           client
         }).then((res) => {
           this.$message({
-            message: '已修改',
+            message: '已更新client',
             type: 'success'
           })
           this.$router.replace('/console/clients/' + this.$route.params.id)

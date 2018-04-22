@@ -159,7 +159,7 @@
       goTab (index) {
         this.tabsActiveName = String(index)
         this.$refs.table.setCurrentRow(this.allPositions[index - 1][0])
-        // dom在更新时 滑动不了
+        // dom在更新时 滑动不了 $nextTick not working ...
         setTimeout(() => {
           common.goAnchor('#all-positions')
         }, 50)

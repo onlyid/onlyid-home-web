@@ -1,7 +1,18 @@
 <template>
   <div id="content">
-    <el-button @click="changeName">changeName</el-button>
-    <p>{{ computedName }}</p>
+    <p style="width: 80px; word-wrap: break-word; word-break: break-all">哈哈哈哈 he-lloahaaaaaaa 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello </p>
+    <!--<hi1 @updatePerson="updatePerson"></hi1>-->
+    <!--<p>{{ person.name }}</p>-->
+    <!--<router-link to="#music"><el-button>哈哈</el-button></router-link>-->
+    <!--<div id="music" style="margin-top: 1000px">music</div>-->
+    <!--<el-button @click="replace">replace</el-button>-->
+    <!--<el-button @click="pay">支付</el-button>-->
+    <!--<form method="post" :action="payAction">-->
+      <!--<input name="biz_content" :value="bizContent"/>-->
+      <!--<input type="submit" value="submit"/>-->
+    <!--</form>-->
+    <!--<p>{{ name }}</p>-->
+    <!--<hi1 v-model="name"></hi1>-->
     <!--<div class="div1">-->
       <!--<div class="div2"></div>-->
       <!--<p>div1 content</p>-->
@@ -64,32 +75,22 @@
     <!--<ol>-->
       <!--<li v-for="item in list" :key="item.id">{{ item.name }}</li>-->
     <!--</ol>-->
-    <!--<el-popover-->
-      <!--ref="popover1"-->
-      <!--placement="bottom"-->
-      <!--title="标题"-->
-      <!--width="200"-->
-      <!--trigger="hover"-->
-      <!--content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。">-->
-    <!--</el-popover>-->
-    <!--<el-button slot="append" @click="redirectUriTip" icon="el-icon-question" v-popover:popover1></el-button>-->
-    <!--<el-button @click="redirect">redirect</el-button>-->
-    <!--<el-button @click="cors">cors</el-button>-->
   </div>
 </template>
 
 <script>
   import Vue from 'vue'
   import common from 'onlyid-frontend-common'
-  import axios from 'axios'
-
-  let name = 'ltb'
+  import Hi1 from './Hi1'
 
   Vue.component('my-component', {
     template: '<div><slot name="header">fallback content</slot><slot>fallback content2</slot><p style="font-size: 20px;">test</p></div>'
   })
 
   export default {
+    components: {
+      Hi1
+    },
     data () {
       const item = {
         date: '2016-05-02',
@@ -97,6 +98,18 @@
         address: '上海市普陀区金沙江路 1518 弄'
       }
       return {
+        person: {
+          name: 'ltb'
+        },
+        payAction: 'https://openapi.alipay.com/gateway.do',
+        bizContent: JSON.stringify({
+          out_trade_no: Date.now(),
+          total_amount: 0.01,
+          subject: '测试',
+          body: '',
+          product_code: 'FAST_INSTANT_TRADE_PAY'
+        }),
+        dialogVisible: false,
         isWidth100: false,
         img: require('../assets/logo.png'),
         myHtml: '<a href="sogou.com">hi</a>',
@@ -115,7 +128,7 @@
         },
         message: '',
         list: [{name: 'ltb', sex: 'male', id: 1}, {name: 'hbj', sex: 'male', id: 2}],
-        activeIndex: '1',
+        activeIndex: 'wock',
         show: false,
         name: 'ltb',
         ltb: {
@@ -126,21 +139,15 @@
       }
     },
     methods: {
-      changeName () {
-        name = 'hbj'
-        console.log(name)
+      updatePerson (person) {
+        this.person.name = 'hbj'
+        this.person = person
+      },
+      replace () {
+        location.replace('http://www.sogou.com')
       },
       toggle () {
         this.name = 'hbj'
-      },
-      CORS () {
-        axios.get('http://onlyid.net:3000/hi1/1', {
-          withCredentials: true
-        }).then((res) => {
-          console.log(res.data)
-        }).catch((err) => {
-          console.error(err)
-        })
       },
       testPolyfill () {
         common.hi()
@@ -153,30 +160,6 @@
           if (!valid) {
             console.log('not valid')
           }
-        })
-      },
-      redirect () {
-        this.$axios({
-          url: '/hi',
-          maxRedirects: 0
-        }).then((res) => {
-          console.log(res)
-        }).catch((err) => {
-          if (err.response) {
-            console.log(err.response)
-          } else if (err.request) {
-            console.log(err.request)
-          } else {
-            console.log(err)
-          }
-        })
-      },
-      cors () {
-        console.log('here')
-        this.$axios.get('/hi').then((res) => {
-          console.log(res.data)
-        }).catch((err) => {
-          console.log(err)
         })
       },
       handleClick () {
@@ -193,6 +176,16 @@
     },
     created () {
       console.log('created')
+      console.log(this.bizContent)
+      this.payAction += '?app_id=' + '2018040702514897' +
+        '&method=' + 'alipay.trade.page.pay' +
+        '&return_url=' + 'http://onlyid.net:8080' +
+        '&charset=' + 'utf-8' +
+        '&sign_type=' + 'RSA2' +
+        '&sign=' + 'HjJuS8dmfseZEa1o3pzsLXH4hNUKdj0AP%2BxUcFrAbFQrRn10u5cqUSTp6bq%2FkIGxX2jZQrblQh2%2FG5ju%2FnPhoAOiIv96PkYNjPIAaxxNL5ok7ttqdUuIuiaYjTrzG6xjcMd7zN1eFkAjBxEBuWF9q2tQkKfnZjIvmAVsR6Mh3VxaObqHO9bw4ptLwbFHR%2FODwI9tmLN6kGo69e6dioU40OTqdUf54O5gssEF2ShHdDUTlxXRXW96BTUTbTJjtrsBJ5vQAZF%2Bn6v8FymyETD64uW3ME%2F08BVVoT8xTVsTOY8dx%2Bp3s9Kl%2BzAZMlgxJtge3zn6o6QNFlk%2Fh%2Bwv1n41yA%3D%3D' +
+        '&timestamp=' + new Date().toLocaleString() +
+        '&version=' + '1.0' +
+        '&notify_url=' + 'http://onlyid.net:3000/hi'
     },
     mounted () {
       console.log('mounted')
@@ -201,15 +194,18 @@
       console.log('beforeDestroy')
     },
     computed: {
-      computedName () {
-        return name
-      }
     }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .avatar-uploader >>> .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    overflow: hidden;
+    vertical-align: middle;
+  }
   .div1 {
     width: 100px;
     height: 100px;
@@ -307,51 +303,4 @@
     background-color: red;
   }
 
-  /*.el-menu-item {*/
-    /*color: #fa5555;*/
-  /*}*/
-  /*.el-tabs--top .el-tabs__item {*/
-    /*color: #fa5555;*/
-  /*}*/
-  /*#id1 {*/
-    /*font-size: 60px;*/
-  /*}*/
-  /*.fade-enter-active, .fade-leave-active {*/
-    /*transition: opacity .5s*/
-  /*}*/
-  /*.fade-enter, .fade-leave-to !* .fade-leave-active in below version 2.1.8 *! {*/
-    /*opacity: 0*/
-  /*}*/
-  /*@font-face {*/
-    /*font-family: 'Material Icons1';*/
-    /*font-style: normal;*/
-    /*font-weight: 400;*/
-    /*src: url(http://static.onlyid.net:8084/MaterialIcons-Regular.woff2) format('woff2'),*/
-    /*url(http://static.onlyid.net:8084/MaterialIcons-Regular.woff) format('woff'),*/
-    /*url(http://static.onlyid.net:8084/MaterialIcons-Regular.ttf) format('truetype');*/
-  /*}*/
-  /*.material-icons1 {*/
-    /*font-family: 'Material Icons1';*/
-    /*font-weight: normal;*/
-    /*font-style: normal;*/
-    /*font-size: 48px;  !* Preferred icon size *!*/
-    /*display: inline-block;*/
-    /*line-height: 1;*/
-    /*text-transform: none;*/
-    /*letter-spacing: normal;*/
-    /*word-wrap: normal;*/
-    /*white-space: nowrap;*/
-    /*direction: ltr;*/
-
-    /*!* Support for all WebKit browsers. *!*/
-    /*-webkit-font-smoothing: antialiased;*/
-    /*!* Support for Safari and Chrome. *!*/
-    /*text-rendering: optimizeLegibility;*/
-
-    /*!* Support for Firefox. *!*/
-    /*-moz-osx-font-smoothing: grayscale;*/
-
-    /*!* Support for IE. *!*/
-    /*font-feature-settings: 'liga';*/
-  /*}*/
 </style>

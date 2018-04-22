@@ -263,7 +263,7 @@
   }
   .intro {
     font-size: 20px;
-    text-indent: 40px;
+    text-indent: 2em;
     margin-top: 30px;
   }
   .tab-icon {

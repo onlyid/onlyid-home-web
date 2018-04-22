@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{ msg }}</h1>
+    因2.0更新较多，changelog整理中，请稍后再来
   </div>
 </template>
 
@@ -8,7 +8,6 @@
 export default {
   data () {
     return {
-      msg: 'changelog'
     }
   }
 }

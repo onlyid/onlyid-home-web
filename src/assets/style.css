@@ -1,6 +1,6 @@
 body {
   font-family: PingFangSC-Light,"Microsoft YaHei",sans-serif;
-  margin: 0px;
+  margin: 0;
   font-size: 14px;
   -webkit-text-size-adjust: none;
   color: #303133;
@@ -132,4 +132,13 @@ pre {
   font-size: 14px;
   padding: 20px;
   background-color: #f7f8f9;
+}
+.el-form-item__error {
+  font-size: 13px;
+}
+.subsection-title {
+  margin: 50px 0 30px 0;
+  font-size: 20px;
+  padding-bottom: 10px;
+  border-bottom: #EBEEF5 solid 1px;
 }

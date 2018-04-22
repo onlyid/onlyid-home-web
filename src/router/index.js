@@ -8,6 +8,7 @@ import Auth from '@/components/Auth'
 import Downloads from '@/components/Downloads'
 import Pricing from '@/components/Pricing'
 import Experience from '@/components/Experience'
+import Signup from '@/components/Signup'
 
 import Docs from '@/components/docs/Docs'
 import DocsHome from '@/components/docs/Home'
@@ -27,13 +28,19 @@ import Console from '@/components/console/Console'
 import Client from '@/components/console/Client'
 import ClientUpdate from '@/components/console/ClientUpdate'
 import ClientCreate from '@/components/console/ClientCreate'
+import ConsoleOverview from '@/components/console/Overview'
+import ConsolePrivateApply from '@/components/console/PrivateApply'
+import ConsoleMobileAccount from '@/components/console/MobileAccount'
+import ConsoleAnalytics from '@/components/console/Analytics'
+import ConsoleSettings from '@/components/console/Settings'
+import ConsoleAccount from '@/components/console/Account'
 
 import Careers from '@/components/about/Careers'
 import AboutUs from '@/components/about/AboutUs'
 import Agreement from '@/components/about/Agreement'
 import Privacy from '@/components/about/Privacy'
 
-// import config from '@/config'
+import config from '@/config'
 
 Vue.use(Router)
 
@@ -63,7 +70,18 @@ const router = new Router({
     },
     {
       path: '/console',
-      component: Console
+      component: Console,
+      children: [
+        {path: 'overview', component: ConsoleOverview},
+        {path: 'analytics/:id', component: ConsoleAnalytics},
+        {path: 'analytics', component: ConsoleAnalytics},
+        {path: 'settings/:id', component: ConsoleSettings},
+        {path: 'settings', component: ConsoleSettings},
+        {path: 'private/apply', component: ConsolePrivateApply},
+        {path: 'account', component: ConsoleAccount},
+        {path: 'mobile-account', component: ConsoleMobileAccount},
+        {path: 'clients/create', component: ClientCreate}
+      ]
     },
     {
       path: '/console/clients/:id/update',
@@ -73,7 +91,7 @@ const router = new Router({
       path: '/console/clients/create',
       component: ClientCreate
     },
-    { // 要放在add下面，不然add会匹配不到
+    { // 要放在create下面，不然create会匹配不到
       path: '/console/clients/:id',
       component: Client
     },
@@ -92,6 +110,10 @@ const router = new Router({
     {
       path: '/experience',
       component: Experience
+    },
+    {
+      path: '/signup',
+      component: Signup
     },
     {
       path: '/about-us',
@@ -127,18 +149,25 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   const path = to.path
+  if (path === '/console') {
+    return next('/console/overview')
+  }
+
   if (!path.startsWith('/console')) {
     return next()
   }
-  console.log('beforeEach from router/index')
 
-  if (sessionStorage.getObj('user')) {
+  const developer = sessionStorage.getObj('developer')
+  if (developer) {
+    if (path.startsWith('/console/private') && !path.startsWith('/console/private/apply') && developer.plan !== 'pro') {
+      return next('/console/private/apply')
+    }
     return next()
   }
 
   next(false)
   sessionStorage.fromRoute = path
-  // location.assign(config.authorizeUrl)
+  location.assign(config.authorizeUrl)
 })
 
 export default router
