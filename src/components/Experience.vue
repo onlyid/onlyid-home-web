@@ -25,11 +25,11 @@
         <p class="section-summary">体验公有云版手机号验证服务</p>
         <div style="margin-top: 40px;">
           <el-card class="card1" :body-style="{ padding: '0px' }">
-            <iframe src="" width="320" height="480" class="demo-iframe"></iframe>
+            <iframe src="https://demo.onlyid.net" width="320" height="480" class="demo-iframe" scrolling="no"></iframe>
             <div class="tooltip">
               <div class="tooltip__arrow"></div>
               <div>
-                <p><img src="../assets/click.svg" style="vertical-align: sub; margin-right: 10px;"/>输入您的手机号</p>
+                <p><img src="../assets/click.svg" style="vertical-align: sub; margin-right: 10px;"/>尝试点一下</p>
                 <div style="border-top: 1px solid #EFEFEF;">
                   <p style="margin-bottom: 5px;font-size: 15px; color: #7f7f7f;">专有云（大客户方案）可深度定制界面。</p>
                   <el-button type="text" style="font-size: 16px" @click="common.goAnchor('#experience-private')">体验专有云</el-button>
@@ -50,7 +50,7 @@
         <p class="section-summary">体验企业级IDaaS解决方案</p>
         <div style="margin-top: 40px; font-size: 18px">
           <el-card class="card">
-            <p>专有云（大客户方案）提供了丰富的自定义选项，以及针对具体客户的源码级定制，请联系商务获取示例DEMO。</p>
+            <p>专有云（大客户方案）提供了丰富的自定义选项，以及针对具体客户的源码级定制，请联系商务获取示例Demo。</p>
             <p style="text-align: center; margin-top: 50px;">
               <router-link to="/pricing#business-service"><el-button type="primary" round class="experience-button">联系客户经理</el-button></router-link>
             </p>
@@ -136,11 +136,12 @@
     border: 0;
     display: block;
     float: right;
-    background: #7f7f7f;
+    background: white;
+    border-left: solid 1px #EBEEF5;
   }
   .tooltip {
     position: absolute;
-    top: 100px;
+    top: 180px;
     right: 340px;
     width: 200px;
     border-radius: 3px;
@@ -152,7 +153,7 @@
     width: 28px;
     height: 38px;
     position: absolute;
-    top: 20%;
+    top: 55%;
     left: 100%;
     overflow: hidden;
   }

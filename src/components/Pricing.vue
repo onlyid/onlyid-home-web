@@ -48,8 +48,8 @@
                   </el-tab-pane>
                   <el-tab-pane label="自定义选项（基础）" name="2">
                     <ul>
-                      <li>主题界面<span>两种（黑、白）</span></li>
-                      <li>缩放大小<span>两种（标准、大）</span></li>
+                      <li>主题界面<span>两种（日间、夜间）</span></li>
+                      <li>放大显示<span>两种（标准、放大）</span></li>
                       <li>验证方式<span>两种（客户端Token、服务端中转）</span></li>
                     </ul>
                   </el-tab-pane>

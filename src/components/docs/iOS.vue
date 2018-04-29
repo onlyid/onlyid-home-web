@@ -1,36 +1,29 @@
 <template>
   <div>
     <!-- 修改内容时，检查是否需要改另外两个文档 -->
-    <p>SDK地址：</p>
-    <pre><a href="https://gitee.com/lltb/onlyid-sdk-ios" target="_blank">https://gitee.com/lltb/onlyid-sdk-ios</a></pre>
-    <p>开源示例：</p>
-    <pre><a href="https://gitee.com/lltb/sos-ios" target="_blank">https://gitee.com/lltb/sos-ios</a>
-<a href="https://gitee.com/lltb/sos-backend">https://gitee.com/lltb/sos-backend</a></pre>
-    <!--<p>* 可在App Store搜索“一键呼救”体验。</p>-->
-
+    <h1>iOS快速接入</h1>
+    <h2>前言</h2>
+    <p>使用我们提供的SDK，快速为你的iOS app接入唯ID。</p>
+    <note type="info">本节假定你已了解基于OAuth 2.0的系统的交互方式，否则请查阅 <router-link to="/docs/oauth2">OAuth 2.0入门</router-link>。</note>
     <h2 id="step1">1. 集成SDK</h2>
-    <el-tabs class="docs-ios-tabs">
-      <el-tab-pane label="CocoaPods">
-        <p>在项目的Podfile添加：</p>
-        <pre>pod 'OnlyID_SDK', :git => 'https://gitee.com/lltb/onlyid-sdk-ios.git',
-  :tag => '1.0.5'</pre>
-        <p>集成SDK。</p>
-      </el-tab-pane>
-      <el-tab-pane label="源码">
-        <p>直接<a href="https://gitee.com/lltb/onlyid-sdk-ios/tree/master/OnlyID_SDK" target="_blank">下载</a>AuthViewController.swift和OnlyID_SDK.swift，添加到您的项目。</p>
-      </el-tab-pane>
-    </el-tabs>
+    <p>推荐通过CocoaPods集成。</p>
+    <p>在项目的Podfile添加：</p>
+    <pre>pod 'OnlyID_SDK', :git => 'https://gitee.com/lltb/onlyid-sdk-ios.git'</pre>
+    <p>集成SDK。</p>
+    <p>或 <a href="https://gitee.com/lltb/onlyid-sdk-ios/tree/master/OnlyID_SDK" target="_blank">下载</a>
+      源码文件（不推荐）：AuthViewController.swift和OnlyID_SDK.swift，添加到你的项目。</p>
 
-    <h2>2. 获取code</h2>
-    <el-tabs class="docs-ios-tabs">
+    <h2>2. 获取access token</h2>
+    <p>需要验证用户手机号时，使用OnlyID.auth方法发起请求。代码示例如下：</p>
+    <el-tabs>
       <el-tab-pane label="Swift">
         <pre>import OnlyID_SDK
 
 class LoginViewController: UIViewController, AuthDelegate {
-    let clientId = "您的client id"
+    let clientId = "你的client id", clientSecret = "你的client secret"
 
-    @IBAction func login(_ sender: Any) {
-        OnlyID.auth(clientId, delegate: self)
+    @IBAction func auth(_ sender: Any) {
+        OnlyID.auth(clientId, clientSecret: clientSecret, delegate: self)
     }
 
     func didReceiveAuthResponse(authResponse: AuthResponse) {
@@ -41,7 +34,7 @@ class LoginViewController: UIViewController, AuthDelegate {
             // 网络错误
         }
         else {
-            // 成功 code在authResponse.authCode
+            // 成功
         }
     }
 }</pre>
@@ -61,8 +54,9 @@ class LoginViewController: UIViewController, AuthDelegate {
 
 @implementation LoginViewController
 
-- (IBAction)login:(id)sender {
-    [OnlyID auth:@"您的client id" state:@"123" delegate:self];
+- (IBAction)auth:(id)sender {
+    [OnlyID auth:@"你的client id" clientSecret:@"你的client secret" state:@"123"
+          viewZoomed:NO themeDark:NO delegate:self];
 }
 
 - (void)didReceiveAuthResponseWithAuthResponse:(AuthResponse *)authResponse {
@@ -73,75 +67,47 @@ class LoginViewController: UIViewController, AuthDelegate {
         // 网络错误
     }
     else {
-        // 成功 code在authResponse.authCode
+        // 成功
     }
 }
 @end
 </pre>
-        <p>* 如果您不知state是什么，可默认传123</p>
+        <note type="info">如果你不知state是什么，可默认传123。</note>
       </el-tab-pane>
     </el-tabs>
-
-    <p style="margin-top: 50px">* <span class="warn">以下步骤3、4和5建议在后台进行，以防泄露您的client secret和token。</span></p>
-    <h2 style="margin-top: 0px">3. 获取token</h2>
-    <p>得到code后，POST方式请求：</p>
-    <pre>https://oauth.onlyid.net/token</pre>
-    <p>设置Content-Type为application/x-www-form-urlencoded，带上参数：</p>
-    <pre>client_id=您的client id
-client_secret=您的client secret
-grant_type=authorization_code
-code=获取到的code
-redirect_uri=https://oauth.onlyid.net/default_redirect_uri</pre>
-    <p>获取token。</p>
-    <p>成功示例：</p>
-    <pre>{
-  "access_token": "6082b1f9861fe019bf76ce31facae7fb7b5ef905",
-  "token_type": "Bearer",
-  "expires_in": 3599,
-  "refresh_token": "7608b799ff3d2073bead1f39bf12ade18ce7e82d"
-}</pre>
-    <p>失败示例：</p>
-    <pre>{
-  "error": "invalid_grant",
-  "error_description": "Invalid grant: authorization code is invalid"
-}</pre>
-    <p>* access token有效期1个小时，refresh token有效期3个月。</p>
-
-    <h2>4. 获取用户信息</h2>
-    <p>得到token后，GET方式请求：</p>
+    <p>验证成功后，access token保存在authResponse的accessToken属性。</p>
+    <note type="info">access token的有效期为1个小时</note>
+    <h2>3. 获取用户信息</h2>
+    <note>获取用户信息建议在服务端进行，因为服务端不应该信任客户端“自称”从唯ID获取的用户信息。</note>
+    <p>得到access token后，GET方式请求：</p>
     <pre>https://oauth.onlyid.net/user?access_token=获取到的access token</pre>
     <p>获取用户信息。</p>
     <p>成功示例：</p>
     <pre>{
-    "headImgUrl": "https://onlyid.net/head-img/599fd5af4ce32128b7bfd771.png",
-    "nickname": "ltb4",
-    "sex": "",  // 可能为"male","female"或"unknown"
-    "mobile": "18588237889",
-    "id": "599fd5af4ce32128b7bfd771"
+  "id":"5abcd260c4542d641acf1c34",
+  "mobile":"18512345678",
+  "createDate":"2018-04-28T07:27:28.347Z"
 }</pre>
     <p>失败示例：</p>
     <pre>{
     "error": "invalid_token",
     "error_description": "Invalid token: access token is invalid"
 }</pre>
-    <p>* <span class="warn">手机号和id是用户隐私，请注意保密。</span></p>
-
-    <h2>5. 保持登录</h2>
-    <p>用户打开app时，如果已登录，通过refresh token获取token，再获取最新用户信息。</p>
-    <p>POST方式请求：</p>
-    <pre>https://oauth.onlyid.net/token</pre>
-    <p>设置Content-Type为application/x-www-form-urlencoded，带上参数：</p>
-    <pre>client_id=您的client id
-client_secret=您的client secret
-grant_type=refresh_token
-refresh_token=之前获取到的refresh token</pre>
-    <p>得到token后，获取用户信息见步骤4。</p>
+    <note>手机号和id是用户隐私，请注意保密。</note>
+    <h2>结语</h2>
+    <p>至此，你已完成iOS app的接入。</p>
+    <p>接下来，你还可以在下载中心查阅 <router-link to="/downloads#demo">示例Demo</router-link>，以加深理解。
+      或继续阅读 <router-link to="/docs/custom">自定义选项（基础）</router-link>，了解我们为使用公有云的开发者提供的自定义选项。</p>
   </div>
 </template>
 
 <script>
+  import Note from './Note'
+
   export default {
-    name: 'Docs-iOS',
+    components: {
+      Note
+    },
     data () {
       return {
         msg: 'iOS'

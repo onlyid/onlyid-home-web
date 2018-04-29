@@ -8,7 +8,7 @@
       </span>
     </el-dialog>
     <el-dialog :visible.sync="reviewDialogVisible" width="500px" title="提交审核" center>
-      <span>在您提交上线审核前，须满足以下条件。请自行检查您的app/网站：</span>
+      <span>在提交上线审核前，须满足以下条件。请自行检查你的app/网站：</span>
       <ol>
         <li>主体内容基本完善。可清晰识别client的主要功能、经营内容。</li>
         <li>已上线可正常使用。app可在应用商店正常搜索、下载、使用；网站须保持80端口可正常访问。</li>
@@ -28,7 +28,7 @@
           </el-form-item>
         </template>
       </el-form>
-      <p class="note" style="font-size: 13px; margin: 20px 0 0">如您的app/网站不适宜开放公众使用，如企业、政府或其他组织的内部系统，请联系客户经理单独处理。</p>
+      <p class="note" style="font-size: 13px; margin: 20px 0 0">如你的app/网站不适宜开放公众使用，如企业、政府或其他组织的内部系统，请联系客户经理单独处理。</p>
       <span slot="footer">
           <el-button @click="reviewDialogVisible = false">取消</el-button>
           <el-button type="primary" @click="submitReview">提交审核</el-button>
@@ -100,20 +100,17 @@
           </td>
         </tr>
         <tr>
-          <td class="c1">主题</td>
+          <td class="c1">主题界面</td>
           <td class="c2">
-            标准、夜间模式
-              <el-radio :label="false">亮色系</el-radio>
-              <el-radio :label="true">暗色系</el-radio>
+            日间、夜间
+            <router-link to="/docs/custom#theme-dark"><el-button icon="el-icon-search" type="text">查看文档</el-button></router-link>
           </td>
         </tr>
         <tr>
-          <td class="c1">缩放</td>
+          <td class="c1">放大显示</td>
           <td class="c2">
-            <el-radio-group v-model="client.viewZoomed" @change="changeView">
-              <el-radio :label="false">标准</el-radio>
-              <el-radio :label="true">放大</el-radio>
-            </el-radio-group>
+            标准、放大
+            <router-link to="/docs/custom#view-zoomed"><el-button icon="el-icon-search" type="text">查看文档</el-button></router-link>
           </td>
         </tr>
       </table>
@@ -121,7 +118,7 @@
     <p style="font-size: 16px; margin-top: 30px;">高级设置</p>
     <el-card shadow="never">
       <table class="table1">
-        <tr>
+        <tr v-if="client.type === 'app'">
           <td class="c1">验证方式</td>
           <td class="c2">
             客户端Token、服务端中转
@@ -158,7 +155,7 @@
       <el-button type="text" icon="el-icon-menu" style="float: right" @click="presentReview" v-if="reviewButtonVisible">提交审核</el-button>
       <p style="font-size: 15px; margin-top: 10px">你的{{ client.type === 'app' ? 'app' : '网站'}}开发完成后，需提交上线审核</p>
       <p class="note" style="font-size: 13px">唯ID实行“后审核”制度，审核期间对用户“表现为”审核通过，不会影响你的业务正常开展。
-        了解更多请查阅 <router-link to="/docs/review">审核制度</router-link></p>
+        详情请查阅 <router-link to="/docs/review">审核制度</router-link></p>
       <table class="table1">
         <tr>
           <td class="c1">状态</td>
@@ -357,12 +354,6 @@
       changeType (value) {
         this.client.redirectUris = [config.defaultRedirectUri]
         this.submit1('type', value)
-      },
-      changeTheme (value) {
-        this.submit1('themeDark', value)
-      },
-      changeView (value) {
-        this.submit1('viewZoomed', value)
       }
     },
     computed: {

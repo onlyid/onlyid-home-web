@@ -106,7 +106,7 @@
       </tr>
     </table>
     <p class="subsection-title">通知管理</p>
-    <p class="note">选择您希望接收唯ID发送的哪些电子邮件。</p>
+    <p class="note">选择你希望接收唯ID发送的哪些电子邮件。</p>
     <el-form style="margin: 30px 0 0 120px;">
       <el-checkbox disabled checked></el-checkbox><span class="notification-title" style="color: #7f7f7f">开发者账号通知</span>
       <p class="notification-detail">账号敏感信息变更；服务即将过期；服务已过期导致服务暂停等</p>

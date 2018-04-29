@@ -1,6 +1,6 @@
 <template>
   <div>
-    因2.0更新较多，changelog整理中，请稍后再来
+    因2.0更新较多，小编加急整理中，请稍后再来
   </div>
 </template>
 

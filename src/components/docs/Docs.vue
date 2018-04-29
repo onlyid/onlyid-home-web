@@ -117,4 +117,18 @@
   #docs >>> .docs-ol li {
     margin: 10px 0;
   }
+  #docs >>> .docs-img {
+    border: 1px solid #DCDFE6;
+    border-radius: 5px;
+  }
+  #docs >>> .docs-img-div {
+    text-align: center;
+    display: inline-block;
+    margin-right: 40px;
+  }
+  #docs >>> .docs-img-div p {
+    margin-bottom: 0;
+    color: #7f7f7f;
+    font-size: 13px;
+  }
 </style>

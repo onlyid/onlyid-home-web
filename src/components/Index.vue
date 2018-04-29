@@ -11,9 +11,9 @@
           </div>
         </el-col>
         <el-col :span="7">
-          <div style="height: 445px;">
+          <div style="height: 452px;">
             <transition name="fade">
-              <img :src="demoImg" :key="demoImgIndex" width="250px" style="position: absolute;"/>
+              <img :src="demoImg" :key="demoImgIndex" width="300px" style="position: absolute; border: 1px solid #DCDFE6;"/>
             </transition>
           </div>
         </el-col>
@@ -45,19 +45,22 @@
           </el-tabs>
         </div>
         <div style="margin-top: 20px">
-          <el-row v-if="tabsActiveName === '1'" justify="space-between" type="flex">
+          <el-row v-if="tabsActiveName === '1'">
             <el-col :span="10">
               <p><el-tag class="scene-tag" type="success">场景 1</el-tag><span class="scene-title">短信验证码登录</span></p>
               <div class="scene-detail">
                 <p>满足用户使用手机号登录需求。</p>
                 <p>开发者无需开通短信服务，不用发送短信验证码，直接通过SDK调起唯ID，几行代码完成手机号验证，有效降低成本，提升开发效率。</p>
-                <p>唯ID提供丰富的自定义选项，两种主题界面，两种缩放大小，两种不同安全级别验证方式，方便您按需选择。</p>
+                <p>唯ID提供丰富的自定义选项，两种主题界面，两种显示大小，两种不同安全级别验证方式，方便您按需选择。</p>
               </div>
               <router-link to="/experience"><el-button class="scene-button" type="primary">在线体验</el-button></router-link>
               <router-link to="/docs"><el-button class="scene-button">查看文档</el-button></router-link>
             </el-col>
-            <el-col :span="13">
-              <img src="../assets/scene1.png" height="450px"/>
+            <el-col :span="8">
+              <img src="../assets/scene1-1.png" class="scene-img1"/>
+            </el-col>
+            <el-col :span="6">
+              <img src="../assets/scene1-2.png" class="scene-img2"/>
             </el-col>
           </el-row>
           <el-row v-if="tabsActiveName === '2'" justify="space-between" type="flex">
@@ -66,13 +69,16 @@
               <div class="scene-detail">
                 <p>依《网络安全法》相关要求，6月1日起会员账户需绑定手机。</p>
                 <p>开发者无需开通短信服务，在用户通过微信、微博登录后，通过SDK调起唯ID，几行代码完成手机号验证，轻松完成绑定。</p>
-                <p>唯ID提供丰富的自定义选项，两种主题界面，两种缩放大小，两种不同安全级别验证方式，方便您按需选择。</p>
+                <p>唯ID提供丰富的自定义选项，两种主题界面，两种显示大小，两种不同安全级别验证方式，方便您按需选择。</p>
               </div>
               <router-link to="/experience"><el-button class="scene-button" type="primary">在线体验</el-button></router-link>
               <router-link to="/docs"><el-button class="scene-button">查看文档</el-button></router-link>
             </el-col>
-            <el-col :span="13">
-              <img src="../assets/scene1.png" height="450px"/>
+            <el-col :span="8">
+              <img src="../assets/scene2-1.png" class="scene-img1"/>
+            </el-col>
+            <el-col :span="6">
+              <img src="../assets/scene1-2.png" class="scene-img2"/>
             </el-col>
           </el-row>
           <el-row v-if="tabsActiveName === '3'" justify="space-between" type="flex">
@@ -81,13 +87,16 @@
               <div class="scene-detail">
                 <p>app/网站为账号提供更换手机号功能，可方便用户新换号码后不用重新注册。</p>
                 <p>开发者无需开通短信服务，通过SDK调起唯ID，几行代码完成新手机号验证，轻松完成更换。</p>
-                <p>唯ID提供丰富的自定义选项，两种主题界面，两种缩放大小，两种不同安全级别验证方式，方便您按需选择。</p>
+                <p>唯ID提供丰富的自定义选项，两种主题界面，两种显示大小，两种不同安全级别验证方式，方便您按需选择。</p>
               </div>
               <router-link to="/experience"><el-button class="scene-button" type="primary">在线体验</el-button></router-link>
               <router-link to="/docs"><el-button class="scene-button">查看文档</el-button></router-link>
             </el-col>
-            <el-col :span="13">
-              <img src="../assets/scene1.png" height="450px"/>
+            <el-col :span="8">
+              <img src="../assets/scene3-1.png" class="scene-img1"/>
+            </el-col>
+            <el-col :span="6">
+              <img src="../assets/scene1-2.png" class="scene-img2"/>
             </el-col>
           </el-row>
         </div>
@@ -199,6 +208,17 @@
 </template>
 
 <script>
+  function loopDemoImg () {
+    this.timer = setInterval(() => {
+      this.demoImgIndex++
+      if (this.demoImgIndex > 4) {
+        this.demoImgIndex = 1
+      }
+      console.log('demoImg= ' + this.demoImgIndex)
+      this.demoImg = require('../assets/demo' + this.demoImgIndex + '.png')
+    }, 4000)
+  }
+
   export default {
     data () {
       return {
@@ -226,18 +246,11 @@
             return
           }
           this.tabsActiveName = String(Number(this.tabsActiveName) + 1)
-        }, 5000)
+        }, 8000)
       }
     },
     mounted () {
-      this.timer = setInterval(() => {
-        this.demoImgIndex++
-        if (this.demoImgIndex > 3) {
-          this.demoImgIndex = 1
-        }
-        console.log('demoImg= ' + this.demoImgIndex)
-        this.demoImg = require('../assets/demo' + this.demoImgIndex + '.png')
-      }, 3000)
+      loopDemoImg.call(this)
       this.startLoopTabs()
     },
     beforeDestroy () {
@@ -271,6 +284,9 @@
     font-size: 24px;
     margin-right: 5px;
   }
+  .scene-tag {
+    font-size: 14px;
+  }
   .scene-title {
     font-size: 20px;
     vertical-align: middle;
@@ -281,6 +297,19 @@
   }
   .scene-button {
     margin: 20px;
+  }
+  .scene-img1 {
+    border-radius: 5px;
+    height: 420px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    margin-left: 25px;
+  }
+  .scene-img2 {
+    border-radius: 5px;
+    height: 370px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    vertical-align: middle;
+    margin-top: 20px;
   }
   .deployment-title {
     font-size: 20px;

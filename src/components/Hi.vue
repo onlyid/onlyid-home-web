@@ -1,6 +1,8 @@
 <template>
   <div id="content">
-    <p style="width: 80px; word-wrap: break-word; word-break: break-all">哈哈哈哈 he-lloahaaaaaaa 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello </p>
+    <p>哈哈
+    或或</p>
+    <!--<p style="width: 80px; word-wrap: break-word; word-break: break-all">哈哈哈哈 he-lloahaaaaaaa 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello </p>-->
     <!--<hi1 @updatePerson="updatePerson"></hi1>-->
     <!--<p>{{ person.name }}</p>-->
     <!--<router-link to="#music"><el-button>哈哈</el-button></router-link>-->

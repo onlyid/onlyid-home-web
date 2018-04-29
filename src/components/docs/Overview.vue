@@ -14,10 +14,10 @@
     <p>通过综合使用短信验证码、密码等验证方式，唯ID实现了较低成本运营，真正为广大开发者和企业带来实实在在的优惠。</p>
     <p>唯ID能够覆盖全中国的用户，具备稳定可靠的性能。我们本身不是用户系统，只提供认证服务，是现有三方登录的理想补充。</p>
     <p>可广泛应用于短信验证码登录、三方登录绑定手机号、用户更换手机号等场景。</p>
-    <notice type="info">在应用于以上三个场景时，调用唯ID的方式并无不同。唯ID只负责验证用户手机号，不感知、不干涉、不影响您的业务流程，您可应用在任何需要验证用户手机号的场景。</notice>
+    <note type="info">在应用于以上三个场景时，调用唯ID的方式并无不同。唯ID只负责验证用户手机号，不感知、不干涉、不影响你的业务流程，可应用在任何需要验证用户手机号的场景。</note>
     <h2>工作原理</h2>
-    <p>唯ID为每个用户存储手机号、id和密码信息。当用户使用唯ID的手机号验证服务时，系统会返回给您用户的手机号和id。如果您有多个应用同时使用唯ID的手机号验证服务，请放心，id在不同的应用是一致的。</p>
-    <h3>验证流程（以iOS为例）</h3>
+    <p>唯ID为每个用户存储手机号、id和密码信息。当用户使用唯ID的手机号验证服务时，系统会返回给你用户的手机号和id。如果你有多个应用同时使用唯ID的手机号验证服务，请放心，id在不同的应用是一致的。</p>
+    <h3>验证流程（以app为例）</h3>
     <ol class="docs-ol">
       <li>app通过调起SDK的auth方法，开始验证流程。</li>
       <li>用户输入手机号，点击下一步。
@@ -27,10 +27,10 @@
         </ul>
       </li>
       <li>SDK会发送用户输入的手机号，验证码或密码等数据到唯ID服务器，服务器完成验证返回结果。</li>
-      <li>如果您的应用没有启用服务端中转流程，则在验证成功后，会直接获得用户手机号和id。否则，您会收到一个授权代码（authorization code），app的服务端可使用此授权代码安全地获取访问口令（access token），然后获取用户手机号和id。</li>
+      <li>如果你的应用没有启用服务端中转流程，则在验证成功后，会直接获得access token（访问口令），否则，你会收到一个authorization code（授权代码），app的服务端可使用此authorization code安全地获取access token，然后获取用户手机号和id。</li>
     </ol>
-    <p>如需详细了解SDK直接验证和服务端中转的安全性考虑，请查阅 <router-link to="/docs/security#server-redirect">服务端中转</router-link> 。</p>
-    <img src="../../assets/auth-chart.png" width="683"/>
+    <p>如需详细了解客户端Token和服务端中转的安全性考虑，请查阅 <router-link to="/docs/security#server-redirect">服务端中转</router-link> 。</p>
+    <img src="../../assets/auth-chart.png" width="683" class="docs-img"/>
     <h2 id="glossary">名词解释</h2>
     <p>以下为唯ID产品中出现频繁的技术名词。</p>
     <dl class="glossary-dl">
@@ -40,27 +40,24 @@
       <dt>client</dt>
       <dd>唯ID用client指代app或网站，同个app不区分平台（一个app的iOS和Android版视为一个client）</dd>
       <dt>client id和client secret</dt>
-      <dd>分别相当于您的app/网站在唯ID的帐号和密码。是唯ID SDK连接服务器所必需的标识，每一个client对应一套id / secret。</dd>
+      <dd>分别相当于你的app/网站在唯ID的帐号和密码。是唯ID SDK连接服务器所必需的标识，每一个client对应一套id / secret。</dd>
       <dd>请妥善保管id / secret，勿泄露给任何第三方。</dd>
-      <dt>授权代码（authorization code）</dt>
+      <dt>authorization code（授权代码）</dt>
       <dd>第三方通过authorization code获取access token，code的超时时间为5分钟，一个code只能成功换取一次access token即失效。</dd>
       <dd>code的临时性和一次性保障了唯ID授权验证的安全性。第三方可通过使用https和state参数，进一步加强自身授权验证的安全性。</dd>
-      <dt>访问口令（access token）</dt>
+      <dt>access token（访问口令）</dt>
       <dd>第三方通过access token获取用户手机号（mobile）和id，token的超时时间为1小时，一个token可多次换取mobile和id。</dd>
       <dd>请妥善保管access token，勿泄露给任何第三方。</dd>
     </dl>
-    <!--<p>所有服务免费，包括不限量的短信验证码服务。</p>-->
-    <!--<p>用户只需注册一次，即可在所有接入唯一ID的app/网站使用。</p>-->
-    <!--<p class="warn">手机号和id是用户隐私，请注意保密。</p>-->
   </div>
 </template>
 
 <script>
-  import Notice from './Note'
+  import Note from './Note'
 
   export default {
     components: {
-      Notice
+      Note
     },
     data () {
       return {
