@@ -21,6 +21,8 @@
 console.log('hello md')
 ```
 
+直接gitee编辑
+
 我自己之前玩的\
 单行，多行，块，部分\
 -，-----，#，!, *\
@@ -28,4 +30,5 @@ console.log('hello md')
 todo/memo\
 没必要一成不变\
 memo不那么强调缩进\
+=======
 
