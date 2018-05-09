@@ -248,7 +248,13 @@
         return moment(this.developer.expires).format(config.dateFormat)
       },
       renewDeveloperExpires () {
-        return moment(this.developerExpires).add(this.renewYears, 'y').format(config.dateFormat)
+        // 如果已过期，计算续费后到期时间从当前开始
+        const now = moment()
+        let expires = moment(this.developer.expires)
+        if (expires.isBefore(now)) {
+          expires = now
+        }
+        return expires.add(this.renewYears, 'y').format(config.dateFormat)
       }
     }
   }

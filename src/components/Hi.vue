@@ -1,7 +1,9 @@
 <template>
   <div id="content">
-    <p>哈哈
-    或或</p>
+    <el-button @click="setSession">setSession</el-button>
+    <el-button @click="printSession">printSession</el-button>
+    <!--<p>哈哈-->
+    <!--或或</p>-->
     <!--<p style="width: 80px; word-wrap: break-word; word-break: break-all">哈哈哈哈 he-lloahaaaaaaa 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello </p>-->
     <!--<hi1 @updatePerson="updatePerson"></hi1>-->
     <!--<p>{{ person.name }}</p>-->
@@ -141,6 +143,12 @@
       }
     },
     methods: {
+      setSession () {
+        localStorage.name = 'ltb'
+      },
+      printSession () {
+        console.log(localStorage.name)
+      },
       updatePerson (person) {
         this.person.name = 'hbj'
         this.person = person
@@ -178,16 +186,6 @@
     },
     created () {
       console.log('created')
-      console.log(this.bizContent)
-      this.payAction += '?app_id=' + '2018040702514897' +
-        '&method=' + 'alipay.trade.page.pay' +
-        '&return_url=' + 'http://onlyid.net:8080' +
-        '&charset=' + 'utf-8' +
-        '&sign_type=' + 'RSA2' +
-        '&sign=' + 'HjJuS8dmfseZEa1o3pzsLXH4hNUKdj0AP%2BxUcFrAbFQrRn10u5cqUSTp6bq%2FkIGxX2jZQrblQh2%2FG5ju%2FnPhoAOiIv96PkYNjPIAaxxNL5ok7ttqdUuIuiaYjTrzG6xjcMd7zN1eFkAjBxEBuWF9q2tQkKfnZjIvmAVsR6Mh3VxaObqHO9bw4ptLwbFHR%2FODwI9tmLN6kGo69e6dioU40OTqdUf54O5gssEF2ShHdDUTlxXRXW96BTUTbTJjtrsBJ5vQAZF%2Bn6v8FymyETD64uW3ME%2F08BVVoT8xTVsTOY8dx%2Bp3s9Kl%2BzAZMlgxJtge3zn6o6QNFlk%2Fh%2Bwv1n41yA%3D%3D' +
-        '&timestamp=' + new Date().toLocaleString() +
-        '&version=' + '1.0' +
-        '&notify_url=' + 'http://onlyid.net:3000/hi'
     },
     mounted () {
       console.log('mounted')
