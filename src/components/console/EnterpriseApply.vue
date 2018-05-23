@@ -39,7 +39,7 @@
     methods: {
       async apply () {
         try {
-          await this.$axios.post('/private/apply', {
+          await this.$axios.post('/enterprise/apply', {
             developer: {id: sessionStorage.getObj('developer').id}
           })
           this.dialogVisible = true

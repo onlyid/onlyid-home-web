@@ -1,5 +1,9 @@
 <template>
   <div id="content">
+    <div style="position: relative; background-color: #3b5898;">
+      <p style="background-color: #7f7f7f; z-index: -1;">hi</p>
+      <p style="position: absolute; top: 0; background-color: #E6A23C; margin: 0">he</p>
+    </div>
     <el-button @click="setSession">setSession</el-button>
     <el-button @click="printSession">printSession</el-button>
     <!--<p>哈哈-->
@@ -243,29 +247,23 @@
   }
   .waves::before {
     position: absolute;
-    background: radial-gradient(circle,rgba(255,255,255,0) 0,#67C23A 100%);
-    margin-left: -12px;
-    margin-top: -12px;
+    background: #E4E7ED;
     width: 50px;
     height: 50px;
     content: "";
     display: block;
     border-radius: 50%;
-    /*animation: wave-animate 3s infinite ease-out;*/
+    animation: wave-animate 3s infinite ease-out;
   }
   @keyframes wave-animate {
     0% {
-      -webkit-transform: scale(0);
       transform: scale(0);
       opacity: 1;
-      -webkit-transform-origin: center;
       transform-origin: center
     }
     100% {
-      -webkit-transform: scale(3);
       transform: scale(3);
       opacity: 0;
-      -webkit-transform-origin: center;
       transform-origin: center
     }
   }

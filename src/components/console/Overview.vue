@@ -9,25 +9,25 @@
             <num-tip tip="验证client数" :num="clients.length"/>
           </el-col>
           <el-col :span="4">
-            <num-tip tip="昨日总请求量" :num="requestSum"/>
+            <num-tip tip="昨日总请求量" :num="requestCount"/>
           </el-col>
           <el-col :span="4">
-            <num-tip tip="昨日总验证量" :num="authSuccessSum + authFailSum"/>
+            <num-tip tip="昨日总验证量" :num="authSuccessCount + authFailCount"/>
           </el-col>
           <el-col :span="4">
-            <num-tip tip="昨日总成功验证量" :num="authSuccessSum"/>
+            <num-tip tip="昨日总成功验证量" :num="authSuccessCount"/>
           </el-col>
           <el-col :span="4">
-            <num-tip tip="昨日总防御验证量" :num="authFailSum"/>
+            <num-tip tip="昨日总防御验证量" :num="authFailCount"/>
           </el-col>
         </el-row>
       </el-card>
       <div style="margin-top: 20px">
         <el-card header="账号信息" style="width: 48%; float: left; height: 170px" shadow="hover">
           <p style="margin: 0"><i class="material-icons account-icon" style="color: #3b5898;">account_circle</i>开发者账号： {{ developer.user.mobile }}</p>
-          <p><i class="el-icon-star-on account-icon" style="color: #E6A23C"></i>已开通： {{ developer.plan === 'standard' ? '公有云' : '专有云' }}</p>
+          <p><i class="el-icon-star-on account-icon" style="color: #E6A23C"></i>已开通： {{ developer.edition === 'standard' ? '公有云' : '专有云' }}</p>
           <p style="margin: 0"><i class="el-icon-date account-icon" style="color: #67C23A"></i>有效期： {{ developerExpires }}
-            <router-link to="/console/account#product-info"><el-button type="text" style="float: right; padding: 0">续费</el-button></router-link></p>
+            <router-link to="/console/account#products"><el-button type="text" style="float: right; padding: 0">续费</el-button></router-link></p>
         </el-card>
         <el-card header="订单信息" style="width: 48%; float: right; height: 170px" shadow="hover">
           <el-row style="margin-top: 20px">
@@ -65,9 +65,9 @@
     data () {
       return {
         developer: sessionStorage.getObj('developer'),
-        requestSum: 0,
-        authSuccessSum: 0,
-        authFailSum: 0,
+        requestCount: 0,
+        authSuccessCount: 0,
+        authFailCount: 0,
         clients: ''
       }
     },
@@ -87,14 +87,25 @@
           const res = await this.$axios.get('/clients/statsYesterday')
           this.clients = res.data.clients
 
-          this.requestSum = 0
-          this.authSuccessSum = 0
-          this.authFailSum = 0
+          console.log(this.clients)
+
+          this.requestCount = 0
+          this.authSuccessCount = 0
+          this.authFailCount = 0
           for (const c of this.clients) {
-            const stats = c.statsYesterday
-            this.requestSum += stats.requestCount
-            this.authSuccessSum += stats.authSuccessCount
-            this.authFailSum += stats.authFailCount
+            for (const s of c.statsYesterday) {
+              switch (s.type) {
+                case 'request':
+                  this.requestCount += s.count
+                  break
+                default:
+                  if (s.success) {
+                    this.authSuccessCount += s.count
+                  } else {
+                    this.authFailCount += s.count
+                  }
+              }
+            }
           }
         } catch (err) {
           console.error(err)

@@ -30,7 +30,8 @@
                     <li>多来自国内优秀的科技企业</li>
                     <li>平均年龄不到30岁，年轻有活力</li>
                   </ul>
-                  <p style="margin: 0">作为国内较早从事IDaaS服务行业的团队，我们见证了IDaaS在国内的快速发展，也积累了丰富的行业相关经验，为我们的客户带来极高 <router-link to="#" @click.native="common.goAnchor('#economic-impact')">经济收益</router-link>。</p>
+                  <p style="margin: 0">作为国内较早从事IDaaS行业的团队，我们见证了IDaaS在国内的快速发展，也积累了丰富的行业相关经验，为我们的客户带来极高
+                    <router-link :to="$route.fullPath" @click.native="common.goAnchor('#economic-impact')">经济收益</router-link>。</p>
                 </el-card>
               </el-col>
             </el-row>
@@ -47,7 +48,7 @@
                     <li>期盼未来使用一个唯ID账号即可畅游互联网</li>
                     <li>相信科技有温度，唯ID可以相伴用户一生</li>
                   </ul>
-                  <p style="margin: 0">公司文化 —— 从原始的地方出发，天马行空，脚踏实地，打造简单、可信赖的IDaaS服务。</p>
+                  <p style="margin: 0">公司文化 —— 从原始的地方出发，天马行空，脚踏实地。</p>
                 </el-card>
               </el-col>
             </el-row>
@@ -64,8 +65,8 @@
             <li>明显降低开发成本，大大减少IAM（Identity and Access Management）支出、解决安全问题支出。</li>
             <li>更关注业务逻辑，由此带来更快的创新速度，让终端用户更加满意。</li>
           </ul>
-          <el-card style="margin: 40px auto; width: 840px; padding: 10px">
-            <img src="../../assets/economic-impact.svg" width="800"/>
+          <el-card style="margin: 40px auto; width: 790px; padding: 10px">
+            <img src="../../assets/economic-impact.svg" width="750"/>
           </el-card>
           <el-row>
             <el-col :span="11">

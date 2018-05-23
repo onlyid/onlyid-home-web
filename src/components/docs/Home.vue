@@ -22,7 +22,7 @@
           <div class="step">
             <p class="step-title"><i class="iconfont step-icon">&#xe78f;</i> 根据不同平台部署</p>
             <ul class="step-detail">
-              <li>集成SDK（Android和iOS）</li>
+              <li>集成SDK（仅app）</li>
               <li>配置验证id和secret</li>
               <li>发起验证请求，获得用户手机号</li>
             </ul>

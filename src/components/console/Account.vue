@@ -85,12 +85,12 @@
         </tr>
       </table>
     </template>
-    <p class="subsection-title" id="product-info">产品信息</p>
+    <p class="subsection-title" id="products">产品信息</p>
     <table class="account-table">
       <tr>
         <td class="c1">手机号验证服务</td>
-        <td class="c2">已开通：{{ developer.plan === 'standard' ? '公有云' : '专有云' }}</td>
-        <td><router-link to="/console/private/apply"><el-button type="text"><i class="material-icons" style="font-size: 15px; vertical-align: text-bottom; margin-right: 4px;">arrow_upward</i>升级</el-button></router-link></td>
+        <td class="c2">已开通：{{ developer.edition === 'standard' ? '公有云' : '专有云' }}</td>
+        <td><router-link to="/console/enterprise/apply"><el-button type="text"><i class="material-icons" style="font-size: 15px; vertical-align: text-bottom; margin-right: 4px;">arrow_upward</i>升级</el-button></router-link></td>
       </tr>
       <tr>
         <td class="c1"></td>

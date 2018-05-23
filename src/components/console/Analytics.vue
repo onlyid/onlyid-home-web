@@ -1,75 +1,25 @@
 <template>
   <div>
-    <el-popover
-      trigger="hover"
-      placement="right"
-      ref="popover1">
+    <el-popover trigger="hover" placement="right" ref="popover1">
       请求量：用户请求验证服务的量（以打开授权页为准）<br/>
       验证量：用户实际验证的量（如使用密码、短信验证）
     </el-popover>
-    <el-popover
-      trigger="hover"
-      placement="right"
-      ref="popover2">
+    <el-popover trigger="hover" placement="right" ref="popover2">
       成功验证量：用户实际验证成功的量<br/>
       防御验证量：用户实际验证失败的量
     </el-popover>
-    <el-dialog
-      title="请求和验证量"
-      width="500px"
-      :fullscreen="true"
-      :visible.sync="dialog1Visible"
-      center>
-      <el-table
-        header-cell-class-name="header-cell"
-        :data="table1Data"
-        style="width: 100%">
-        <el-table-column
-          align="center"
-          prop="date"
-          label="日期"
-          width="170">
-        </el-table-column>
-        <el-table-column
-          align="center"
-          prop="requestCount"
-          label="请求量"
-          width="120">
-        </el-table-column>
-        <el-table-column
-          align="center"
-          prop="authCount"
-          label="验证量">
-        </el-table-column>
+    <el-dialog width="500px" :fullscreen="true" :visible.sync="dialog1Visible" center>
+      <el-table header-cell-class-name="header-cell" :data="table1Data" style="width: 100%">
+        <el-table-column align="center" prop="date" label="日期" width="170"></el-table-column>
+        <el-table-column align="center" prop="requestCount" label="请求量" width="120"></el-table-column>
+        <el-table-column align="center" prop="authCount" label="验证量"></el-table-column>
       </el-table>
     </el-dialog>
-    <el-dialog
-      title="成功验证和防御验证量"
-      width="500px"
-      :fullscreen="true"
-      :visible.sync="dialog2Visible"
-      center>
-      <el-table
-        header-cell-class-name="header-cell"
-        :data="table2Data"
-        style="width: 100%">
-        <el-table-column
-          align="center"
-          prop="date"
-          label="日期"
-          width="170">
-        </el-table-column>
-        <el-table-column
-          align="center"
-          prop="authSuccessCount"
-          label="成功验证量"
-          width="120">
-        </el-table-column>
-        <el-table-column
-          align="center"
-          prop="authFailCount"
-          label="防御验证量">
-        </el-table-column>
+    <el-dialog width="500px" :fullscreen="true" :visible.sync="dialog2Visible" center>
+      <el-table header-cell-class-name="header-cell" :data="table2Data" style="width: 100%">
+        <el-table-column align="center" prop="date" label="日期" width="170"></el-table-column>
+        <el-table-column align="center" prop="authSuccessCount" label="成功验证量" width="120"></el-table-column>
+        <el-table-column align="center" prop="authFailCount" label="防御验证量"></el-table-column>
       </el-table>
     </el-dialog>
 
@@ -114,44 +64,52 @@
         return
       }
       const res = await this.$axios.get('/clients/' + id + '/stats')
-      const requestStats = res.data.requestStats
-      const authSuccessStats = res.data.authSuccessStats
-      const authFailStats = res.data.authFailStats
+      const stats = res.data.stats
 
-      console.log(JSON.stringify(requestStats))
-      // 因为从后台返回的数据如果那天的count为0 则不会有记录 所以要先补齐
+      // 转换成echarts可以接受的格式
+      const requestCount = new Array(30).fill(0)
+      const authCount = new Array(30).fill(0)
+      const authSuccessCount = new Array(30).fill(0)
+      const authFailCount = new Array(30).fill(0)
+
       const date = new Date()
+      date.setHours(0, 0, 0, 0)
       date.setDate(date.getDate() - 30)
       for (let i = 0; i < 30; i++) {
-        const y = date.getFullYear()
-        const m = date.getMonth() + 1
-        const d = date.getDate()
-        const rs = requestStats[i]
-        const ass = authSuccessStats[i]
-        const afs = authFailStats[i]
-        if (!rs || rs._id.year !== y || rs._id.month !== m || rs._id.day !== d) {
-          requestStats.splice(i, 0, {_id: {year: y, month: m, day: d}, count: 0})
+        while (true) {
+          const s = stats[0]
+          // 处理完毕 结束循环
+          if (!s) {
+            break
+          }
+
+          // 当天的数据已经处理完
+          if (date < new Date(s.date)) {
+            break
+          }
+
+          // 跑到这里 说明date == s.date
+          switch (s.type) {
+            case 'request':
+              requestCount[i] += s.count
+              break
+            default:
+              if (s.success) {
+                authSuccessCount[i] += s.count
+              } else {
+                authFailCount[i] += s.count
+              }
+              authCount[i] += s.count
+          }
+
+          stats.shift()
         }
-        if (!ass || ass._id.year !== y || ass._id.month !== m || ass._id.day !== d) {
-          authSuccessStats.splice(i, 0, {_id: {year: y, month: m, day: d}, count: 0})
-        }
-        if (!afs || afs._id.year !== y || afs._id.month !== m || afs._id.day !== d) {
-          authFailStats.splice(i, 0, {_id: {year: y, month: m, day: d}, count: 0})
-        }
+
         date.setDate(date.getDate() + 1)
       }
-      console.log(JSON.stringify(requestStats))
-      // 转换成echarts可以接受的格式
-      const requestCount = []
-      const authCount = []
-      const authSuccessCount = []
-      const authFailCount = []
-      for (let i = 0; i < 30; i++) {
-        requestCount.push(requestStats[i].count)
-        authSuccessCount.push(authSuccessStats[i].count)
-        authFailCount.push(authFailStats[i].count)
-        authCount.push(authSuccessCount[i] + authFailCount[i])
-      }
+
+      console.log(requestCount)
+
       this.chart1.setOption({
         series: [{
           name: '请求量',
@@ -281,5 +239,8 @@
   }
   .el-dialog__wrapper >>> .el-dialog__body {
     padding: 0;
+  }
+  .el-dialog__wrapper >>> .el-dialog__header {
+    display: none;
   }
 </style>

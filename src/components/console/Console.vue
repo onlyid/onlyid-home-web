@@ -18,12 +18,12 @@
               <i class="material-icons menu-icon" style="color: #3b5898;">storage</i>
               <span>专有云</span>
             </template>
-            <el-menu-item index="/console/private/overview">概览</el-menu-item>
-            <el-menu-item index="/console/private/signatures">签名设置</el-menu-item>
-            <el-menu-item index="/console/private/templates">模板设置</el-menu-item>
-            <el-menu-item index="/console/private/analytics">数据统计</el-menu-item>
-            <el-menu-item index="/console/private/settings">管理设置</el-menu-item>
-            <el-menu-item index="/console/private/others">其他自定义选项</el-menu-item>
+            <el-menu-item index="/console/enterprise/overview">概览</el-menu-item>
+            <el-menu-item index="/console/enterprise/signatures">签名管理</el-menu-item>
+            <el-menu-item index="/console/enterprise/templates">模板管理</el-menu-item>
+            <el-menu-item index="/console/enterprise/analytics">数据统计</el-menu-item>
+            <el-menu-item index="/console/enterprise/settings">管理设置</el-menu-item>
+            <el-menu-item index="/console/enterprise/others">其他自定义选项</el-menu-item>
           </el-submenu>
           <el-menu-item index="/console/mobile-account">
             <i class="material-icons menu-icon" style="color: #67C23A;">contact_phone</i>
@@ -61,7 +61,7 @@
       }
     },
     mounted () {
-      if (sessionStorage.getObj('developer').plan === 'standard') {
+      if (sessionStorage.getObj('developer').edition === 'standard') {
         this.$refs.menu.open('1')
       } else {
         this.$refs.menu.open('2')
@@ -71,8 +71,8 @@
       activeIndex () {
         const ss = this.$route.path.split('/')
         let index
-        if (this.$route.path.startsWith('/console/private')) {
-          index = '/console/private/' + ss[3]
+        if (this.$route.path.startsWith('/console/enterprise')) {
+          index = '/console/enterprise/' + ss[3]
         } else {
           index = '/console/' + ss[2]
         }

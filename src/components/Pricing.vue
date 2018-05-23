@@ -2,15 +2,15 @@
   <div>
     <p id="banner1">我们提供极具竞争力的价格</p>
     <div id="content">
-      <div style="width: 800px;" class="section">
+      <div style="width: 810px;" class="section">
         <div style="text-align: center;">
           <el-tag style="font-size: 20px">商业化公告</el-tag>
         </div>
         <div id="announcement">
-          <p style="font-size: 20px; text-align: center">我们将于2018年4月正式商业化</p>
+          <p style="font-size: 20px; text-align: center">我们将于2018年1月正式商业化</p>
           <div style="font-size: 15px">
             <p>尊敬的客户：</p>
-            <p>唯ID自上线以来，获得了广大开发者和企业客户的一致好评。为了提供更好的服务，我们将于2018年4月正式商业化。</p>
+            <p>唯ID自上线以来，获得了广大开发者和企业客户的一致好评。为了提供更好的服务，我们将于2018年1月正式商业化。</p>
             <p>对于公用云部署方式，将收取每位开发者<span>365元人民币/年</span>的费用，用于公司的日常运营支出。</p>
             <p>除账号年费外，不收取其他任何费用，您仍然可以享受<span>无限量的短信验证码服务</span>。</p>
             <p>作为深受用户信赖的IDaaS服务提供商，唯ID致力于打造开放、统一的平台，我们郑重承诺<span>5年内不调整价格</span>。</p>
@@ -18,7 +18,7 @@
             <p>衷心感谢您过去的信任和支持，未来我们一定会为您提供更好的服务。</p>
             <p>有任何疑问，请联系客户经理。</p>
             <p>特此公告。</p>
-            <p style="text-align: right">—— 唯ID团队 2018年1月</p>
+            <p style="text-align: right">—— 唯ID团队 2017年12月</p>
           </div>
         </div>
       </div>
@@ -33,14 +33,14 @@
                 <span class="pricing-title">公有云</span>
               </div>
               <div class="pricing-detail">
-                <el-tabs v-model="activeNamePublic" class="tabs">
+                <el-tabs v-model="activeNameStandard" class="tabs">
                   <el-tab-pane label="价格与功能" name="1">
                     <ul>
                       <li>基础年费（人民币）<span>365元</span></li>
                       <li>短信费用<span>免费</span></li>
                       <div class="gradient-hr"/>
                       <li>可建client<span>5个 *</span></li>
-                      <li>自定义选项<span><el-button @click="goTab('2','public')" type="text" class="pricing-button">基础</el-button></span></li>
+                      <li>自定义选项<span><el-button @click="goTab('2','standard')" type="text" class="pricing-button">基础</el-button></span></li>
                       <li>验证请求量<span>无限制</span></li>
                       <li>统计数据<span>基础</span></li>
                       <li>开通方式<span>自助开通</span></li>
@@ -66,7 +66,7 @@
                 <span class="pricing-title">专有云（大客户方案）</span>
               </div>
               <div class="pricing-detail">
-                <el-tabs v-model="activeNamePrivate" class="tabs">
+                <el-tabs v-model="activeNameEnterprise" class="tabs">
                   <el-tab-pane name="1">
                     <span slot="label">价格与功能</span>
                     <ul>
@@ -76,9 +76,9 @@
                       <li>定制和其他费用<span>以合同为准</span></li>
                       <div class="gradient-hr"/>
                       <li>可建client<span>50个 *</span></li>
-                      <li>自定义选项<span><el-button @click="goTab('2','private')" type="text" class="pricing-button">丰富</el-button></span></li>
+                      <li>自定义选项<span><el-button @click="goTab('2','enterprise')" type="text" class="pricing-button">丰富</el-button></span></li>
                       <li>验证请求量<span>无限制</span></li>
-                      <li>统计数据<span><el-button @click="goTab('4','private')" type="text" class="pricing-button">丰富</el-button></span></li>
+                      <li>统计数据<span><el-button @click="goTab('4','enterprise')" type="text" class="pricing-button">丰富</el-button></span></li>
                       <li>开通方式<span>联系客户经理开通</span></li>
                     </ul>
                   </el-tab-pane>
@@ -151,37 +151,36 @@
   export default {
     data () {
       return {
-        activeNamePublic: '1',
-        activeNamePrivate: '1',
+        activeNameStandard: '1',
+        activeNameEnterprise: '1',
         common
       }
     },
     methods: {
       renew () {
-        // this.$alert('暂未开放')
-        this.$router.push('/console/account#product-info')
+        this.$router.push('/console/account#products')
       },
       goTab (index, tabs) {
-        if (tabs === 'public') {
-          this.activeNamePublic = index
-        } else { // === private
-          this.activeNamePrivate = index
+        if (tabs === 'standard') {
+          this.activeNameStandard = index
+        } else { // === enterprise
+          this.activeNameEnterprise = index
         }
       }
     },
     watch: {
-      activeNamePublic (value) {
+      activeNameStandard (value) {
         if (value === '1') {
-          this.activeNamePrivate = '1'
+          this.activeNameEnterprise = '1'
         } else { // == 2
-          this.activeNamePrivate = '2'
+          this.activeNameEnterprise = '2'
         }
       },
-      activeNamePrivate (value) {
+      activeNameEnterprise (value) {
         if (value === '1') {
-          this.activeNamePublic = '1'
+          this.activeNameStandard = '1'
         } else if (value === '2') {
-          this.activeNamePublic = '2'
+          this.activeNameStandard = '2'
         }
       }
     }

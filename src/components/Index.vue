@@ -21,12 +21,12 @@
     </div>
     <div id="content">
       <div class="section">
-        <p style="text-align: center; " class="note">唯ID将于2018年4月正式商业化，详情请查阅
+        <p style="text-align: center; " class="note">唯ID已于2018年1月正式商业化，详情请查阅
           <router-link to="/pricing"><el-button type="text">价格</el-button></router-link>
         </p>
         <p class="intro">我们为app和网站提供简单、可信赖的手机号验证服务。开发者无需关心发送短信、比对验证码等细节，轻松获取用户手机号。可广泛应用于短信验证码登录、三方登录绑定手机号等场景。</p>
       </div>
-      <div class="gradient-hr"/>
+      <div class="gradient-hr"></div>
       <div class="section">
         <p class="section-title">三大业务场景</p>
         <p class="section-summary">精准匹配您的验证诉求</p>
@@ -101,19 +101,24 @@
           </el-row>
         </div>
       </div>
-      <div class="gradient-hr"/>
+      <div class="gradient-hr"></div>
       <div class="section">
         <p class="section-title">两大部署方式</p>
         <p class="section-summary">随你所需，量身定做</p>
         <el-row style="margin-top: 40px">
           <el-col :span="11">
             <el-card>
-              <img src="../assets/deployment-public.png" class="deployment-image"/>
               <div slot="header">
-                <span class="deployment-title">公有云</span>
-                <router-link to="/pricing#pricing-features"><el-button class="deployment-button" type="text">价格与功能</el-button></router-link>
+                <span class="edition-title">公有云</span>
+                <router-link to="/pricing#pricing-features"><el-button class="edition-button" type="text">价格与功能</el-button></router-link>
               </div>
-              <div class="deployment-detail">
+              <div class="edition-image-decoration">
+                <div class="waves"></div>
+                <div class="waves wave1"></div>
+                <div class="waves wave2"></div>
+                <img src="../assets/edition-standard.png" class="edition-image"/>
+              </div>
+              <div class="edition-detail">
                 <ul>
                   <li>共享唯ID的公共基础设施和计算资源</li>
                   <li>用户可设置一个密码，在所有接入唯ID的app/网站使用</li>
@@ -121,17 +126,23 @@
                   <li>注册后自助开通，快速完成接入，省心省力</li>
                 </ul>
               </div>
-              <p>公有云部署方式是大多数开发者快速实现短信验证码登录的第一选择</p>
+              <div class="gradient-hr"></div>
+              <p class="edition-summary">公有云部署方式是大多数开发者快速实现<span style="font-weight: bold">短信验证码登录</span>的第一选择</p>
             </el-card>
           </el-col>
           <el-col :span="11" :offset="2">
             <el-card>
-              <img src="../assets/deployment-private.png" class="deployment-image"/>
               <div slot="header">
-                <span class="deployment-title">专有云（大客户方案）</span>
-                <router-link to="/pricing#pricing-features"><el-button class="deployment-button" type="text">价格与功能</el-button></router-link>
+                <span class="edition-title">专有云（大客户方案）</span>
+                <router-link to="/pricing#pricing-features"><el-button class="edition-button" type="text">价格与功能</el-button></router-link>
               </div>
-              <div class="deployment-detail">
+              <div class="edition-image-decoration">
+                <div class="waves"></div>
+                <div class="waves wave1"></div>
+                <div class="waves wave2"></div>
+                <img src="../assets/edition-enterprise.png" class="edition-image"/>
+              </div>
+              <div class="edition-detail">
                 <ul>
                   <li>服务资源隔离，我们会为您启用专有的计算节点和数据库</li>
                   <li>用户设置的密码仅用于您的app/网站</li>
@@ -139,19 +150,20 @@
                   <li>联系客户经理开通，我们会第一时间为您服务</li>
                 </ul>
               </div>
-              <p>专有云部署方式是中大型企业快速实现 IDaaS (Identity as a Service) 的最佳选择</p>
+              <div class="gradient-hr"></div>
+              <p class="edition-summary">专有云部署方式是专为中大型企业打造的 <span style="font-weight: bold">IDaaS (Identity as a Service) 解决方案</span></p>
             </el-card>
           </el-col>
         </el-row>
         <div style="text-align: center; margin-top: 50px;">
           <p>
             <el-tag style="font-size: 14px" type="success">服务承诺</el-tag>
-            <span style="font-size: 18px; margin-left: 10px;">您是我们宝贵的客户</span>
+            <span style="font-size: 20px; margin-left: 10px; vertical-align: middle">您是我们宝贵的客户</span>
           </p>
-          <p style="font-size: 16px; color: #7f7f7f;">无论您选择公有云还是专有云部署方式，在客户支持和服务方面我们将一视同仁，为您提供无差别的高标准服务。</p>
+          <p style="font-size: 16px; color: #606266;">无论您选择公有云还是专有云部署方式，在客户支持和服务方面我们将一视同仁，为您提供无差别的高标准服务</p>
         </div>
       </div>
-      <div class="gradient-hr"/>
+      <div class="gradient-hr"></div>
       <div class="section">
         <p class="section-title">特点与优势</p>
         <p class="section-summary">简单、可信赖</p>
@@ -161,8 +173,8 @@
           </el-col>
           <el-col :span="14">
             <p class="advantage-title">极简API，半小时闪电接入</p>
-            <p class="advantage-detail">不影响业务流程，不改变用户习惯。</p>
-            <p class="advantage-detail">SDK覆盖Web、Android、iOS全平台。</p>
+            <p class="advantage-detail">不影响业务流程，不改变用户习惯</p>
+            <p class="advantage-detail">SDK覆盖Web、Android、iOS全平台</p>
           </el-col>
           <el-col :span="4">
             <router-link to="/docs/overview"><el-button type="primary" plain round>新手入门</el-button></router-link>
@@ -174,8 +186,8 @@
           </el-col>
           <el-col :span="14">
             <p class="advantage-title">银行级团队为安全保驾护航</p>
-            <p class="advantage-detail">标准OAuth实现，全程HTTPS加密，密码安全存储。</p>
-            <p class="advantage-detail">团队成员来自国内某知名银行，为唯ID带来银行级的安全和稳定。</p>
+            <p class="advantage-detail">标准OAuth实现，全程HTTPS加密，密码安全存储</p>
+            <p class="advantage-detail">团队成员来自国内某知名银行，为唯ID带来银行级的安全和稳定</p>
           </el-col>
           <el-col :span="4">
             <router-link to="/docs/security"><el-button type="danger" plain round>安全实践</el-button></router-link>
@@ -187,8 +199,8 @@
           </el-col>
           <el-col :span="14">
             <p class="advantage-title">不限量验证短信任性发 *</p>
-            <p class="advantage-detail">极简价格方案，除账号年费外，不收取其他任何费用。</p>
-            <p class="advantage-detail">您可以享受无限量的短信验证码服务。</p>
+            <p class="advantage-detail">极简价格方案，除账号年费外，不收取其他任何费用</p>
+            <p class="advantage-detail">您可以享受无限量的短信验证码服务</p>
           </el-col>
           <el-col :span="4">
             <router-link to="/pricing"><el-button type="success" plain round>价格</el-button></router-link>
@@ -201,7 +213,7 @@
           <p>“我们的使命是建立中国统一的账号和认证体系，为互联网带来秩序。” <span style="margin-left: 100px"> —— 唯ID团队</span></p>
           <router-link to="/console"><el-button type="primary" style="margin-top: 10px">开始使用</el-button></router-link>
         </div>
-        <div class="gradient-hr" style="background: #7f7f7f;" />
+        <div class="gradient-hr" style="background: #7f7f7f;"></div>
       </div>
     </div>
   </div>
@@ -262,6 +274,19 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  @keyframes wave-animate {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+      transform-origin: center
+    }
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+      transform-origin: center
+    }
+  }
+
   #banner-bg {
     background-image: url("../assets/mask.png"), linear-gradient( to right, #2f518b 0%, #0be1f4 100% );
     background-size: cover;
@@ -283,6 +308,13 @@
     vertical-align: middle;
     font-size: 24px;
     margin-right: 5px;
+    color: #7f7f7f;
+  }
+  .el-tabs__item:hover .tab-icon {
+    color: #409EFF;
+  }
+  .el-tabs__item.is-active .tab-icon {
+    color: #409EFF;
   }
   .scene-tag {
     font-size: 14px;
@@ -296,7 +328,7 @@
     height: 240px;
   }
   .scene-button {
-    margin: 20px;
+    margin-right: 20px;
   }
   .scene-img1 {
     border-radius: 5px;
@@ -311,32 +343,51 @@
     vertical-align: middle;
     margin-top: 20px;
   }
-  .deployment-title {
+  .edition-title {
     font-size: 20px;
   }
-  .deployment-button {
+  .edition-button {
     float: right;
-    padding: 3px 0
+    padding-top: 7px;
   }
-  .deployment-image {
-    margin: 0 auto;
-    display: block;
+  .edition-image-decoration {
+    position: relative;
     width: 215px;
+    margin: 0 auto;
   }
-  .deployment-detail {
+  .edition-image {
+    display: block;
+    width: 100%;
+    position: relative;
+  }
+  .waves {
+    position: absolute;
+    background: #e5f4ff;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation: wave-animate 4s infinite ease-out;
+  }
+  .wave1 {
+    animation-delay: 1s;
+  }
+  .wave2 {
+    animation-delay: 2s;
+  }
+  .edition-detail {
     min-height: 150px;
   }
-  .deployment-detail ul {
-    padding: 0px;
+  .edition-detail ul {
+    padding: 0;
+    margin: 0;
   }
-  .deployment-detail li {
-    /*list-style-type: circle;*/
+  .edition-detail li {
     margin: 15px 0;
     list-style: none;
   }
-  .deployment-detail + p {
-    font-size: 17px;
-    font-style: italic;
+  .edition-summary {
+    font-size: 18px;
+    margin-bottom: 0;
   }
   .advantage {
     margin-top: 40px;

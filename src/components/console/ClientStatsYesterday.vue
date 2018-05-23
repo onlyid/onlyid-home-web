@@ -14,16 +14,16 @@
         <p style="font-size: 16px; margin: 0">{{ client.name }}</p>
         <el-row style="margin-top: 15px">
           <el-col :span="4">
-            <num-tip :num="client.statsYesterday.requestCount" tip="昨日请求量"></num-tip>
+            <num-tip :num="requestCount" tip="昨日请求量"></num-tip>
           </el-col>
           <el-col :span="4">
-            <num-tip :num="client.statsYesterday.authSuccessCount + client.statsYesterday.authFailCount" tip="昨日验证量"></num-tip>
+            <num-tip :num="authSuccessCount + authFailCount" tip="昨日验证量"></num-tip>
           </el-col>
           <el-col :span="5">
-            <num-tip :num="client.statsYesterday.authSuccessCount" tip="昨日成功验证量"></num-tip>
+            <num-tip :num="authSuccessCount" tip="昨日成功验证量"></num-tip>
           </el-col>
           <el-col :span="5">
-            <num-tip :num="client.statsYesterday.authFailCount" tip="昨日防御验证量"></num-tip>
+            <num-tip :num="authFailCount" tip="昨日防御验证量"></num-tip>
           </el-col>
           <el-col :span="2" :offset="1">
             <router-link :to="'/console/analytics/' + client._id"><el-button circle type="danger" plain><i class="iconfont">&#xe9d0;</i></el-button></router-link>
@@ -42,30 +42,48 @@
 </template>
 
 <script>
-  import NumTip from './NumTip'
+import NumTip from './NumTip'
 
-  export default {
-    components: {
-      NumTip
-    },
-    props: ['client'],
-    data () {
-      return {
-        dialogVisible: false
+export default {
+  components: {
+    NumTip
+  },
+  props: ['client'],
+  data () {
+    return {
+      dialogVisible: false,
+      requestCount: 0,
+      authSuccessCount: 0,
+      authFailCount: 0
+    }
+  },
+  methods: {
+    async delete1 () {
+      try {
+        await this.$axios.delete('/clients/' + this.client._id)
+        this.dialogVisible = false
+        this.$emit('deleted')
+      } catch (err) {
+        console.error(err)
       }
-    },
-    methods: {
-      async delete1 () {
-        try {
-          await this.$axios.delete('/clients/' + this.client._id)
-          this.dialogVisible = false
-          this.$emit('deleted')
-        } catch (err) {
-          console.error(err)
-        }
+    }
+  },
+  created () {
+    for (const s of this.client.statsYesterday) {
+      switch (s.type) {
+        case 'request':
+          this.requestCount += s.count
+          break
+        default:
+          if (s.success) {
+            this.authSuccessCount += s.count
+          } else {
+            this.authFailCount += s.count
+          }
       }
     }
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

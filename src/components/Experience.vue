@@ -2,7 +2,7 @@
   <div>
     <p id="banner1">体验下一代手机号验证服务</p>
     <div class="menu">
-        <p style="margin: 0px;"><span @click="common.goAnchor('#experience-public')">公有云</span><span style="margin-left: 50px;" @click="common.goAnchor('#experience-private')">专有云（大客户方案）</span></p>
+        <p style="margin: 0px;"><span @click="common.goAnchor('#experience-public')">公有云</span><span style="margin-left: 50px;" @click="common.goAnchor('#experience-enterprise')">专有云（大客户方案）</span></p>
     </div>
     <div class="section-bg-gradient">
       <div class="section" id="experience-public">
@@ -32,7 +32,7 @@
                 <p><img src="../assets/click.svg" style="vertical-align: sub; margin-right: 10px;"/>尝试点一下</p>
                 <div style="border-top: 1px solid #EFEFEF;">
                   <p style="margin-bottom: 5px;font-size: 15px; color: #7f7f7f;">专有云（大客户方案）可深度定制界面。</p>
-                  <el-button type="text" style="font-size: 16px" @click="common.goAnchor('#experience-private')">体验专有云</el-button>
+                  <el-button type="text" style="font-size: 16px" @click="common.goAnchor('#experience-enterprise')">体验专有云</el-button>
                 </div>
               </div>
             </div>
@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="section-bg-gradient">
-      <div class="section" id="experience-private">
+      <div class="section" id="experience-enterprise">
         <p class="section-title">体验专有云</p>
         <p class="section-summary">体验企业级IDaaS解决方案</p>
         <div style="margin-top: 40px; font-size: 18px">

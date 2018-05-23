@@ -25,20 +25,18 @@ import DocsReview from '@/components/docs/review'
 import DocsChangelog from '@/components/docs/Changelog'
 
 import Console from '@/components/console/Console'
-import Client from '@/components/console/Client'
-import ClientUpdate from '@/components/console/ClientUpdate'
-import ClientCreate from '@/components/console/ClientCreate'
+import ConsoleClientCreate from '@/components/console/ClientCreate'
 import ConsoleOverview from '@/components/console/Overview'
-import ConsolePrivateApply from '@/components/console/PrivateApply'
+import ConsoleEnterpriseApply from '@/components/console/EnterpriseApply'
 import ConsoleMobileAccount from '@/components/console/MobileAccount'
 import ConsoleAnalytics from '@/components/console/Analytics'
 import ConsoleSettings from '@/components/console/Settings'
 import ConsoleAccount from '@/components/console/Account'
 
-import Careers from '@/components/about/Careers'
-import AboutUs from '@/components/about/AboutUs'
-import Agreement from '@/components/about/Agreement'
-import Privacy from '@/components/about/Privacy'
+import About from '@/components/about/About'
+import AboutCareers from '@/components/about/Careers'
+import AboutAgreement from '@/components/about/Agreement'
+import AboutPrivacy from '@/components/about/Privacy'
 
 import config from '@/config'
 
@@ -77,23 +75,11 @@ const router = new Router({
         {path: 'analytics', component: ConsoleAnalytics},
         {path: 'settings/:id', component: ConsoleSettings},
         {path: 'settings', component: ConsoleSettings},
-        {path: 'private/apply', component: ConsolePrivateApply},
+        {path: 'enterprise/apply', component: ConsoleEnterpriseApply},
         {path: 'account', component: ConsoleAccount},
         {path: 'mobile-account', component: ConsoleMobileAccount},
-        {path: 'clients/create', component: ClientCreate}
+        {path: 'clients/create', component: ConsoleClientCreate}
       ]
-    },
-    {
-      path: '/console/clients/:id/update',
-      component: ClientUpdate
-    },
-    {
-      path: '/console/clients/create',
-      component: ClientCreate
-    },
-    { // 要放在create下面，不然create会匹配不到
-      path: '/console/clients/:id',
-      component: Client
     },
     {
       path: '/auth',
@@ -116,20 +102,20 @@ const router = new Router({
       component: Signup
     },
     {
-      path: '/about-us',
-      component: AboutUs
+      path: '/about',
+      component: About
     },
     {
-      path: '/agreement',
-      component: Agreement
+      path: '/about/agreement',
+      component: AboutAgreement
     },
     {
-      path: '/privacy',
-      component: Privacy
+      path: '/about/privacy',
+      component: AboutPrivacy
     },
     {
-      path: '/careers',
-      component: Careers
+      path: '/about/careers',
+      component: AboutCareers
     },
     {
       path: '/hi',
@@ -159,8 +145,8 @@ router.beforeEach((to, from, next) => {
 
   const developer = sessionStorage.getObj('developer')
   if (developer) {
-    if (path.startsWith('/console/private') && !path.startsWith('/console/private/apply') && developer.plan !== 'pro') {
-      return next('/console/private/apply')
+    if (path.startsWith('/console/enterprise') && !path.startsWith('/console/enterprise/apply') && developer.edition !== 'pro') {
+      return next('/console/enterprise/apply')
     }
     return next()
   }

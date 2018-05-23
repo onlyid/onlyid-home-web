@@ -72,11 +72,11 @@
           <el-col :span="5">
             <p class="footer-title">关于唯ID</p>
             <ul>
-              <li><router-link to="/about-us">关于我们</router-link></li>
-              <li><router-link to="/about-us#contact">联系方式</router-link></li>
-              <li><router-link to="/careers">加入我们</router-link></li>
-              <li><router-link to="/privacy">隐私权政策</router-link></li>
-              <li><router-link to="/agreement">服务条款</router-link></li>
+              <li><router-link to="/about">关于我们</router-link></li>
+              <li><router-link to="/about#contact">联系方式</router-link></li>
+              <li><router-link to="/about/careers">加入我们</router-link></li>
+              <li><router-link to="/about/privacy">隐私权政策</router-link></li>
+              <li><router-link to="/about/agreement">服务条款</router-link></li>
             </ul>
           </el-col>
         </el-row>
