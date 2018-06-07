@@ -9,7 +9,7 @@
     </el-dialog>
     <el-dialog :visible.sync="reviewDialogVisible" width="500px" title="提交审核" center>
       <span>在提交上线审核前，须满足以下条件。请自行检查你的app/网站：</span>
-      <ol>
+      <ol style="padding-left: 1em;">
         <li>主体内容基本完善。可清晰识别client的主要功能、经营内容。</li>
         <li>已上线可正常使用。app可在应用商店正常搜索、下载、使用；网站须保持80端口可正常访问。</li>
       </ol>
@@ -43,16 +43,9 @@
         <tr>
           <td class="c1">icon</td>
           <td class="c2">
-            <el-upload
-              :action="clientIconAction"
-              accept="image/jpeg,image/png"
-              :with-credentials="true"
-              :before-upload="beforeAvatarUpload"
-              :on-success="handleAvatarSuccess"
-              :on-error="handleAvatarError"
-              :show-file-list="false"
-              name="icon"
-              class="avatar-uploader">
+            <el-upload :action="clientIconAction" accept="image/jpeg,image/png" :with-credentials="true"
+              :before-upload="beforeAvatarUpload" :on-success="handleAvatarSuccess" :on-error="handleAvatarError"
+              :show-file-list="false" name="icon" class="avatar-uploader">
               <img :src="imageUrl" class="avatar"/>
             </el-upload>
           </td>
@@ -77,7 +70,7 @@
         <tr>
           <td class="c1">类型</td>
           <td class="c2">
-            <el-radio-group v-model="client.type" @change="changeType">
+            <el-radio-group v-model="client.type" @change="submit1('type', $event)">
               <el-radio label="web"></el-radio>
               <el-radio label="app"></el-radio>
             </el-radio-group>
@@ -86,16 +79,16 @@
         <tr>
           <td class="c1">redirect uri</td>
           <td class="c2" style="word-break:break-all;">
-            <el-form v-if="isUpdateRedirectUri" ref="formRedirectUri" :model="form" :rules="rules">
-              <el-form-item prop="redirectUri">
-                <el-input v-model="form.redirectUri" style="width: 410px"></el-input>
-                <el-button icon="el-icon-close" type="text" @click="dismissUpdate('redirectUri')">取消</el-button>
-                <el-button icon="el-icon-check" type="text" @click="submitRedirectUri">保存</el-button>
+            <el-form v-if="isUpdateRedirectUris" ref="formRedirectUris" :model="form" :rules="rules">
+              <el-form-item prop="redirectUris">
+                <el-input v-model="form.redirectUris" style="width: 410px"></el-input>
+                <el-button icon="el-icon-close" type="text" @click="dismissUpdate('redirectUris')">取消</el-button>
+                <el-button icon="el-icon-check" type="text" @click="submit('redirectUris')">保存</el-button>
               </el-form-item>
             </el-form>
             <template v-else>
-              {{ client.redirectUris ? client.redirectUris[0] : '' }}
-              <el-button v-if="client.type !== 'app'" icon="el-icon-edit" type="text" @click="presentUpdate('redirectUri')">修改</el-button>
+              {{ client.redirectUris.toString() }}
+              <el-button v-if="client.type !== 'app'" icon="el-icon-edit" type="text" @click="presentUpdate('redirectUris')">修改</el-button>
             </template>
           </td>
         </tr>
@@ -135,16 +128,16 @@
         <tr>
           <td class="c1">服务端IP</td>
           <td class="c2">
-            <el-form v-if="isUpdateServerIp" :model="form" ref="formServerIp" :rules="rules">
-              <el-form-item prop="serverIp">
-                <el-input v-model="form.serverIp" style="width: 300px" placeholder="多个ip请用逗号分隔，最多不超过5个"></el-input>
-                <el-button icon="el-icon-close" type="text" @click="dismissUpdate('serverIp')">取消</el-button>
-                <el-button icon="el-icon-check" type="text" @click="submit('serverIp')">保存</el-button>
+            <el-form v-if="isUpdateServerIps" :model="form" ref="formServerIps" :rules="rules">
+              <el-form-item prop="serverIps">
+                <el-input v-model="form.serverIps" style="width: 300px" placeholder="多个ip请用逗号分隔，最多不超过5个"></el-input>
+                <el-button icon="el-icon-close" type="text" @click="dismissUpdate('serverIps')">取消</el-button>
+                <el-button icon="el-icon-check" type="text" @click="submit('serverIps')">保存</el-button>
               </el-form-item>
             </el-form>
             <template v-else>
-              {{ client.serverIp && client.serverIp.toString() }}
-              <el-button icon="el-icon-edit" type="text" @click="presentUpdate('serverIp')">修改</el-button>
+              {{ client.serverIps.toString() }}
+              <el-button icon="el-icon-edit" type="text" @click="presentUpdate('serverIps')">修改</el-button>
             </template>
           </td>
         </tr>
@@ -163,7 +156,10 @@
         </tr>
         <tr>
           <td class="c1">{{ client.type === 'app' ? '上架应用商店' : '上线网址' }}</td>
-          <td class="c2">{{ availableOn }}</td>
+          <td class="c2">
+            <template v-if="client.type === 'app'">{{ appStore }}</template>
+            <template v-else>{{ client.review.website }}</template>
+          </td>
         </tr>
         <tr>
         </tr>
@@ -183,15 +179,19 @@
     data () {
       return {
         isUpdateName: false,
-        isUpdateRedirectUri: false,
-        isUpdateServerIp: false,
+        isUpdateRedirectUris: false,
+        isUpdateServerIps: false,
         clientIconAction: config.clientIconAction,
-        client: '',
+        client: {
+          redirectUris: '', // 刚初始化时 为null会报错 下同
+          review: '',
+          serverIps: ''
+        },
         imageUrl: '',
         form: {
           name: '',
-          redirectUri: '',
-          serverIp: '',
+          redirectUris: '',
+          serverIps: '',
           appStore: '',
           website: ''
         },
@@ -201,6 +201,10 @@
       }
     },
     methods: {
+      selectClient (client) {
+        this.client = client
+        this.imageUrl = client.iconUrl + '?' + new Date().getTime()
+      },
       async handleAvatarSuccess (res, file) {
         try {
           if (res.code !== 0) {
@@ -234,9 +238,13 @@
         }
         return sizeValid
       },
-      selectClient (client) {
-        this.client = client
-        this.imageUrl = client.iconUrl + '?' + new Date().getTime()
+      presentUpdate (what) {
+        this['isUpdate' + what.substring(0, 1).toUpperCase() + what.substring(1)] = true
+        // 因为server ips和redirect uris都是数组 所以加toString
+        this.form[what] = this.client[what].toString()
+      },
+      dismissUpdate (what) {
+        this['isUpdate' + what.substring(0, 1).toUpperCase() + what.substring(1)] = false
       },
       // 所有用表单的更新 如name
       submit (what) {
@@ -247,10 +255,20 @@
               return
             }
             const body = {}
-            body[what] = this.form[what]
             body.what = what
+            if (what === 'redirectUris') {
+              body.redirectUris = [this.form.redirectUris]
+            } else if (what === 'serverIps') {
+              if (this.form.serverIps) {
+                body.serverIps = this.form.serverIps.split(',')
+              } else {
+                body.serverIps = []
+              }
+            } else {
+              body[what] = this.form[what]
+            }
             await this.$axios.put('/clients/' + this.client._id, body)
-            this.client[what] = this.form[what]
+            this.client[what] = body[what]
             this.dismissUpdate(what)
           } catch (err) {
             console.error(err)
@@ -268,27 +286,12 @@
             message: '已保存修改',
             type: 'success'
           })
+          if (what === 'type' && value === 'app') {
+            this.client.redirectUris = [config.defaultRedirectUri]
+          }
         } catch (err) {
           console.error(err)
         }
-      },
-      submitRedirectUri () { // redirect uri特殊点 单独更新
-        this.$refs['formRedirectUri'].validate(async (valid) => {
-          try {
-            if (!valid) {
-              console.log('not valid')
-              return
-            }
-            const body = {}
-            body.redirectUris = [this.form.redirectUri]
-            body.what = 'redirectUris'
-            await this.$axios.put('/clients/' + this.client._id, body)
-            this.client.redirectUris = [this.form.redirectUri]
-            this.dismissUpdate('redirectUri')
-          } catch (err) {
-            console.error(err)
-          }
-        })
       },
       async resetSecret () {
         try {
@@ -333,35 +336,14 @@
           }
         })
       },
-      presentUpdate (what) {
-        this['isUpdate' + what.substring(0, 1).toUpperCase() + what.substring(1)] = true
-        if (what === 'serverIp') {
-          this.form.serverIp = this.client.serverIp ? this.client.serverIp.toString() : ''
-        } else if (what === 'redirectUri') {
-          this.form.redirectUri = this.client.redirectUris[0]
-        } else {
-          this.form[what] = this.client[what]
-        }
-      },
       presentReview () {
         this.reviewDialogVisible = true
         // 加载后第一次点 formReview会是undefined
         this.$refs.formReview && this.$refs.formReview.resetFields()
-      },
-      dismissUpdate (what) {
-        this['isUpdate' + what.substring(0, 1).toUpperCase() + what.substring(1)] = false
-      },
-      changeType (value) {
-        this.client.redirectUris = [config.defaultRedirectUri]
-        this.submit1('type', value)
       }
     },
     computed: {
       reviewStatus () {
-        // 刚初始化时 review为null 会报错
-        if (!this.client.review) {
-          return ''
-        }
         switch (this.client.review.status) {
           case 'dev':
             return '开发中，未审核'
@@ -373,13 +355,7 @@
             return '审核中，请等候'
         }
       },
-      availableOn () {
-        if (!this.client.review) {
-          return ''
-        }
-        if (this.client.type === 'web') {
-          return this.client.review.website
-        }
+      appStore () {
         switch (this.client.review.appStore) {
           case 'apple':
             return 'App Store（iOS）'

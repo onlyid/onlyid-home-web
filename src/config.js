@@ -8,6 +8,10 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const validateIp = (value) => {
+  // 不允许有空格
+  if (value.includes(' ')) {
+    return false
+  }
   const blocks = value.split('.')
   if (blocks.length !== 4) {
     return false
@@ -21,6 +25,7 @@ const validateIp = (value) => {
 }
 
 const prod = {
+  admin: '5ad96df1b838b53ec26b2480',
   dateFormat: 'YYYY-MM-DD',
   clientIconAction: 'https://onlyid.net/clients/icons',
   clientIconMaxSize: 300 * 1024,
@@ -36,7 +41,7 @@ const prod = {
       { required: true, message: '请输入名称', trigger: 'blur' },
       { max: 30, message: '名称要小于30字符', trigger: 'blur' }
     ],
-    redirectUri: [
+    redirectUris: [
       { required: true, message: '请输入redirect uri', trigger: 'blur' },
       { max: 300, message: 'redirect uri要小于300字符', trigger: 'blur' },
       { type: 'url', message: 'redirect uri不是合法url', trigger: 'blur' }
@@ -44,16 +49,11 @@ const prod = {
     type: [
       { required: true, message: '请选择类型', trigger: 'change' }
     ],
-    serverIp: [
+    serverIps: [
       {
         validator (rule, value, callback) {
           if (value === '') {
             return callback()
-          }
-
-          // 不允许有空格
-          if (value.indexOf(' ') !== -1) {
-            return callback(new Error('不允许有空格'))
           }
 
           const ips = value.split(',')
@@ -92,6 +92,7 @@ const prod = {
 }
 
 const dev = {
+  admin: '5ab9d6c0a311fb85c69a98ee',
   clientIconAction: 'http://onlyid.net:3000/clients/icons',
   baseUrl: 'http://onlyid.net:3000',
   authorizeUrl: 'http://oauth.onlyid.net:3001/authorize?response_type=code&client_id=' +

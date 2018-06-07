@@ -1,21 +1,13 @@
 <template>
   <div>
-    <el-dialog
-      title="更换手机号"
-      :visible.sync="dialogVisible"
-      width="500px"
-      center>
+    <el-dialog title="更换手机号" :visible.sync="dialogVisible" width="500px" center>
       <span>更换绑定的手机号，之后可以用新手机号登录</span>
       <span slot="footer">
         <el-button @click="dialogVisible = false">取消</el-button>
         <el-button type="primary" @click="changeMobile">验证新手机号</el-button>
       </span>
     </el-dialog>
-    <el-dialog
-      title="续费"
-      :visible.sync="renewDialogVisible"
-      width="500px"
-      center>
+    <el-dialog title="续费" :visible.sync="renewDialogVisible" width="500px" center>
       <p class="note" style="margin-top: 0"><i class="material-icons" style="color: #E6A23C; font-size: 20px; vertical-align: text-bottom; margin-right: 5px">shopping_cart</i>续费年限越长，优惠越多：2年9.5折，3年9折，4年8.5折，5年8折</p>
       <span style="margin-right: 10px">购买时长</span>
       <el-radio-group v-model="renewYears">
@@ -28,11 +20,11 @@
       <table class="order-table" style="margin-top: 25px">
         <thead><tr>
           <th>待续费项</th>
-          <th>到期时间</th>
-          <th>续费后到期时间</th>
+          <th>有效期</th>
+          <th>续费后有效期</th>
         </tr></thead>
         <tbody><tr>
-          <td>手机号验证服务<br/>(公有云部署模式)</td>
+          <td>手机号验证服务<br/>(公有云部署方式)</td>
           <td>{{ developerExpires }}</td>
           <td>{{ renewDeveloperExpires }}</td>
         </tr></tbody>
@@ -63,28 +55,24 @@
         <el-button icon="el-icon-edit" type="text" style="margin-left: 10px" @click="updateDeveloper">修改</el-button>
       </template>
     </p>
-    <template v-if="isUpdateDeveloper">
-      <el-form label-width="80px" style="margin-left: 100px; width: 500px" ref="form" :model="form" :rules="rules">
-        <el-form-item label="姓名" prop="name">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-        <el-form-item label="邮箱" prop="email">
-          <el-input v-model="form.email"></el-input>
-        </el-form-item>
-      </el-form>
-    </template>
-    <template v-else>
-      <table class="account-table">
-        <tr>
-          <td class="c1">姓名</td>
-          <td class="c2">{{ developer.name }}</td>
-        </tr>
-        <tr>
-          <td class="c1">邮箱</td>
-          <td class="c2">{{ developer.email }}</td>
-        </tr>
-      </table>
-    </template>
+    <el-form label-width="80px" style="margin-left: 100px; width: 450px" ref="form" :model="form" :rules="rules" v-if="isUpdateDeveloper">
+      <el-form-item label="姓名" prop="name">
+        <el-input v-model="form.name"></el-input>
+      </el-form-item>
+      <el-form-item label="邮箱" prop="email">
+        <el-input v-model="form.email"></el-input>
+      </el-form-item>
+    </el-form>
+    <table class="account-table" v-else>
+      <tr>
+        <td class="c1">姓名</td>
+        <td class="c2">{{ developer.name }}</td>
+      </tr>
+      <tr>
+        <td class="c1">邮箱</td>
+        <td class="c2">{{ developer.email }}</td>
+      </tr>
+    </table>
     <p class="subsection-title" id="products">产品信息</p>
     <table class="account-table">
       <tr>
@@ -245,6 +233,9 @@
         return (this.renewYears * 365 * discount).toFixed(2)
       },
       developerExpires () {
+        if (new Date(this.developer.expires) < new Date()) {
+          return '已过期，请续费'
+        }
         return moment(this.developer.expires).format(config.dateFormat)
       },
       renewDeveloperExpires () {

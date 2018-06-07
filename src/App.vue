@@ -141,14 +141,8 @@
       },
       // 文档和控制台不显示footer
       showFooter () {
-        if (this.activeIndex === '/docs' ||
-          this.activeIndex === '/console' ||
-          this.activeIndex === '/auth' ||
-          this.activeIndex === '/signup'
-        ) {
-          return false
-        }
-        return true
+        const list = ['/docs', '/console', '/auth', '/admin']
+        return !list.includes(this.activeIndex)
       }
     }
   }
@@ -158,7 +152,7 @@
   .username {
     font-size: 15px;
     color: #7f7f7f;
-    width: 100px;
+    max-width: 100px;
     display: inline-block;
     text-overflow: ellipsis;
     overflow: hidden;

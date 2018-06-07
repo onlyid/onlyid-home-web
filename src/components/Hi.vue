@@ -1,11 +1,24 @@
 <template>
   <div id="content">
-    <div style="position: relative; background-color: #3b5898;">
-      <p style="background-color: #7f7f7f; z-index: -1;">hi</p>
-      <p style="position: absolute; top: 0; background-color: #E6A23C; margin: 0">he</p>
+    <div style="width: 980px; margin: 0 auto">
+      <div style="height: 452px; float: right; width: 302px">
+        <img src="../assets/gongzuo.png" width="300px" style="position: absolute; border: 1px solid #DCDFE6;"/>
+      </div>
+      <div style="padding-top: 100px;">
+        <p style="font-size: 40px">简单、可信赖的手机号验证服务</p>
+        <p style="font-size: 20px">用唯ID实现短信验证码登录，从此告别短信服务商</p>
+        <div style="padding-top: 20px">
+          <router-link to="/experience"><el-button round>在线体验</el-button></router-link>
+          <router-link to="/console" style="margin-left: 50px"><el-button type="primary" round>开始使用</el-button></router-link>
+        </div>
+      </div>
     </div>
-    <el-button @click="setSession">setSession</el-button>
-    <el-button @click="printSession">printSession</el-button>
+    <!--<div style="position: relative; background-color: #3b5898;">-->
+      <!--<p style="background-color: #7f7f7f; z-index: -1;">hi</p>-->
+      <!--<p style="position: absolute; top: 0; background-color: #E6A23C; margin: 0">he</p>-->
+    <!--</div>-->
+    <!--<el-button @click="setSession">setSession</el-button>-->
+    <!--<el-button @click="printSession">printSession</el-button>-->
     <!--<p>哈哈-->
     <!--或或</p>-->
     <!--<p style="width: 80px; word-wrap: break-word; word-break: break-all">哈哈哈哈 he-lloahaaaaaaa 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello </p>-->
@@ -89,16 +102,12 @@
 <script>
   import Vue from 'vue'
   import common from 'onlyid-frontend-common'
-  import Hi1 from './Hi1'
 
   Vue.component('my-component', {
     template: '<div><slot name="header">fallback content</slot><slot>fallback content2</slot><p style="font-size: 20px;">test</p></div>'
   })
 
   export default {
-    components: {
-      Hi1
-    },
     data () {
       const item = {
         date: '2016-05-02',

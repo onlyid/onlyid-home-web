@@ -9,6 +9,7 @@ import Downloads from '@/components/Downloads'
 import Pricing from '@/components/Pricing'
 import Experience from '@/components/Experience'
 import Signup from '@/components/Signup'
+import Admin from '@/components/Admin'
 
 import Docs from '@/components/docs/Docs'
 import DocsHome from '@/components/docs/Home'
@@ -49,6 +50,30 @@ const router = new Router({
       component: Index
     },
     {
+      path: '/auth',
+      component: Auth
+    },
+    {
+      path: '/downloads',
+      component: Downloads
+    },
+    {
+      path: '/pricing',
+      component: Pricing
+    },
+    {
+      path: '/experience',
+      component: Experience
+    },
+    {
+      path: '/signup',
+      component: Signup
+    },
+    {
+      path: '/admin',
+      component: Admin
+    },
+    {
       path: '/docs',
       component: Docs,
       children: [
@@ -69,37 +94,31 @@ const router = new Router({
     {
       path: '/console',
       component: Console,
+      // 检查登录状态
+      beforeEnter: (to, from, next) => {
+        const path = to.path
+        const developer = sessionStorage.getObj('developer')
+        if (developer) {
+          return next()
+        }
+
+        next(false)
+        sessionStorage.fromRoute = path
+        location.assign(config.authorizeUrl)
+      },
       children: [
+        {path: '', redirect: 'overview'},
         {path: 'overview', component: ConsoleOverview},
         {path: 'analytics/:id', component: ConsoleAnalytics},
         {path: 'analytics', component: ConsoleAnalytics},
         {path: 'settings/:id', component: ConsoleSettings},
         {path: 'settings', component: ConsoleSettings},
         {path: 'enterprise/apply', component: ConsoleEnterpriseApply},
+        {path: 'enterprise/:tmp', redirect: 'enterprise/apply'},
         {path: 'account', component: ConsoleAccount},
         {path: 'mobile-account', component: ConsoleMobileAccount},
         {path: 'clients/create', component: ConsoleClientCreate}
       ]
-    },
-    {
-      path: '/auth',
-      component: Auth
-    },
-    {
-      path: '/downloads',
-      component: Downloads
-    },
-    {
-      path: '/pricing',
-      component: Pricing
-    },
-    {
-      path: '/experience',
-      component: Experience
-    },
-    {
-      path: '/signup',
-      component: Signup
     },
     {
       path: '/about',
@@ -134,26 +153,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  const path = to.path
-  if (path === '/console') {
-    return next('/console/overview')
-  }
-
-  if (!path.startsWith('/console')) {
-    return next()
-  }
-
-  const developer = sessionStorage.getObj('developer')
-  if (developer) {
-    if (path.startsWith('/console/enterprise') && !path.startsWith('/console/enterprise/apply') && developer.edition !== 'pro') {
-      return next('/console/enterprise/apply')
-    }
-    return next()
-  }
-
-  next(false)
-  sessionStorage.fromRoute = path
-  location.assign(config.authorizeUrl)
+  next()
 })
 
 export default router

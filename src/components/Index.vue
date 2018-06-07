@@ -1,23 +1,22 @@
 <template>
   <div>
     <div id="banner-bg">
-      <el-row id="banner" type="flex" justify="space-between">
-        <el-col :span="14" style="padding-top: 100px;">
+      <div id="banner">
+        <div style="height: 452px; float: right; width: 302px">
+          <transition name="fade">
+            <img :src="demoImg" :key="demoImgIndex" width="300px" style="position: absolute; border: 1px solid #DCDFE6;"/>
+          </transition>
+        </div>
+        <div style="padding-top: 100px;">
           <p style="font-size: 40px">简单、可信赖的手机号验证服务</p>
           <p style="font-size: 20px">用唯ID实现短信验证码登录，从此告别短信服务商</p>
           <div style="padding-top: 20px">
             <router-link to="/experience"><el-button round>在线体验</el-button></router-link>
             <router-link to="/console" style="margin-left: 50px"><el-button type="primary" round>开始使用</el-button></router-link>
           </div>
-        </el-col>
-        <el-col :span="7">
-          <div style="height: 452px;">
-            <transition name="fade">
-              <img :src="demoImg" :key="demoImgIndex" width="300px" style="position: absolute; border: 1px solid #DCDFE6;"/>
-            </transition>
-          </div>
-        </el-col>
-      </el-row>
+        </div>
+        <div style="clear: both"></div>
+      </div>
     </div>
     <div id="content">
       <div class="section">

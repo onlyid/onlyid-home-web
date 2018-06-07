@@ -9,16 +9,9 @@
         <p class="note">上传client的icon，调起授权页时用户通过icon识别你的app/网站<br/>
           128x128像素，支持JPG/PNG格式，大小不超过300KB</p>
         <el-form-item prop="icon">
-          <el-upload
-            :action="clientIconAction"
-            accept="image/jpeg,image/png"
-            :with-credentials="true"
-            :before-upload="beforeAvatarUpload"
-            :on-success="handleAvatarSuccess"
-            :on-error="handleAvatarError"
-            :show-file-list="false"
-            name="icon"
-            class="avatar-uploader">
+          <el-upload :action="clientIconAction" accept="image/jpeg,image/png" :with-credentials="true"
+            :before-upload="beforeAvatarUpload" :on-success="handleAvatarSuccess" :on-error="handleAvatarError"
+            :show-file-list="false" name="icon" class="avatar-uploader">
             <img v-if="imageUrl" :src="imageUrl" class="avatar"/>
             <i v-else class="el-icon-plus avatar-uploader-icon"></i>
           </el-upload>
@@ -34,8 +27,8 @@
           </el-radio-group>
         </el-form-item>
         <p class="note">对于网站，唯ID会在用户授权后带上code请求redirect uri，你使用code继续完成验证；对于app，code通过SDK返回，redirect uri为默认值</p>
-        <el-form-item prop="redirectUri">
-          <el-input placeholder="redirect uri" v-model="form.redirectUri" :disabled="redirectUriDisabled"></el-input>
+        <el-form-item prop="redirectUris">
+          <el-input placeholder="redirect uri" v-model="form.redirectUris" :disabled="form.type === 'app'"></el-input>
         </el-form-item>
         <el-form-item>
           <el-button @click="$router.back()">取消</el-button>
@@ -56,7 +49,7 @@
         form: {
           icon: '',
           name: '',
-          redirectUri: '',
+          redirectUris: '',
           type: ''
         },
         rules: config.clientRules,
@@ -101,7 +94,7 @@
             icon: this.form.icon,
             name: this.form.name,
             type: this.form.type,
-            redirectUris: [this.form.redirectUri]
+            redirectUris: [this.form.redirectUris]
           })
           console.log(res.data)
           this.$message({
@@ -115,21 +108,15 @@
     watch: {
       'form.type' (val, oldVal) {
         if (val === 'app') {
-          this.form.redirectUri = config.defaultRedirectUri
-          this.$refs.form.validateField('redirectUri')
-        } else {
-          this.form.redirectUri = ''
-          // 如果是由app跳回来 则引导用户填写redirect uri
-          if (oldVal === 'app') {
-            this.$refs.form.validateField('redirectUri')
-          }
+          this.form.redirectUris = config.defaultRedirectUri
+          this.$refs.form.validateField('redirectUris')
+        } else if (oldVal === 'app') { // 此时val为web 且是由app跳回来 则引导用户填写redirect uri
+          this.form.redirectUris = ''
+          this.$refs.form.validateField('redirectUris')
         }
       }
     },
     computed: {
-      redirectUriDisabled () {
-        return this.form.type === 'app'
-      }
     }
   }
 </script>

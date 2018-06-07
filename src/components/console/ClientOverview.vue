@@ -2,12 +2,7 @@
   <el-card shadow="never">
     <span style="font-size: 16px; margin-right: 20px">client 选择</span>
     <el-select v-model="selectedClient" value-key="_id" @change="handleChange">
-      <el-option
-        v-for="client in clients"
-        :key="client._id"
-        :label="client.name"
-        :value="client">
-      </el-option>
+      <el-option v-for="client in clients" :key="client._id" :label="client.name" :value="client"></el-option>
     </el-select>
     <p style="font-size: 16px; margin-top: 30px">client 基本信息</p>
     <table>

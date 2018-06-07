@@ -84,10 +84,8 @@
       },
       async refresh () {
         try {
-          const res = await this.$axios.get('/clients/statsYesterday')
+          const res = await this.$axios.get('/clients/stats-yesterday')
           this.clients = res.data.clients
-
-          console.log(this.clients)
 
           this.requestCount = 0
           this.authSuccessCount = 0
@@ -117,6 +115,9 @@
     },
     computed: {
       developerExpires () {
+        if (new Date(this.developer.expires) < new Date()) {
+          return '已过期，请续费'
+        }
         return moment(this.developer.expires).format(config.dateFormat)
       }
     }
