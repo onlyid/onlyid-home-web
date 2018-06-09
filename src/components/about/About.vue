@@ -107,16 +107,10 @@
               <img src="../../assets/gongzuo.png" width="64"/>
             </el-col>
             <el-col :span="18">
-              <el-card style="font-size: 16px; width: 600px; margin: 0 auto;">
-                <div>
-                  <img src="../../assets/wechat-185.jpeg" width="150" style="float: right"/>
-                  <p style="font-size: 18px">客户经理小梁（业务咨询）</p>
-                  <p style="margin-top: 40px">TEL：18588237889（工作日 09:30 - 18:30）</p>
-                  <p>MAIL：liangtb#qq.com（用@代替#）</p>
-                  <p>QQ：244121358</p>
-                </div>
-              </el-card>
-              <p style="text-align: center; color: #7f7f7f; font-size: 14px">各类客户业务支持，包括产品咨询、建议反馈，以及购买帮助等<br/>市场合作、软件产品合作、以及IT解决方案合作等合作洽谈</p>
+              <business-card name="小梁" title="客户经理（业务咨询）" tel="18588237889" email="liangtb#qq.com" qq="244121358">
+                <img src="../../assets/wechat-185.jpeg" slot="qr-code"/>
+              </business-card>
+              <p style="text-align: center;" class="note">各类客户业务支持，包括产品咨询、建议反馈，以及购买帮助等<br/>市场合作、软件产品合作、以及IT解决方案合作等合作洽谈</p>
             </el-col>
           </el-row>
           <el-row style="margin-top: 40px">
@@ -124,16 +118,10 @@
               <img src="../../assets/shezhi.png" width="64"/>
             </el-col>
             <el-col :span="18">
-              <el-card style="font-size: 16px; width: 600px; margin: 0 auto;">
-                <div>
-                  <img src="../../assets/wechat-155.jpeg" width="150" style="float: right"/>
-                  <p style="font-size: 18px">技术支持</p>
-                  <p style="margin-top: 40px">TEL：15521312099（工作日 09:30 - 18:30）</p>
-                  <p>MAIL：help#onlyid.net（用@代替#）</p>
-                  <p>QQ：452391310</p>
-                </div>
-              </el-card>
-              <p style="text-align: center; color: #7f7f7f; font-size: 14px">各类客户技术支持</p>
+              <business-card name="小谢" title="技术支持" tel="15521312099" email="help#onlyid.net" qq="452391310">
+                <img src="../../assets/wechat-155.jpeg" slot="qr-code"/>
+              </business-card>
+              <p style="text-align: center;" class="note">各类客户技术支持</p>
             </el-col>
           </el-row>
         </div>
@@ -144,8 +132,12 @@
 
 <script>
   import common from 'onlyid-frontend-common'
+  import BusinessCard from './BusinessCard'
 
   export default {
+    components: {
+      BusinessCard
+    },
     data () {
       return {
         common

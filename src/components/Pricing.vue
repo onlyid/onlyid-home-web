@@ -120,7 +120,7 @@
         <p style="margin-top: 40px" class="note">* client指app或网站，同个app不区分平台（一个app的iOS和Android版视为一个client）</p>
         <p class="note">** 其他未尽事宜，请联系客户经理；唯ID拥有在法律范围内的最终解释权。</p>
       </div>
-      <div class="gradient-hr"/>
+      <div class="gradient-hr"></div>
       <div class="section" id="business-service">
         <p class="section-title">大客户商务服务</p>
         <p class="section-summary">百分服务助您安心购，无忧用</p>
@@ -129,15 +129,10 @@
             <img src="../assets/customer-manager.svg" width="100">
             <p>如果您是企业以及政府、教育和非营利组织，或想试用我们的专有云，请直接联系客户经理为您服务。</p>
           </div>
-          <el-card style="font-size: 16px; width: 600px; margin: 40px auto 0;">
-            <div>
-              <img src="../assets/wechat-185.jpeg" width="150" style="float: right"/>
-              <p style="font-size: 18px">客户经理小梁（业务咨询）</p>
-              <p style="margin-top: 40px">TEL：18588237889（工作日 09:30 - 18:30）</p>
-              <p>MAIL：liangtb#qq.com（用@代替#）</p>
-              <p>QQ：244121358</p>
-            </div>
-          </el-card>
+          <business-card name="小梁" title="客户经理（业务咨询）" tel="18588237889" email="liangtb#qq.com" qq="244121358"
+                         style="margin-top: 40px;">
+            <img src="../assets/wechat-185.jpeg" slot="qr-code"/>
+          </business-card>
         </div>
       </div>
     </div>
@@ -147,8 +142,12 @@
 
 <script>
   import common from 'onlyid-frontend-common'
+  import BusinessCard from './about/BusinessCard'
 
   export default {
+    components: {
+      BusinessCard
+    },
     data () {
       return {
         activeNameStandard: '1',
