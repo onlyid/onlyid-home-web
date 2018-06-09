@@ -1,17 +1,11 @@
 <template>
   <div id="app">
-    <el-popover
-      ref="popover1"
-      placement="right"
-      trigger="hover">
+    <el-popover ref="popover1" placement="right" trigger="hover">
       <div>
         <img src="./assets/wechat-185.jpeg" width="215"/>
       </div>
     </el-popover>
-    <el-popover
-      ref="popover2"
-      placement="right"
-      trigger="hover">
+    <el-popover ref="popover2" placement="right" trigger="hover">
       <div>
         <img src="./assets/wechat-155.jpeg" width="215"/>
       </div>
@@ -31,6 +25,7 @@
             <el-menu-item index="/pricing">价格</el-menu-item>
             <el-menu-item index="/experience">在线体验</el-menu-item>
             <el-menu-item index="/console">控制台</el-menu-item>
+            <el-menu-item v-if="isAdmin" index="/admin">admin</el-menu-item>
           </el-menu>
         </el-col>
         <el-col :span="5">
@@ -91,61 +86,67 @@
 </template>
 
 <script>
-  function updateLogin () {
-    const developer = sessionStorage.getObj('developer')
-    console.log('developer=', developer)
-    if (developer) {
-      this.developerName = developer.name
-      this.isLogin = true
-    }
-  }
+import config from './config'
 
-  export default {
-    name: 'app',
-    data () {
-      return {
-        developerName: '',
-        currentYear: new Date().getFullYear(),
-        isLogin: false
-      }
+function updateLogin () {
+  const developer = sessionStorage.getObj('developer')
+  console.log('developer=', developer)
+  if (developer) {
+    this.developerName = developer.name
+    this.isLogin = true
+    this.isAdmin = developer._id === config.admin
+  }
+}
+
+export default {
+  name: 'app',
+  data () {
+    return {
+      developerName: '',
+      currentYear: new Date().getFullYear(),
+      isLogin: false,
+      isAdmin: false
+    }
+  },
+  methods: {
+    goAccount () {
+      this.$router.push('/console/account')
     },
-    methods: {
-      goAccount () {
-        this.$router.push('/console/account')
-      },
-      logout () {
-        this.$axios.post('/logout').then((res) => {
-          sessionStorage.clear()
-          // 当前处于控制台时，跳回首页
-          if (this.$route.path.startsWith('/console')) {
-            this.$router.replace('/')
-          }
-          this.isLogin = false
-        }).catch((err) => {
-          console.error(err)
-        })
-      },
-      select (key) {
-        this.$router.push(key)
-      }
-    },
-    mounted () {
-      updateLogin.call(this)
-      this.$bus.$on('login', () => {
-        updateLogin.call(this)
+    logout () {
+      this.$axios.post('/logout').then((res) => {
+        sessionStorage.clear()
+        // 当前处于控制台时，跳回首页
+        const list = ['/console', '/admin']
+        if (list.includes(this.activeIndex)) {
+          this.$router.replace('/')
+        }
+        this.isLogin = false
+        this.isAdmin = false
+      }).catch((err) => {
+        console.error(err)
       })
     },
-    computed: {
-      activeIndex () {
-        return '/' + this.$route.path.split('/')[1]
-      },
-      // 文档和控制台不显示footer
-      showFooter () {
-        const list = ['/docs', '/console', '/auth', '/admin']
-        return !list.includes(this.activeIndex)
-      }
+    select (key) {
+      this.$router.push(key)
+    }
+  },
+  mounted () {
+    updateLogin.call(this)
+    this.$bus.$on('login', () => {
+      updateLogin.call(this)
+    })
+  },
+  computed: {
+    activeIndex () {
+      return '/' + this.$route.path.split('/')[1]
+    },
+    // 文档和控制台不显示footer
+    showFooter () {
+      const list = ['/docs', '/console', '/auth', '/admin']
+      return !list.includes(this.activeIndex)
     }
   }
+}
 </script>
 
 <style scoped>

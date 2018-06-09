@@ -1,43 +1,38 @@
 <template>
-  <div id="content">
-    <el-card style="width: 440px; position: relative;">
-      <p style="font-size: 14px; position: absolute; right: 10px; top: 10px; margin: 0px">
-        <slot name="version"></slot><span style="margin-left: 10px; color: #7f7f7f;">更新于：{{ updateDate }}</span>
-      </p>
-      <div style="float: left; margin: 15px 25px 0 10px;">
-        <slot></slot>
-      </div>
-      <div style="float: left; width: 290px;">
-        <p style="font-size: 18px; margin-top: 10px;">{{ title }}</p>
-        <p style="color: #7f7f7f; margin-bottom: 5px; font-size: 14px;">{{ detail }}</p>
-      </div>
-      <div style="clear: both"></div>
-    </el-card>
-  </div>
+  <el-card style="width: 300px; position: relative;" :body-style="{paddingRight: '0px'}" shadow="hover" id="content">
+    <span style="font-size: 13px; position: absolute; right: 10px; top: 10px;">
+      <span style="color: #7f7f7f;">v{{version}} &nbsp;{{ updateDate }}更新</span>
+    </span>
+    <div style="float: left; margin-top: 20px;">
+      <slot></slot>
+    </div>
+    <div style="float: right; width: 215px; margin-top: 20px">
+      <span style="font-size: 16px;">{{ title }}</span>
+      <p style="color: #7f7f7f; margin: 8px 0 0;">{{ detail }}</p>
+    </div>
+    <div style="clear: both"></div>
+  </el-card>
 </template>
 
 <script>
-  export default {
-    props: ['title', 'detail', 'updateDate'],
-    data () {
-      return {
-      }
+export default {
+  props: ['title', 'detail', 'updateDate', 'version'],
+  data () {
+    return {
     }
   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  #content >>> .el-card:hover {
-    background-color: #f7f8f9;
-  }
   #content >>> i {
     color: white;
-    font-size: 35px;
-    border-radius: 35px;
-    padding: 15px;
+    font-size: 25px;
+    border-radius: 50%;
+    padding: 10px;
   }
-  #content >>> a {
-    text-decoration: none;
+  #content {
+    float: left;
   }
 </style>

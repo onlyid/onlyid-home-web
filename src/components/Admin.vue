@@ -2,7 +2,7 @@
   <div>
     <div class="section">
       <p class="section-title">审核</p>
-      <p class="subsection-title">所有待审核client</p>
+      <p class="subsection-title">所有待审核client（{{tableData.length}}个）</p>
       <el-table :data="tableData">
         <el-table-column label="icon" width="100">
           <img :src="scope.row.iconUrl" slot-scope="scope" width="64"/>
@@ -45,11 +45,11 @@
     </div>
     <div class="section">
       <p class="section-title">统计</p>
-      <p class="subsection-title">一周内新增开发者</p>
+      <p class="subsection-title">一周内新增开发者（{{tableData1.length}}位）</p>
       <el-table :data="tableData1">
         <el-table-column label="姓名" prop="name" width="110" show-overflow-tooltip></el-table-column>
         <el-table-column label="手机号" prop="user.mobile"></el-table-column>
-        <el-table-column label="邮箱" prop="email"></el-table-column>
+        <el-table-column label="邮箱" prop="email" show-overflow-tooltip width="170"></el-table-column>
         <el-table-column label="创建日期">
           <span slot-scope="scope">{{moment(scope.row.createDate).format(config.dateFormat)}}</span>
         </el-table-column>
@@ -78,11 +78,11 @@
           </div>
         </el-table-column>
       </el-table>
-      <p class="subsection-title">一周内过期开发者</p>
+      <p class="subsection-title">一周内过期开发者（{{tableData2.length}}位）</p>
       <el-table :data="tableData2">
         <el-table-column label="姓名" prop="name" width="110" show-overflow-tooltip></el-table-column>
         <el-table-column label="手机号" prop="user.mobile"></el-table-column>
-        <el-table-column label="邮箱" prop="email"></el-table-column>
+        <el-table-column label="邮箱" prop="email" show-overflow-tooltip width="170"></el-table-column>
         <el-table-column label="创建日期">
           <span slot-scope="scope">{{moment(scope.row.createDate).format(config.dateFormat)}}</span>
         </el-table-column>
@@ -111,11 +111,11 @@
           </div>
         </el-table-column>
       </el-table>
-      <p class="subsection-title">一周内新增client的已过期开发者</p>
+      <p class="subsection-title">一周内新增client的已过期开发者（{{tableData3.length}}位）</p>
       <el-table :data="tableData3">
         <el-table-column label="姓名" prop="name" width="110" show-overflow-tooltip></el-table-column>
         <el-table-column label="手机号" prop="user.mobile"></el-table-column>
-        <el-table-column label="邮箱" prop="email"></el-table-column>
+        <el-table-column label="邮箱" prop="email" show-overflow-tooltip width="170"></el-table-column>
         <el-table-column label="创建日期">
           <span slot-scope="scope">{{moment(scope.row.createDate).format(config.dateFormat)}}</span>
         </el-table-column>
@@ -245,11 +245,17 @@ export default {
     margin-right: 50px;
   }
   .subsection-title {
-    padding-bottom: 0px;
-    border-bottom: none;
+    margin-top: 50px;
+    font-size: 18px;
+  }
+  .section-title + .subsection-title {
+    margin-top: 30px;
   }
   .count {
     color: #409EFF;
     font-size: 20px;
+  }
+  .section-title {
+    font-size: 24px;
   }
 </style>

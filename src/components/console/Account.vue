@@ -38,7 +38,7 @@
       </span>
     </el-dialog>
 
-    <p class="subsection-title" style="margin-top: 0px;">登录信息</p>
+    <p class="account-title" style="margin-top: 0;">登录信息</p>
     <table class="account-table">
       <tr>
         <td class="c1">手机号</td>
@@ -46,7 +46,7 @@
         <td><el-button icon="el-icon-edit" type="text" @click="dialogVisible = true">更换</el-button></td>
       </tr>
     </table>
-    <p class="subsection-title">开发者信息
+    <p class="account-title">开发者信息
       <template v-if="isUpdateDeveloper">
         <el-button icon="el-icon-close" type="text" style="margin-left: 10px" @click="isUpdateDeveloper = false">取消</el-button>
         <el-button icon="el-icon-check" type="text" style="margin-left: 10px" @click="submit">保存</el-button>
@@ -55,7 +55,7 @@
         <el-button icon="el-icon-edit" type="text" style="margin-left: 10px" @click="updateDeveloper">修改</el-button>
       </template>
     </p>
-    <el-form label-width="80px" style="margin-left: 100px; width: 450px" ref="form" :model="form" :rules="rules" v-if="isUpdateDeveloper">
+    <el-form label-width="80px" style="margin-left: 100px; width: 450px; margin-top: 30px" ref="form" :model="form" :rules="rules" v-if="isUpdateDeveloper">
       <el-form-item label="姓名" prop="name">
         <el-input v-model="form.name"></el-input>
       </el-form-item>
@@ -73,7 +73,7 @@
         <td class="c2">{{ developer.email }}</td>
       </tr>
     </table>
-    <p class="subsection-title" id="products">产品信息</p>
+    <p class="account-title" id="products">产品信息</p>
     <table class="account-table">
       <tr>
         <td class="c1">手机号验证服务</td>
@@ -85,15 +85,13 @@
         <td class="c2">有效期：{{ developerExpires }}</td>
         <td><el-button icon="el-icon-goods" type="text" @click="renewDialogVisible = true">续费</el-button></td>
       </tr>
-    </table>
-    <table class="account-table">
       <tr>
         <td class="c1">手机账号服务</td>
         <td class="c2" style="color: #7f7f7f">已暂停运营</td>
         <td><router-link to="/console/mobile-account"><el-button icon="el-icon-question" type="text"></el-button></router-link></td>
       </tr>
     </table>
-    <p class="subsection-title">通知管理</p>
+    <p class="account-title">通知管理</p>
     <p class="note">选择你希望接收唯ID发送的哪些电子邮件。</p>
     <el-form style="margin: 30px 0 0 120px;">
       <el-checkbox disabled checked></el-checkbox><span class="notification-title" style="color: #7f7f7f">开发者账号通知</span>
@@ -254,6 +252,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .account-table {
+    margin-top: 30px;
     margin-left: 140px;
   }
   .account-table td {
@@ -266,11 +265,12 @@
   .account-table td.c2 {
     width: 200px;
   }
-  .subsection-title {
+  .account-title {
+    margin-top: 30px;
     height: 40px;
     line-height: 40px;
     font-size: 16px;
-    padding-bottom: 0;
+    border-bottom: #EBEEF5 solid 1px;
   }
   .notification-detail {
     margin-left: 25px;

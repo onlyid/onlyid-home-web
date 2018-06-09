@@ -39,8 +39,7 @@
     </div>
     <div class="section" style="margin-top: 100px">
       <div class="gradient-hr-title">
-        <p class="docs-title"><i class="iconfont docs-icon">&#xe987;</i> 新手入门</p>
-        <div></div>
+        <span><i class="iconfont docs-icon">&#xe987;</i>新手入门</span>
       </div>
       <div class="docs-detail">
         <el-row>
@@ -66,8 +65,7 @@
     </div>
     <div class="section">
       <div class="gradient-hr-title">
-        <p class="docs-title"><i class="iconfont docs-icon">&#xe99f;</i> 快速接入</p>
-        <div></div>
+        <span><i class="iconfont docs-icon">&#xe99f;</i>快速接入</span>
       </div>
       <div class="docs-detail">
         <el-row>
@@ -90,8 +88,7 @@
     </div>
     <div class="section">
       <div class="gradient-hr-title">
-        <p class="docs-title"><i class="iconfont docs-icon">&#xe9a1;</i> 最佳实践</p>
-        <div></div>
+        <span><i class="iconfont docs-icon">&#xe9a1;</i>最佳实践</span>
       </div>
       <div class="docs-detail">
         <el-row>
@@ -109,8 +106,7 @@
     </div>
     <div class="section">
       <div class="gradient-hr-title">
-        <p class="docs-title"><i class="iconfont docs-icon">&#xe9c0;</i> 其他</p>
-        <div></div>
+        <span><i class="iconfont docs-icon">&#xe9c0;</i>其他</span>
       </div>
       <div class="docs-detail">
         <el-row>
@@ -134,10 +130,6 @@
         </el-row>
       </div>
     </div>
-
-    <!--<h2>准备工作</h2>-->
-    <!--<p>登录<router-link to="/console">控制台</router-link>，新建client获取client id和client secret。</p>-->
-    <!--<p>然后选择左侧菜单继续接入流程。</p>-->
   </div>
 </template>
 
@@ -152,7 +144,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .docs-title {
+  .gradient-hr-title {
     font-size: 24px;
   }
   .docs-detail {
