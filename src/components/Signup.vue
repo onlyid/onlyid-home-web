@@ -59,10 +59,6 @@
               email: this.form.email
             })
             sessionStorage.setObj('developer', res.data.developer)
-            this.$message({
-              message: '已完成注册，您可免费试用一个月的公有云',
-              type: 'success'
-            })
             this.$router.replace(sessionStorage.fromRoute.split('/')[1])
             this.$bus.$emit('login')
           } catch (err) {

@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/components/Index'
-import Hi from '@/components/Hi'
+import Playground from '@/components/Playground'
 import Auth from '@/components/Auth'
 import Downloads from '@/components/Downloads'
 import Pricing from '@/components/Pricing'
@@ -137,8 +137,8 @@ const router = new Router({
       component: AboutCareers
     },
     {
-      path: '/hi',
-      component: Hi
+      path: '/playground',
+      component: Playground
     }
   ],
   scrollBehavior (to, from, savedPosition) {

@@ -25,6 +25,8 @@ const validateIp = (value) => {
 }
 
 const prod = {
+  annualFee: 36,
+  discount: 0.05,
   admin: '5ad96df1b838b53ec26b2480',
   dateFormat: 'YYYY-MM-DD',
   clientIconAction: 'https://onlyid.net/clients/icons',

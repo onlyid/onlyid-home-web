@@ -227,8 +227,8 @@
     },
     computed: {
       totalAmount () {
-        const discount = 1 - (this.renewYears - 1) * 0.05
-        return (this.renewYears * 365 * discount).toFixed(2)
+        const discount = 1 - (this.renewYears - 1) * config.discount
+        return (this.renewYears * config.annualFee * discount).toFixed(2)
       },
       developerExpires () {
         if (new Date(this.developer.expires) < new Date()) {
