@@ -5,6 +5,8 @@
         <img src="../assets/gongzuo.png" width="300px" style="position: absolute; border: 1px solid #DCDFE6;"/>
       </div>
       <div style="padding-top: 100px;">
+        <p style="font-size: 30px;">视频狂欢季</p>
+        <p style="font-size: 18px;">AMD云服务器</p>
         <p style="font-size: 40px">简单、可信赖的手机号验证服务</p>
         <p style="font-size: 20px">用唯ID实现短信验证码登录，从此告别短信服务商</p>
         <div style="padding-top: 20px">

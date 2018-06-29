@@ -167,7 +167,7 @@
       changeMobile () {
         sessionStorage.auth4 = 'changeMobile'
         sessionStorage.fromRoute = this.$route.path
-        location.assign(config.authorizeUrl)
+        location.assign(config.authorizeUrl + '&scene=change')
       }
     },
     watch: {

@@ -25,7 +25,7 @@ function install (Vue) {
     let res = error.response
     if (res && res.status === 401) {
       sessionStorage.fromRoute = window.vue.$route.path
-      location.assign(config.authorizeUrl)
+      location.assign(config.authorizeUrl + '&scene=login')
     } else {
       window.vue.$message.error(error.message)
     }

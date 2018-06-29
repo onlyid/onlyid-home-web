@@ -104,7 +104,7 @@ const router = new Router({
 
         next(false)
         sessionStorage.fromRoute = path
-        location.assign(config.authorizeUrl)
+        location.assign(config.authorizeUrl + '&scene=login')
       },
       children: [
         {path: '', redirect: 'overview'},

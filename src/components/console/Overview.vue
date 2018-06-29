@@ -27,7 +27,7 @@
           <p style="margin: 0"><i class="material-icons account-icon" style="color: #3b5898;">account_circle</i>开发者账号： {{ developer.user.mobile }}</p>
           <p><i class="el-icon-star-on account-icon" style="color: #E6A23C"></i>已开通： {{ developer.edition === 'standard' ? '公有云' : '专有云' }}</p>
           <p style="margin: 0"><i class="el-icon-date account-icon" style="color: #67C23A"></i>有效期： {{ developerExpires }}
-            <router-link to="/console/account#products"><el-button type="text" style="float: right; padding: 0">续费</el-button></router-link></p>
+            <router-link to="/console/account#products"><el-button type="text" style="float: right; padding: 3px;">续费</el-button></router-link></p>
         </el-card>
         <el-card header="订单信息" style="width: 48%; float: right; height: 170px" shadow="hover">
           <el-row style="margin-top: 20px">

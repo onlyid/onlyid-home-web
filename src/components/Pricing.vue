@@ -8,16 +8,16 @@
         </div>
         <div id="announcement">
           <p style="font-size: 20px; text-align: center">我们将于2018年1月正式商业化</p>
-          <div style="font-size: 15px">
+          <div style="font-size: 15px" class="announcement-detail">
             <p>尊敬的客户：</p>
-            <p>唯ID自上线以来，获得了广大开发者和企业客户的一致好评。为了提供更好的服务，我们将于2018年1月正式商业化。</p>
+            <p style="margin-top: 1em;">唯ID自上线以来，获得了广大开发者和企业客户的一致好评。为了提供更好的服务，我们将于2018年1月正式商业化。</p>
             <p>对于公用云部署方式，继续保持<span>免费</span>运营，只收取每位开发者<span>36元人民币/年</span>的费用，用于区分活跃账号。</p>
             <p>除账号年费外，不收取其他任何费用，您仍然可以享受<span>无限量的短信验证码服务</span>。</p>
             <p>对于专有云（大客户方案），收取每家企业<span>1000元人民币/年</span>的费用，同时提供价格优惠的短信套餐包。</p>
             <p>衷心感谢您过去的信任和支持，未来我们一定会为您提供更好的服务。</p>
             <p>有任何疑问，请联系客户经理。</p>
             <p>特此公告。</p>
-            <p style="text-align: right">—— 唯ID团队 2017年12月</p>
+            <p style="text-align: right; margin-top: 1em;">—— 唯ID团队 2017年12月</p>
           </div>
         </div>
       </div>
@@ -191,13 +191,16 @@
     background-image: url("../assets/mask.png"), linear-gradient(223.56deg,#6CECA2 0,#005EFF 100%);
   }
   #announcement {
-    margin-top: 30px;
+    margin-top: 25px;
     background-image: url("../assets/mask.png");
-    padding: 10px 15px 15px;
+    padding: 5px 15px 15px;
     border-top: dashed 1px #7f7f7f;
   }
   #announcement span {
     color: #F56C6C;
+  }
+  .announcement-detail p {
+    margin: 0.5em 0;
   }
   .pricing-title {
     font-size: 20px;
@@ -209,7 +212,7 @@
     padding: 0px;
   }
   .pricing-detail li {
-    font-size: 16px;
+    font-size: 15px;
     list-style: none;
     margin: 20px 0;
   }
@@ -221,7 +224,7 @@
     vertical-align: sub;
   }
   .pricing-button {
-    font-size: 16px;
+    font-size: 15px;
     padding: 0px;
   }
   .tabs >>> .el-tabs__item {

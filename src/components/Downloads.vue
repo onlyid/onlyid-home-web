@@ -15,7 +15,7 @@
 }</pre>
         <p>集成SDK。</p>
         <a href="https://gitee.com/lltb/onlyid-sdk-android" target="_blank">
-          <repo-item title="Android SDK" detail="Android SDK代码库（使用Java）" update-date="2018-03-01" version="1.4.3">
+          <repo-item title="Android SDK" detail="Android SDK代码库（使用Java）" update-date="2018-03-01" version="1.4.3" style="margin-top: 10px">
             <i class="material-icons" style="background-color: #67C23A;">android</i>
           </repo-item>
         </a>
@@ -30,7 +30,7 @@
         <p>或 <a href="https://gitee.com/lltb/onlyid-sdk-ios/tree/master/OnlyID_SDK" target="_blank">下载</a>
           源码文件（不推荐）：AuthViewController.swift和OnlyID_SDK.swift，添加到你的项目。</p>
         <a href="https://gitee.com/lltb/onlyid-sdk-ios" target="_blank">
-          <repo-item title="iOS SDK" detail="iOS SDK代码库（使用Swift）" update-date="2018-03-01" version="1.4.0">
+          <repo-item title="iOS SDK" detail="iOS SDK代码库（使用Swift）" update-date="2018-03-01" version="1.4.0" style="margin-top: 10px">
             <i class="iconfont" style="background-color: #409EFF;">&#xe72c;</i>
           </repo-item>
         </a>
@@ -63,7 +63,7 @@
         </div>
       </div>
       <p class="subsection-title">服务端</p>
-      <p class="note">因服务端示例较简单，其他语言开发者请统一参看Node.js示例。</p>
+      <p>因服务端示例较简单，其他语言开发者请统一参看Node.js示例。</p>
       <div>
         <div class="downloads-row">
           <a href="https://gitee.com/lltb/onlyid-demo-backend-nodejs" target="_blank">
@@ -94,8 +94,14 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .section {
+    font-size: 15px;
+  }
   #banner1 {
     background-color: #409EFF;
+  }
+  p {
+    margin: 0.8em 0;
   }
   .downloads-row {
     margin-top: 30px;
@@ -105,7 +111,7 @@
   }
   .subsection-title {
     margin-top: 50px;
-    font-size: 18px;
+    font-size: 21px;
   }
   .gradient-hr-title + .subsection-title {
     margin-top: 40px;

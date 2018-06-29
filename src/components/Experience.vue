@@ -98,7 +98,7 @@
     animation: none;
   }
   .experience-button {
-    font-size: 16px;
+    font-size: 15px;
     animation: breath-animate 3s infinite ease;
   }
   @keyframes breath-animate {
@@ -125,6 +125,9 @@
     padding: 0 20px;
     background-image: url("../assets/mask.png"), linear-gradient( to right, #fff 0%, #fff 40%, #0be1f4 100% );
     background-size: 200%;
+  }
+  .card p {
+    margin: 0.8em 0;
   }
   .card1 {
     background-image: url("../assets/mask.png"), linear-gradient( to right, #0be1f4 0%, #fff 60% );

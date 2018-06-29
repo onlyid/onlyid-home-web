@@ -8,8 +8,8 @@
           </transition>
         </div>
         <div style="padding-top: 100px;">
-          <p style="font-size: 40px">简单、可信赖的手机号验证服务</p>
-          <p style="font-size: 20px">用唯ID实现短信验证码登录，从此告别短信服务商</p>
+          <p style="font-size: 37px">简单、可信赖的手机号验证服务</p>
+          <p style="font-size: 18px">用唯ID实现短信验证码登录，从此告别短信服务商</p>
           <div style="padding-top: 20px">
             <router-link to="/experience"><el-button round>在线体验</el-button></router-link>
             <router-link to="/console" style="margin-left: 50px"><el-button type="primary" round>开始使用</el-button></router-link>
@@ -296,16 +296,16 @@
     margin: 0 auto;
   }
   #content {
-    font-size: 16px;
+    font-size: 15px;
   }
   .intro {
-    font-size: 20px;
+    font-size: 18px;
     text-indent: 2em;
     margin-top: 30px;
   }
   .tab-icon {
     vertical-align: middle;
-    font-size: 24px;
+    font-size: 22px;
     margin-right: 5px;
     color: #7f7f7f;
   }
@@ -314,6 +314,12 @@
   }
   .el-tabs__item.is-active .tab-icon {
     color: #409EFF;
+  }
+  #tabs >>> .el-tabs__item {
+    font-size: 16px;
+    line-height: 50px;
+    height: 50px;
+    font-weight: normal;
   }
   .scene-tag {
     font-size: 14px;
@@ -385,7 +391,7 @@
     list-style: none;
   }
   .edition-summary {
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 0;
   }
   .advantage {
@@ -419,11 +425,5 @@
   }
   .fade-enter, .fade-leave-to {
     opacity: 0
-  }
-  #tabs >>> .el-tabs__item {
-    font-size: 18px;
-    line-height: 50px;
-    height: 50px;
-    font-weight: normal;
   }
 </style>

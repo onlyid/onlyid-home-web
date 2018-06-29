@@ -89,19 +89,27 @@
     width: 980px;
     margin: 0 auto;
   }
+  #docs >>> #content {
+    font-size: 15px;
+  }
+  #content >>> p {
+    margin: 0.8em 0;
+  }
   #docs >>> h1 {
     font-weight: normal;
-    font-size: 20px;
+    font-size: 24px;
   }
   #docs >>> h2 {
-    font-size: 18px;
+    font-size: 21px;
     font-weight: normal;
     margin-top: 50px;
+    margin-bottom: 15px;
   }
   #docs >>> h3 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: normal;
-    margin-top: 25px;
+    margin-top: 30px;
+    margin-bottom: 15px;
   }
   #docs >>> .glossary-dl dt {
     margin: 20px 0 5px;

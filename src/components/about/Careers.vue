@@ -104,10 +104,10 @@
               </el-table-column>
             </el-table>
             <el-card style="min-height: 500px; float: left; width: 480px; margin-left: 35px;">
-              <p style="color: #7f7f7f">岗位职责</p>
-              <p style="font-size: 14px" v-html="positionResponsibility"></p>
-              <p style="color: #7f7f7f; margin-top: 40px">任职要求</p>
-              <p style="font-size: 14px" v-html="positionRequirement"></p>
+              <p style="color: #7f7f7f; font-size: 16px">岗位职责</p>
+              <p v-html="positionResponsibility"></p>
+              <p style="color: #7f7f7f; font-size: 16px; margin-top: 40px">任职要求</p>
+              <p v-html="positionRequirement"></p>
             </el-card>
             <div style="clear: both"></div>
           </div>
@@ -308,10 +308,10 @@
     background-image: url("../../assets/banner.jpg");
   }
   #content {
-    font-size: 16px;
+    font-size: 15px;
   }
   #tabs >>> .el-tabs__item {
-    font-size: 16px;
+    font-size: 15px;
     height: 60px;
     line-height: 60px;
     text-align: left;
@@ -322,6 +322,6 @@
     width: 32px;
   }
   .el-table {
-    font-size: 16px;
+    font-size: 15px;
   }
 </style>

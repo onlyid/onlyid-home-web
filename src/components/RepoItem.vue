@@ -8,7 +8,7 @@
     </div>
     <div style="float: right; width: 215px; margin-top: 20px">
       <span style="font-size: 16px;">{{ title }}</span>
-      <p style="color: #7f7f7f; margin: 8px 0 0;">{{ detail }}</p>
+      <p style="color: #7f7f7f; margin: 8px 0 0; font-size: 14px;">{{ detail }}</p>
     </div>
     <div style="clear: both"></div>
   </el-card>

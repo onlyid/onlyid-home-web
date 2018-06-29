@@ -104,12 +104,12 @@ body {
 }
 .section-title {
   text-align: center;
-  font-size: 30px;
+  font-size: 28px;
   margin: 0;
 }
 .section-summary {
   text-align: center;
-  font-size: 18px;
+  font-size: 17px;
   color: #7f7f7f;
 }
 .section-bg-dark {
@@ -130,7 +130,6 @@ body {
 }
 /* 引用程序代码的样式 */
 pre {
-  font-size: 14px;
   padding: 20px;
   background-color: #f7f8f9;
 }

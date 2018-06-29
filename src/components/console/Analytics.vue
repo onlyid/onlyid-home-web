@@ -46,13 +46,12 @@
   import ClientOverview from './ClientOverview'
   import echarts from 'echarts'
   import moment from 'moment'
-  import config from '../../config'
 
   const xAxisData = []
   const date = new Date()
   date.setDate(date.getDate() - 30)
   for (let i = 0; i < 30; i++) {
-    xAxisData.push(moment(date).format(config.dateFormat))
+    xAxisData.push(moment(date).format('\'YY-MM-DD'))
     date.setDate(date.getDate() + 1)
   }
 
@@ -170,7 +169,10 @@
           trigger: 'axis'
         },
         legend: {
-          data: ['请求量', '验证量']
+          data: ['请求量', '验证量'],
+          textStyle: {
+            fontSize: 13
+          }
         },
         grid: {
           left: '2%',
@@ -180,10 +182,19 @@
         },
         xAxis: {
           boundaryGap: false,
-          data: xAxisData
+          data: xAxisData,
+          axisLabel: {
+            fontSize: 13
+          }
         },
         yAxis: {
-          name: '单位（次）'
+          name: '单位（次）',
+          nameTextStyle: {
+            fontSize: 13
+          },
+          axisLabel: {
+            fontSize: 13
+          }
         },
         series: [{
           name: '请求量',

@@ -151,7 +151,7 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   #content {
-    font-size: 16px;
+    font-size: 15px;
   }
   .header-hehe {
     position: absolute;
