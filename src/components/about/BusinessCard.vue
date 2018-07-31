@@ -1,12 +1,12 @@
 <template>
-  <el-card style="font-size: 15px; width: 600px; margin: 0 auto;" :body-style="{paddingLeft: '25px'}">
+  <el-card style="width: 500px; margin: 0 auto;" :body-style="{padding: '30px 30px 30px 35px'}">
     <div>
       <div class="qr-code">
         <slot name="qr-code"></slot>
       </div>
       <span style="font-size: 24px">{{name}} </span> <span style="font-size: 18px"> {{title}}</span>
-      <p style="margin-top: 35px">TEL：{{tel}}（工作日 09:30 - 18:30）</p>
-      <p>MAIL：{{email}}（用@代替#）</p>
+      <p style="margin-top: 35px">TEL：{{tel}}</p>
+      <p>MAIL：{{email}}</p>
       <span>QQ：{{qq}}</span>
     </div>
   </el-card>

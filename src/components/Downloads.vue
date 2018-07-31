@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p id="banner1">唯ID下载中心</p>
+    <p id="banner">下载中心</p>
     <div class="section">
       <div class="gradient-hr-title">
         <span><i class="iconfont title-icon">&#xe997;</i>下载SDK</span>
@@ -28,7 +28,7 @@
         <pre>pod 'OnlyID_SDK', :git => 'https://gitee.com/lltb/onlyid-sdk-ios.git'</pre>
         <p>集成SDK。</p>
         <p>或 <a href="https://gitee.com/lltb/onlyid-sdk-ios/tree/master/OnlyID_SDK" target="_blank">下载</a>
-          源码文件（不推荐）：AuthViewController.swift和OnlyID_SDK.swift，添加到你的项目。</p>
+          源码文件：AuthViewController.swift和OnlyID_SDK.swift，添加到项目。</p>
         <a href="https://gitee.com/lltb/onlyid-sdk-ios" target="_blank">
           <repo-item title="iOS SDK" detail="iOS SDK代码库（使用Swift）" update-date="2018-03-01" version="1.4.0" style="margin-top: 10px">
             <i class="iconfont" style="background-color: #409EFF;">&#xe72c;</i>
@@ -94,10 +94,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .section {
-    font-size: 15px;
-  }
-  #banner1 {
+  #banner {
     background-color: #409EFF;
   }
   p {
@@ -110,11 +107,11 @@
     font-size: 24px;
   }
   .subsection-title {
-    margin-top: 50px;
+    margin-top: 40px;
     font-size: 21px;
   }
   .gradient-hr-title + .subsection-title {
-    margin-top: 40px;
+    margin-top: 30px;
   }
   .title-icon {
     vertical-align: sub;

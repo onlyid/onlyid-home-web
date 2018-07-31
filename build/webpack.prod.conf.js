@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const PrerenderSPAPlugin = require('prerender-spa-plugin')
 
 const env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -97,7 +98,13 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
-    ])
+    ]),
+    new PrerenderSPAPlugin({
+      staticDir: path.join(__dirname, '../dist'),
+      routes: [ '/', '/downloads', '/pricing', '/experience', '/docs', '/docs/overview', '/docs/oauth2', '/docs/web',
+        '/docs/android', '/docs/ios', '/docs/custom', '/docs/security', '/docs/faq', '/docs/review', '/about',
+        '/about/agreement', '/about/privacy', '/about/careers']
+    })
   ]
 })
 

@@ -1,19 +1,22 @@
 <template>
   <div>
-    <p id="banner1">体验下一代手机号验证服务</p>
+    <p id="banner">体验下一代手机帐号</p>
     <div class="menu">
-        <p style="margin: 0px;"><span @click="common.goAnchor('#experience-public')">公有云</span><span style="margin-left: 50px;" @click="common.goAnchor('#experience-enterprise')">专有云（大客户方案）</span></p>
+        <p style="margin: 0px;">
+          <span @click="common.goAnchor('#experience-public')">公有云</span>
+          <span style="margin-left: 50px;" @click="common.goAnchor('#experience-enterprise')">专有云</span>
+        </p>
     </div>
     <div class="section-bg-gradient">
       <div class="section" id="experience-public">
         <p class="section-title">注册体验</p>
-        <p class="section-summary">注册同时体验，何乐不为？</p>
+        <p class="section-summary">体验公有云桌面版</p>
         <div style="margin-top: 40px; font-size: 18px;">
           <el-card class="card">
-            <p><img src="../assets/logo.png" width="66" style="vertical-align: text-bottom"/>开发者官网（本站）采用公有云版手机号验证服务，实现了手机号登录、账号更换手机号场景。</p>
-            <p>立即注册开发者账号，完整体验下一代手机号验证服务。</p>
+            <p><img src="../assets/logo.png" width="66" style="vertical-align: text-bottom"/>官网（本站）采用公有云桌面版手机帐号，实现了手机号登录和更换手机号功能。</p>
+            <p>立即注册，完整体验下一代手机帐号。</p>
             <p style="text-align: center; margin-top: 50px;">
-              <router-link to="/console"><el-button type="primary" round class="experience-button">开始使用</el-button></router-link>
+              <a :href="config.consoleUrl" target="_blank"><el-button type="primary" round class="experience-button">开始使用</el-button></a>
             </p>
           </el-card>
         </div>
@@ -22,24 +25,24 @@
     <div class="section-bg-gradient">
       <div class="section">
         <p class="section-title">在线体验</p>
-        <p class="section-summary">体验公有云版手机号验证服务</p>
+        <p class="section-summary">体验公有云移动版</p>
         <div style="margin-top: 40px;">
           <el-card class="card1" :body-style="{ padding: '0px' }">
             <iframe src="https://demo.onlyid.net" width="320" height="480" class="demo-iframe" scrolling="no"></iframe>
             <div class="tooltip">
               <div class="tooltip__arrow"></div>
               <div>
-                <p><img src="../assets/click.svg" style="vertical-align: sub; margin-right: 10px;"/>尝试点一下</p>
+                <p style="font-size: 16px"><img src="../assets/click.svg" style="vertical-align: sub; margin-right: 10px;"/>尝试点一下</p>
                 <div style="border-top: 1px solid #EFEFEF;">
-                  <p style="margin-bottom: 5px;font-size: 15px; color: #7f7f7f;">专有云（大客户方案）可深度定制界面。</p>
-                  <el-button type="text" style="font-size: 16px" @click="common.goAnchor('#experience-enterprise')">体验专有云</el-button>
+                  <p style="margin-bottom: 5px; color: #7f7f7f;">专有云可深度定制界面</p>
+                  <el-button type="text" style="font-size: 15px" @click="common.goAnchor('#experience-enterprise')">体验专有云</el-button>
                 </div>
               </div>
             </div>
             <div style="padding: 20px 40px;">
               <!--<p>正文内容</p>-->
             </div>
-            <p style="position: absolute; left: 20px; bottom: 10px" class="note">* 体验程序（Web客户端、Node.js服务端）源码可在 <router-link to="/downloads#demo">下载中心</router-link> 在线查阅、下载运行。</p>
+            <p style="position: absolute; left: 20px; bottom: 10px" class="note">体验程序（Web前端）源码可在 <router-link to="/downloads#demo">下载中心</router-link> 在线查阅、下载运行</p>
           </el-card>
         </div>
       </div>
@@ -47,10 +50,10 @@
     <div class="section-bg-gradient">
       <div class="section" id="experience-enterprise">
         <p class="section-title">体验专有云</p>
-        <p class="section-summary">体验企业级IDaaS解决方案</p>
+        <p class="section-summary">体验企业IDaaS解决方案</p>
         <div style="margin-top: 40px; font-size: 18px">
           <el-card class="card">
-            <p>专有云（大客户方案）提供了丰富的自定义选项，以及针对具体客户的源码级定制，请联系商务获取示例Demo。</p>
+            <p>专有云提供了丰富的自定义选项，以及针对具体客户的源码级定制，请联系客户经理获取示例Demo。</p>
             <p style="text-align: center; margin-top: 50px;">
               <router-link to="/pricing#business-service"><el-button type="primary" round class="experience-button">联系客户经理</el-button></router-link>
             </p>
@@ -63,11 +66,13 @@
 
 <script>
   import common from 'onlyid-frontend-common'
+  import config from '../config'
 
   export default {
     data () {
       return {
-        common
+        common,
+        config
       }
     },
     methods: {
@@ -84,8 +89,8 @@
     color: #7f7f7f;
   }
   .menu span {
-    height: 60px;
-    line-height: 60px;
+    height: 55px;
+    line-height: 55px;
     box-sizing: border-box;
     display: inline-block;
     cursor: pointer;
@@ -115,11 +120,8 @@
       transform-origin: center;
     }
   }
-  #banner1 {
+  #banner {
     background-image: url("../assets/mask.png"), linear-gradient(223.56deg,#6CECA2 0,#005EFF 100%);
-  }
-  .section {
-    font-size: 16px;
   }
   .card {
     padding: 0 20px;

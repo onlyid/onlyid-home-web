@@ -1,16 +1,5 @@
 <template>
   <div id="app">
-    <el-popover ref="popover1" placement="right" trigger="hover">
-      <div>
-        <img src="./assets/wechat-185.jpeg" width="215"/>
-      </div>
-    </el-popover>
-    <el-popover ref="popover2" placement="right" trigger="hover">
-      <div>
-        <img src="./assets/wechat-155.jpeg" width="215"/>
-      </div>
-    </el-popover>
-
     <div id="header-bg">
       <el-row id="header">
         <el-col :span="2">
@@ -19,24 +8,17 @@
           </router-link>
         </el-col>
         <el-col :span="17">
-          <el-menu id="nav" :default-active="activeIndex" mode="horizontal" @select="select">
+          <el-menu id="menu" :default-active="hack ? '' : activeIndex" mode="horizontal" @select="select">
             <el-menu-item index="/docs">文档</el-menu-item>
             <el-menu-item index="/downloads">下载</el-menu-item>
             <el-menu-item index="/pricing">价格</el-menu-item>
             <el-menu-item index="/experience">在线体验</el-menu-item>
             <el-menu-item index="/console">控制台</el-menu-item>
-            <el-menu-item v-if="isAdmin" index="/admin">admin</el-menu-item>
           </el-menu>
         </el-col>
         <el-col :span="5">
           <div style="padding-top: 12px; float: right">
-            <template v-if="isLogin">
-              <span class="username" @click="goAccount">{{ developerName }}</span>
-              <el-button size="medium" style="margin-left: 20px" @click="logout">退出</el-button>
-            </template>
-            <template v-else>
-              <router-link to="/console"><el-button size="medium" type="primary">登录 / 注册</el-button></router-link>
-            </template>
+            <a :href="config.consoleUrl" target="_blank"><el-button size="medium" type="primary">登 录</el-button></a>
           </div>
         </el-col>
       </el-row>
@@ -44,12 +26,22 @@
     <router-view/>
     <div id="footer-bg" v-show="showFooter">
       <div id="footer">
-        <el-row style="margin: 40px 0;">
+        <el-row style="margin: 30px 0;">
           <el-col :span="10" :offset="1">
             <p class="footer-title">联系我们</p>
             <ul>
-              <li>客户经理（业务咨询）：18588237889 <i class="iconfont" v-popover:popover1>&#xe7e5;</i></li>
-              <li>技术支持：15521312099 <i class="iconfont" v-popover:popover2>&#xe7e5;</i></li>
+              <li>客户经理（业务咨询）：18588237889
+                <el-popover placement="right" trigger="hover">
+                  <img src="./assets/wechat-185.jpeg" width="215"/>
+                  <i class="iconfont" slot="reference">&#xe7e5;</i>
+                </el-popover>
+              </li>
+              <li>技术支持：15521312099
+                <el-popover placement="right" trigger="hover">
+                  <img src="./assets/wechat-155.jpeg" width="215"/>
+                  <i class="iconfont" slot="reference">&#xe7e5;</i>
+                </el-popover>
+              </li>
               <li>技术支持邮箱：<a href="mailto:help@onlyid.net">help@onlyid.net</a></li>
               <li>开发者QQ群：23831587</li>
             </ul>
@@ -60,7 +52,6 @@
               <li><router-link to="/pricing">续费充值</router-link></li>
               <li><router-link to="/downloads#android-sdk">Android SDK</router-link></li>
               <li><router-link to="/downloads#ios-sdk">iOS SDK</router-link></li>
-              <li><router-link to="/docs/changelog">SDK 更新记录</router-link></li>
               <li><router-link to="/docs/faq">常见问题</router-link></li>
             </ul>
           </el-col>
@@ -68,7 +59,6 @@
             <p class="footer-title">关于唯ID</p>
             <ul>
               <li><router-link to="/about">关于我们</router-link></li>
-              <li><router-link to="/about#contact">联系方式</router-link></li>
               <li><router-link to="/about/careers">加入我们</router-link></li>
               <li><router-link to="/about/privacy">隐私权政策</router-link></li>
               <li><router-link to="/about/agreement">服务条款</router-link></li>
@@ -88,83 +78,36 @@
 <script>
 import config from './config'
 
-function updateLogin () {
-  const developer = sessionStorage.getObj('developer')
-  console.log('developer=', developer)
-  if (developer) {
-    this.developerName = developer.name
-    this.isLogin = true
-    this.isAdmin = developer._id === config.admin
-  }
-}
-
 export default {
-  name: 'app',
   data () {
     return {
-      developerName: '',
       currentYear: new Date().getFullYear(),
-      isLogin: false,
-      isAdmin: false
+      config,
+      hack: false
     }
   },
   methods: {
-    goAccount () {
-      this.$router.push('/console/account')
-    },
-    logout () {
-      this.$axios.post('/logout').then((res) => {
-        sessionStorage.clear()
-        // 当前处于控制台时，跳回首页
-        const list = ['/console', '/admin']
-        if (list.includes(this.activeIndex)) {
-          this.$router.replace('/')
-        }
-        this.isLogin = false
-        this.isAdmin = false
-      }).catch((err) => {
-        console.error(err)
-      })
-    },
     select (key) {
+      if (key === '/console') {
+        this.hack = true
+        this.$nextTick(() => { this.hack = false })
+        return open(config.consoleUrl)
+      }
       this.$router.push(key)
     }
-  },
-  mounted () {
-    updateLogin.call(this)
-    this.$bus.$on('login', () => {
-      updateLogin.call(this)
-    })
   },
   computed: {
     activeIndex () {
       return '/' + this.$route.path.split('/')[1]
     },
-    // 文档和控制台不显示footer
     showFooter () {
-      const list = ['/docs', '/console', '/auth', '/admin']
-      return !list.includes(this.activeIndex)
+      return this.activeIndex !== '/docs'
     }
   }
 }
 </script>
 
 <style scoped>
-  .username {
-    font-size: 15px;
-    color: #7f7f7f;
-    max-width: 100px;
-    display: inline-block;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    vertical-align: middle;
-    text-align: right;
-    cursor: pointer;
-  }
-  .username:hover {
-    color: #303133;
-  }
   #header-bg {
     background-color: #fff;
   }
@@ -172,11 +115,22 @@ export default {
     width: 980px;
     margin: 0 auto;
   }
-  #nav {
+  #menu {
     border-bottom: none;
   }
-  #nav > .el-menu-item {
+  #menu > .el-menu-item {
     font-size: 16px;
+    border-bottom: none;
+  }
+  .menu .el-menu-item:hover {
+    color: #303133;
+  }
+  #menu > .el-menu-item:focus {
+    color: #909399;
+  }
+  #menu > .el-menu-item.is-active {
+    color: #303133;
+    border-bottom: none;
   }
   #footer-bg {
     background-color: #4b5056;

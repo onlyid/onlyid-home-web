@@ -4,18 +4,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/components/Index'
 import Playground from '@/components/Playground'
-import Auth from '@/components/Auth'
 import Downloads from '@/components/Downloads'
 import Pricing from '@/components/Pricing'
 import Experience from '@/components/Experience'
-import Signup from '@/components/Signup'
-import Admin from '@/components/Admin'
 
 import Docs from '@/components/docs/Docs'
 import DocsHome from '@/components/docs/Home'
 import DocsOverview from '@/components/docs/Overview'
 import DocsOAuth2 from '@/components/docs/OAuth2'
-import DocsPrepare from '@/components/docs/Prepare'
 import DocsWeb from '@/components/docs/Web'
 import DocsAndroid from '@/components/docs/Android'
 import DocsiOS from '@/components/docs/iOS'
@@ -23,137 +19,54 @@ import DocsCustom from '@/components/docs/Custom'
 import DocsSecurity from '@/components/docs/Security'
 import DocsFAQ from '@/components/docs/FAQ'
 import DocsReview from '@/components/docs/review'
-import DocsChangelog from '@/components/docs/Changelog'
-
-import Console from '@/components/console/Console'
-import ConsoleClientCreate from '@/components/console/ClientCreate'
-import ConsoleOverview from '@/components/console/Overview'
-import ConsoleEnterpriseApply from '@/components/console/EnterpriseApply'
-import ConsoleMobileAccount from '@/components/console/MobileAccount'
-import ConsoleAnalytics from '@/components/console/Analytics'
-import ConsoleSettings from '@/components/console/Settings'
-import ConsoleAccount from '@/components/console/Account'
 
 import About from '@/components/about/About'
 import AboutCareers from '@/components/about/Careers'
 import AboutAgreement from '@/components/about/Agreement'
 import AboutPrivacy from '@/components/about/Privacy'
 
-import config from '@/config'
-
 Vue.use(Router)
 
 const router = new Router({
+  mode: 'history',
   routes: [
-    {
-      path: '/',
-      component: Index
-    },
-    {
-      path: '/auth',
-      component: Auth
-    },
-    {
-      path: '/downloads',
-      component: Downloads
-    },
-    {
-      path: '/pricing',
-      component: Pricing
-    },
-    {
-      path: '/experience',
-      component: Experience
-    },
-    {
-      path: '/signup',
-      component: Signup
-    },
-    {
-      path: '/admin',
-      component: Admin
-    },
+    {path: '/', component: Index, meta: {title: '共享的手机账号'}},
+    {path: '/downloads', component: Downloads, meta: {title: '下载'}},
+    {path: '/pricing', component: Pricing, meta: {title: '价格'}},
+    {path: '/experience', component: Experience, meta: {title: '在线体验'}},
     {
       path: '/docs',
       component: Docs,
       children: [
-        {path: '', component: DocsHome},
-        {path: 'overview', component: DocsOverview},
-        {path: 'oauth2', component: DocsOAuth2},
-        {path: 'prepare', component: DocsPrepare},
-        {path: 'web', component: DocsWeb},
-        {path: 'android', component: DocsAndroid},
-        {path: 'ios', component: DocsiOS},
-        {path: 'custom', component: DocsCustom},
-        {path: 'security', component: DocsSecurity},
-        {path: 'faq', component: DocsFAQ},
-        {path: 'review', component: DocsReview},
-        {path: 'changelog', component: DocsChangelog}
+        {path: '', component: DocsHome, meta: {title: '文档'}},
+        {path: 'overview', component: DocsOverview, meta: {title: '产品概述'}},
+        {path: 'oauth2', component: DocsOAuth2, meta: {title: 'OAuth 2.0入门'}},
+        {path: 'web', component: DocsWeb, meta: {title: 'Web接入'}},
+        {path: 'android', component: DocsAndroid, meta: {title: 'Android接入'}},
+        {path: 'ios', component: DocsiOS, meta: {title: 'iOS接入'}},
+        {path: 'custom', component: DocsCustom, meta: {title: '自定义选项（基础）'}},
+        {path: 'security', component: DocsSecurity, meta: {title: '安全性'}},
+        {path: 'faq', component: DocsFAQ, meta: {title: '常见问题'}},
+        {path: 'review', component: DocsReview, meta: {title: '审核'}}
       ]
     },
-    {
-      path: '/console',
-      component: Console,
-      // 检查登录状态
-      beforeEnter: (to, from, next) => {
-        const path = to.path
-        const developer = sessionStorage.getObj('developer')
-        if (developer) {
-          return next()
-        }
-
-        next(false)
-        sessionStorage.fromRoute = path
-        location.assign(config.authorizeUrl + '&scene=login')
-      },
-      children: [
-        {path: '', redirect: 'overview'},
-        {path: 'overview', component: ConsoleOverview},
-        {path: 'analytics/:id', component: ConsoleAnalytics},
-        {path: 'analytics', component: ConsoleAnalytics},
-        {path: 'settings/:id', component: ConsoleSettings},
-        {path: 'settings', component: ConsoleSettings},
-        {path: 'enterprise/apply', component: ConsoleEnterpriseApply},
-        {path: 'enterprise/:tmp', redirect: 'enterprise/apply'},
-        {path: 'account', component: ConsoleAccount},
-        {path: 'mobile-account', component: ConsoleMobileAccount},
-        {path: 'clients/create', component: ConsoleClientCreate}
-      ]
-    },
-    {
-      path: '/about',
-      component: About
-    },
-    {
-      path: '/about/agreement',
-      component: AboutAgreement
-    },
-    {
-      path: '/about/privacy',
-      component: AboutPrivacy
-    },
-    {
-      path: '/about/careers',
-      component: AboutCareers
-    },
-    {
-      path: '/playground',
-      component: Playground
-    }
+    {path: '/about', component: About, meta: {title: '关于我们'}},
+    {path: '/about/agreement', component: AboutAgreement, meta: {title: '服务条款'}},
+    {path: '/about/privacy', component: AboutPrivacy, meta: {title: '隐私权政策'}},
+    {path: '/about/careers', component: AboutCareers, meta: {title: '加入我们'}},
+    {path: '/playground', component: Playground, meta: {title: 'playground'}}
   ],
   scrollBehavior (to, from, savedPosition) {
     // 只有#不行，#后面要接具体锚点值
     if (to.hash && to.hash.length > 1) {
-      return {
-        selector: to.hash
-      }
+      return {selector: to.hash}
     }
     return { x: 0, y: 0 }
   }
 })
 
-router.beforeEach((to, from, next) => {
-  next()
+router.afterEach((to) => {
+  document.title = '唯ID - ' + to.meta.title
 })
 
 export default router

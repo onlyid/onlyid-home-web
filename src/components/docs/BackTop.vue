@@ -1,5 +1,5 @@
 <template>
-  <div id="back-top" v-if="backTopVisible" @click="backTop">
+  <div v-if="visible" @click="backTop">
     <i class="el-icon-caret-top"></i>
   </div>
 </template>
@@ -8,25 +8,20 @@
 export default {
   data () {
     return {
-      backTopVisible: false
+      visible: false
     }
   },
   methods: {
     backTop () {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-      })
+      window.scrollTo({top: 0, left: 0, behavior: 'smooth'})
     }
   },
   mounted () {
     window.onscroll = () => {
-      console.log(window.pageYOffset)
       if (window.pageYOffset > 500) {
-        this.backTopVisible = true
+        this.visible = true
       } else {
-        this.backTopVisible = false
+        this.visible = false
       }
     }
   },
@@ -38,7 +33,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  #back-top {
+  div {
     position: fixed;
     background-color: #fff;
     right: 100px;
@@ -50,7 +45,7 @@ export default {
     box-shadow: 0 0 6px rgba(0,0,0,.12);
     z-index: 1;
   }
-  #back-top i {
+  i {
     color: #409eff;
     display: block;
     line-height: 40px;
