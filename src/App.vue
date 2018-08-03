@@ -19,7 +19,7 @@
         </el-col>
         <el-col :span="5">
           <div style="padding-top: 12px; float: right">
-            <a :href="config.consoleUrl" target="_blank"><el-button size="medium" type="primary">登 录</el-button></a>
+            <el-button size="medium" type="primary" @click="login">登 录</el-button>
           </div>
         </el-col>
       </el-row>
@@ -27,7 +27,7 @@
     <router-view/>
     <div id="footer-bg" v-show="showFooter">
       <div id="footer">
-        <el-row style="margin: 30px 0;">
+        <el-row style="margin: 40px 0;">
           <el-col :span="10" :offset="1">
             <p class="footer-title">联系我们</p>
             <ul>
@@ -80,6 +80,21 @@
 import BackTop from './components/BackTop'
 import config from './config'
 
+// async function handleCode (code) {
+//   try {
+//     const {data} = await this.$axios.post('/login', {code})
+//     // 如果存在user字段 说明已注册
+//     if (data.user) {
+//       location.replace(config.consoleUrl)
+//     } else { // 新用户注册
+//       sessionStorage.user = JSON.stringify(data)
+//       this.$router.replace('/signup')
+//     }
+//   } catch (err) {
+//     console.error(err)
+//   }
+// }
+
 export default {
   components: {BackTop},
   data () {
@@ -94,9 +109,28 @@ export default {
       if (key === '/console') {
         this.hack = true
         this.$nextTick(() => { this.hack = false })
-        return open(config.consoleUrl)
+        return this.login()
       }
       this.$router.push(key)
+    },
+    login () {
+      // let left = screenX + (outerWidth - 440) / 2
+      // let top = screenY + (outerHeight - 645) / 2
+      // open(config.authorizeUrl, 'login', 'width=440,height=645,left=' + left + ',top=' + top)
+      // ie11 的post message经过redirect就不好用了
+      // if (process.env.NODE_ENV === 'production') {
+      //   window.onstorage = (e) => {
+      //     if (e.key === 'code') {
+      //       handleCode.call(this, e.newValue)
+      //     }
+      //   }
+      // } else { // 测试环境跨域 只能post message传递数据
+      //   window.onmessage = async (e) => {
+      //     if (e.source === w) {
+      //       handleCode.call(this, e.data)
+      //     }
+      //   }
+      // }
     }
   },
   computed: {
@@ -106,6 +140,12 @@ export default {
     showFooter () {
       return this.activeIndex !== '/docs'
     }
+  },
+  beforeDestroy () {
+    // window.onmessage = null
+  },
+  created () {
+    this.$bus.$on('login', this.login.bind(this))
   }
 }
 </script>
@@ -150,15 +190,17 @@ export default {
     display: inline-block;
     padding-bottom: 5px;
     border-bottom: #EBEEF5 solid 1px;
+    margin-top: 0;
     margin-bottom: 0.8em;
   }
   #footer ul {
-    padding: 0px;
+    margin: 0;
+    padding: 0;
   }
   #footer li {
     list-style: none;
     font-size: 14px;
-    margin: 12px 0;
+    margin-top: 12px;
     height: 25px;
     color: #ccc;
   }

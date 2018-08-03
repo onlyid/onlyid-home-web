@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>auth</title>
+</head>
+<body>
+<script>
+  const urlArgs = function () {
+    const args = {}
+    const query = location.search.substring(1)
+    const pairs = query.split('&')
+    for (let i = 0; i < pairs.length; i++) {
+      const p = pairs[i].split('=')
+      args[p[0]] = decodeURIComponent(p[1])
+    }
+    return args
+  }
+  sessionStorage.code = urlArgs()['code']
+  postMessage(urlArgs()['code'], '*')
+  close()
+</script>
+</body>
+</html>

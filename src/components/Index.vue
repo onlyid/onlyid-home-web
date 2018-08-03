@@ -11,7 +11,7 @@
           <p style="font-size: 37px">共享的手机账号</p>
           <p style="font-size: 18px">用唯ID实现手机号登录，从此告别高昂短信费用</p>
           <div style="padding-top: 20px">
-            <a :href="config.consoleUrl" target="_blank"><el-button type="primary" plain round>开始使用</el-button></a>
+            <el-button type="primary" plain round @click="$bus.$emit('login')">开始使用</el-button>
           </div>
         </div>
         <div style="clear: both"></div>
@@ -195,7 +195,7 @@
     <div class="section-bg-dark">
       <div class="section" style="text-align: center; font-size: 18px;">
         <p>“我们的使命是建立中国统一的账号和认证体系，为互联网带来秩序。” </p>
-        <a :href="config.consoleUrl" target="_blank"><el-button type="primary" style="margin-top: 10px">开始使用</el-button></a>
+        <el-button type="primary" style="margin-top: 10px" @click="$bus.$emit('login')">开始使用</el-button>
       </div>
       <div class="gradient-hr" style="background: #7f7f7f;"></div>
     </div>

@@ -7,6 +7,7 @@ import Playground from '@/components/Playground'
 import Downloads from '@/components/Downloads'
 import Pricing from '@/components/Pricing'
 import Experience from '@/components/Experience'
+import Signup from '@/components/Signup'
 
 import Docs from '@/components/docs/Docs'
 import DocsHome from '@/components/docs/Home'
@@ -34,6 +35,7 @@ const router = new Router({
     {path: '/downloads', component: Downloads, meta: {title: '下载'}},
     {path: '/pricing', component: Pricing, meta: {title: '价格'}},
     {path: '/experience', component: Experience, meta: {title: '在线体验'}},
+    {path: '/signup', component: Signup, meta: {title: '注册'}},
     {
       path: '/docs',
       component: Docs,

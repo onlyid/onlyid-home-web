@@ -3,36 +3,22 @@
 import axios from 'axios'
 import config from './config'
 
-function install (Vue) {
-  let instance = axios.create({
-    baseURL: config.baseUrl,
-    withCredentials: true
-  })
+const install = (Vue) => {
+  let instance = axios.create({baseURL: config.baseUrl, withCredentials: true})
 
-  const interceptRes = (response) => {
-    if (response.data.code !== 0) {
-      let message = response.data.message
-      if (message.constructor === {}.constructor) {
-        message = JSON.stringify(message)
+  instance.interceptors.response.use((res) => { return res }, (err) => {
+    let res = err.response
+    if (res) {
+      if (res.status === 401) {
+        location.assign(config.homeUrl)
+      } else {
+        window.vue.$message.error(res.data.error)
       }
-      window.vue.$message.error(message)
-      return Promise.reject(new Error(JSON.stringify(response.data)))
-    }
-    return response
-  }
-
-  const interceptErr = (error) => {
-    let res = error.response
-    if (res && res.status === 401) {
-      sessionStorage.fromRoute = window.vue.$route.path
-      location.assign(config.authorizeUrl + '&scene=login')
     } else {
-      window.vue.$message.error(error.message)
+      window.vue.$message.error(err.message)
     }
-    return Promise.reject(error)
-  }
-
-  instance.interceptors.response.use(interceptRes, interceptErr)
+    return Promise.reject(err)
+  })
 
   Vue.prototype.$axios = instance
 }
