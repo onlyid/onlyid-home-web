@@ -15,7 +15,7 @@
 }</pre>
         <p>集成SDK。</p>
         <a href="https://gitee.com/lltb/onlyid-sdk-android" target="_blank">
-          <repo-item title="Android SDK" detail="Android SDK代码库（使用Java）" update-date="2018-03-01" version="1.4.3" style="margin-top: 10px">
+          <repo-item title="Android SDK" detail="Android SDK代码库（使用Java）" style="margin-top: 10px">
             <i class="material-icons" style="background-color: #67C23A;">android</i>
           </repo-item>
         </a>
@@ -30,7 +30,7 @@
         <p>或 <a href="https://gitee.com/lltb/onlyid-sdk-ios/tree/master/OnlyID_SDK" target="_blank">下载</a>
           源码文件：AuthViewController.swift和OnlyID_SDK.swift，添加到项目。</p>
         <a href="https://gitee.com/lltb/onlyid-sdk-ios" target="_blank">
-          <repo-item title="iOS SDK" detail="iOS SDK代码库（使用Swift）" update-date="2018-03-01" version="1.4.0" style="margin-top: 10px">
+          <repo-item title="iOS SDK" detail="iOS SDK代码库（使用Swift）" style="margin-top: 10px">
             <i class="iconfont" style="background-color: #409EFF;">&#xe72c;</i>
           </repo-item>
         </a>
@@ -45,17 +45,17 @@
       <div>
         <div class="downloads-row">
           <a href="https://gitee.com/lltb/onlyid-demo-frontend-vuejs" target="_blank">
-            <repo-item title="Web" detail="Web前端示例（使用Vue.js）" update-date="2018-03-01" style="margin-right: 37px" version="1.0.0">
+            <repo-item title="Web" detail="Web前端示例（使用Vue.js）" style="margin-right: 32px">
               <i class="iconfont" style="background-color: #F56C6C;">&#xe743;</i>
             </repo-item>
           </a>
           <a href="https://gitee.com/lltb/onlyid-demo-android" target="_blank">
-            <repo-item title="Android" detail="Android客户端示例（使用Java）" update-date="2018-03-01" style="margin-right: 37px" version="1.0.0">
+            <repo-item title="Android" detail="Android客户端示例（使用Java）" style="margin-right: 32px">
               <i class="material-icons" style="background-color: #67C23A;">android</i>
             </repo-item>
           </a>
           <a href="https://gitee.com/lltb/onlyid-demo-ios" target="_blank">
-            <repo-item title="iOS" detail="iOS客户端示例（使用Swift）" update-date="2018-03-01" version="1.0.0">
+            <repo-item title="iOS" detail="iOS客户端示例（使用Swift）">
               <i class="iconfont" style="background-color: #409EFF;">&#xe72c;</i>
             </repo-item>
           </a>
@@ -67,7 +67,7 @@
       <div>
         <div class="downloads-row">
           <a href="https://gitee.com/lltb/onlyid-demo-backend-nodejs" target="_blank">
-            <repo-item title="Node.js" detail="Node.js后台示例（使用Express）" update-date="2018-03-01" version="1.0.0">
+            <repo-item title="Node.js" detail="Node.js后台示例（使用Express）">
               <i class="iconfont" style="background-color: #E6A23C;">&#xe989;</i>
             </repo-item>
           </a>
@@ -82,9 +82,7 @@
   import RepoItem from './RepoItem'
 
   export default {
-    components: {
-      RepoItem
-    },
+    components: {RepoItem},
     data () {
       return {
       }

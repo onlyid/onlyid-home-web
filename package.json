@@ -1,6 +1,6 @@
 {
   "name": "onlyid-main-frontend",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "ltb <liangtb@qq.com>",
   "private": true,
@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
-    "echarts": "^4.0.4",
     "element-ui": "^2.3.4",
     "moment": "^2.22.1",
     "onlyid-frontend-common": "file:../onlyid-frontend-common",
@@ -73,7 +72,5 @@
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
-  "browserslist": [
-    "> 1%"
-  ]
+  "browserslist": ["> 1%"]
 }

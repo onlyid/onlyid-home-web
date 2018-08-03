@@ -1,14 +1,12 @@
 <template>
   <el-card style="width: 500px; margin: 0 auto;" :body-style="{padding: '30px 30px 30px 35px'}">
-    <div>
-      <div class="qr-code">
-        <slot name="qr-code"></slot>
-      </div>
-      <span style="font-size: 24px">{{name}} </span> <span style="font-size: 18px"> {{title}}</span>
-      <p style="margin-top: 35px">TEL：{{tel}}</p>
-      <p>MAIL：{{email}}</p>
-      <span>QQ：{{qq}}</span>
+    <div class="qr-code">
+      <slot name="qr-code"></slot>
     </div>
+    <span style="font-size: 24px">{{name}} </span> <span style="font-size: 18px"> {{title}}</span>
+    <p style="margin-top: 30px">TEL：{{tel}}</p>
+    <p>MAIL：{{email}}</p>
+    <span>QQ：{{qq}}</span>
   </el-card>
 </template>
 

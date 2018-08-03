@@ -83,7 +83,6 @@
 export default {
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
   }
 }
@@ -92,7 +91,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   #content {
-    padding: 50px 0px;
+    padding: 40px 0;
     width: 980px;
     margin: 0 auto;
   }

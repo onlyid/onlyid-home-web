@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <back-top/>
     <div id="header-bg">
       <el-row id="header">
         <el-col :span="2">
@@ -33,13 +34,13 @@
               <li>客户经理（业务咨询）：18588237889
                 <el-popover placement="right" trigger="hover">
                   <img src="./assets/wechat-185.jpeg" width="215"/>
-                  <i class="iconfont" slot="reference">&#xe7e5;</i>
+                  <i class="iconfont" slot="reference" style="vertical-align: middle">&#xe7e5;</i>
                 </el-popover>
               </li>
               <li>技术支持：15521312099
                 <el-popover placement="right" trigger="hover">
                   <img src="./assets/wechat-155.jpeg" width="215"/>
-                  <i class="iconfont" slot="reference">&#xe7e5;</i>
+                  <i class="iconfont" slot="reference" style="vertical-align: middle">&#xe7e5;</i>
                 </el-popover>
               </li>
               <li>技术支持邮箱：<a href="mailto:help@onlyid.net">help@onlyid.net</a></li>
@@ -76,9 +77,11 @@
 </template>
 
 <script>
+import BackTop from './components/BackTop'
 import config from './config'
 
 export default {
+  components: {BackTop},
   data () {
     return {
       currentYear: new Date().getFullYear(),
@@ -122,11 +125,11 @@ export default {
     font-size: 16px;
     border-bottom: none;
   }
-  .menu .el-menu-item:hover {
-    color: #303133;
-  }
   #menu > .el-menu-item:focus {
     color: #909399;
+  }
+  #menu .el-menu-item:hover {
+    color: #303133;
   }
   #menu > .el-menu-item.is-active {
     color: #303133;
@@ -142,10 +145,12 @@ export default {
     color: #fff;
   }
   .footer-title {
+    color: #EBEEF5;
     font-size: 18px;
     display: inline-block;
     padding-bottom: 5px;
-    border-bottom: #fff solid 1px;
+    border-bottom: #EBEEF5 solid 1px;
+    margin-bottom: 0.8em;
   }
   #footer ul {
     padding: 0px;
@@ -153,7 +158,7 @@ export default {
   #footer li {
     list-style: none;
     font-size: 14px;
-    margin: 15px 0;
+    margin: 12px 0;
     height: 25px;
     color: #ccc;
   }

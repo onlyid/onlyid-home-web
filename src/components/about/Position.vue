@@ -4,7 +4,7 @@
       <slot></slot>
     </div>
     <p style="margin: 30px 0 0 0;">{{ title }}</p>
-    <p style="font-size: 14px; color: #7f7f7f; margin-top: 10px">{{ count }}个职位</p>
+    <p style="font-size: 14px; color: #7f7f7f; margin-top: 10px; margin-bottom: 0">{{ count }}个职位</p>
   </div>
 </template>
 
@@ -21,7 +21,6 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .position {
-    width: 150px;
     text-align: center;
     cursor: pointer;
   }

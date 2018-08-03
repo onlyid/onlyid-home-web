@@ -61,7 +61,7 @@ export default {
 <style scoped src="../../assets/docs.css"></style>
 <style scoped>
   .collapse {
-    margin-top: 50px;
+    margin-top: 40px;
   }
   .collapse >>> .el-collapse-item__header {
     font-weight: normal;

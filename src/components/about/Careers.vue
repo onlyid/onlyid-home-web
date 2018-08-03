@@ -201,6 +201,6 @@
   .tab-icon {
     vertical-align: middle;
     margin-right: 20px;
-    width: 24px;
+    width: 32px;
   }
 </style>

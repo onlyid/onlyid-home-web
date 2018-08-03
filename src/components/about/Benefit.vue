@@ -4,8 +4,8 @@
       <slot></slot>
     </div>
     <div style="margin-left: 40px">
-      <p style="font-size: 18px">{{ title }}</p>
-      <p style="color: #C0C4CC">{{ detail }}</p>
+      <p style="font-size: 18px; margin: 0">{{ title }}</p>
+      <p style="color: #C0C4CC;">{{ detail }}</p>
     </div>
   </div>
 </template>
@@ -22,5 +22,4 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>

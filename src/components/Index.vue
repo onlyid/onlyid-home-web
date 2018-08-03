@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="section">
-      <p class="intro">我们为app和网站提供共享的手机账号服务。开发者不用开通短信，轻松获取用户手机号。广泛应用于手机号登录、三方登录绑定手机等场景。</p>
+      <p style="font-size: 18px; text-indent: 2em; margin-top: 30px;">我们为app和网站提供共享的手机账号服务。开发者不用开通短信，轻松获取用户手机号。广泛应用于手机号登录、三方登录绑定手机等场景。</p>
     </div>
     <div class="gradient-hr"></div>
     <div class="section">
@@ -95,7 +95,7 @@
       <p class="section-summary">随你所需，量身定做</p>
       <el-row style="margin-top: 40px">
         <el-col :span="11">
-          <el-card>
+          <el-card :body-style="{padding: '20px 30px'}">
             <div slot="header">
               <span class="edition-title">公有云</span>
               <router-link to="/pricing#pricing-features"><el-button class="edition-button" type="text">价格与功能</el-button></router-link>
@@ -119,7 +119,7 @@
           </el-card>
         </el-col>
         <el-col :span="11" :offset="2">
-          <el-card>
+          <el-card :body-style="{padding: '20px 30px'}">
             <div slot="header">
               <span class="edition-title">专有云</span>
               <router-link to="/pricing#pricing-features"><el-button class="edition-button" type="text">价格与功能</el-button></router-link>
@@ -143,7 +143,7 @@
           </el-card>
         </el-col>
       </el-row>
-      <div style="text-align: center; margin-top: 50px;">
+      <div style="text-align: center; margin-top: 40px;">
         <p style="font-size: 16px; color: #606266;"><el-tag style="font-size: 14px; border: none; line-height: 32px; margin-right: 5px" type="success">服务承诺</el-tag>
           无论你使用公有云还是专有云，我们都为你提供无差别的高标准服务</p>
       </div>
@@ -193,7 +193,7 @@
       </el-row>
     </div>
     <div class="section-bg-dark">
-      <div class="section" id="mission">
+      <div class="section" style="text-align: center; font-size: 18px;">
         <p>“我们的使命是建立中国统一的账号和认证体系，为互联网带来秩序。” </p>
         <a :href="config.consoleUrl" target="_blank"><el-button type="primary" style="margin-top: 10px">开始使用</el-button></a>
       </div>
@@ -272,7 +272,6 @@
       transform-origin: center
     }
   }
-
   #banner-bg {
     background-image: url("../assets/mask.png"), linear-gradient( to right, #2f518b 0%, #0be1f4 100% );
     background-size: cover;
@@ -281,11 +280,6 @@
   #banner1 {
     width: 980px;
     margin: 0 auto;
-  }
-  .intro {
-    font-size: 18px;
-    text-indent: 2em;
-    margin-top: 30px;
   }
   .tab-icon {
     vertical-align: middle;
@@ -301,8 +295,8 @@
   }
   #tabs >>> .el-tabs__item {
     font-size: 16px;
-    line-height: 50px;
-    height: 50px;
+    line-height: 45px;
+    height: 45px;
     font-weight: normal;
   }
   .scene-tag {
@@ -316,10 +310,6 @@
     margin-left: 20px;
   }
   .scene-detail {
-    height: 240px;
-  }
-  .scene-button {
-    margin-right: 20px;
   }
   .scene-img1 {
     border-radius: 5px;
@@ -365,9 +355,6 @@
   .wave2 {
     animation-delay: 2s;
   }
-  .edition-detail {
-    min-height: 150px;
-  }
   .edition-detail ul {
     padding: 0;
     margin: 0;
@@ -378,10 +365,10 @@
   }
   .edition-summary {
     font-size: 16px;
-    margin-bottom: 0;
+    margin-bottom: 0.1em;
   }
   .advantage {
-    margin-top: 30px;
+    margin-top: 40px;
   }
   .advantage-title {
     margin: 0;
@@ -392,6 +379,8 @@
     margin-top: 10px;
   }
   .advantage-detail {
+    margin-bottom: 0;
+    margin-top: 0.8em;
   }
   #textsms {
     color: #67C23A;
@@ -401,10 +390,6 @@
   }
   #developer_mode {
     color: #409EFF;
-  }
-  #mission {
-    text-align: center;
-    font-size: 18px;
   }
   .fade-enter-active, .fade-leave-active {
     transition: opacity 1.0s

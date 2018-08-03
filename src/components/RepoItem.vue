@@ -1,12 +1,9 @@
 <template>
-  <el-card style="width: 300px; position: relative;" :body-style="{paddingRight: '0px'}" shadow="hover" id="content">
-    <span style="font-size: 13px; position: absolute; right: 10px; top: 10px;">
-      <span style="color: #7f7f7f;">v{{version}} &nbsp;{{ updateDate }}更新</span>
-    </span>
-    <div style="float: left; margin-top: 20px;">
+  <el-card style="width: 305px; position: relative; box-sizing: border-box" :body-style="{paddingRight: '0px'}" shadow="hover" id="content">
+    <div style="float: left; margin-top: 5px;">
       <slot></slot>
     </div>
-    <div style="float: right; width: 215px; margin-top: 20px">
+    <div style="float: left; margin-left: 20px">
       <span style="font-size: 16px;">{{ title }}</span>
       <p style="color: #7f7f7f; margin: 8px 0 0; font-size: 14px;">{{ detail }}</p>
     </div>
@@ -16,7 +13,7 @@
 
 <script>
 export default {
-  props: ['title', 'detail', 'updateDate', 'version'],
+  props: ['title', 'detail'],
   data () {
     return {
     }

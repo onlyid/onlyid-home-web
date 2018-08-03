@@ -172,7 +172,7 @@
     list-style-type: square;
   }
   .step-arrow {
-    margin: 80px 20px 0 20px;
+    margin: 80px 30px 0 30px;
     font-size: 30px;
     color: #999;
     float: left;

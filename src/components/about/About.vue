@@ -8,11 +8,9 @@
     </div>
     <div class="section" style="margin-top: 70px">
       <p class="section-title">关于唯ID</p>
-      <p class="section-summary">创新·账号·认证</p>
+      <p class="section-summary">创新 · 账号 · 认证</p>
       <div style="margin-top: 40px;">
-        <div>
-          <p style="text-indent: 2em;">唯ID隶属深圳市友全科技有限公司，是国内领先的IDaaS提供商，主要产品为企业IDaaS解决方案、手机账号服务。我们打造了可扩展、易集成的平台以解决复杂的账号和认证问题，也率先利用OAuth协议解决手机号登录成本高问题。引领着账号和认证领域的革命与创新，深受广大开发者和企业客户的信赖。</p>
-        </div>
+        <p style="text-indent: 2em;">唯ID隶属深圳市友全科技有限公司，是国内领先的IDaaS提供商，主要产品为企业IDaaS解决方案、手机账号服务。我们打造了可扩展、易集成的平台以解决复杂的账号和认证问题，也率先利用OAuth协议解决手机号登录成本高问题。引领着账号和认证领域的革命与创新，深受广大开发者和企业客户的信赖。</p>
         <el-row style="margin-top: 40px">
           <el-col :span="5" style="margin-top: 60px; text-align: center">
             <img src="../../assets/jiangli.png" width="80"/>
@@ -80,7 +78,7 @@
     <div class="gradient-hr"/>
     <div class="section" id="contact">
       <p class="section-title">联系我们</p>
-      <p class="section-summary">合作·信赖·共赢</p>
+      <p class="section-summary">合作 · 信赖 · 共赢</p>
       <div style="margin-top: 40px;">
         <p>无论你已经是我们的客户，或对产品感兴趣，或有其他方面的合作，我们都真诚期待你的来电。</p>
         <el-row style="margin-top: 40px">

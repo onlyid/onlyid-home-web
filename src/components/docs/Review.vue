@@ -23,7 +23,7 @@
       <img src="../../assets/review-approved.png" width="256" class="docs-img"/>
       <p>审核已通过</p>
     </div>
-    <p>“后审核”让绝大部分合法合规的client快速上线；同时，对于极少数违法违规的client，及时封堵在上线初期。</p>
+    <p>“后审核”让大部分合法合规的client快速上线；同时，对于少数违法违规的client，及时封堵在上线初期。</p>
     <note type="info">根据统计，审核不通过的概率小于0.1%。你不用担心审核不通过，影响业务开展。</note>
     <h2>审核指南</h2>
     <h3>前置要求</h3>

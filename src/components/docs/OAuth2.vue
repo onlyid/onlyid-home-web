@@ -7,7 +7,7 @@
     <h2>授权流程</h2>
     <p>支持authorization code授权方式，适用于拥有server端的client授权。整体流程：</p>
     <ol class="docs-ol">
-      <li>第三方发起验证请求，用户在授权页完成手机号验证后，唯ID带上authorization code返回app或重定向到第三方网站；</li>
+      <li>第三方发起验证请求，用户在授权页完成手机号验证，唯ID带上authorization code返回app或重定向到第三方网站；</li>
       <li>使用authorization code、client id和client secret进行RESTful API调用，换取access token；</li>
       <li>使用access token进行RESTful API调用，获取用户手机号。</li>
     </ol>

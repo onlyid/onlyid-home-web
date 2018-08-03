@@ -1,6 +1,8 @@
 <template>
   <div v-if="visible" @click="backTop">
-    <i class="el-icon-caret-top"></i>
+    <el-tooltip placement="top" content="返回顶部" effect="light" popper-class="back-top" :visible-arrow="false">
+      <i class="el-icon-caret-top"></i>
+    </el-tooltip>
   </div>
 </template>
 
@@ -18,11 +20,7 @@ export default {
   },
   mounted () {
     window.onscroll = () => {
-      if (window.pageYOffset > 500) {
-        this.visible = true
-      } else {
-        this.visible = false
-      }
+      this.visible = window.pageYOffset > 500
     }
   },
   beforeDestroy () {
@@ -40,7 +38,7 @@ export default {
     bottom: 150px;
     width: 40px;
     height: 40px;
-    border-radius: 20px;
+    border-radius: 50%;
     cursor: pointer;
     box-shadow: 0 0 6px rgba(0,0,0,.12);
     z-index: 1;

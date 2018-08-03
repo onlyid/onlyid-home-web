@@ -8,19 +8,19 @@
       <div style="margin-top: 20px; padding: 5px 15px 15px;">
         <p>尊敬的客户：</p>
         <p style="margin-top: 1em;">为了提供更好的服务，我们将于2018年1月正式商业化。</p>
-        <p>对于公用云，继续保持<span style="color: #F56C6C;">免费</span>运营，只收取每位开发者36元人民币/年的费用。除年费外不收取其他任何费用，你仍然可以享受无限量的短信验证码服务。</p>
-        <p>对于专有云，收取每家企业1000元人民币/年的费用，同时提供价格优惠的短信套餐包。</p>
+        <p>对于公用云，继续保持<span style="color: #F56C6C;">免费</span>运营，只收取每位开发者36元/年的费用。除年费外不收取其他任何费用，你可以享受无限量的短信验证码服务。</p>
+        <p>对于专有云，收取每家企业1000元/年的费用，同时提供价格优惠的短信套餐包。</p>
         <p>有任何疑问，请联系客户经理。</p>
         <p style="text-align: right; margin-top: 1em;">—— 唯ID团队 2017年12月</p>
       </div>
     </div>
-    <div class="gradient-hr"/>
+    <div class="gradient-hr"></div>
     <div class="section" id="pricing-features">
       <p class="section-title">价格与功能</p>
       <p class="section-summary">极简定价，透明收费</p>
       <el-row style="margin-top: 40px">
         <el-col :span="10">
-          <el-card>
+          <el-card :body-style="{padding: '20px 30px'}">
             <div slot="header">
               <span class="pricing-title">公有云</span>
             </div>
@@ -30,7 +30,7 @@
                   <ul>
                     <li>基础年费（人民币）<span>36元</span></li>
                     <li>短信费用<span>免费</span></li>
-                    <div class="gradient-hr"/>
+                    <div class="gradient-hr"></div>
                     <li>可建client<span>5个 *</span></li>
                     <li>自定义选项<span><el-button @click="goTab('2','standard')" type="text" class="pricing-button">基础</el-button></span></li>
                     <li>验证请求量<span>无限制</span></li>
@@ -54,7 +54,7 @@
           </el-card>
         </el-col>
         <el-col :span="12" :offset="2">
-          <el-card>
+          <el-card :body-style="{padding: '20px 30px'}">
             <div slot="header">
               <span class="pricing-title">专有云</span>
             </div>
@@ -67,7 +67,7 @@
                     <li>短信费用<span>提供价格优惠的短信套餐包</span></li>
                     <li>计算节点和数据库<span>以合同为准</span></li>
                     <li>定制和其他费用<span>以合同为准</span></li>
-                    <div class="gradient-hr"/>
+                    <div class="gradient-hr"></div>
                     <li>可建client<span>50个 *</span></li>
                     <li>自定义选项<span><el-button @click="goTab('2','enterprise')" type="text" class="pricing-button">丰富</el-button></span></li>
                     <li>验证请求量<span>无限制</span></li>
@@ -127,15 +127,6 @@
           </business-card>
         </el-col>
       </el-row>
-      <!--<div style="margin-top: 60px">-->
-        <!--<div style="text-align: center; font-size: 18px">-->
-          <!--<img src="../assets/customer-manager.svg" width="100">-->
-        <!--</div>-->
-        <!--<business-card name="小梁" title="客户经理（业务咨询）" tel="18588237889" email="liangtb@qq.com" qq="244121358"-->
-                       <!--style="margin-top: 40px;">-->
-          <!--<img src="../assets/wechat-185.jpeg" slot="qr-code"/>-->
-        <!--</business-card>-->
-      <!--</div>-->
     </div>
   </div>
 </template>
@@ -202,14 +193,14 @@
     font-size: 20px;
   }
   .pricing-detail {
-    height: 450px;
+    height: 400px;
   }
   .pricing-detail ul {
     padding: 0px;
   }
   .pricing-detail li {
     list-style: none;
-    margin: 20px 0;
+    margin: 15px 0;
   }
   .pricing-detail li span {
     float: right;
@@ -224,5 +215,6 @@
   }
   .tabs >>> .el-tabs__item {
     font-weight: normal;
+    padding-right: 15px;
   }
 </style>
