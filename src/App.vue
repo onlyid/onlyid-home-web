@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <back-top/>
-    <div id="header-bg">
+    <div id="header-bg" v-show="showHeader">
       <el-row id="header">
         <el-col :span="2">
           <router-link to="/">
@@ -80,21 +80,6 @@
 import BackTop from './components/BackTop'
 import config from './config'
 
-// async function handleCode (code) {
-//   try {
-//     const {data} = await this.$axios.post('/login', {code})
-//     // 如果存在user字段 说明已注册
-//     if (data.user) {
-//       location.replace(config.consoleUrl)
-//     } else { // 新用户注册
-//       sessionStorage.user = JSON.stringify(data)
-//       this.$router.replace('/signup')
-//     }
-//   } catch (err) {
-//     console.error(err)
-//   }
-// }
-
 export default {
   components: {BackTop},
   data () {
@@ -114,23 +99,24 @@ export default {
       this.$router.push(key)
     },
     login () {
-      // let left = screenX + (outerWidth - 440) / 2
-      // let top = screenY + (outerHeight - 645) / 2
-      // open(config.authorizeUrl, 'login', 'width=440,height=645,left=' + left + ',top=' + top)
-      // ie11 的post message经过redirect就不好用了
-      // if (process.env.NODE_ENV === 'production') {
-      //   window.onstorage = (e) => {
-      //     if (e.key === 'code') {
-      //       handleCode.call(this, e.newValue)
-      //     }
-      //   }
-      // } else { // 测试环境跨域 只能post message传递数据
-      //   window.onmessage = async (e) => {
-      //     if (e.source === w) {
-      //       handleCode.call(this, e.data)
-      //     }
-      //   }
-      // }
+      const left = screenX + (outerWidth - 450) / 2
+      // 25约是顶部标题+网址栏的一半
+      const top = screenY + (outerHeight - 650) / 2 - 25
+      open(config.authorizeUrl, 'login', 'width=450,height=650,left=' + left + ',top=' + top)
+    },
+    async onCode (code) {
+      try {
+        const {data} = await this.$axios.post('/login', {code})
+        // 如果存在user字段 说明已注册
+        if (data.user) {
+          location.replace(config.consoleUrl)
+        } else { // 新用户注册
+          sessionStorage.user = JSON.stringify(data)
+          this.$router.replace('/signup')
+        }
+      } catch (err) {
+        console.error(err)
+      }
     }
   },
   computed: {
@@ -138,13 +124,16 @@ export default {
       return '/' + this.$route.path.split('/')[1]
     },
     showFooter () {
-      return this.activeIndex !== '/docs'
+      const list = ['/docs', '/auth']
+      return !list.includes(this.activeIndex)
+    },
+    showHeader () {
+      const list = ['/auth']
+      return !list.includes(this.activeIndex)
     }
   },
-  beforeDestroy () {
-    // window.onmessage = null
-  },
   created () {
+    window.onCode = this.onCode.bind(this)
     this.$bus.$on('login', this.login.bind(this))
   }
 }

@@ -8,6 +8,7 @@ import Downloads from '@/components/Downloads'
 import Pricing from '@/components/Pricing'
 import Experience from '@/components/Experience'
 import Signup from '@/components/Signup'
+import Auth from '@/components/Auth'
 
 import Docs from '@/components/docs/Docs'
 import DocsHome from '@/components/docs/Home'
@@ -36,6 +37,7 @@ const router = new Router({
     {path: '/pricing', component: Pricing, meta: {title: '价格'}},
     {path: '/experience', component: Experience, meta: {title: '在线体验'}},
     {path: '/signup', component: Signup, meta: {title: '注册'}},
+    {path: '/auth', component: Auth, meta: {title: 'auth'}},
     {
       path: '/docs',
       component: Docs,

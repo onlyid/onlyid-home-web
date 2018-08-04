@@ -101,7 +101,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     ]),
     new PrerenderSPAPlugin({
       staticDir: path.join(__dirname, '../dist'),
-      routes: [ '/', '/downloads', '/pricing', '/experience', '/docs', '/docs/overview', '/docs/oauth2', '/docs/web',
+      routes: [ '/', '/downloads', '/pricing', '/experience', '/signup', '/auth', '/docs', '/docs/overview', '/docs/oauth2', '/docs/web',
         '/docs/android', '/docs/ios', '/docs/custom', '/docs/security', '/docs/faq', '/docs/review', '/about',
         '/about/agreement', '/about/privacy', '/about/careers'],
       postProcess (context) {

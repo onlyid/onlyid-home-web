@@ -1,5 +1,5 @@
 {
-  "name": "onlyid-main-frontend",
+  "name": "onlyid-home-frontend",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "ltb <liangtb@qq.com>",
@@ -72,7 +72,5 @@
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
   },
-  "browserslist": [
-    "> 1%"
-  ]
+  "browserslist": ["> 1%"]
 }
