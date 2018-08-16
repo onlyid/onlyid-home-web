@@ -9,7 +9,7 @@
           </router-link>
         </el-col>
         <el-col :span="17">
-          <el-menu id="menu" :default-active="hack ? '' : activeIndex" mode="horizontal" @select="select">
+          <el-menu id="menu" :default-active="activeIndex" mode="horizontal" @select="select">
             <el-menu-item index="/docs">文档</el-menu-item>
             <el-menu-item index="/downloads">下载</el-menu-item>
             <el-menu-item index="/pricing">价格</el-menu-item>
@@ -102,7 +102,7 @@ export default {
       const left = screenX + (outerWidth - 450) / 2
       // 25约是顶部标题+网址栏的一半
       const top = screenY + (outerHeight - 650) / 2 - 25
-      open(config.authorizeUrl, 'login', 'width=450,height=650,left=' + left + ',top=' + top)
+      open(config.authUrl, 'login', 'width=450,height=650,left=' + left + ',top=' + top)
     },
     async onCode (code) {
       try {
@@ -121,6 +121,8 @@ export default {
   },
   computed: {
     activeIndex () {
+      if (this.hack) return ''
+
       return '/' + this.$route.path.split('/')[1]
     },
     showFooter () {

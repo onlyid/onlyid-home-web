@@ -45,7 +45,7 @@
       <div>
         <div class="downloads-row">
           <a href="https://gitee.com/lltb/onlyid-demo-frontend-vuejs" target="_blank">
-            <repo-item title="Web" detail="Web前端示例（使用Vue.js）" style="margin-right: 32px">
+            <repo-item title="Web" detail="Web前端示例（使用JavaScript）" style="margin-right: 32px">
               <i class="iconfont" style="background-color: #F56C6C;">&#xe743;</i>
             </repo-item>
           </a>
@@ -57,18 +57,6 @@
           <a href="https://gitee.com/lltb/onlyid-demo-ios" target="_blank">
             <repo-item title="iOS" detail="iOS客户端示例（使用Swift）">
               <i class="iconfont" style="background-color: #409EFF;">&#xe72c;</i>
-            </repo-item>
-          </a>
-          <div style="clear: both"></div>
-        </div>
-      </div>
-      <p class="subsection-title">服务端</p>
-      <p>因服务端示例较简单，其他语言开发者请统一参看Node.js示例。</p>
-      <div>
-        <div class="downloads-row">
-          <a href="https://gitee.com/lltb/onlyid-demo-backend-nodejs" target="_blank">
-            <repo-item title="Node.js" detail="Node.js后台示例（使用Express）">
-              <i class="iconfont" style="background-color: #E6A23C;">&#xe989;</i>
             </repo-item>
           </a>
           <div style="clear: both"></div>

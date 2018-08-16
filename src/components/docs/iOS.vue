@@ -15,13 +15,12 @@
     <pre>import OnlyID_SDK
 
 class LoginViewController: UIViewController, AuthDelegate {
-    let clientId = "你的client id", clientSecret = "你的client secret"
 
     @IBAction func auth(_ sender: Any) {
-        OnlyID.auth(clientId, clientSecret: clientSecret, delegate: self)
+        OnlyID.auth("你的client id", delegate: self)
     }
 
-    func didReceiveAuthResponse(authResponse: AuthResponse) {
+    func didReceiveAuthResponse(_ authResponse: AuthResponse) {
         if authResponse.code == .cancel {
             // 用户取消
         }
@@ -35,26 +34,28 @@ class LoginViewController: UIViewController, AuthDelegate {
 }</pre>
     <p>Objective-C遵循调用Swift通用流程，引入Xcode生成头文件，其他类似，不再赘述。</p>
     <pre>#import &lt;OnlyID_SDK/OnlyID_SDK-Swift.h&gt;</pre>
-    <p>验证成功后，access token保存在authResponse的accessToken属性。</p>
-    <note type="info">access token的有效期为1个小时</note>
+    <p>验证成功后，authorization code保存在authResponse的authCode属性。</p>
     <h2>3. 获取用户信息</h2>
-    <note>获取用户信息建议在服务端进行，因为服务端不应该信任客户端“自称”从唯ID获取的用户信息。</note>
-    <p>得到access token后，GET方式请求：</p>
-    <pre>https://my.onlyid.net/user?access_token=获取到的access token</pre>
+    <note>获取用户信息建议在服务端进行，以防泄露你的client secret。</note>
+    <p>得到authorization code后，POST方式请求：</p>
+    <pre>https://my.onlyid.net/user</pre>
+    <p>设置Content-Type为application/x-www-form-urlencoded，带上参数：</p>
+    <pre>client_id=你的client id
+client_secret=你的client secret
+code=获取到的code</pre>
     <p>获取用户信息。</p>
     <p>成功示例：</p>
     <pre>{
   "id":"5abcd260c4542d641acf1c34",
-  "mobile":"18512345678",
+  "mobile":"18588888888",
   "createDate":"2018-04-28T07:27:28.347Z"
 }</pre>
     <p>失败示例：</p>
     <pre>{
-    "error": "invalid_token",
-    "error_description": "Invalid token: access token is invalid"
+  "error": "Invalid grant: authorization code is invalid"
 }</pre>
     <h2>结语</h2>
-    <p>你已完成iOS app的接入，接下来还可以在下载中心查阅 <router-link to="/downloads#demo">示例Demo</router-link>，以加深理解。</p>
+    <p>你已完成接入，接下来还可以在下载中心查阅 <router-link to="/downloads#demo">示例Demo</router-link>，以加深理解。</p>
   </div>
 </template>
 

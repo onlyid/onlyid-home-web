@@ -10,16 +10,15 @@
     compile 'net.onlyid:onlyid-sdk:+'
 }</pre>
     <p>集成SDK。</p>
-    <h2>2. 获取access token</h2>
+    <h2>2. 获取authorization code</h2>
     <p>用户需要登录时，使用OnlyID.auth方法发起请求，参数列表最后两字段为自定义选项，可先忽略。代码示例：</p>
     <pre>import net.onlyid.onlyid_sdk.OnlyID;
 
 LoginActivity extends Activity implements OnlyID.AuthListener {
-    static final String CLIENT_ID = "你的client id", CLIENT_SECRET = "你的client secret";
 
     // 发起验证请求
     public void auth(View view) {
-      OnlyID.auth(this, CLIENT_ID, null, this, CLIENT_SECRET, null, null);
+      OnlyID.auth(this, "你的client id", null, this, null, null);
     }
 
     // 返回结果
@@ -35,26 +34,28 @@ LoginActivity extends Activity implements OnlyID.AuthListener {
         }
     }
 }</pre>
-    <p>验证成功后，access token保存在authResponse的accessToken属性。</p>
-    <note type="info">access token的有效期为1个小时</note>
+    <p>验证成功后，authorization code保存在authResponse的authCode属性。</p>
     <h2>3. 获取用户信息</h2>
-    <note>获取用户信息建议在服务端进行，因为服务端不应该信任客户端“自称”从唯ID获取的用户信息。</note>
-    <p>得到access token后，GET方式请求：</p>
-    <pre>https://my.onlyid.net/user?access_token=获取到的access token</pre>
+    <note>获取用户信息建议在服务端进行，以防泄露你的client secret。</note>
+    <p>得到authorization code后，POST方式请求：</p>
+    <pre>https://my.onlyid.net/user</pre>
+    <p>设置Content-Type为application/x-www-form-urlencoded，带上参数：</p>
+    <pre>client_id=你的client id
+client_secret=你的client secret
+code=获取到的code</pre>
     <p>获取用户信息。</p>
     <p>成功示例：</p>
     <pre>{
   "id":"5abcd260c4542d641acf1c34",
-  "mobile":"18512345678",
+  "mobile":"18588888888",
   "createDate":"2018-04-28T07:27:28.347Z"
 }</pre>
     <p>失败示例：</p>
     <pre>{
-    "error": "invalid_token",
-    "error_description": "Invalid token: access token is invalid"
+  "error": "Invalid grant: authorization code is invalid"
 }</pre>
     <h2>结语</h2>
-    <p>你已完成Android app的接入，接下来还可以在下载中心查阅 <router-link to="/downloads#demo">示例Demo</router-link>，以加深理解。</p>
+    <p>你已完成接入，接下来还可以在下载中心查阅 <router-link to="/downloads#demo">示例Demo</router-link>，以加深理解。</p>
   </div>
 </template>
 

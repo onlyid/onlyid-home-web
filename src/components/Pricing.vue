@@ -8,8 +8,8 @@
       <div style="margin-top: 20px; padding: 5px 15px 15px;">
         <p>尊敬的客户：</p>
         <p style="margin-top: 1em;">为了提供更好的服务，我们将于2018年1月正式商业化。</p>
-        <p>对于公用云，继续保持<span style="color: #F56C6C;">免费</span>运营，只收取每位开发者36元/年的费用。除年费外不收取其他任何费用，你可以享受无限量的短信验证码服务。</p>
-        <p>对于专有云，收取每家企业1000元/年的费用，同时提供价格优惠的短信套餐包。</p>
+        <p>对于公用云，收取每位开发者100元/年的费用<span style="color: #F56C6C;">（首年免费）</span>。除年费外不收取其他任何费用，你可以享受无限量的短信验证码服务。</p>
+        <p>对于专有云，收取每家企业1000元/年的费用<span style="color: #F56C6C;">（首年免费）</span>，同时提供价格优惠的短信套餐包。</p>
         <p>有任何疑问，请联系客户经理。</p>
         <p style="text-align: right; margin-top: 1em;">—— 唯ID团队 2017年12月</p>
       </div>
@@ -28,10 +28,10 @@
               <el-tabs v-model="activeNameStandard" class="tabs">
                 <el-tab-pane label="价格与功能" name="1">
                   <ul>
-                    <li>基础年费（人民币）<span>36元</span></li>
+                    <li>基础年费（人民币）<span>100元</span></li>
                     <li>短信费用<span>免费</span></li>
                     <div class="gradient-hr"></div>
-                    <li>可建client<span>5个 *</span></li>
+                    <li>可建应用<span>5个 *</span></li>
                     <li>自定义选项<span><el-button @click="goTab('2','standard')" type="text" class="pricing-button">基础</el-button></span></li>
                     <li>验证请求量<span>无限制</span></li>
                     <li>统计数据<span>基础</span></li>
@@ -43,13 +43,12 @@
                     <li>业务场景<span>四种（登录、绑号、换号、验证）</span></li>
                     <li>主题界面<span>两种（日间、夜间）</span></li>
                     <li>放大显示<span>两种（标准、放大）</span></li>
-                    <li>验证方式<span>两种（客户端Token、服务端中转）</span></li>
                   </ul>
                 </el-tab-pane>
               </el-tabs>
             </div>
             <p style="text-align: center; margin-top: 40px">
-              <a :href="config.consoleUrl" target="_blank"><el-button type="primary" round>去续费</el-button></a>
+              <el-button type="primary" round @click="$bus.$emit('login')">去续费</el-button>
             </p>
           </el-card>
         </el-col>
@@ -64,11 +63,11 @@
                   <span slot="label">价格与功能</span>
                   <ul>
                     <li>基础年费（人民币）<span>1000元</span></li>
-                    <li>短信费用<span>提供价格优惠的短信套餐包</span></li>
+                    <li>短信费用<span>价格优惠的短信套餐包</span></li>
                     <li>计算节点和数据库<span>以合同为准</span></li>
                     <li>定制和其他费用<span>以合同为准</span></li>
                     <div class="gradient-hr"></div>
-                    <li>可建client<span>50个 *</span></li>
+                    <li>可建应用<span>50个 *</span></li>
                     <li>自定义选项<span><el-button @click="goTab('2','enterprise')" type="text" class="pricing-button">丰富</el-button></span></li>
                     <li>验证请求量<span>无限制</span></li>
                     <li>统计数据<span><el-button @click="goTab('4','enterprise')" type="text" class="pricing-button">丰富</el-button></span></li>
@@ -110,7 +109,7 @@
           </el-card>
         </el-col>
       </el-row>
-      <p style="margin-top: 40px" class="note">* client指app或网站，同个app不区分平台（一个app的iOS和Android版视为一个client）</p>
+      <p style="margin-top: 40px" class="note">* 区分移动应用和网站应用，同个移动应用不区分平台（iOS和Android版视为一个应用）</p>
     </div>
     <div class="gradient-hr"></div>
     <div class="section" id="business-service">

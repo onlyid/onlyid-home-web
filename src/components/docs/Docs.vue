@@ -17,7 +17,7 @@
         </el-menu>
         <p class="title1">快速接入</p>
         <el-menu :router="true" class="menu" :default-active="activeIndex">
-          <el-menu-item index="/docs/web">Web</el-menu-item>
+          <el-menu-item index="/docs/web">网站</el-menu-item>
           <el-menu-item index="/docs/android">Android</el-menu-item>
           <el-menu-item index="/docs/ios">iOS</el-menu-item>
         </el-menu>

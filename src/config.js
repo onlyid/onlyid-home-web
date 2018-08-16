@@ -3,14 +3,14 @@
 const prod = {
   baseUrl: 'https://console.onlyid.net',
   consoleUrl: 'https://console.onlyid.net/#/overview',
-  authorizeUrl: 'https://my.onlyid.net/authorize?response_type=code&client_id=5ad972dcb838b53ec26b2481&state=123&redirect_uri=' +
+  authUrl: 'https://my.onlyid.net/auth?client_id=5ad972dcb838b53ec26b2481&redirect_uri=' +
     encodeURIComponent('https://onlyid.net/auth')
 }
 
 const dev = {
-  baseUrl: 'http://onlyid3:3000',
+  baseUrl: 'http://onlyid2:3000',
   consoleUrl: 'http://console.onlyid.net:8080/#/overview',
-  authorizeUrl: 'http://onlyid3:3001/authorize?response_type=code&client_id=5a195e47ebee7194b088f712&state=123&redirect_uri=' +
+  authUrl: 'http://onlyid2:3001/auth?client_id=5b6d56f1e54929de6dff559f&redirect_uri=' +
     encodeURIComponent('http://onlyid.net:8085/auth')
 }
 

@@ -10,7 +10,7 @@
         <p class="section-title">注册体验</p>
         <p class="section-summary">体验公有云桌面版</p>
         <el-card class="card">
-          <p><img src="../assets/logo.png" width="66" style="vertical-align: text-bottom"/>官网（本站）采用公有云桌面版手机帐号，实现了手机号登录和更换手机号功能。</p>
+          <p><img src="../assets/logo.png" width="66" style="vertical-align: -35%"/>官网（本站）采用公有云桌面版手机帐号，实现了手机号登录和更换手机号功能。</p>
           <p>立即注册，完整体验下一代手机帐号。</p>
           <p style="text-align: center; margin-top: 40px;">
             <el-button type="primary" round class="experience-button" @click="$bus.$emit('login')">开始使用</el-button>

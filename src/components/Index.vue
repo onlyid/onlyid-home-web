@@ -41,50 +41,50 @@
       <div style="margin-top: 20px">
         <el-row v-if="tabsActiveName === '1'">
           <el-col :span="10">
-            <p><el-tag class="scene-tag" type="success">场景 1</el-tag><span class="scene-title">手机号登录</span></p>
-            <div class="scene-detail">
+            <p><el-tag class="scenario-tag" type="success">场景 1</el-tag><span class="scenario-title">手机号登录</span></p>
+            <div class="scenario-detail">
               <p>满足用户使用手机号登录需求。</p>
               <p>开发者无需开通短信，通过SDK调起服务，几行代码完成手机号验证，降低成本，提升开发效率。</p>
-              <p>提供丰富的自定义选项，两种主题界面，两种显示大小，两种不同安全级别验证方式，方便你按需选择。</p>
+              <p>提供丰富的自定义选项，两种主题界面，两种显示大小，方便你按需选择。</p>
             </div>
           </el-col>
           <el-col :span="8">
-            <img src="../assets/scene1-1.png" class="scene-img1"/>
+            <img src="../assets/scenario1-1.png" class="scenario-img1"/>
           </el-col>
           <el-col :span="6">
-            <img src="../assets/scene1-2.png" class="scene-img2"/>
+            <img src="../assets/scenario1-2.png" class="scenario-img2"/>
           </el-col>
         </el-row>
         <el-row v-if="tabsActiveName === '2'" justify="space-between" type="flex">
           <el-col :span="10">
-            <p><el-tag class="scene-tag" type="success">场景 2</el-tag><span class="scene-title">三方登录绑定手机</span></p>
-            <div class="scene-detail">
+            <p><el-tag class="scenario-tag" type="success">场景 2</el-tag><span class="scenario-title">三方登录绑定手机</span></p>
+            <div class="scenario-detail">
               <p>依《网络安全法》相关要求，6月1日起账号需绑定手机。</p>
               <p>开发者无需开通短信，在用户通过微信、微博登录后，通过SDK调起服务，几行代码完成手机号验证，轻松完成绑定。</p>
-              <p>提供丰富的自定义选项，两种主题界面，两种显示大小，两种不同安全级别验证方式，方便你按需选择。</p>
+              <p>提供丰富的自定义选项，两种主题界面，两种显示大小，方便你按需选择。</p>
             </div>
           </el-col>
           <el-col :span="8">
-            <img src="../assets/scene2-1.png" class="scene-img1"/>
+            <img src="../assets/scenario2-1.png" class="scenario-img1"/>
           </el-col>
           <el-col :span="6">
-            <img src="../assets/scene2-2.png" class="scene-img2"/>
+            <img src="../assets/scenario2-2.png" class="scenario-img2"/>
           </el-col>
         </el-row>
         <el-row v-if="tabsActiveName === '3'" justify="space-between" type="flex">
           <el-col :span="10">
-            <p><el-tag class="scene-tag" type="success">场景 3</el-tag><span class="scene-title">更换手机号</span></p>
-            <div class="scene-detail">
+            <p><el-tag class="scenario-tag" type="success">场景 3</el-tag><span class="scenario-title">更换手机号</span></p>
+            <div class="scenario-detail">
               <p>方便用户新换号码后不用重新注册。</p>
               <p>开发者无需开通短信，通过SDK调起服务，几行代码完成新手机号验证，轻松完成更换。</p>
-              <p>提供丰富的自定义选项，两种主题界面，两种显示大小，两种不同安全级别验证方式，方便你按需选择。</p>
+              <p>提供丰富的自定义选项，两种主题界面，两种显示大小，方便你按需选择。</p>
             </div>
           </el-col>
           <el-col :span="8">
-            <img src="../assets/scene3-1.png" class="scene-img1"/>
+            <img src="../assets/scenario3-1.png" class="scenario-img1"/>
           </el-col>
           <el-col :span="6">
-            <img src="../assets/scene3-2.png" class="scene-img2"/>
+            <img src="../assets/scenario3-2.png" class="scenario-img2"/>
           </el-col>
         </el-row>
       </div>
@@ -109,7 +109,7 @@
             <div class="edition-detail">
               <ul>
                 <li>共享基础设施和计算资源</li>
-                <li>用户设置的密码可在所有接入app/网站使用</li>
+                <li>用户设置的密码可在所有接入应用使用</li>
                 <li>使用成本低，除年费外不收取其他任何费用</li>
                 <li>注册后默认开通，快速完成接入，省心省力</li>
               </ul>
@@ -133,7 +133,7 @@
             <div class="edition-detail">
               <ul>
                 <li>专有的计算节点和数据库</li>
-                <li>用户设置的密码仅用于你的app/网站</li>
+                <li>用户设置的密码仅用于你的应用</li>
                 <li>高度可定制，包括短信签名、短信模板、授权域名等</li>
                 <li>联系客户经理开通，我们第一时间为你服务</li>
               </ul>
@@ -299,25 +299,25 @@
     height: 45px;
     font-weight: normal;
   }
-  .scene-tag {
+  .scenario-tag {
     font-size: 14px;
     border: none;
     line-height: 32px;
   }
-  .scene-title {
+  .scenario-title {
     font-size: 20px;
     vertical-align: middle;
     margin-left: 20px;
   }
-  .scene-detail {
+  .scenario-detail {
   }
-  .scene-img1 {
+  .scenario-img1 {
     border-radius: 5px;
     height: 420px;
     box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
     margin-left: 25px;
   }
-  .scene-img2 {
+  .scenario-img2 {
     border-radius: 5px;
     height: 370px;
     box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);

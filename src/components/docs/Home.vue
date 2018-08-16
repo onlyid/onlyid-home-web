@@ -5,11 +5,11 @@
       <div style="margin-top: 30px">
         <router-link to="/docs/overview">
           <div class="step">
-            <p class="step-title"><i class="iconfont step-icon">&#xe77c;</i> 了解手机账号、新建client</p>
+            <p class="step-title"><i class="iconfont step-icon">&#xe77c;</i> 了解手机账号、新建应用</p>
             <ul class="step-detail">
               <li>了解唯ID的手机帐号</li>
               <li>了解OAuth 2.0</li>
-              <li>新建client获得id和secret</li>
+              <li>新建应用获得client id和secret</li>
             </ul>
           </div>
         </router-link>
@@ -20,9 +20,9 @@
           <div class="step">
             <p class="step-title"><i class="iconfont step-icon">&#xe78f;</i> 根据不同平台部署</p>
             <ul class="step-detail">
-              <li>集成SDK（仅app）</li>
-              <li>配置client id和secret</li>
-              <li>发起验证请求，获得用户手机号</li>
+              <li>集成SDK（移动应用）</li>
+              <li>发起验证请求，获取code</li>
+              <li>使用code获取用户信息</li>
             </ul>
           </div>
         </router-link>
@@ -59,18 +59,18 @@
       <div class="docs-detail">
         <el-row>
           <el-col :span="12">
-            <router-link to="/docs/web">Web</router-link>
+            <router-link to="/docs/web">网站</router-link>
             <p>使用RESTful API为你的网站接入唯ID</p>
           </el-col>
           <el-col :span="12">
             <router-link to="/docs/android">Android</router-link>
-            <p>使用Android SDK为你的app接入唯ID</p>
+            <p>使用Android SDK为你的应用接入唯ID</p>
           </el-col>
         </el-row>
         <el-row>
           <el-col :span="12">
             <router-link to="/docs/ios">iOS</router-link>
-            <p>使用iOS SDK为你的app接入唯ID</p>
+            <p>使用iOS SDK为你的应用接入唯ID</p>
           </el-col>
         </el-row>
       </div>

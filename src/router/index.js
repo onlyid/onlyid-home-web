@@ -45,7 +45,7 @@ const router = new Router({
         {path: '', component: DocsHome, meta: {title: '文档'}},
         {path: 'overview', component: DocsOverview, meta: {title: '产品概述'}},
         {path: 'oauth2', component: DocsOAuth2, meta: {title: 'OAuth 2.0入门'}},
-        {path: 'web', component: DocsWeb, meta: {title: 'Web接入'}},
+        {path: 'web', component: DocsWeb, meta: {title: '网站接入'}},
         {path: 'android', component: DocsAndroid, meta: {title: 'Android接入'}},
         {path: 'ios', component: DocsiOS, meta: {title: 'iOS接入'}},
         {path: 'custom', component: DocsCustom, meta: {title: '自定义选项（基础）'}},

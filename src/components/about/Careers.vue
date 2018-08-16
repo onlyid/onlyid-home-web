@@ -5,7 +5,7 @@
       <p class="section-title">工作机会</p>
       <p class="section-summary">哪个角色让你游刃有余？</p>
       <div style="margin-top: 40px">
-        <p>我们永远在寻找聪明、创新的高素质人才加入唯ID。</p>
+        <p>我们永远在寻找聪明、创新的高素质人才。</p>
         <el-row style="margin-top: 40px" type="flex" justify="space-around">
           <el-col :span="4">
             <position :count="positions[0].length" title="工程师" @click.native="goPositions(0)">
