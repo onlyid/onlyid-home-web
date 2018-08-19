@@ -32,7 +32,7 @@
               <el-button type="text" style="font-size: 15px" @click="common.goAnchor('#experience-enterprise')">体验专有云</el-button>
             </div>
           </div>
-          <p style="position: absolute; left: 20px; bottom: 10px" class="note">体验程序（Web前端）源码可在 <router-link to="/downloads#demo">下载中心</router-link> 在线查阅、下载运行</p>
+          <p style="position: absolute; left: 20px; bottom: 10px" class="note"><a href="https://gitee.com/lltb/onlyid-demo-web" target="_blank">下载</a> 体验程序源码</p>
         </el-card>
       </div>
     </div>

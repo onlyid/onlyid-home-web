@@ -33,15 +33,16 @@ export default {
 <style scoped>
   div {
     position: fixed;
-    background-color: #fff;
+    background-color: rgba(255,255,255,.7);
     right: 100px;
     bottom: 150px;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 0 6px rgba(0,0,0,.12);
+    box-shadow: 0 0 6px rgba(0,0,0,.1);
     z-index: 1;
+    border: 1px solid #F2F6FC;
   }
   i {
     color: #409eff;

@@ -44,7 +44,7 @@
       <p class="subsection-title">客户端</p>
       <div>
         <div class="downloads-row">
-          <a href="https://gitee.com/lltb/onlyid-demo-frontend-vuejs" target="_blank">
+          <a href="https://gitee.com/lltb/onlyid-demo-web" target="_blank">
             <repo-item title="Web" detail="Web前端示例（使用JavaScript）" style="margin-right: 32px">
               <i class="iconfont" style="background-color: #F56C6C;">&#xe743;</i>
             </repo-item>
