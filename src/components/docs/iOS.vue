@@ -8,33 +8,37 @@
     <pre>pod 'OnlyID_SDK', :git => 'https://gitee.com/lltb/onlyid-sdk-ios.git'</pre>
     <p>集成SDK。</p>
     <p>或 <a href="https://gitee.com/lltb/onlyid-sdk-ios/tree/master/OnlyID_SDK" target="_blank">下载</a>
-      源码文件：AuthViewController.swift和OnlyID_SDK.swift，添加到项目。</p>
+      源码文件：AuthViewController.swift和OnlyID.swift，添加到项目。</p>
 
-    <h2>2. 获取access token</h2>
-    <p>用户需要登录时，使用OnlyID.auth方法发起请求。Swift代码示例：</p>
+    <h2>2. 获取authorization code</h2>
+    <p>用户需要登录时，使用OnlyID.auth方法发起请求。代码示例：</p>
     <pre>import OnlyID_SDK
 
-class LoginViewController: UIViewController, AuthDelegate {
+class ViewController: UIViewController, AuthDelegate {
 
-    @IBAction func auth(_ sender: Any) {
+    // 发起验证请求
+    @IBAction func login(_ sender: Any) {
         OnlyID.auth("你的client id", delegate: self)
     }
 
-    func didReceiveAuthResponse(_ authResponse: AuthResponse) {
-        if authResponse.code == .cancel {
-            // 用户取消
-        }
-        else if authResponse.code == .networkErr {
-            // 网络错误
-        }
-        else {
-            // 成功
-        }
+    // 返回结果
+    func didReceiveAuthResp(errCode: ErrCode, code: String?, state: String?) {
+        if errCode == .cancel { // 用户取消 }
+        else if errCode == .networkErr { // 网络错误 }
+        else { // 成功 }
     }
 }</pre>
-    <p>Objective-C遵循调用Swift通用流程，引入Xcode生成头文件，其他类似，不再赘述。</p>
-    <pre>#import &lt;OnlyID_SDK/OnlyID_SDK-Swift.h&gt;</pre>
-    <p>验证成功后，authorization code保存在authResponse的authCode属性。</p>
+    <p>Objective-C遵循调用Swift通用流程，引入Xcode生成头文件，其他类似，不再赘述。代码示例：</p>
+    <pre>#import &lt;OnlyID_SDK/OnlyID_SDK-Swift.h&gt;
+
+...
+
+// 发起验证请求
+- (IBAction)login:(id)sender {
+    [OnlyID auth:@"你的client id" delegate:self state:@"123" themeDark:NO
+        viewZoomed:NO scene: @"login"];
+}</pre>
+    <p>验证成功后，authorization code保存在code属性。</p>
     <h2>3. 获取用户信息</h2>
     <note>获取用户信息建议在服务端进行，以防泄露你的client secret。</note>
     <p>得到authorization code后，POST方式请求：</p>

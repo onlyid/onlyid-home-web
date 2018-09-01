@@ -7,34 +7,30 @@
     <p>在app模块的build.gradle添加：</p>
     <pre>dependencies {
     其他依赖 ...
-    compile 'net.onlyid:onlyid-sdk:+'
+    implementation 'net.onlyid:onlyid-sdk:+'
 }</pre>
     <p>集成SDK。</p>
     <h2>2. 获取authorization code</h2>
-    <p>用户需要登录时，使用OnlyID.auth方法发起请求，参数列表最后两字段为自定义选项，可先忽略。代码示例：</p>
+    <p>用户需要登录时，使用OnlyID.auth方法发起请求。代码示例：</p>
     <pre>import net.onlyid.onlyid_sdk.OnlyID;
 
-LoginActivity extends Activity implements OnlyID.AuthListener {
+public class MainActivity extends Activity implements OnlyID.AuthListener {
 
     // 发起验证请求
-    public void auth(View view) {
-      OnlyID.auth(this, "你的client id", null, this, null, null);
+    public void login(View view) {
+        Intent intent = new Intent();
+        intent.putExtra("clientId", "你的client id");
+        OnlyID.auth(this, intent, this);
     }
 
     // 返回结果
-    public void onAuthResponse(OnlyID.AuthResponse authResponse) {
-        if (authResponse.code == OnlyID.ErrCode.CANCEL) {
-            // 用户取消
-        }
-        else if (authResponse.code == OnlyID.ErrCode.NETWORK_ERR) {
-            // 网络错误
-        }
-        else {
-            // 成功
-        }
+    public void onAuthResp(OnlyID.ErrCode errCode, String code, String state) {
+        if (errCode == OnlyID.ErrCode.CANCEL) { // 用户取消 }
+        if (errCode == OnlyID.ErrCode.NETWORK_ERR) { // 网络错误 }
+        else { // 成功 }
     }
 }</pre>
-    <p>验证成功后，authorization code保存在authResponse的authCode属性。</p>
+    <p>验证成功后，authorization code保存在code属性。</p>
     <h2>3. 获取用户信息</h2>
     <note>获取用户信息建议在服务端进行，以防泄露你的client secret。</note>
     <p>得到authorization code后，POST方式请求：</p>

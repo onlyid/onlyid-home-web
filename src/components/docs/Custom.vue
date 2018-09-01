@@ -8,15 +8,18 @@
       <tr><td class="c1">主题界面</td><td>两种（日间、夜间）</td></tr>
       <tr><td class="c1">放大显示</td><td>两种（标准、放大）</td></tr>
     </table>
-    <p style="margin-top: 25px">使用方式类似：对于网站应用，通过授权页的query参数设置；对于移动应用，通过sdk传参设置。下面以网站和Android为例，讲解所有自定义选项，iOS使用方式和Android类似，不再赘述。</p>
+    <p style="margin-top: 25px">使用方式类似：对于网站应用，通过授权页的query参数设置；对于移动应用，通过sdk传参设置。</p>
     <h2 id="scenario">业务场景</h2>
-    <p>提供手机号登录（默认）、三方登录绑定手机、更换手机号和通用验证场景，通过scenario设置，分别为login、bind、change和auth，以绑号为例：</p>
+    <p>提供手机号登录（默认）、三方登录绑定手机、更换手机号和通用验证场景，通过scene设置，分别为login、bind、change和auth，以绑号为例：</p>
     <el-tabs>
       <el-tab-pane label="网站">
-        <pre>https://my.onlyid.net/auth?client_id=...&redirect_uri=...&scenario=bind</pre>
+        <pre>https://my.onlyid.net/auth?client_id=...&redirect_uri=...&scene=bind</pre>
       </el-tab-pane>
       <el-tab-pane label="Android">
-        <pre>OnlyID.auth(this, CLIENT_ID, null, this, null, null, "bind");</pre>
+        <pre>intent.putExtra("scene", "bind");</pre>
+      </el-tab-pane>
+      <el-tab-pane label="iOS">
+        <pre>OnlyID.auth("你的client id", delegate: self, scene: "bind")</pre>
       </el-tab-pane>
     </el-tabs>
     <div class="docs-img-div">
@@ -34,7 +37,10 @@
         <pre>https://my.onlyid.net/auth?client_id=...&redirect_uri=...&theme_dark=true</pre>
       </el-tab-pane>
       <el-tab-pane label="Android">
-        <pre>OnlyID.auth(this, CLIENT_ID, null, this, true, null);</pre>
+        <pre>intent.putExtra("themeDark", true);</pre>
+      </el-tab-pane>
+      <el-tab-pane label="iOS">
+        <pre>OnlyID.auth("你的client id", delegate: self, themeDark: true)</pre>
       </el-tab-pane>
     </el-tabs>
     <div class="docs-img-div">
@@ -52,7 +58,10 @@
         <pre>https://my.onlyid.net/auth?client_id=...&redirect_uri=...&view_zoomed=true</pre>
       </el-tab-pane>
       <el-tab-pane label="Android">
-        <pre>OnlyID.auth(this, CLIENT_ID, null, this, null, true);</pre>
+        <pre>intent.putExtra("viewZoomed", true);</pre>
+      </el-tab-pane>
+      <el-tab-pane label="iOS">
+        <pre>OnlyID.auth("你的client id", delegate: self, viewZoomed: true)</pre>
       </el-tab-pane>
     </el-tabs>
     <div class="docs-img-div">
