@@ -26,7 +26,7 @@ public class MainActivity extends Activity implements OnlyID.AuthListener {
     // 返回结果
     public void onAuthResp(OnlyID.ErrCode errCode, String code, String state) {
         if (errCode == OnlyID.ErrCode.CANCEL) { // 用户取消 }
-        if (errCode == OnlyID.ErrCode.NETWORK_ERR) { // 网络错误 }
+        else if (errCode == OnlyID.ErrCode.NETWORK_ERR) { // 网络错误 }
         else { // 成功 }
     }
 }</pre>

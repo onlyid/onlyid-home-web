@@ -5,7 +5,7 @@
 import 'babel-polyfill'
 import Vue from 'vue'
 import ElementUI from 'element-ui'
-import { VueBus, Storage } from 'onlyid-frontend-common'
+import { VueBus, Storage } from 'onlyid-web-common'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/style.css'
 import App from './App'

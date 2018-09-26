@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/onlyid-home-frontend.iml" filepath="$PROJECT_DIR$/.idea/onlyid-home-frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/onlyid-home-web.iml" filepath="$PROJECT_DIR$/.idea/onlyid-home-web.iml" />
     </modules>
   </component>
 </project>

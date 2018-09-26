@@ -1,5 +1,5 @@
 {
-  "name": "onlyid-home-frontend",
+  "name": "onlyid-home-web",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "ltb <liangtb@qq.com>",
@@ -15,9 +15,9 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
-    "element-ui": "^2.3.4",
+    "element-ui": "^2.4.7",
     "moment": "^2.22.1",
-    "onlyid-frontend-common": "file:../onlyid-frontend-common",
+    "onlyid-web-common": "file:../onlyid-web-common",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"
   },

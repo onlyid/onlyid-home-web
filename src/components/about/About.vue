@@ -107,7 +107,7 @@
 </template>
 
 <script>
-  import common from 'onlyid-frontend-common'
+  import common from 'onlyid-web-common'
   import BusinessCard from './BusinessCard'
 
   export default {

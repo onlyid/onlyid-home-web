@@ -32,7 +32,7 @@ Vue.use(Router)
 const router = new Router({
   mode: 'history',
   routes: [
-    {path: '/', component: Index, meta: {title: '共享的手机账号'}},
+    {path: '/', component: Index, meta: {title: '手机账号'}},
     {path: '/downloads', component: Downloads, meta: {title: '下载'}},
     {path: '/pricing', component: Pricing, meta: {title: '价格'}},
     {path: '/experience', component: Experience, meta: {title: '在线体验'}},

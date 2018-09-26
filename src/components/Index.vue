@@ -8,8 +8,8 @@
           </transition>
         </div>
         <div style="padding-top: 100px;">
-          <p style="font-size: 37px">共享的手机账号</p>
-          <p style="font-size: 18px">用唯ID实现手机号登录，从此告别高昂短信费用</p>
+          <p style="font-size: 37px">手机账号</p>
+          <p style="font-size: 18px">app和网站登录就用唯ID，方便、安全、不要钱</p>
           <div style="padding-top: 20px">
             <el-button type="primary" plain round @click="$bus.$emit('login')">开始使用</el-button>
           </div>
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div class="section">
-      <p style="font-size: 18px; text-indent: 2em; margin-top: 30px;">我们为app和网站提供共享的手机账号服务。开发者不用开通短信，轻松获取用户手机号。广泛应用于手机号登录、三方登录绑定手机等场景。</p>
+      <p style="font-size: 18px; text-indent: 2em; margin-top: 30px;">我们为app和网站提供手机账号服务。开发者不用开通短信，轻松获取用户手机号。广泛应用于手机号登录、三方登录绑定手机等场景。</p>
     </div>
     <div class="gradient-hr"></div>
     <div class="section">
@@ -110,7 +110,7 @@
               <ul>
                 <li>共享基础设施和计算资源</li>
                 <li>用户设置的密码可在所有接入应用使用</li>
-                <li>使用成本低，除年费外不收取其他任何费用</li>
+                <li>完全免费，不收取任何费用</li>
                 <li>注册后默认开通，快速完成接入，省心省力</li>
               </ul>
             </div>
@@ -151,7 +151,7 @@
     <div class="gradient-hr"></div>
     <div class="section">
       <p class="section-title">特点与优势</p>
-      <p class="section-summary">简单、可信赖</p>
+      <p class="section-summary">方便、安全、不要钱</p>
       <el-row class="advantage" style="margin-top: 40px;">
         <el-col :span="4" :offset="2">
           <i class="material-icons advantage-image" id="developer_mode">developer_mode</i>
@@ -184,7 +184,7 @@
         </el-col>
         <el-col :span="14">
           <p class="advantage-title">不限量验证短信任性发</p>
-          <p class="advantage-detail">极简价格方案，除年费外不收取其他任何费用</p>
+          <p class="advantage-detail">公有云完全免费，不收取任何费用</p>
           <p class="advantage-detail">你可以享受无限量的短信验证码服务</p>
         </el-col>
         <el-col :span="4">

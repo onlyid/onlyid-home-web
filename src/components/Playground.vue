@@ -1,12 +1,18 @@
 <template>
   <div id="content">
+    <el-button @click="testMenu('/test')">/test</el-button>
+    <el-button @click="testMenu('/')">/</el-button>
+    <el-menu :default-active="activeIndex">
+      <el-menu-item index="/test">测试</el-menu-item>
+      <el-menu-item index="/haha">哈哈</el-menu-item>
+    </el-menu>
     <!--<div style="position: relative; background-color: #3b5898;">-->
       <!--<p style="background-color: #7f7f7f; z-index: -1;">hi</p>-->
       <!--<p style="position: absolute; top: 0; background-color: #E6A23C; margin: 0">he</p>-->
     <!--</div>-->
-    <el-button @click="setSession">setSession</el-button>
-    <el-button @click="printSession">printSession</el-button>
-    <a href="http://onlyid.net:8085/playground" target="_blank">http://onlyid.net:8085/playground</a>
+    <!--<el-button @click="setSession">setSession</el-button>-->
+    <!--<el-button @click="printSession">printSession</el-button>-->
+    <!--<a href="http://onlyid.net:8085/playground" target="_blank">http://onlyid.net:8085/playground</a>-->
     <!--<p>哈哈-->
     <!--或或</p>-->
     <!--<p style="width: 80px; word-wrap: break-word; word-break: break-all">哈哈哈哈 he-lloahaaaaaaa 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello 哈哈哈哈hello </p>-->
@@ -89,7 +95,7 @@
 
 <script>
   import Vue from 'vue'
-  import common from 'onlyid-frontend-common'
+  import common from 'onlyid-web-common'
 
   Vue.component('my-component', {
     template: '<div><slot name="header">fallback content</slot><slot>fallback content2</slot><p style="font-size: 20px;">test</p></div>'
@@ -144,6 +150,10 @@
       }
     },
     methods: {
+      testMenu (index) {
+        this.activeIndex = index
+        console.log(this.activeIndex)
+      },
       setSession () {
         sessionStorage.name = 'ltb from home'
       },
@@ -190,7 +200,6 @@
     },
     mounted () {
       console.log('mounted')
-      console.log(opener.location)
     },
     beforeDestroy () {
       console.log('beforeDestroy')

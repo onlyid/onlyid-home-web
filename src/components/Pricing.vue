@@ -8,7 +8,7 @@
       <div style="margin-top: 20px; padding: 5px 15px 15px;">
         <p>尊敬的客户：</p>
         <p style="margin-top: 1em;">为了提供更好的服务，我们将于2018年1月正式商业化。</p>
-        <p>对于公用云，收取每位开发者100元/年的费用<span style="color: #F56C6C;">（首年免费）</span>。除年费外不收取其他任何费用，你可以享受无限量的短信验证码服务。</p>
+        <p>对于公用云，继续保持免费运营，你可以享受无限量的短信验证码服务。</p>
         <p>对于专有云，收取每家企业1000元/年的费用<span style="color: #F56C6C;">（首年免费）</span>，同时提供价格优惠的短信套餐包。</p>
         <p>有任何疑问，请联系客户经理。</p>
         <p style="text-align: right; margin-top: 1em;">—— 唯ID团队 2017年12月</p>
@@ -28,7 +28,7 @@
               <el-tabs v-model="activeNameStandard" class="tabs">
                 <el-tab-pane label="价格与功能" name="1">
                   <ul>
-                    <li>基础年费（人民币）<span>100元</span></li>
+                    <li>基础年费（人民币）<span>免费</span></li>
                     <li>短信费用<span>免费</span></li>
                     <div class="gradient-hr"></div>
                     <li>可建应用<span>5个 *</span></li>
@@ -131,7 +131,7 @@
 </template>
 
 <script>
-  import common from 'onlyid-frontend-common'
+  import common from 'onlyid-web-common'
   import BusinessCard from './about/BusinessCard'
   import config from '../config'
 
