@@ -81,7 +81,7 @@ import BackTop from './components/BackTop'
 import config from './config'
 
 export default {
-  components: {BackTop},
+  components: { BackTop },
   data () {
     return {
       currentYear: new Date().getFullYear(),
@@ -106,7 +106,7 @@ export default {
     },
     async onCode (code) {
       try {
-        const {data} = await this.$axios.post('/login', {code})
+        const { data } = await this.$axios.post('/login', { code })
         // 如果存在user字段 说明已注册
         if (data.user) {
           location.replace(config.consoleUrl)

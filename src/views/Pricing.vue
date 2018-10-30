@@ -1,0 +1,219 @@
+<template>
+  <div>
+    <p id="banner">不止免费，更加专业</p>
+    <div style="width: 800px;" class="section" id="announcement">
+      <div style="text-align: center;">
+        <el-tag style="font-size: 20px; border: none; line-height: 32px;">商业化公告</el-tag>
+      </div>
+      <div style="margin-top: 20px; padding: 5px 15px 15px;">
+        <p>尊敬的客户：</p>
+        <p style="margin-top: 1em;">为了提供更好的服务，我们将于2018年1月正式商业化。</p>
+        <p>对于公用云，继续保持免费运营，你可以享受无限量的短信验证码服务。</p>
+        <p>对于专有云，收取每家企业1000元/年的费用<span style="color: #F56C6C;">（首年免费）</span>，同时提供价格优惠的短信套餐包。</p>
+        <p>有任何疑问，请联系客户经理。</p>
+        <p style="text-align: right; margin-top: 1em;">—— 唯ID团队 2017年12月</p>
+      </div>
+    </div>
+    <div class="gradient-hr"></div>
+    <div class="section" id="pricing-features">
+      <p class="section-title">价格与功能</p>
+      <p class="section-summary">极简定价，透明收费</p>
+      <el-row style="margin-top: 40px">
+        <el-col :span="10">
+          <el-card :body-style="{padding: '20px 30px'}">
+            <div slot="header">
+              <span class="pricing-title">公有云</span>
+            </div>
+            <div class="pricing-detail">
+              <el-tabs v-model="activeNameStandard" class="tabs">
+                <el-tab-pane label="价格与功能" name="1">
+                  <ul>
+                    <li>基础年费（人民币）<span>免费</span></li>
+                    <li>短信费用<span>免费</span></li>
+                    <div class="gradient-hr"></div>
+                    <li>可建应用<span>5个 *</span></li>
+                    <li>自定义选项<span><el-button @click="goTab('2','standard')" type="text" class="pricing-button">基础</el-button></span></li>
+                    <li>验证请求量<span>无限制</span></li>
+                    <li>统计数据<span>基础</span></li>
+                    <li>开通方式<span>默认开通</span></li>
+                  </ul>
+                </el-tab-pane>
+                <el-tab-pane label="自定义选项（基础）" name="2">
+                  <ul>
+                    <li>业务场景<span>四种（登录、绑号、换号、验证）</span></li>
+                    <li>主题界面<span>两种（日间、夜间）</span></li>
+                    <li>放大显示<span>两种（标准、放大）</span></li>
+                  </ul>
+                </el-tab-pane>
+              </el-tabs>
+            </div>
+            <p style="text-align: center; margin-top: 40px">
+              <el-button type="primary" round @click="$bus.$emit('login')">去续费</el-button>
+            </p>
+          </el-card>
+        </el-col>
+        <el-col :span="12" :offset="2">
+          <el-card :body-style="{padding: '20px 30px'}">
+            <div slot="header">
+              <span class="pricing-title">专有云</span>
+            </div>
+            <div class="pricing-detail">
+              <el-tabs v-model="activeNameEnterprise" class="tabs">
+                <el-tab-pane name="1">
+                  <span slot="label">价格与功能</span>
+                  <ul>
+                    <li>基础年费（人民币）<span>1000元</span></li>
+                    <li>短信费用<span>价格优惠的短信套餐包</span></li>
+                    <li>计算节点和数据库<span>以合同为准</span></li>
+                    <li>定制和其他费用<span>以合同为准</span></li>
+                    <div class="gradient-hr"></div>
+                    <li>可建应用<span>50个 *</span></li>
+                    <li>自定义选项<span><el-button @click="goTab('2','enterprise')" type="text" class="pricing-button">丰富</el-button></span></li>
+                    <li>验证请求量<span>无限制</span></li>
+                    <li>统计数据<span><el-button @click="goTab('4','enterprise')" type="text" class="pricing-button">丰富</el-button></span></li>
+                    <li>开通方式<span>联系客户经理开通</span></li>
+                  </ul>
+                </el-tab-pane>
+                <el-tab-pane name="2">
+                  <span slot="label"><i class="iconfont tab-icon">&#xe9c7;</i> 定制贴心</span>
+                  <ul>
+                    <li>自定义选项（基础）<span>支持</span></li>
+                    <li>自定义短信签名<span>支持</span></li>
+                    <li>自定义短信模板<span>支持</span></li>
+                    <li>自定义授权域名<span>支持</span></li>
+                    <li>自定义界面（客户定制）<span>支持</span></li>
+                    <li>集成三方登录（客户定制）<span>支持</span></li>
+                    <li>集成用户资料（客户定制）<span>支持</span></li>
+                  </ul>
+                </el-tab-pane>
+                <el-tab-pane name="3">
+                  <span slot="label"><i class="iconfont tab-icon">&#xe996;</i> 性能可靠</span>
+                  <ul>
+                    <li>专有的计算节点<span>支持</span></li>
+                    <li>专有的数据库<span>支持</span></li>
+                    <li>专人维护<span>支持</span></li>
+                  </ul>
+                </el-tab-pane>
+                <el-tab-pane name="4">
+                  <span slot="label"><i class="iconfont tab-icon">&#xe9d0;</i> 数据丰富</span>
+                  <ul>
+                    <li>统计数据（基础）<span>开放</span></li>
+                    <li>统计数据（深度）<span>开放</span></li>
+                  </ul>
+                </el-tab-pane>
+              </el-tabs>
+            </div>
+            <p style="text-align: center; margin-top: 40px">
+              <el-button type="primary" round @click="common.goAnchor('#business-service')">联系客户经理</el-button>
+            </p>
+          </el-card>
+        </el-col>
+      </el-row>
+      <p style="margin-top: 40px" class="note">* 区分移动应用和网站应用，同个移动应用不区分平台（iOS和Android版视为一个应用）</p>
+    </div>
+    <div class="gradient-hr"></div>
+    <div class="section" id="business-service">
+      <p class="section-title">商务服务</p>
+      <p class="section-summary">安心购，无忧用</p>
+      <p style="margin-top: 40px">如果你是企业、政府、教育和非营利组织，或想试用专有云，请联系客户经理为你服务。</p>
+      <el-row style="margin-top: 40px">
+        <el-col :span="2" style="margin-top: 70px;" :offset="2">
+          <img src="../assets/gongzuo.png" width="64"/>
+        </el-col>
+        <el-col :span="18">
+          <business-card name="小梁" title="客户经理（业务咨询）" tel="18588237889" email="liangtb@qq.com" qq="244121358">
+            <img src="../assets/wechat-185.jpeg" slot="qr-code"/>
+          </business-card>
+        </el-col>
+      </el-row>
+    </div>
+  </div>
+</template>
+
+<script>
+import common from 'onlyid-web-common'
+import BusinessCard from '../components/BusinessCard'
+import config from '../config'
+
+export default {
+  components: { BusinessCard },
+  data () {
+    return {
+      activeNameStandard: '1',
+      activeNameEnterprise: '1',
+      common,
+      config
+    }
+  },
+  methods: {
+    renew () {
+      this.$router.push('/console/account#products')
+    },
+    goTab (index, tabs) {
+      if (tabs === 'standard') {
+        this.activeNameStandard = index
+      } else { // === enterprise
+        this.activeNameEnterprise = index
+      }
+    }
+  },
+  watch: {
+    activeNameStandard (value) {
+      if (value === '1') {
+        this.activeNameEnterprise = '1'
+      } else { // == 2
+        this.activeNameEnterprise = '2'
+      }
+    },
+    activeNameEnterprise (value) {
+      if (value === '1') {
+        this.activeNameStandard = '1'
+      } else if (value === '2') {
+        this.activeNameStandard = '2'
+      }
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+  #banner {
+    background-image: url("../assets/mask.png"), linear-gradient(223.56deg,#6CECA2 0,#005EFF 100%);
+  }
+  #announcement {
+    background-image: url("../assets/mask.png");
+    background-position: center;
+  }
+  #announcement p {
+    margin: 0.5em 0;
+  }
+  .pricing-title {
+    font-size: 20px;
+  }
+  .pricing-detail {
+    height: 400px;
+  }
+  .pricing-detail ul {
+    padding: 0px;
+  }
+  .pricing-detail li {
+    list-style: none;
+    margin: 15px 0;
+  }
+  .pricing-detail li span {
+    float: right;
+  }
+  .tab-icon {
+    font-size: 22px;
+    vertical-align: sub;
+  }
+  .pricing-button {
+    font-size: 15px;
+    padding: 0px;
+  }
+  .tabs >>> .el-tabs__item {
+    font-weight: normal;
+    padding-right: 15px;
+  }
+</style>
