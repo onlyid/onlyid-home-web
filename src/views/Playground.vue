@@ -1,12 +1,12 @@
 <template>
   <div id="content">
-    <el-button @click="testMenu('/test')">/test</el-button>
-    <el-button @click="testMenu('/haha')">/haha</el-button>
-    <el-button @click="testMenu('/hehe')">/hehe</el-button>
-    <el-menu :default-active="activeIndex">
-      <el-menu-item index="/test">测试</el-menu-item>
-      <el-menu-item index="/haha">哈哈</el-menu-item>
-    </el-menu>
+    <!--<el-button @click="testMenu('/test')">/test</el-button>-->
+    <!--<el-button @click="testMenu('/haha')">/haha</el-button>-->
+    <!--<el-button @click="testMenu('/hehe')">/hehe</el-button>-->
+    <!--<el-menu :default-active="activeIndex">-->
+      <!--<el-menu-item index="/test">测试</el-menu-item>-->
+      <!--<el-menu-item index="/haha">哈哈</el-menu-item>-->
+    <!--</el-menu>-->
     <!--<div style="position: relative; background-color: #3b5898;">-->
       <!--<p style="background-color: #7f7f7f; z-index: -1;">hi</p>-->
       <!--<p style="position: absolute; top: 0; background-color: #E6A23C; margin: 0">he</p>-->
@@ -202,6 +202,11 @@ export default {
   },
   mounted () {
     console.log('mounted')
+    const a = {
+      name: 'ltb'
+    }
+    sessionStorage.setObj('a', a)
+    console.log(sessionStorage.getObj('a').name)
   },
   beforeDestroy () {
     console.log('beforeDestroy')
