@@ -2,10 +2,16 @@
   <div>
     <div id="banner-bg">
       <div id="banner1">
-        <div style="height: 442px; float: right; width: 295px">
+        <div style="height: 442px; float: right; width: 295px; position: relative;">
           <transition name="fade">
             <img :src="demoImg" :key="demoImgIndex" height="440px" style="position: absolute; border: 1px solid #DCDFE6;"/>
           </transition>
+          <div id="div1">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
         </div>
         <div style="padding-top: 100px;">
           <p style="font-size: 37px">手机账号</p>
@@ -26,7 +32,7 @@
       <p class="section-summary">精准匹配你的验证诉求</p>
       <div style="text-align: center; margin-top: 30px;">
         <el-tabs id="tabs" v-model="tabsActiveName" style="display: inline-block;"
-                 @mouseover.native="stopLoopTabs" @mouseout.native="startLoopTabs">
+                 @mouseenter.native="stopLoopTabs" @mouseleave.native="startLoopTabs">
           <el-tab-pane name="1">
             <span slot="label"><i class="material-icons tab-icon">textsms</i> 手机号登录</span>
           </el-tab-pane>
@@ -250,16 +256,44 @@ export default {
   mounted () {
     loopDemoImg.call(this)
     this.startLoopTabs()
+
+    const dots = document.getElementById('div1').children
+    let index = 0
+    dots[index].style.opacity = '1'
+    this.timer2 = setInterval(() => {
+      dots[index].style.opacity = '0.4'
+      if (++index >= dots.length) index = 0
+      dots[index].style.opacity = '1'
+    }, 4000)
   },
   beforeDestroy () {
     clearInterval(this.timer)
     clearInterval(this.timer1)
+    clearInterval(this.timer2)
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  #div1 {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+  }
+  .dot {
+    background-color: rgba(127, 127, 127, 0.7);
+    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    float: left;
+    opacity: 0.4;
+  }
+  .dot+.dot {
+    margin-left: 5px;
+  }
   @keyframes wave-animate {
     0% {
       transform: scale(0);
@@ -276,6 +310,12 @@ export default {
     background-image: url("../assets/mask.png"), linear-gradient( to right, #2f518b 0%, #0be1f4 100% );
     background-size: cover;
     color: #fff;
+    background-position: center center;
+  }
+  @media screen and (max-width: 1400px) {
+    #banner-bg {
+      background-size: 1400px;
+    }
   }
   #banner1 {
     width: 980px;
