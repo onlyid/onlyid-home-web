@@ -28,7 +28,7 @@ code=获取到的code</pre>
   "error": "Invalid grant: authorization code is invalid"
 }</pre>
     <h2>结语</h2>
-    <p>你已完成接入，接下来还可以在下载中心查阅 <router-link to="/downloads#demo">示例Demo</router-link>，以加深理解。</p>
+    <p>你已完成接入，接下来还可以查阅 <a href="https://github.com/lltb/onlyid-demo-web" target="_blank">示例Demo</a>，以加深理解。</p>
   </div>
 </template>
 

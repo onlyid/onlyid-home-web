@@ -1,16 +1,16 @@
 <template>
   <div>
-    <h1>自定义选项（基础）</h1>
+    <h1>自定义选项</h1>
     <h2>前言</h2>
-    <p>我们为公有云的开发者提供以下自定义选项：</p>
+    <p>我们为开发者提供以下自定义选项：</p>
     <table style="border-collapse: collapse; margin-top: 15px">
-      <tr style="border-top: 1px solid #E4E7ED;"><td class="c1">业务场景</td><td>四种（登录、绑号、换号、验证）</td></tr>
+      <tr style="border-top: 1px solid #E4E7ED;"><td class="c1">业务场景</td><td>四种（登录、绑号、验证）</td></tr>
       <tr><td class="c1">主题界面</td><td>两种（日间、夜间）</td></tr>
       <tr><td class="c1">放大显示</td><td>两种（标准、放大）</td></tr>
     </table>
     <p style="margin-top: 25px">使用方式类似：对于网站应用，通过授权页的query参数设置；对于移动应用，通过sdk传参设置。</p>
     <h2 id="scenario">业务场景</h2>
-    <p>提供手机号登录（默认）、三方登录绑定手机、更换手机号和通用验证场景，通过scene设置，分别为login、bind、change和auth，以绑号为例：</p>
+    <p>提供手机号登录（默认）、三方登录绑定手机和通用验证场景，通过scene设置，分别为login、bind和auth，以绑号为例：</p>
     <el-tabs>
       <el-tab-pane label="网站">
         <pre>https://my.onlyid.net/auth?client_id=...&redirect_uri=...&scene=bind</pre>

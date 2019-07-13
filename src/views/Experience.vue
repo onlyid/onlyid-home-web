@@ -1,17 +1,12 @@
 <template>
   <div>
-    <p id="banner">体验下一代手机帐号</p>
-    <div class="menu">
-        <span @click="common.goAnchor('#experience-public')">公有云</span>
-        <span style="margin-left: 50px;" @click="common.goAnchor('#experience-enterprise')">专有云</span>
-    </div>
+    <p id="banner">在线体验</p>
     <div class="section-bg-gradient">
       <div class="section" id="experience-public">
         <p class="section-title">注册体验</p>
-        <p class="section-summary">体验公有云桌面版</p>
+        <p class="section-summary">体验桌面版</p>
         <el-card class="card">
-          <p><img src="../assets/logo.png" width="66" style="vertical-align: -35%"/>官网（本站）采用公有云桌面版手机帐号，实现了手机号登录和更换手机号功能。</p>
-          <p>立即注册，完整体验下一代手机帐号。</p>
+          <p><img src="../assets/logo.png" width="66" style="vertical-align: -35%"/>官网（本站）采用开源账号桌面版，实现了注册、登录功能，马上注册成为开发者吧！</p>
           <p style="text-align: center; margin-top: 40px;">
             <el-button type="primary" round class="experience-button" @click="$bus.$emit('login')">开始使用</el-button>
           </p>
@@ -21,30 +16,16 @@
     <div class="section-bg-gradient">
       <div class="section">
         <p class="section-title">在线体验</p>
-        <p class="section-summary">体验公有云移动版</p>
+        <p class="section-summary">体验移动版</p>
         <el-card class="card1" :body-style="{ padding: '0' }">
           <iframe src="https://demo.onlyid.net" width="320" height="480" class="demo-iframe" scrolling="no"></iframe>
           <div class="tooltip">
             <div class="tooltip__arrow"></div>
             <div>
               <p style="font-size: 16px"><img src="../assets/click.svg" style="vertical-align: sub; margin-right: 10px;"/>尝试点一下</p>
-              <p style="margin-bottom: 5px; color: #7f7f7f; border-top: 1px solid #EFEFEF; padding-top: 1em">专有云可深度定制界面</p>
-              <el-button type="text" style="font-size: 15px" @click="common.goAnchor('#experience-enterprise')">体验专有云</el-button>
             </div>
           </div>
-          <p style="position: absolute; left: 20px; bottom: 10px" class="note"><a href="https://gitee.com/lltb/onlyid-demo-web" target="_blank">下载</a> 体验程序源码</p>
-        </el-card>
-      </div>
-    </div>
-    <div class="section-bg-gradient">
-      <div class="section" id="experience-enterprise">
-        <p class="section-title">体验专有云</p>
-        <p class="section-summary">体验企业IDaaS解决方案</p>
-        <el-card class="card">
-          <p>专有云提供了丰富的自定义选项，以及针对具体客户的源码级定制，请联系客户经理获取示例Demo。</p>
-          <p style="text-align: center; margin-top: 40px;">
-            <router-link to="/pricing#business-service"><el-button type="primary" round class="experience-button">联系客户经理</el-button></router-link>
-          </p>
+          <p style="position: absolute; left: 20px; bottom: 10px" class="note">体验程序 <a href="https://github.com/lltb/onlyid-demo-web" target="_blank">源码</a></p>
         </el-card>
       </div>
     </div>
@@ -135,7 +116,7 @@ export default {
   }
   .tooltip {
     position: absolute;
-    top: 180px;
+    top: 240px;
     right: 340px;
     width: 200px;
     border-radius: 3px;
@@ -147,7 +128,7 @@ export default {
     width: 28px;
     height: 38px;
     position: absolute;
-    top: 55%;
+    top: 30%;
     left: 100%;
     overflow: hidden;
   }

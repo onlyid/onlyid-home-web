@@ -11,7 +11,6 @@ import Signup from './views/Signup'
 import Auth from './views/Auth'
 
 import Docs from './views/docs/Docs'
-import DocsHome from './views/docs/Home'
 import DocsOverview from './views/docs/Overview'
 import DocsOAuth2 from './views/docs/OAuth2'
 import DocsWeb from './views/docs/Web'
@@ -23,6 +22,7 @@ import DocsFAQ from './views/docs/FAQ'
 import DocsReview from './views/docs/Review'
 
 import About from './views/about/About'
+import AboutTeam from './views/about/Team'
 import AboutCareers from './views/about/Careers'
 import AboutAgreement from './views/about/Agreement'
 import AboutPrivacy from './views/about/Privacy'
@@ -33,7 +33,7 @@ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
-    { path: '/', component: Index, meta: { title: '手机账号' } },
+    { path: '/', component: Index, meta: { title: '开源账号' } },
     { path: '/downloads', component: Downloads, meta: { title: '下载' } },
     { path: '/pricing', component: Pricing, meta: { title: '价格' } },
     { path: '/experience', component: Experience, meta: { title: '在线体验' } },
@@ -43,7 +43,7 @@ const router = new Router({
       path: '/docs',
       component: Docs,
       children: [
-        { path: '', component: DocsHome, meta: { title: '文档' } },
+        { path: '', redirect: 'overview' },
         { path: 'overview', component: DocsOverview, meta: { title: '产品概述' } },
         { path: 'oauth2', component: DocsOAuth2, meta: { title: 'OAuth 2.0入门' } },
         { path: 'web', component: DocsWeb, meta: { title: '网站接入' } },
@@ -56,6 +56,7 @@ const router = new Router({
       ]
     },
     { path: '/about', component: About, meta: { title: '关于我们' } },
+    { path: '/about/team', component: AboutTeam, meta: { title: '团队介绍' } },
     { path: '/about/agreement', component: AboutAgreement, meta: { title: '服务条款' } },
     { path: '/about/privacy', component: AboutPrivacy, meta: { title: '隐私权政策' } },
     { path: '/about/careers', component: AboutCareers, meta: { title: '加入我们' } },

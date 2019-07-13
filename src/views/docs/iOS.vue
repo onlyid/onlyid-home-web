@@ -2,6 +2,12 @@
   <div>
     <!-- 修改内容时，检查是否需要改另外两个文档 -->
     <h1>iOS快速接入</h1>
+      <note>
+          由于之前维护iOS的志愿者已不再参与，iOS SDK和示例Demo现在处于无人维护状态，如果您有时间有意愿参与进来，欢迎
+          <el-popover placement="left" trigger="hover">
+              <img src="@/assets/wechat-155.jpeg" width="215"/><span slot="reference" style="text-decoration: underline">联系我。</span>
+          </el-popover>
+      </note>
     <h2 id="step1">1. 集成SDK</h2>
     <p>推荐通过CocoaPods集成。</p>
     <p>在项目的Podfile添加：</p>
@@ -59,7 +65,7 @@ code=获取到的code</pre>
   "error": "Invalid grant: authorization code is invalid"
 }</pre>
     <h2>结语</h2>
-    <p>你已完成接入，接下来还可以在下载中心查阅 <router-link to="/downloads#demo">示例Demo</router-link>，以加深理解。</p>
+      <p>你已完成接入，接下来还可以查阅 <a href="https://github.com/lltb/onlyid-demo-ios" target="_blank">示例Demo</a>，以加深理解。</p>
   </div>
 </template>
 

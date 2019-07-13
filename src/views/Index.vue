@@ -2,7 +2,14 @@
   <div>
     <div id="banner-bg">
       <div id="banner1">
-        <div style="height: 442px; float: right; width: 295px; position: relative;">
+        <div style="padding-top: 100px;">
+          <p style="font-size: 37px">开源账号解决方案</p>
+          <p style="font-size: 18px">我们为网站和app提供通用的账号和认证平台</p>
+          <div style="padding-top: 20px">
+            <el-button type="primary" plain round @click="$bus.$emit('login')">开始使用</el-button>
+          </div>
+        </div>
+        <div style="height: 442px; width: 295px; position: relative;">
           <transition name="fade">
             <img :src="demoImg" :key="demoImgIndex" height="440px" style="position: absolute; border: 1px solid #DCDFE6;"/>
           </transition>
@@ -13,194 +20,55 @@
             <div class="dot"></div>
           </div>
         </div>
-        <div style="padding-top: 100px;">
-          <p style="font-size: 37px">手机账号</p>
-          <p style="font-size: 18px">登录就用唯ID，方便、安全、不要钱</p>
-          <div style="padding-top: 20px">
-            <el-button type="primary" plain round @click="$bus.$emit('login')">开始使用</el-button>
-          </div>
-        </div>
-        <div style="clear: both"></div>
       </div>
     </div>
-    <div class="section">
-      <p style="font-size: 18px; text-indent: 2em; margin-top: 30px;">我们为app和网站提供手机账号服务。开发者不用开通短信，轻松获取用户手机号。广泛应用于手机号登录、三方登录绑定手机等场景。</p>
-    </div>
-    <div class="gradient-hr"></div>
-    <div class="section">
-      <p class="section-title">三大业务场景</p>
-      <p class="section-summary">精准匹配你的验证诉求</p>
-      <div style="text-align: center; margin-top: 30px;">
-        <el-tabs id="tabs" v-model="tabsActiveName" style="display: inline-block;"
-                 @mouseenter.native="stopLoopTabs" @mouseleave.native="startLoopTabs">
-          <el-tab-pane name="1">
-            <span slot="label"><i class="material-icons tab-icon">textsms</i> 手机号登录</span>
-          </el-tab-pane>
-          <el-tab-pane name="2">
-            <span slot="label"><i class="iconfont tab-icon">&#xe7e5;</i> 三方登录绑定手机</span>
-          </el-tab-pane>
-          <el-tab-pane name="3">
-            <span slot="label"><i class="material-icons tab-icon">phone_iphone</i> 更换手机号</span>
-          </el-tab-pane>
-        </el-tabs>
-      </div>
-      <div style="margin-top: 20px">
-        <el-row v-if="tabsActiveName === '1'">
-          <el-col :span="10">
-            <p><el-tag class="scenario-tag" type="success">场景 1</el-tag><span class="scenario-title">手机号登录</span></p>
-            <div class="scenario-detail">
-              <p>满足用户使用手机号登录需求。</p>
-              <p>开发者无需开通短信，通过SDK调起服务，几行代码完成手机号验证，降低成本，提升开发效率。</p>
-              <p>提供丰富的自定义选项，两种主题界面，两种显示大小，方便你按需选择。</p>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <img src="../assets/scenario1-1.png" class="scenario-img1"/>
-          </el-col>
-          <el-col :span="6">
-            <img src="../assets/scenario1-2.png" class="scenario-img2"/>
-          </el-col>
-        </el-row>
-        <el-row v-if="tabsActiveName === '2'" justify="space-between" type="flex">
-          <el-col :span="10">
-            <p><el-tag class="scenario-tag" type="success">场景 2</el-tag><span class="scenario-title">三方登录绑定手机</span></p>
-            <div class="scenario-detail">
-              <p>依《网络安全法》相关要求，6月1日起账号需绑定手机。</p>
-              <p>开发者无需开通短信，在用户通过微信、微博登录后，通过SDK调起服务，几行代码完成手机号验证，轻松完成绑定。</p>
-              <p>提供丰富的自定义选项，两种主题界面，两种显示大小，方便你按需选择。</p>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <img src="../assets/scenario2-1.png" class="scenario-img1"/>
-          </el-col>
-          <el-col :span="6">
-            <img src="../assets/scenario2-2.png" class="scenario-img2"/>
-          </el-col>
-        </el-row>
-        <el-row v-if="tabsActiveName === '3'" justify="space-between" type="flex">
-          <el-col :span="10">
-            <p><el-tag class="scenario-tag" type="success">场景 3</el-tag><span class="scenario-title">更换手机号</span></p>
-            <div class="scenario-detail">
-              <p>方便用户新换号码后不用重新注册。</p>
-              <p>开发者无需开通短信，通过SDK调起服务，几行代码完成新手机号验证，轻松完成更换。</p>
-              <p>提供丰富的自定义选项，两种主题界面，两种显示大小，方便你按需选择。</p>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <img src="../assets/scenario3-1.png" class="scenario-img1"/>
-          </el-col>
-          <el-col :span="6">
-            <img src="../assets/scenario3-2.png" class="scenario-img2"/>
-          </el-col>
-        </el-row>
-      </div>
-    </div>
-    <div class="gradient-hr"></div>
-    <div class="section">
-      <p class="section-title">两大部署方式</p>
-      <p class="section-summary">随你所需，量身定做</p>
-      <el-row style="margin-top: 40px">
-        <el-col :span="11">
-          <el-card :body-style="{padding: '20px 30px'}">
-            <div slot="header">
-              <span class="edition-title">公有云</span>
-              <router-link to="/pricing#pricing-features"><el-button class="edition-button" type="text">价格与功能</el-button></router-link>
-            </div>
-            <div class="edition-image-decoration">
-              <div class="waves"></div>
-              <div class="waves wave1"></div>
-              <div class="waves wave2"></div>
-              <img src="../assets/edition-standard.png" class="edition-image"/>
-            </div>
-            <div class="edition-detail">
-              <ul>
-                <li>共享基础设施和计算资源</li>
-                <li>用户设置的密码可在所有接入应用使用</li>
-                <li>完全免费，不收取任何费用</li>
-                <li>注册后默认开通，快速完成接入，省心省力</li>
-              </ul>
-            </div>
-            <div class="gradient-hr"></div>
-            <p class="edition-summary">公有云是开发者快速实现<span style="font-weight: bold">手机号登录</span>的第一选择</p>
-          </el-card>
-        </el-col>
-        <el-col :span="11" :offset="2">
-          <el-card :body-style="{padding: '20px 30px'}">
-            <div slot="header">
-              <span class="edition-title">专有云</span>
-              <router-link to="/pricing#pricing-features"><el-button class="edition-button" type="text">价格与功能</el-button></router-link>
-            </div>
-            <div class="edition-image-decoration">
-              <div class="waves"></div>
-              <div class="waves wave1"></div>
-              <div class="waves wave2"></div>
-              <img src="../assets/edition-enterprise.png" class="edition-image"/>
-            </div>
-            <div class="edition-detail">
-              <ul>
-                <li>专有的计算节点和数据库</li>
-                <li>用户设置的密码仅用于你的应用</li>
-                <li>高度可定制，包括短信签名、短信模板、授权域名等</li>
-                <li>联系客户经理开通，我们第一时间为你服务</li>
-              </ul>
-            </div>
-            <div class="gradient-hr"></div>
-            <p class="edition-summary">专有云是为中大型企业打造的<span style="font-weight: bold">IDaaS解决方案</span></p>
-          </el-card>
-        </el-col>
-      </el-row>
-      <div style="text-align: center; margin-top: 40px;">
-        <p style="font-size: 16px; color: #606266;"><el-tag style="font-size: 14px; border: none; line-height: 32px; margin-right: 5px" type="success">服务承诺</el-tag>
-          无论你使用公有云还是专有云，我们都为你提供无差别的高标准服务</p>
-      </div>
-    </div>
-    <div class="gradient-hr"></div>
-    <div class="section">
-      <p class="section-title">特点与优势</p>
-      <p class="section-summary">方便、安全、不要钱</p>
-      <el-row class="advantage" style="margin-top: 40px;">
-        <el-col :span="4" :offset="2">
-          <i class="material-icons advantage-image" id="developer_mode">developer_mode</i>
-        </el-col>
-        <el-col :span="14">
-          <p class="advantage-title">极简API，半小时闪电接入</p>
-          <p class="advantage-detail">不影响业务流程，不改变用户习惯</p>
-          <p class="advantage-detail">支持Web、Android 和 iOS 全平台</p>
-        </el-col>
-        <el-col :span="4">
-          <router-link to="/docs/overview"><el-button type="primary" plain round>新手入门</el-button></router-link>
-        </el-col>
-      </el-row>
-      <el-row class="advantage">
-        <el-col :span="4" :offset="2">
-          <i class="material-icons advantage-image" id="security">security</i>
-        </el-col>
-        <el-col :span="14">
-          <p class="advantage-title">银行级团队为安全保驾护航</p>
-          <p class="advantage-detail">基于OAuth构建，全程HTTPS加密，密码安全存储</p>
-          <p class="advantage-detail">团队来自知名银行IT中心，带来银行级的安全和稳定</p>
-        </el-col>
-        <el-col :span="4">
-          <router-link to="/docs/security"><el-button type="danger" plain round>安全实践</el-button></router-link>
-        </el-col>
-      </el-row>
-      <el-row class="advantage">
-        <el-col :span="4" :offset="2">
-          <i class="material-icons advantage-image" id="textsms">textsms</i>
-        </el-col>
-        <el-col :span="14">
-          <p class="advantage-title">不限量验证短信任性发</p>
-          <p class="advantage-detail">公有云完全免费，不收取任何费用</p>
-          <p class="advantage-detail">你可以享受无限量的短信验证码服务</p>
-        </el-col>
-        <el-col :span="4">
-          <router-link to="/pricing"><el-button type="success" plain round>价 格</el-button></router-link>
-        </el-col>
-      </el-row>
+    <div class="section content" style="padding-left: 2em; margin-top: 60px;">
+      <p>欢迎来到唯ID，我是项目发起人 ltb。前招行Java工程师，现为平安Web前端工程师。</p>
+      <p>一直以来，人们习惯在每个用到的应用都注册一个账号，设置单独的密码。这导致了一些问题：</p>
+      <ol>
+        <li>账号密码众多，难以记忆和管理，如果都使用同个账号密码，一旦密码泄露，全部应用都要改一遍，非常麻烦。</li>
+        <li>小众应用更难吸引用户注册，头部应用（微信等）占据更多流量，长尾效应消失，互联网逐渐远离开放、自由精神。</li>
+      </ol>
+      <p>我认为：<b>账号和言论自由、互联网安全一样，是人们的基本权利</b>，所以我在<b>2017年6月12日</b>发起了唯ID项目。唯ID是通用的账号和认证平台，用户只需要在一个接入唯ID的应用注册，即可在所有应用使用。</p>
+      <h3>唯ID的特点</h3>
+      <ol>
+        <li><b>开源、自由</b>，自豪地采用GPLv3协议，托管在<a href="https://github.com/lltb">github</a>，所有人可参与贡献，不受大公司控制。</li>
+        <li>稳定、可靠，唯ID作为账号系统，对接入的应用非常重要。所以在开发唯ID时，我们始终把安全、稳定、可靠放在首位。</li>
+        <li>路线图公开，和其他三方登录不同，唯ID的开发路线图公开，所有人可参与讨论并影响唯ID的未来。</li>
+        <li>尽量使用开源技术，同时不拒绝成熟的商业技术。前者如Spring、Vue等；后者如阿里云ecs、腾讯云短信等。</li>
+      </ol>
+      <h3>唯ID和自有登录对比</h3>
+      <ol>
+        <li><b>唯ID的开发初衷就是替代应用的自有登录</b>。</li>
+        <li>用户只需要在一个接入唯ID的应用注册，即可在所有应用使用。</li>
+        <li>唯ID会包括一些基础的公开信息，如手机号、邮箱、昵称、头像等。</li>
+        <li>用户端有app，一站式管理用户信息、登录设备、授权应用等。</li>
+        <li>开发者控制台有完善的应用管理、用户管理、数据统计等功能。</li>
+        <li>比大部分自有登录更加稳定、可靠。</li>
+      </ol>
+      <p class="note">* 上面提到的一些功能可能仍在开发中。</p>
+      <h3>唯ID和三方登录（微信、微博）的对比</h3>
+      <ol>
+        <li><b>你可以放心的把唯ID作为你的应用唯一的登录方式（所以叫唯ID ^_^）</b>。</li>
+        <li>在可见的将来，我会一直维护下去，不会出现依赖的三方登录（如人人网账号）没落的问题。</li>
+        <li>唯ID返回用户真实登录账号，而不只是平台绑定的open id，更加开放，可自由接入或迁出。</li>
+        <li>唯ID是中立的平台，和你的应用没有竞争关系，不会出现<a href="http://finance.eastmoney.com/a/201901281035452049.html" target="_blank">抖音不能用微信登录</a>的破事。</li>
+      </ol>
+      <h3>适用范围</h3>
+      <p>唯ID是我业余时间发起的项目，没有商业支持。如果你的用户规模超过10万，且对稳定性、安全性要求较高，不建议使用唯ID。唯ID适合：</p>
+      <ol>
+        <li>你的公司规模小于10人，用户规模小于10万，可以忍受偶尔的不稳定。</li>
+        <li>你是个人开发者，在开发个人博客、小型网站，想快速实现登录功能。</li>
+        <li>你是学生，你的毕业设计app、班级网站、社团网站需要手机号登录，<b>你不想承担高额验证短信费用。</b></li>
+      </ol>
+      <h3>捐赠</h3>
+      <p>和其他开源软件不同，唯ID必须运行起来才有价值，服务器、数据库、验证短信等都要钱。为了保证长久稳定运行，统一每个开发者每年捐赠99元。如果还不够，由我自掏腰包，如果有盈余，按贡献分给核心开发者。</p>
+      <p class="note">* 觉得贵的童鞋，欢迎使用唯ID源码host你自己的账号系统，请注意去掉唯ID的logo（类似CentOS不使用小红帽logo）。</p>
+      <p style="text-align: right; font-size: 14px; margin-top: 2em;">2019年1月29日</p>
     </div>
     <div class="section-bg-dark">
       <div class="section" style="text-align: center; font-size: 18px;">
-        <p>“我们的使命是建立中国统一的账号和认证体系，为互联网带来秩序。” </p>
+        <p>让我们一起努力 ❤️ 建立一个更加开放、自由、平等的互联网 😆 </p>
         <el-button type="primary" style="margin-top: 10px" @click="$bus.$emit('login')">开始使用</el-button>
       </div>
       <div class="gradient-hr" style="background: #7f7f7f;"></div>
@@ -318,8 +186,12 @@ export default {
     }
   }
   #banner1 {
-    width: 980px;
+    width: 1200px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
   .tab-icon {
     vertical-align: middle;
@@ -436,5 +308,13 @@ export default {
   }
   .fade-enter, .fade-leave-to {
     opacity: 0
+  }
+  .content h3 {
+    font-size: 18px;
+    font-weight: normal;
+    margin-top: 2em;
+  }
+  .content li+li {
+    margin-top: 4px;
   }
 </style>

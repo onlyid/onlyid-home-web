@@ -19,12 +19,12 @@ export default {
     }
   },
   mounted () {
-    window.onscroll = () => {
+    this.scrollListener = addEventListener('scroll', () => {
       this.visible = window.pageYOffset > 500
-    }
+    })
   },
   beforeDestroy () {
-    window.onscroll = null
+    removeEventListener('scroll', this.scrollListener)
   }
 }
 </script>

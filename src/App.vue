@@ -8,14 +8,17 @@
             <img src="./assets/logo.png" width="66px" style="cursor: pointer; vertical-align: middle; padding-top: 14px">
           </router-link>
         </el-col>
-        <el-col :span="17">
+        <el-col :span="6">
           <el-menu id="menu" :default-active="activeIndex" mode="horizontal" @select="select">
             <el-menu-item index="/docs">文档</el-menu-item>
-            <el-menu-item index="/downloads">下载</el-menu-item>
-            <el-menu-item index="/pricing">价格</el-menu-item>
+            <!--<el-menu-item index="/downloads">下载</el-menu-item>-->
+            <!--<el-menu-item index="/pricing">价格</el-menu-item>-->
             <el-menu-item index="/experience">在线体验</el-menu-item>
             <el-menu-item index="/console">控制台</el-menu-item>
           </el-menu>
+        </el-col>
+        <el-col :span="11" style="margin-top: 12px;">
+          <a href="https://github.com/lltb" style="text-decoration: none" target="_blank"><i class="iconfont github-icon">&#xe6f6;</i></a>
         </el-col>
         <el-col :span="5">
           <div style="padding-top: 12px; float: right">
@@ -31,45 +34,34 @@
           <el-col :span="10" :offset="1">
             <p class="footer-title">联系我们</p>
             <ul>
-              <li>客户经理（业务咨询）：18588237889
-                <el-popover placement="right" trigger="hover">
-                  <img src="./assets/wechat-185.jpeg" width="215"/>
-                  <i class="iconfont" slot="reference" style="vertical-align: middle">&#xe7e5;</i>
-                </el-popover>
-              </li>
-              <li>技术支持：15521312099
+              <li>电话、微信：15521312099
                 <el-popover placement="right" trigger="hover">
                   <img src="./assets/wechat-155.jpeg" width="215"/>
                   <i class="iconfont" slot="reference" style="vertical-align: middle">&#xe7e5;</i>
                 </el-popover>
               </li>
-              <li>技术支持邮箱：<a href="mailto:help@onlyid.net">help@onlyid.net</a></li>
+              <li>邮箱：<a href="mailto:help@onlyid.net">help@onlyid.net</a></li>
               <li>开发者QQ群：23831587</li>
             </ul>
           </el-col>
           <el-col :span="8">
             <p class="footer-title">开发者服务</p>
             <ul>
-              <li><router-link to="/pricing">续费充值</router-link></li>
-              <li><router-link to="/downloads#android-sdk">Android SDK</router-link></li>
-              <li><router-link to="/downloads#ios-sdk">iOS SDK</router-link></li>
+              <li><router-link to="/docs/android">Android 接入</router-link></li>
+              <li><router-link to="/docs/ios">iOS 接入</router-link></li>
               <li><router-link to="/docs/faq">常见问题</router-link></li>
             </ul>
           </el-col>
           <el-col :span="5">
             <p class="footer-title">关于唯ID</p>
             <ul>
-              <li><router-link to="/about">关于我们</router-link></li>
-              <li><router-link to="/about/careers">加入我们</router-link></li>
-              <li><router-link to="/about/privacy">隐私权政策</router-link></li>
-              <li><router-link to="/about/agreement">服务条款</router-link></li>
+              <li><router-link to="/about/team">团队介绍</router-link></li>
+              <li><router-link to="/about/team#join">加入我们</router-link></li>
             </ul>
           </el-col>
         </el-row>
         <div style="text-align: center; color: #ccc; font-size: 13px;">
-          <span>深圳市友全科技有限公司</span>
-          <span style="margin-left: 100px">唯ID &nbsp; © &nbsp; {{ currentYear }}</span>
-          <a href="http://www.miitbeian.gov.cn/" style="margin-left: 100px;" target="_blank">粤ICP备16120960号-3</a>
+          <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备16120960号-3</a>
         </div>
       </div>
     </div>
@@ -146,8 +138,10 @@ export default {
     background-color: #fff;
   }
   #header {
-    width: 980px;
+    width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
   #menu {
     border-bottom: none;
@@ -172,7 +166,7 @@ export default {
   }
   #footer {
     margin: 20px auto;
-    width: 980px;
+    width: 1200px;
     color: #fff;
   }
   .footer-title {
@@ -205,5 +199,12 @@ export default {
   }
   #footer a:hover {
     color: #fff;
+  }
+  .github-icon {
+    color: #C0C4CC;
+  }
+  .github-icon:hover {
+    color: #909399;
+    cursor: pointer;
   }
 </style>
