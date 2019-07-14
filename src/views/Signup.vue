@@ -15,13 +15,8 @@
       <el-form-item label="确认邮箱">
         <el-input placeholder="重复填写邮箱" v-model="form.checkEmail"></el-input>
       </el-form-item>
-      <el-form-item>
-        <el-checkbox v-model="agreementChecked"></el-checkbox>
-        <span class="note">我已阅读并同意唯ID <router-link to="/about/agreement" target="_blank">服务条款</router-link> 和
-          <router-link to="/about/privacy" target="_blank">隐私权政策</router-link></span>
-      </el-form-item>
       <el-form-item style="margin-top: 30px">
-        <el-button type="primary" @click="submit" style="width: 100%" :disabled="!agreementChecked">注 册</el-button>
+        <el-button type="primary" @click="submit" style="width: 100%">注 册</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -39,7 +34,6 @@ export default {
         checkEmail: ''
       },
       user: '',
-      agreementChecked: true,
       config
     }
   },

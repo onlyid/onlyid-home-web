@@ -6,17 +6,14 @@
             <p class="subsection-title">核心团队</p>
             <p>核心团队成员直接参与项目的贡献，长期维护唯ID的各个子项目。</p>
             <div style="display: flex; justify-content: space-between">
-                <team-member name1="梁庭宾" in-charge-of="项目发起人，负责唯ID所有子项目开发、协调、管理" good-at="js & java；web前端 & android & 后台">
+                <team-member name1="ltb" in-charge-of="项目发起人，负责唯ID所有子项目开发、协调、管理" good-at="js & java；web前端 & android & 后台">
                     <img src="@/assets/team-member-ltb.png">
                 </team-member>
-                <!--<team-member name1="梁庭宾" in-charge-of="项目发起人，负责唯ID所有子项目开发、协调、管理" good-at="js & java；web前端 & android & 后台">-->
-                    <!--<img src="@/assets/team-member-ltb.png">-->
-                <!--</team-member>-->
             </div>
             <p class="subsection-title">社区伙伴</p>
             <p>这些社区的小伙伴，经常关注唯ID的发展，提过很多宝贵的意见，有些还贡献过代码，真的很感谢他们。</p>
             <div style="display: flex; justify-content: space-between">
-                <team-member name1="赵耀" in-charge-of="特别顾问" good-at="js全栈 & haskell">
+                <team-member name1="zy" in-charge-of="特别顾问" good-at="js全栈 & haskell">
                     <img src="@/assets/team-member-zy.jpg">
                 </team-member>
             </div>
