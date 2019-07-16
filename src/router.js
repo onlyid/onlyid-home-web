@@ -4,8 +4,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from './views/Index'
 import Playground from './views/Playground'
-import Downloads from './views/Downloads'
-import Pricing from './views/Pricing'
 import Experience from './views/Experience'
 import Signup from './views/Signup'
 import Auth from './views/Auth'
@@ -19,13 +17,8 @@ import DocsiOS from './views/docs/iOS'
 import DocsCustom from './views/docs/Custom'
 import DocsSecurity from './views/docs/Security'
 import DocsFAQ from './views/docs/FAQ'
-import DocsReview from './views/docs/Review'
 
 import About from './views/about/About'
-import AboutTeam from './views/about/Team'
-import AboutCareers from './views/about/Careers'
-import AboutAgreement from './views/about/Agreement'
-import AboutPrivacy from './views/about/Privacy'
 
 Vue.use(Router)
 
@@ -34,8 +27,6 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     { path: '/', component: Index, meta: { title: '开源账号' } },
-    { path: '/downloads', component: Downloads, meta: { title: '下载' } },
-    { path: '/pricing', component: Pricing, meta: { title: '价格' } },
     { path: '/experience', component: Experience, meta: { title: '在线体验' } },
     { path: '/signup', component: Signup, meta: { title: '注册' } },
     { path: '/auth', component: Auth, meta: { title: 'auth' } },
@@ -51,15 +42,10 @@ const router = new Router({
         { path: 'ios', component: DocsiOS, meta: { title: 'iOS接入' } },
         { path: 'custom', component: DocsCustom, meta: { title: '自定义选项（基础）' } },
         { path: 'security', component: DocsSecurity, meta: { title: '安全性' } },
-        { path: 'faq', component: DocsFAQ, meta: { title: '常见问题' } },
-        { path: 'review', component: DocsReview, meta: { title: '审核' } }
+        { path: 'faq', component: DocsFAQ, meta: { title: '常见问题' } }
       ]
     },
     { path: '/about', component: About, meta: { title: '关于我们' } },
-    { path: '/about/team', component: AboutTeam, meta: { title: '团队介绍' } },
-    { path: '/about/agreement', component: AboutAgreement, meta: { title: '服务条款' } },
-    { path: '/about/privacy', component: AboutPrivacy, meta: { title: '隐私权政策' } },
-    { path: '/about/careers', component: AboutCareers, meta: { title: '加入我们' } },
     { path: '/playground', component: Playground, meta: { title: 'playground' } }
   ],
   scrollBehavior (to, from, savedPosition) {

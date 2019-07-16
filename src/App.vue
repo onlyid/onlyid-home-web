@@ -55,8 +55,8 @@
           <el-col :span="5">
             <p class="footer-title">关于唯ID</p>
             <ul>
-              <li><router-link to="/about/team">团队介绍</router-link></li>
-              <li><router-link to="/about/team#join">加入我们</router-link></li>
+              <li><router-link to="/about">团队介绍</router-link></li>
+              <li><router-link to="/about#join">加入我们</router-link></li>
             </ul>
           </el-col>
         </el-row>
