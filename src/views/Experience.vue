@@ -33,13 +33,11 @@
 </template>
 
 <script>
-import common from 'onlyid-web-common'
 import config from '../config'
 
 export default {
   data () {
     return {
-      common,
       config
     }
   },

@@ -34,7 +34,6 @@ const router = new Router({
       path: '/docs',
       component: Docs,
       children: [
-        { path: '', redirect: 'overview' },
         { path: 'overview', component: DocsOverview, meta: { title: '产品概述' } },
         { path: 'oauth2', component: DocsOAuth2, meta: { title: 'OAuth 2.0入门' } },
         { path: 'web', component: DocsWeb, meta: { title: '网站接入' } },

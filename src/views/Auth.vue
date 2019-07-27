@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import common from 'onlyid-web-common'
+import { urlArgs } from '../util'
 
 export default {
   data () {
@@ -12,7 +12,7 @@ export default {
     }
   },
   created () {
-    opener.onCode(common.urlArgs()['code'])
+    opener.onCode(urlArgs()['code'])
     window.close()
   }
 }

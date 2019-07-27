@@ -10,7 +10,7 @@ module.exports = {
   configureWebpack (config) {
     if (process.env.NODE_ENV !== 'production') return
 
-    const routes = [ '/', '/experience', '/signup', '/auth', '/docs', '/docs/overview', '/docs/oauth2', '/docs/web',
+    const routes = [ '/', '/experience', '/signup', '/auth', '/docs/overview', '/docs/oauth2', '/docs/web',
       '/docs/android', '/docs/ios', '/docs/custom', '/docs/security', '/docs/faq', '/about']
 
     config.plugins.push(new PrerenderSPAPlugin({

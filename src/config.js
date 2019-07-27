@@ -4,7 +4,7 @@ const prod = {
   baseUrl: 'https://console.onlyid.net',
   consoleUrl: 'https://console.onlyid.net/#/overview',
   authUrl: 'https://my.onlyid.net/auth?client_id=5ad972dcb838b53ec26b2481&redirect_uri=' +
-    encodeURIComponent('https://onlyid.net/auth')
+    encodeURIComponent('https://www.onlyid.net/auth')
 }
 
 const dev = {
