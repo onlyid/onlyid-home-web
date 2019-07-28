@@ -48,7 +48,6 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped src="../../assets/docs.css"></style>
 <style scoped>
   dl dt {
     margin: 20px 0 5px;

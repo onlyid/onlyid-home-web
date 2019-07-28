@@ -96,7 +96,6 @@
 
 <script>
 import Vue from 'vue'
-import common from 'onlyid-web-common'
 
 Vue.component('my-component', {
   template: '<div><slot name="header">fallback content</slot><slot>fallback content2</slot><p style="font-size: 20px;">test</p></div>'
@@ -173,7 +172,6 @@ export default {
       this.name = 'hbj'
     },
     testPolyfill () {
-      common.hi()
     },
     testTransition () {
       this.show = !this.show

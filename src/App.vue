@@ -11,8 +11,6 @@
         <el-col :span="6">
           <el-menu id="menu" :default-active="activeIndex" mode="horizontal" @select="select">
             <el-menu-item index="/docs/overview">文档</el-menu-item>
-            <!--<el-menu-item index="/downloads">下载</el-menu-item>-->
-            <!--<el-menu-item index="/pricing">价格</el-menu-item>-->
             <el-menu-item index="/experience">在线体验</el-menu-item>
             <el-menu-item index="/console">控制台</el-menu-item>
           </el-menu>

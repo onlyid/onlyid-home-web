@@ -1,5 +1,5 @@
 <template>
-  <div class="content clear-fix">
+  <div class="content clear-fix docs">
     <div style="float: left; width: 200px; border-right: solid 1px #e6e6e6; top: 40px;" :style="{position: tocFixed ? 'fixed' : 'static'}">
       <p class="title1">新手入门</p>
       <el-menu :router="true" class="menu" :default-active="activeIndex">
@@ -50,7 +50,58 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped src="../../assets/docs.css"></style>
+<style lang="less">
+  .docs {
+    p {
+      margin: 0.8em 0;
+    }
+
+    h1 {
+      font-weight: normal;
+      font-size: 24px;
+    }
+
+    h2 {
+      font-size: 21px;
+      font-weight: normal;
+      margin-top: 40px;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: normal;
+      margin-top: 25px;
+      margin-bottom: 15px;
+    }
+
+    .docs-ol {
+      background-color: #f7f8f9;
+      padding: 10px 10px 10px 30px;
+    }
+
+    .docs-ol li {
+      margin: 10px 0;
+    }
+
+    .docs-img {
+      border: 1px solid #DCDFE6;
+      border-radius: 5px;
+    }
+
+    .docs-img-div {
+      text-align: center;
+      display: inline-block;
+      margin-right: 40px;
+    }
+
+    .docs-img-div p {
+      margin-bottom: 0;
+      color: #7f7f7f;
+      font-size: 14px;
+    }
+  }
+</style>
 <style scoped>
   .title1 {
     color: #7f7f7f;
@@ -74,8 +125,5 @@ export default {
     width: 1200px;
     margin: 0 auto;
     box-sizing: border-box;
-  }
-  #toc {
-
   }
 </style>
