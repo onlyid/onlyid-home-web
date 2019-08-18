@@ -19,7 +19,9 @@
       <li>你会收到一个authorization code，应用的服务端可使用此code安全地获取用户信息。</li>
     </ol>
     <div class="docs-img-div">
-      <img src="../../assets/auth-chart.png" width="768" class="docs-img"/>
+      <img src="../../assets/auth-chart.png"
+           width="768"
+           class="docs-img" />
       <p>验证流程</p>
     </div>
     <h2 id="glossary">名词解释</h2>
@@ -36,24 +38,21 @@
 </template>
 
 <script>
-import Note from '../../components/docs/Note'
-
 export default {
-  components: { Note },
-  data () {
-    return {
-    }
+  components: {},
+  data() {
+    return {}
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  dl dt {
-    margin: 20px 0 5px;
-    font-weight: bold;
-  }
-  dl dd {
-    margin-left: 0px;
-  }
+dl dt {
+  margin: 20px 0 5px;
+  font-weight: bold;
+}
+dl dd {
+  margin-left: 0px;
+}
 </style>

@@ -47,7 +47,7 @@ const router = new Router({
     { path: '/about', component: About, meta: { title: '关于我们' } },
     { path: '/playground', component: Playground, meta: { title: 'playground' } }
   ],
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior(to) {
     // 只有#不行，#后面要接具体锚点值
     if (to.hash && to.hash.length > 1) {
       return { selector: to.hash }

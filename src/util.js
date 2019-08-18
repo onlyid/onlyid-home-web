@@ -7,23 +7,28 @@ import axios from 'axios'
 import config from './config'
 import Vue from 'vue'
 
-export function init () {
+export function init() {
   // 初始化axios
   let instance = axios.create({ baseURL: config.baseUrl, withCredentials: true })
 
-  instance.interceptors.response.use((res) => { return res }, (err) => {
-    let res = err.response
-    if (res) {
-      if (res.status === 401) {
-        location.assign(config.homeUrl)
+  instance.interceptors.response.use(
+    res => {
+      return res
+    },
+    err => {
+      let res = err.response
+      if (res) {
+        if (res.status === 401) {
+          location.assign(config.homeUrl)
+        } else {
+          window.vue.$message.error(res.data.error)
+        }
       } else {
-        window.vue.$message.error(res.data.error)
+        window.vue.$message.error(err.message)
       }
-    } else {
-      window.vue.$message.error(err.message)
+      return Promise.reject(err)
     }
-    return Promise.reject(err)
-  })
+  )
 
   Vue.prototype.$axios = instance
 
@@ -31,23 +36,23 @@ export function init () {
   Vue.prototype.$bus = new Vue()
 
   // 初始化storage
-  Storage.prototype.getObj = function (key) {
+  Storage.prototype.getObj = function(key) {
     return JSON.parse(this.getItem(key))
   }
 
-  Storage.prototype.setObj = function (key, value) {
+  Storage.prototype.setObj = function(key, value) {
     this.setItem(key, JSON.stringify(value))
   }
 }
 
-export function goAnchor (selector) {
+export function goAnchor(selector) {
   document.querySelector(selector).scrollIntoView({
     behavior: 'smooth',
     block: 'start'
   })
 }
 
-export function urlArgs () {
+export function urlArgs() {
   const args = {}
   const query = location.search.substring(1)
   const pairs = query.split('&')

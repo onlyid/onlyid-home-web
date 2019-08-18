@@ -4,9 +4,18 @@
     <h2>前言</h2>
     <p>我们为开发者提供以下自定义选项：</p>
     <table style="border-collapse: collapse; margin-top: 15px">
-      <tr style="border-top: 1px solid #E4E7ED;"><td class="c1">业务场景</td><td>四种（登录、绑号、验证）</td></tr>
-      <tr><td class="c1">主题界面</td><td>两种（日间、夜间）</td></tr>
-      <tr><td class="c1">放大显示</td><td>两种（标准、放大）</td></tr>
+      <tr style="border-top: 1px solid #E4E7ED;">
+        <td class="c1">业务场景</td>
+        <td>四种（登录、绑号、验证）</td>
+      </tr>
+      <tr>
+        <td class="c1">主题界面</td>
+        <td>两种（日间、夜间）</td>
+      </tr>
+      <tr>
+        <td class="c1">放大显示</td>
+        <td>两种（标准、放大）</td>
+      </tr>
     </table>
     <p style="margin-top: 25px">使用方式类似：对于网站应用，通过授权页的query参数设置；对于移动应用，通过sdk传参设置。</p>
     <h2 id="scenario">业务场景</h2>
@@ -23,11 +32,15 @@
       </el-tab-pane>
     </el-tabs>
     <div class="docs-img-div">
-      <img src="../../assets/bind1.png" width="256" class="docs-img"/>
+      <img src="../../assets/bind1.png"
+           width="256"
+           class="docs-img" />
       <p>绑号1</p>
     </div>
     <div class="docs-img-div">
-      <img src="../../assets/bind2.png" width="256" class="docs-img"/>
+      <img src="../../assets/bind2.png"
+           width="256"
+           class="docs-img" />
       <p>绑号2</p>
     </div>
     <h2 id="theme-dark">主题界面</h2>
@@ -44,11 +57,15 @@
       </el-tab-pane>
     </el-tabs>
     <div class="docs-img-div">
-      <img src="../../assets/review-approved.png" width="256" class="docs-img"/>
+      <img src="../../assets/review-approved.png"
+           width="256"
+           class="docs-img" />
       <p>日间</p>
     </div>
     <div class="docs-img-div">
-      <img src="../../assets/theme-dark.png" width="256" class="docs-img"/>
+      <img src="../../assets/theme-dark.png"
+           width="256"
+           class="docs-img" />
       <p>夜间</p>
     </div>
     <h2 id="view-zoomed">放大显示</h2>
@@ -65,41 +82,42 @@
       </el-tab-pane>
     </el-tabs>
     <div class="docs-img-div">
-      <img src="../../assets/review-approved.png" width="256" class="docs-img"/>
+      <img src="../../assets/review-approved.png"
+           width="256"
+           class="docs-img" />
       <p>标准</p>
     </div>
     <div class="docs-img-div">
-      <img src="../../assets/view-zoomed.png" width="256" class="docs-img"/>
+      <img src="../../assets/view-zoomed.png"
+           width="256"
+           class="docs-img" />
       <p>放大</p>
     </div>
   </div>
 </template>
 
 <script>
-import Note from '../../components/docs/Note'
-
 export default {
-  components: { Note },
-  data () {
-    return {
-    }
+  components: {},
+  data() {
+    return {}
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  table .c1 {
-    width: 160px;
-    color: #7f7f7f;
-  }
-  table td {
-    padding: 12px 15px;
-  }
-  table tr {
-    border-bottom: 1px solid #E4E7ED;
-  }
-  table tr:hover {
-    background-color: #f7f8f9;
-  }
+table .c1 {
+  width: 160px;
+  color: #7f7f7f;
+}
+table td {
+  padding: 12px 15px;
+}
+table tr {
+  border-bottom: 1px solid #e4e7ed;
+}
+table tr:hover {
+  background-color: #f7f8f9;
+}
 </style>

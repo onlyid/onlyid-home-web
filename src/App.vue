@@ -1,41 +1,58 @@
 <template>
   <div id="app">
-    <back-top/>
-    <div id="header-bg" v-show="showHeader">
+    <back-top />
+    <div id="header-bg"
+         v-show="showHeader">
       <el-row id="header">
         <el-col :span="2">
           <router-link to="/">
-            <img src="./assets/logo.png" width="66px" style="cursor: pointer; vertical-align: middle; padding-top: 14px">
+            <img src="./assets/logo.png"
+                 width="66px"
+                 style="cursor: pointer; vertical-align: middle; padding-top: 14px">
           </router-link>
         </el-col>
         <el-col :span="6">
-          <el-menu id="menu" :default-active="activeIndex" mode="horizontal" @select="select">
+          <el-menu id="menu"
+                   :default-active="activeIndex"
+                   mode="horizontal"
+                   @select="select">
             <el-menu-item index="/docs/overview">文档</el-menu-item>
             <el-menu-item index="/experience">在线体验</el-menu-item>
             <el-menu-item index="/console">控制台</el-menu-item>
           </el-menu>
         </el-col>
-        <el-col :span="11" style="margin-top: 12px;">
-          <a href="https://github.com/lltb" style="text-decoration: none" target="_blank"><i class="iconfont github-icon">&#xe6f6;</i></a>
+        <el-col :span="11"
+                style="margin-top: 12px;">
+          <a href="https://github.com/lltb"
+             style="text-decoration: none"
+             target="_blank"><i class="iconfont github-icon">&#xe6f6;</i></a>
         </el-col>
         <el-col :span="5">
           <div style="padding-top: 12px; float: right">
-            <el-button size="medium" type="primary" @click="login">登 录</el-button>
+            <el-button size="medium"
+                       type="primary"
+                       @click="login">登 录</el-button>
           </div>
         </el-col>
       </el-row>
     </div>
-    <router-view/>
-    <div id="footer-bg" v-show="showFooter">
+    <router-view />
+    <div id="footer-bg"
+         v-show="showFooter">
       <div id="footer">
         <el-row style="margin: 40px 0;">
-          <el-col :span="10" :offset="1">
+          <el-col :span="10"
+                  :offset="1">
             <p class="footer-title">联系我们</p>
             <ul>
               <li>电话、微信：15521312099
-                <el-popover placement="right" trigger="hover">
-                  <img src="./assets/wechat-155.jpeg" width="215"/>
-                  <i class="iconfont" slot="reference" style="vertical-align: middle">&#xe7e5;</i>
+                <el-popover placement="right"
+                            trigger="hover">
+                  <img src="./assets/wechat-155.jpeg"
+                       width="215" />
+                  <i class="iconfont"
+                     slot="reference"
+                     style="vertical-align: middle">&#xe7e5;</i>
                 </el-popover>
               </li>
               <li>邮箱：<a href="mailto:help@onlyid.net">help@onlyid.net</a></li>
@@ -45,21 +62,32 @@
           <el-col :span="8">
             <p class="footer-title">开发者服务</p>
             <ul>
-              <li><router-link to="/docs/android">Android 接入</router-link></li>
-              <li><router-link to="/docs/ios">iOS 接入</router-link></li>
-              <li><router-link to="/docs/faq">常见问题</router-link></li>
+              <li>
+                <router-link to="/docs/android">Android 接入</router-link>
+              </li>
+              <li>
+                <router-link to="/docs/ios">iOS 接入</router-link>
+              </li>
+              <li>
+                <router-link to="/docs/faq">常见问题</router-link>
+              </li>
             </ul>
           </el-col>
           <el-col :span="5">
             <p class="footer-title">关于唯ID</p>
             <ul>
-              <li><router-link to="/about">团队介绍</router-link></li>
-              <li><router-link to="/about#join">加入我们</router-link></li>
+              <li>
+                <router-link to="/about">团队介绍</router-link>
+              </li>
+              <li>
+                <router-link to="/about#join">加入我们</router-link>
+              </li>
             </ul>
           </el-col>
         </el-row>
         <div style="text-align: center; color: #ccc; font-size: 13px;">
-          <a href="http://www.miitbeian.gov.cn/" target="_blank">粤ICP备16120960号-3</a>
+          <a href="http://www.miitbeian.gov.cn/"
+             target="_blank">粤ICP备16120960号-3</a>
         </div>
       </div>
     </div>
@@ -72,7 +100,7 @@ import config from './config'
 
 export default {
   components: { BackTop },
-  data () {
+  data() {
     return {
       currentYear: new Date().getFullYear(),
       config,
@@ -80,27 +108,30 @@ export default {
     }
   },
   methods: {
-    select (key) {
+    select(key) {
       if (key === '/console') {
         this.hack = true
-        this.$nextTick(() => { this.hack = false })
+        this.$nextTick(() => {
+          this.hack = false
+        })
         return this.login()
       }
       this.$router.push(key)
     },
-    login () {
+    login() {
       const left = screenX + (outerWidth - 450) / 2
       // 25约是顶部标题+网址栏的一半
       const top = screenY + (outerHeight - 650) / 2 - 25
       open(config.authUrl, 'login', 'width=450,height=650,left=' + left + ',top=' + top)
     },
-    async onCode (code) {
+    async onCode(code) {
       try {
         const { data } = await this.$axios.post('/login', { code })
         // 如果存在user字段 说明已注册
         if (data.user) {
           location.replace(config.consoleUrl)
-        } else { // 新用户注册
+        } else {
+          // 新用户注册
           sessionStorage.user = JSON.stringify(data)
           this.$router.replace('/signup')
         }
@@ -110,21 +141,21 @@ export default {
     }
   },
   computed: {
-    activeIndex () {
+    activeIndex() {
       if (this.hack) return ''
 
       return '/' + this.$route.path.split('/')[1]
     },
-    showFooter () {
+    showFooter() {
       const list = ['/docs', '/auth']
       return !list.includes(this.activeIndex)
     },
-    showHeader () {
+    showHeader() {
       const list = ['/auth']
       return !list.includes(this.activeIndex)
     }
   },
-  created () {
+  created() {
     window.onCode = this.onCode.bind(this)
     this.$bus.$on('login', this.login.bind(this))
   }
@@ -132,77 +163,77 @@ export default {
 </script>
 
 <style scoped>
-  #header-bg {
-    background-color: #fff;
-  }
-  #header {
-    width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    box-sizing: border-box;
-  }
-  #menu {
-    border-bottom: none;
-  }
-  #menu > .el-menu-item {
-    font-size: 16px;
-    border-bottom: none;
-  }
-  #menu > .el-menu-item:focus {
-    color: #909399;
-  }
-  #menu .el-menu-item:hover {
-    color: #303133;
-  }
-  #menu > .el-menu-item.is-active {
-    color: #303133;
-    border-bottom: none;
-  }
-  #footer-bg {
-    background-color: #4b5056;
-    padding: 1px;
-  }
-  #footer {
-    margin: 20px auto;
-    width: 1200px;
-    color: #fff;
-  }
-  .footer-title {
-    color: #EBEEF5;
-    font-size: 18px;
-    display: inline-block;
-    padding-bottom: 5px;
-    border-bottom: #EBEEF5 solid 1px;
-    margin-top: 0;
-    margin-bottom: 0.8em;
-  }
-  #footer ul {
-    margin: 0;
-    padding: 0;
-  }
-  #footer li {
-    list-style: none;
-    font-size: 14px;
-    margin-top: 12px;
-    height: 25px;
-    color: #ccc;
-  }
-  #footer .iconfont {
-    font-size: 18px;
-    margin-left: 15px;
-  }
-  #footer a {
-    color: #ccc;
-    text-decoration: none;
-  }
-  #footer a:hover {
-    color: #fff;
-  }
-  .github-icon {
-    color: #C0C4CC;
-  }
-  .github-icon:hover {
-    color: #909399;
-    cursor: pointer;
-  }
+#header-bg {
+  background-color: #fff;
+}
+#header {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+#menu {
+  border-bottom: none;
+}
+#menu > .el-menu-item {
+  font-size: 16px;
+  border-bottom: none;
+}
+#menu > .el-menu-item:focus {
+  color: #909399;
+}
+#menu .el-menu-item:hover {
+  color: #303133;
+}
+#menu > .el-menu-item.is-active {
+  color: #303133;
+  border-bottom: none;
+}
+#footer-bg {
+  background-color: #4b5056;
+  padding: 1px;
+}
+#footer {
+  margin: 20px auto;
+  width: 1200px;
+  color: #fff;
+}
+.footer-title {
+  color: #ebeef5;
+  font-size: 18px;
+  display: inline-block;
+  padding-bottom: 5px;
+  border-bottom: #ebeef5 solid 1px;
+  margin-top: 0;
+  margin-bottom: 0.8em;
+}
+#footer ul {
+  margin: 0;
+  padding: 0;
+}
+#footer li {
+  list-style: none;
+  font-size: 14px;
+  margin-top: 12px;
+  height: 25px;
+  color: #ccc;
+}
+#footer .iconfont {
+  font-size: 18px;
+  margin-left: 15px;
+}
+#footer a {
+  color: #ccc;
+  text-decoration: none;
+}
+#footer a:hover {
+  color: #fff;
+}
+.github-icon {
+  color: #c0c4cc;
+}
+.github-icon:hover {
+  color: #909399;
+  cursor: pointer;
+}
 </style>

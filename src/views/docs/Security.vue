@@ -10,7 +10,7 @@
     <h3>全站HTTPS</h3>
     <p>在网络传输层面，全站采用HTTPS保证数据安全。</p>
     <h3>密码安全存储</h3>
-    <p>对于密码等敏感数据，采用符合业界标准的方式处理和存储。
+    <p>对于密码等敏感数据，采用符合业界标准的方式处理和存储。</p>
     <h3>云架构</h3>
     <p>应用云架构，面对突发的性能需求，可以提供不间断业务的快速扩容能力。</p>
     <h2>你可采取的安全措施</h2>
@@ -35,13 +35,9 @@
 </template>
 
 <script>
-import Note from '../../components/docs/Note'
-
 export default {
-  components: { Note },
-  data () {
-    return {
-    }
+  data() {
+    return {}
   }
 }
 </script>
