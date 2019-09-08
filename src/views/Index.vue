@@ -66,14 +66,20 @@
              target="_blank">抖音不能用微信登录</a> 的破事。</li>
       </ol>
       <h3>捐赠</h3>
-      <p>和其他开源软件不同，唯ID必须运行起来才有价值，服务器、数据库、验证短信等都要钱。为了保证长久稳定运行，统一每个开发者每年捐赠99元。如果还不够，由我自掏腰包，如果有盈余，按贡献分给核心开发者。</p>
-      <p class="note">* 觉得贵的童鞋，欢迎使用唯ID源码host你自己的账号系统，请注意去掉唯ID的logo（类似CentOS不使用小红帽logo）。</p>
+      <p>开发和维护唯ID几乎占用了我全部的业余时间，如果你觉得有帮助，就请我吃顿快餐吧~</p>
+      <div class="donate">
+        <img src="@/assets/alipay.jpg"
+             width="250" />
+        <img src="@/assets/wechat-pay.jpg"
+             width="250"
+             style="margin-left: 100px" />
+      </div>
       <p style="text-align: right; font-size: 14px; margin-top: 2em;">2019年1月29日</p>
     </div>
     <div class="section-bg-dark">
       <div class="section"
            style="text-align: center; font-size: 18px;">
-        <p>让我们一起努力 ❤️ 建立一个更加开放、自由、平等的互联网 😆 </p>
+        <p>让我们一起努力 ❤️ 建立一个更加开放、自由、平等的互联网</p>
         <el-button type="primary"
                    style="margin-top: 10px"
                    @click="$bus.$emit('login')">开始使用</el-button>
@@ -326,5 +332,10 @@ export default {
 }
 .content li + li {
   margin-top: 4px;
+}
+.donate {
+  display: flex;
+  justify-content: center;
+  opacity: 0.9;
 }
 </style>

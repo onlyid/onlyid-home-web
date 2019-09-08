@@ -10,10 +10,10 @@ const prod = {
 
 const dev = {
   baseUrl: 'http://onlyid2:3000',
-  consoleUrl: 'http://console.onlyid.net:8080/#/overview',
+  consoleUrl: 'http://localhost:8080/#/overview',
   authUrl:
     'http://onlyid2:3001/auth?client_id=5b6d56f1e54929de6dff559f&redirect_uri=' +
-    encodeURIComponent('http://www.onlyid.net:8085/auth')
+    encodeURIComponent('http://localhost:8083/auth')
 }
 
 if (process.env.NODE_ENV !== 'production') {
