@@ -2,7 +2,7 @@
 
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from './views/Index'
+import Index from './views/index'
 import Playground from './views/Playground'
 import Experience from './views/Experience'
 import Signup from './views/Signup'
@@ -56,7 +56,7 @@ const router = new Router({
   }
 })
 
-router.afterEach((to) => {
+router.afterEach(to => {
   document.title = '唯ID - ' + to.meta.title
 })
 
