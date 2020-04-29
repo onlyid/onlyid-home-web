@@ -1,0 +1,70 @@
+.layout {
+}
+
+.content {
+}
+
+.footer {
+}
+
+.headerBg {
+    background-color: #001529;
+}
+
+.header {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+.menu li:not(:first-of-type) {
+    margin-left: 35px;
+}
+
+.menu :global a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 15px;
+    height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.menu :global a.active {
+    border-bottom: 3px solid #1890ff;
+    color: rgba(255, 255, 255, 1);
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+}
+
+.githubIcon {
+    cursor: pointer;
+    color: #c0c4cc;
+}
+
+.githubIcon:hover {
+    color: white;
+}
