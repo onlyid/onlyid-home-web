@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./index.module.css";
+import styles from "./Header.module.css";
 import logo from "assets/logo.svg";
 import { NavLink, useHistory } from "react-router-dom";
 import classNames from "classnames";

@@ -11,44 +11,11 @@ import {
 } from "@material-ui/core";
 import { Close, Menu, Link } from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
 import classNames from "classnames";
-
-const useStyles = makeStyles({
-    header: {
-        height: "3.125rem",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        padding: "1.25rem"
-    },
-    logo: {
-        height: "2rem"
-    },
-    toggleMenu: {
-        fontSize: "1.8rem"
-    },
-    menuBox: {
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        position: "fixed",
-        backgroundColor: "#fafafa"
-    },
-    consoleBox: {
-        textAlign: "center",
-        marginTop: "1rem"
-    },
-    menuItem: {
-        paddingLeft: "2rem",
-        paddingRight: "2rem"
-    }
-});
+import styles from "./HeaderM.module.css";
 
 export default function() {
     const history = useHistory();
-    const styles = useStyles();
 
     const [state, setState] = useState({
         menuVisible: false

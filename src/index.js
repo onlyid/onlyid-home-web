@@ -4,17 +4,19 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { createMuiTheme, CssBaseline } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/core/styles";
+import { ThemeProvider, StylesProvider } from "@material-ui/core/styles";
 import { zhCN } from "@material-ui/core/locale";
 
 const theme = createMuiTheme({ zhCN });
 
 const content = (
     <React.StrictMode>
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <App />
-        </ThemeProvider>
+        <StylesProvider injectFirst>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <App />
+            </ThemeProvider>
+        </StylesProvider>
     </React.StrictMode>
 );
 const rootElement = document.getElementById("root");
