@@ -1,0 +1,153 @@
+import React, { useState } from "react";
+import logo from "assets/logo.svg";
+import {
+    IconButton,
+    List,
+    ListItem,
+    ListItemIcon,
+    ListItemText,
+    Divider,
+    Button
+} from "@material-ui/core";
+import { Close, Menu, Link } from "@material-ui/icons";
+import { useHistory } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+import classNames from "classnames";
+
+const useStyles = makeStyles({
+    header: {
+        height: "3.125rem",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "1.25rem"
+    },
+    logo: {
+        height: "2rem"
+    },
+    toggleMenu: {
+        fontSize: "1.8rem"
+    },
+    menuBox: {
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        position: "fixed",
+        backgroundColor: "#fafafa"
+    },
+    consoleBox: {
+        textAlign: "center",
+        marginTop: "1rem"
+    },
+    menuItem: {
+        paddingLeft: "2rem",
+        paddingRight: "2rem"
+    }
+});
+
+export default function() {
+    const history = useHistory();
+    const styles = useStyles();
+
+    const [state, setState] = useState({
+        menuVisible: false
+    });
+
+    const toggleMenu = () => {
+        setState({ ...state, menuVisible: !state.menuVisible });
+    };
+
+    const go = route => {
+        history.push(route);
+        setState({ ...state, menuVisible: false });
+    };
+
+    return (
+        <>
+            <div className={styles.header} style={{ backgroundColor: "#001529" }}>
+                <img
+                    src={logo}
+                    alt="logo"
+                    className={styles.logo}
+                    onClick={() => history.push("/")}
+                />
+                <IconButton onClick={toggleMenu}>
+                    <Menu className={styles.toggleMenu} style={{ color: "white" }} />
+                </IconButton>
+            </div>
+            {state.menuVisible && (
+                <div className={styles.menuBox}>
+                    <div className={styles.header}>
+                        <img
+                            src={logo}
+                            alt="logo"
+                            className={styles.logo}
+                            onClick={() => history.push("/")}
+                            style={{ backgroundColor: "yellow" }}
+                        />
+                        <IconButton onClick={toggleMenu}>
+                            <Close className={styles.toggleMenu} />
+                        </IconButton>
+                    </div>
+                    <List style={{ paddingTop: 0 }}>
+                        <Divider />
+                        <ListItem className={styles.menuItem} button onClick={() => go("/docs")}>
+                            <ListItemIcon>
+                                <Link />
+                            </ListItemIcon>
+                            <ListItemText primary="开发文档" />
+                        </ListItem>
+                        <Divider />
+                        <ListItem className={styles.menuItem} button onClick={() => go("/trial")}>
+                            <ListItemIcon>
+                                <Link />
+                            </ListItemIcon>
+                            <ListItemText primary="在线体验" />
+                        </ListItem>
+                        <Divider />
+                        <ListItem
+                            className={styles.menuItem}
+                            button
+                            onClick={() => go("/downloads")}
+                        >
+                            <ListItemIcon>
+                                <Link />
+                            </ListItemIcon>
+                            <ListItemText primary="下载中心" />
+                        </ListItem>
+                        <Divider />
+                        <ListItem className={styles.menuItem} button onClick={() => go("/prices")}>
+                            <ListItemIcon>
+                                <Link />
+                            </ListItemIcon>
+                            <ListItemText primary="套餐价格" />
+                        </ListItem>
+                        <Divider />
+                        <ListItem
+                            className={styles.menuItem}
+                            button
+                            onClick={() => window.location.assign("https://github.com/onlyid")}
+                        >
+                            <ListItemIcon>
+                                <i className={classNames("iconfont", styles.githubIcon)}>
+                                    &#xe6f6;
+                                </i>
+                            </ListItemIcon>
+                            <ListItemText primary="GitHub仓库" />
+                        </ListItem>
+                    </List>
+                    <div className={styles.consoleBox}>
+                        <Button
+                            variant="contained"
+                            color="primary"
+                            onClick={() => window.location.assign("https://www.onlyid.net/console")}
+                        >
+                            登录控制台
+                        </Button>
+                    </div>
+                </div>
+            )}
+        </>
+    );
+}

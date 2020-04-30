@@ -1,6 +1,8 @@
 import React, { PureComponent } from "react";
 import styles from "./index.module.css";
 import Header from "./Header";
+import HeaderM from "./HeaderM";
+import { Hidden } from "@material-ui/core";
 
 class Layout extends PureComponent {
     render() {
@@ -8,7 +10,12 @@ class Layout extends PureComponent {
 
         return (
             <div className={styles.layout}>
-                <Header />
+                <Hidden smUp>
+                    <HeaderM />
+                </Hidden>
+                <Hidden xsDown>
+                    <Header />
+                </Hidden>
                 <div className={styles.content}>{children}</div>
                 <div className={styles.footer}>
                     &copy; 2015 - {new Date().getFullYear()}

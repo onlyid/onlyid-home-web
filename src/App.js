@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Layout from "components/Layout";
 import Index from "pages/Index";
@@ -9,6 +9,11 @@ import Prices from "pages/Prices";
 import About from "pages/About";
 
 function App() {
+    useEffect(() => {
+        const fontSize = window.innerWidth > 600 ? 16 : (window.innerWidth / 400) * 16;
+        document.getElementsByTagName("html")[0].style.fontSize = fontSize + "px";
+    });
+
     return (
         <BrowserRouter basename="/home">
             <Layout>
