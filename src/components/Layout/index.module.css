@@ -52,8 +52,13 @@
     color: white;
 }
 
-@media (max-width: 600px) {
-    .footer :global .iconfont {
-        display: none;
-    }
+.copyright {
+    text-align: center;
+    color: #ccc;
+    font-size: 0.8125rem;
+    padding-top: 2rem;
+}
+
+.copyright a {
+    color: #ccc;
 }

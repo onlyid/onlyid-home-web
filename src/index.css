@@ -7,6 +7,7 @@
         url("//at.alicdn.com/t/font_545468_6jrq6nkcqar.ttf") format("truetype"),
         url("//at.alicdn.com/t/font_545468_6jrq6nkcqar.svg#iconfont") format("svg");
 }
+
 .iconfont {
     font-family: "iconfont";
     font-size: 24px;
@@ -14,4 +15,10 @@
     -webkit-font-smoothing: antialiased;
     -webkit-text-stroke-width: 0.2px;
     -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 600px) {
+    .hide-xs {
+        display: none;
+    }
 }
