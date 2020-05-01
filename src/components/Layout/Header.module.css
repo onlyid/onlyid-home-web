@@ -1,5 +1,6 @@
 .headerBg {
     background-color: #001529;
+    min-width: 1200px;
 }
 
 .header {
@@ -25,6 +26,7 @@
 .menu {
     display: flex;
     list-style: none;
+    margin: 0;
 }
 
 .menu li:not(:first-of-type) {

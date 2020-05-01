@@ -4,5 +4,56 @@
 .content {
 }
 
+.footerBg {
+    background-color: #4b5056;
+}
+
 .footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.25rem 1.25rem 2.5rem;
+}
+
+.title {
+    color: #ebeef5;
+    font-size: 1.125rem;
+    padding-bottom: 0.3125rem;
+    border-bottom: #ebeef5 solid 0.0625rem;
+    display: inline-block;
+    margin-top: 2rem;
+}
+
+.footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: #ebeef5;
+}
+
+.footer :global .iconfont {
+    font-size: 1.125rem;
+    margin-left: 0.625rem;
+    cursor: default;
+    vertical-align: middle;
+    padding-right: 0.625rem;
+}
+
+.footer li {
+    height: 2rem;
+    line-height: 2rem;
+}
+
+.footer a {
+    color: #ebeef5;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .footer :global .iconfont {
+        display: none;
+    }
 }
