@@ -32,7 +32,7 @@ export default function() {
 
     return (
         <>
-            <div className={styles.header} style={{ backgroundColor: "#001529" }}>
+            <header className={styles.header} style={{ backgroundColor: "#001529" }}>
                 <img
                     src={logo}
                     alt="logo"
@@ -42,7 +42,7 @@ export default function() {
                 <IconButton onClick={toggleMenu}>
                     <Menu className={styles.toggleMenu} style={{ color: "white" }} />
                 </IconButton>
-            </div>
+            </header>
             {state.menuVisible && (
                 <div className={styles.menuBox}>
                     <div className={styles.header}>

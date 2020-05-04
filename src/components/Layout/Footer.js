@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import { Grid, Popper, Paper } from "@material-ui/core";
-import styles from "./index.module.css";
+import styles from "./Footer.module.css";
 import weChat155 from "assets/wechat-155.jpeg";
 import { Link } from "react-router-dom";
 
@@ -107,6 +107,7 @@ export default class extends PureComponent {
                             href="http://beian.miit.gov.cn/"
                             target="_blank"
                             className="hide-xs"
+                            rel="noopener noreferrer"
                         >
                             粤ICP备16120960号-3
                         </a>

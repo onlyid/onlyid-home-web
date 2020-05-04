@@ -9,7 +9,7 @@ export default function() {
     const history = useHistory();
 
     return (
-        <div className={styles.headerBg}>
+        <header className={styles.headerBg}>
             <div className={styles.header}>
                 <div className={styles.headerLeft}>
                     <img
@@ -35,7 +35,7 @@ export default function() {
                     </ul>
                 </div>
                 <div className={styles.headerRight}>
-                    <a href="https://github.com/onlyid" target="_blank">
+                    <a href="https://github.com/onlyid" target="_blank" rel="noopener noreferrer">
                         <i className={classNames("iconfont", styles.githubIcon)}>&#xe6f6;</i>
                     </a>
                     <Button
@@ -49,6 +49,6 @@ export default function() {
                     </Button>
                 </div>
             </div>
-        </div>
+        </header>
     );
 }
