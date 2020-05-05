@@ -1,0 +1,23 @@
+.missionBox {
+    text-align: center;
+    background-color: #4b5056;
+    padding: 1.5rem 1rem 0.5rem;
+}
+
+.missionBox p {
+    font-size: 1.25rem;
+    color: white;
+}
+
+.hr1 {
+    color: #7f7f7f;
+    border-top: none;
+    width: 1200px;
+    margin-top: 2rem;
+}
+
+@media (max-width: 599px) {
+    .hr1 {
+        width: 20rem;
+    }
+}
