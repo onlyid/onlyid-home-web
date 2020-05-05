@@ -6,6 +6,9 @@ import * as serviceWorker from "./serviceWorker";
 import { createMuiTheme, CssBaseline } from "@material-ui/core";
 import { ThemeProvider, StylesProvider } from "@material-ui/core/styles";
 import { zhCN } from "@material-ui/core/locale";
+import VConsole from "vconsole";
+
+// const vConsole = new VConsole();
 
 const theme = createMuiTheme({ zhCN });
 

@@ -3,7 +3,6 @@
 }
 
 .footer {
-    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.25rem 1.25rem 2.5rem;
 }
@@ -55,4 +54,14 @@
 
 .copyright a {
     color: #ccc;
+}
+
+@media (min-width: 600px) {
+    .footerBg {
+        min-width: 1200px;
+    }
+
+    .footer {
+        width: 1200px;
+    }
 }
