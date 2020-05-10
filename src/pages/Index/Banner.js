@@ -2,7 +2,7 @@ import React, { PureComponent } from "react";
 import styles from "./Banner.module.css";
 import classNames from "classnames";
 import { Button, Grid } from "@material-ui/core";
-import { MonetizationOn, Textsms } from "@material-ui/icons";
+import { MonetizationOn, Textsms, VerifiedUser, Build, Dashboard } from "@material-ui/icons";
 import Hammer from "hammerjs";
 
 const TOTAL = 3;
@@ -10,6 +10,8 @@ const INTERVAL = 5000;
 
 class Banner extends PureComponent {
     timer = null;
+    bannerWidth;
+    triggerSwipe;
 
     state = {
         index: 0
@@ -21,28 +23,59 @@ class Banner extends PureComponent {
     }
 
     componentDidMount() {
-        this.startTimer();
-
-        const hammer = new Hammer(this.myRef.current);
-        hammer.on("swipe", e => {
-            const { index } = this.state;
-            if (e.deltaX > 30 && index > 0) {
-                this.scroll2(index - 1);
-                this.cancelTimer();
-                this.startTimer();
-            } else if (e.deltaX < -30 && index < TOTAL - 1) {
-                this.scroll2(index + 1);
-                this.cancelTimer();
-                this.startTimer();
-            }
-        });
+        this.startLoop();
+        this.bannerWidth = this.myRef.current.getBoundingClientRect().width;
+        this.initTouchEvent();
     }
 
-    cancelTimer = () => {
+    initTouchEvent = () => {
+        const hammer = new Hammer(this.myRef.current);
+
+        hammer.on("panstart", () => {
+            this.triggerSwipe = false;
+            this.myRef.current.style.transition = "none";
+            this.stopLoop();
+        });
+
+        hammer.on("panend", event => {
+            let { index } = this.state;
+
+            if (this.triggerSwipe) return;
+
+            if (event.distance > this.bannerWidth / 2) {
+                if (event.deltaX < 0 && index < TOTAL - 1) index++;
+                else if (event.deltaX > 0 && index > 0) index--;
+            }
+
+            this.scroll2(index);
+            this.startLoop();
+        });
+
+        hammer.on("panmove", event => {
+            const { index } = this.state;
+
+            const move = -this.bannerWidth * index + event.deltaX;
+            this.myRef.current.style.transform = `translate(${move}px)`;
+        });
+
+        hammer.on("swipe", event => {
+            let { index } = this.state;
+
+            this.triggerSwipe = true;
+
+            if (event.deltaX < 0 && index < TOTAL - 1) index++;
+            else if (event.deltaX > 0 && index > 0) index--;
+
+            this.scroll2(index);
+            this.startLoop();
+        });
+    };
+
+    stopLoop = () => {
         window.clearInterval(this.timer);
     };
 
-    startTimer = () => {
+    startLoop = () => {
         this.timer = window.setInterval(() => {
             let { index } = this.state;
             index++;
@@ -53,10 +86,8 @@ class Banner extends PureComponent {
     };
 
     scroll2 = index => {
-        const { index: prevIndex } = this.state;
-        if (index === prevIndex) return;
-
-        this.myRef.current.style.transform = `translate(-${index}00%)`;
+        this.myRef.current.style.transition = "transform 0.5s ease";
+        this.myRef.current.style.transform = `translate(${-index * this.bannerWidth}px)`;
         this.setState({ index });
     };
 
@@ -72,8 +103,8 @@ class Banner extends PureComponent {
             indicators.push(
                 <div
                     className={classNames(styles.indicatorBox, { [styles.active]: index === i })}
-                    onMouseEnter={this.cancelTimer}
-                    onMouseLeave={this.startTimer}
+                    onMouseEnter={this.stopLoop}
+                    onMouseLeave={this.startLoop}
                     onClick={() => this.scroll2(i)}
                     key={String(i)}
                 >
@@ -169,17 +200,15 @@ class Banner extends PureComponent {
                             <Grid item xs={12} sm={6}>
                                 <ul className={styles.detail}>
                                     <li>
-                                        <MonetizationOn className={styles.icon} />
+                                        <VerifiedUser className={styles.icon} />
                                         安全可靠：我们始终把安全、稳定放在首位
                                     </li>
                                     <li>
-                                        <Textsms className={styles.icon} />
+                                        <Dashboard className={styles.icon} />
                                         灵活好用：覆盖各行各业所有 IAM 需求
                                     </li>
                                     <li>
-                                        <i className={classNames("iconfont", styles.githubIcon)}>
-                                            &#xe6f6;
-                                        </i>
+                                        <Build className={styles.icon} />
                                         支持定制：大企业支持源码级定制和专有部署
                                     </li>
                                 </ul>
