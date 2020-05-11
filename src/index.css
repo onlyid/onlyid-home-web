@@ -17,8 +17,84 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+pre {
+    padding: 1.5rem;
+    background-color: #f7f8f9;
+    overflow-x: scroll;
+}
+
+pre .color1 {
+    color: #000080;
+}
+
+pre .color2 {
+    color: #660e7a;
+}
+
+.section-bg {
+    background: linear-gradient(180deg, #f6f9fc 0, rgba(255, 255, 255, 0) 100%);
+}
+
+.section {
+    margin: 0 auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.section-card {
+    padding: 3rem;
+    margin-top: 1.5rem;
+    background-color: white;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+}
+
+.p1 {
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+.img-tip {
+    margin-bottom: 0;
+    color: #7f7f7f;
+    text-align: center;
+}
+
 @media (max-width: 599px) {
+    .section-card {
+        padding: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.7rem;
+    }
+
+    .p1 {
+        font-size: 1.1rem;
+    }
+
     .hide-xs {
         display: none;
+    }
+}
+
+@media (min-width: 600px) {
+    .section {
+        width: 1200px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .section-card {
+        border-radius: 0.3rem;
+        border: 1px solid #e8e8e8;
+    }
+
+    pre {
+        font-size: 0.9rem;
     }
 }

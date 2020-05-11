@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import styles1 from "./index.module.css";
-import styles from "./Intro.module.css";
+import styles from "./index.module.css";
 import { Grid, Hidden, Tab, Tabs } from "@material-ui/core";
 import { SentimentVeryDissatisfied, SentimentVerySatisfied } from "@material-ui/icons";
 import intro1 from "assets/intro1.png";
@@ -16,10 +15,10 @@ export default function() {
 
     const developer = (
         <>
-            <Grid container spacing={3} alignItems="center">
+            <Grid container spacing={4} alignItems="center">
                 <Grid item xs={12} sm={6}>
-                    <p className={styles.p1}>在开发网站、APP过程中，你是否遇到这些问题？</p>
-                    <ul>
+                    <p className="p1">在开发网站、APP过程中，你是否遇到这些问题？</p>
+                    <ul className={styles.ul1}>
                         <li>
                             <SentimentVeryDissatisfied className={styles.dissatisfied} />
                             每开发一个应用，都需要重复开发用户注册和登录模块，费时费力
@@ -39,14 +38,12 @@ export default function() {
                     </ul>
                 </Grid>
                 <Hidden xsDown>
-                    <Grid item sm={6} className={styles.imgBox}>
-                        <img src={intro1} alt="introImg" />
+                    <Grid item sm={6}>
+                        <img src={intro1} alt="introImg" className={styles.img1} />
                     </Grid>
                 </Hidden>
-            </Grid>
-            <Grid container spacing={3} alignItems="center">
-                <Grid item xs={12} sm={6} className={styles.imgBox}>
-                    <img src={intro2} alt="introImg" />
+                <Grid item xs={12} sm={6}>
+                    <img src={intro2} alt="introImg" className={styles.img1} />
                     {/*<div className={styles.loginDemo}>*/}
                     {/*    <AccountCircle />*/}
                     {/*    <div className={styles.input}>abc@example.com</div>*/}
@@ -55,8 +52,8 @@ export default function() {
                     {/*</div>*/}
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <p className={styles.p1}>是时候开始使用唯ID了！</p>
-                    <ul>
+                    <p className="p1">是时候开始使用唯ID了！</p>
+                    <ul className={styles.ul1}>
                         <li>
                             <SentimentVerySatisfied className={styles.satisfied} />
                             标准OAuth协议，半小时闪电接入，再也不用重复开发认证模块
@@ -81,10 +78,10 @@ export default function() {
 
     const enterprise = (
         <>
-            <Grid container spacing={3} alignItems="center">
+            <Grid container spacing={4} alignItems="center">
                 <Grid item xs={12} sm={6}>
-                    <p className={styles.p1}>在云和大数据时代，你的企业是否面临这些挑战：</p>
-                    <ul>
+                    <p className="p1">在云和大数据时代，你的企业是否面临这些挑战：</p>
+                    <ul className={styles.ul1}>
                         <li>
                             <SentimentVeryDissatisfied className={styles.dissatisfied} />
                             信息系统越来越多，但却都是独立的账号管理，形成一个个身份孤岛
@@ -104,18 +101,16 @@ export default function() {
                     </ul>
                 </Grid>
                 <Hidden xsDown>
-                    <Grid item xs={12} sm={6} className={styles.imgBox}>
-                        <img src={intro3} alt="introImg" />
+                    <Grid item xs={12} sm={6}>
+                        <img src={intro3} alt="introImg" className={styles.img1} />
                     </Grid>
                 </Hidden>
-            </Grid>
-            <Grid container spacing={3} alignItems="center">
-                <Grid item xs={12} sm={6} className={styles.imgBox}>
-                    <img src={intro2} alt="introImg" />
+                <Grid item xs={12} sm={6}>
+                    <img src={intro2} alt="introImg" className={styles.img1} />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <p className={styles.p1}>是时候开始使用唯ID了！</p>
-                    <ul>
+                    <p className="p1">是时候开始使用唯ID了！</p>
+                    <ul className={styles.ul1}>
                         <li>
                             <SentimentVerySatisfied className={styles.satisfied} />
                             统一身份管理为每个自然人用户创建一个唯一的用户实体身份
@@ -139,9 +134,9 @@ export default function() {
     );
 
     return (
-        <section className={styles1.sectionBg}>
-            <div className={styles1.section}>
-                <p className={styles1.title}>身份认证很复杂，唯ID来帮你</p>
+        <section className="section-bg">
+            <div className="section" style={{ paddingTop: "3rem" }}>
+                <p className="section-title">身份认证很复杂，唯ID来帮你</p>
                 <Tabs
                     value={value}
                     onChange={handleChange}
@@ -152,7 +147,7 @@ export default function() {
                     <Tab label="致开发者" className={styles.tab} />
                     <Tab label="致企业客户" className={styles.tab} />
                 </Tabs>
-                <div className={styles.tabPanel}>{value === 0 ? developer : enterprise}</div>
+                <div className="section-card">{value === 0 ? developer : enterprise}</div>
             </div>
         </section>
     );
