@@ -21,6 +21,7 @@
     bottom: 0;
     position: fixed;
     background-color: #fafafa;
+    z-index: 1;
 }
 
 .consoleBox {

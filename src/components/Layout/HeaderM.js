@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "assets/logo.svg";
+import logoLight from "assets/logo-light.svg";
 import {
     IconButton,
     List,
@@ -47,11 +48,10 @@ export default function() {
                 <div className={styles.menuBox}>
                     <div className={styles.header}>
                         <img
-                            src={logo}
+                            src={logoLight}
                             alt="logo"
                             className={styles.logo}
                             onClick={() => history.push("/")}
-                            style={{ backgroundColor: "yellow" }}
                         />
                         <IconButton onClick={toggleMenu}>
                             <Close className={styles.toggleMenu} />
