@@ -20,7 +20,7 @@
 pre {
     padding: 1.5rem;
     background-color: #f7f8f9;
-    overflow-x: scroll;
+    overflow-x: auto;
 }
 
 pre .color1 {

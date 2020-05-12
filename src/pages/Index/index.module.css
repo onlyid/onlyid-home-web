@@ -34,8 +34,18 @@
     color: #52c41a;
 }
 
+.star {
+    color: #f57f17;
+}
+
 .pre1 {
     height: 13.5rem;
+}
+
+.compare {
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    color: #3f51b5;
 }
 
 /*.loginDemo {*/
@@ -103,6 +113,10 @@
         font-size: 1.2rem;
     }
 
+    .compare {
+        margin-top: 2rem;
+    }
+
     .missionBox p {
         font-size: 1.15rem;
     }
@@ -111,5 +125,8 @@
 @media (min-width: 600px) {
     .hr1 {
         width: 1200px;
+    }
+    .compare {
+        font-size: 0.9rem;
     }
 }
