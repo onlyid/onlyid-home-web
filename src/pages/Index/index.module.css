@@ -2,6 +2,10 @@
     font-size: 1.2rem;
 }
 
+.tab1 {
+    font-size: 1rem;
+}
+
 .img1 {
     width: 100%;
     border-radius: 0.4rem;
@@ -11,6 +15,10 @@
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+.iamUl {
+    margin-top: 1rem;
 }
 
 .ul1 li {
@@ -100,6 +108,10 @@
         font-size: 1.1rem;
     }
 
+    .tab1 {
+        font-size: 0.9rem;
+    }
+
     .ul1 li {
         font-size: 0.95rem;
         display: flex;
@@ -128,5 +140,15 @@
     }
     .compare {
         font-size: 0.9rem;
+    }
+
+    .iamUl {
+        display: flex;
+        justify-content: center;
+    }
+
+    .iamUl li:not(:last-of-type) {
+        margin-bottom: 0;
+        margin-right: 2rem;
     }
 }

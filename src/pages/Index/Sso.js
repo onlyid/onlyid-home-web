@@ -3,6 +3,7 @@ import { Grid } from "@material-ui/core";
 import styles from "./index.module.css";
 import { SentimentVerySatisfied, Star, StarHalf } from "@material-ui/icons";
 import sso1 from "assets/sso1.png";
+import classNames from "classnames";
 
 export default function() {
     return (
@@ -61,8 +62,7 @@ export default function() {
                             <img
                                 src={sso1}
                                 alt="sso1"
-                                className={styles.img1}
-                                style={{ border: "1px solid #e8e8e8" }}
+                                className={classNames("border1", styles.img1)}
                             />
                         </Grid>
                     </Grid>

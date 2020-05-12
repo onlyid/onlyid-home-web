@@ -64,6 +64,10 @@ pre .color2 {
     text-align: center;
 }
 
+.border1 {
+    border: 1px solid #e8e8e8;
+}
+
 @media (max-width: 599px) {
     .section-card {
         padding: 1.5rem;
