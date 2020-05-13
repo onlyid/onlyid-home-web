@@ -10,8 +10,103 @@
     background-size: 8rem;
 }
 
+.card {
+    background-color: white;
+    height: 24rem;
+    padding: 1.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.card :global .p1 {
+    text-align: center;
+}
+
+.ul1 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ul1 li {
+    font-size: 1rem;
+    line-height: 2.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.span1 {
+    font-weight: bold;
+}
+
+.hr1 {
+    color: #e8e8e8;
+    border-top: none;
+    margin-bottom: 1rem;
+}
+
+.recommend {
+    position: absolute;
+    width: 6rem;
+    height: 6rem;
+    right: 0;
+    top: 0;
+    transform-origin: 0 0;
+    transform: rotate(-8deg);
+}
+
+.recommendBg {
+    width: 0;
+    border-width: 3rem;
+    border-style: solid;
+    border-color: #f56c6c #f56c6c transparent transparent;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.recommendText {
+    transform: rotate(45deg);
+    position: absolute;
+    right: 1.1rem;
+    top: 1.4rem;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
 @media (max-width: 599px) {
     .envelop {
         background-size: 4rem;
+    }
+
+    .card {
+        height: 22rem;
+    }
+
+    .ul1 li {
+        font-size: 0.95rem;
+        line-height: 2.2rem;
+    }
+
+    .recommend {
+        width: 5.5rem;
+        height: 5.5rem;
+    }
+
+    .recommendBg {
+        border-width: 2.75rem;
+    }
+
+    .recommendText {
+        font-size: 0.95rem;
+        right: 0.9rem;
+    }
+}
+
+@media (min-width: 600px) {
+    .card {
+        border-radius: 0.3rem;
+        border: 1px solid #e8e8e8;
     }
 }
