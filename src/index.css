@@ -82,6 +82,10 @@ pre .color2 {
 }
 
 @media (max-width: 599px) {
+    .section {
+        overflow-x: hidden;
+    }
+
     .section-card {
         padding: 1.5rem;
     }

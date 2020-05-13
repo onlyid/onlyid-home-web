@@ -14,8 +14,8 @@ export default function() {
                 <div className="section-card">
                     <p className="p1">
                         以唯ID
-                        SSO为基础，我们构建了一套适合所有网站、APP、企业使用的统一、专业、安全的 IAM
-                        解决方案。
+                        SSO为基础，我们构建了一套适合所有网站、APP、企业使用的统一、专业、安全的
+                        IDaaS 解决方案。
                     </p>
                     <Grid container spacing={4} alignItems="center">
                         <Grid item xs={12} sm={6}>

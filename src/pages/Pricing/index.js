@@ -43,7 +43,7 @@ export default function() {
             <section className="section-bg">
                 <div className="section">
                     <p className="section-title">价格与部署</p>
-                    <Grid container spacing={6} alignItems="center" style={{ marginTop: "0.5rem" }}>
+                    <Grid container spacing={6} style={{ marginTop: "0.5rem" }}>
                         <Grid item xs={12} sm={6}>
                             <div className={styles.card}>
                                 <div className={styles.recommend}>
