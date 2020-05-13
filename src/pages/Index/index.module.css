@@ -18,7 +18,7 @@
 }
 
 .iamUl {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .ul1 li {
@@ -32,6 +32,10 @@
 
 .ul1 li:not(:last-of-type) {
     margin-bottom: 1.5rem;
+}
+
+.iamUl li:not(:last-of-type) {
+    margin-bottom: 0.5rem;
 }
 
 .dissatisfied {
@@ -54,6 +58,20 @@
     margin-top: 4rem;
     margin-bottom: 1.5rem;
     color: #3f51b5;
+}
+
+.iamTitle1 {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.iamP1 {
+    font-size: 1.1rem;
+    margin-top: 2.2rem;
+    margin-bottom: 0;
+    text-align: center;
 }
 
 /*.loginDemo {*/
@@ -121,12 +139,24 @@
         margin-bottom: 0.7rem;
     }
 
+    .iamUl li:not(:last-of-type) {
+        margin-bottom: 0.4rem;
+    }
+
     .ul1 :global .MuiSvgIcon-root {
         font-size: 1.2rem;
     }
 
     .compare {
         margin-top: 2rem;
+    }
+
+    .iamTitle1 {
+        font-size: 1.1rem;
+    }
+
+    .iamP1 {
+        font-size: 1rem;
     }
 
     .missionBox p {
@@ -140,15 +170,5 @@
     }
     .compare {
         font-size: 0.9rem;
-    }
-
-    .iamUl {
-        display: flex;
-        justify-content: center;
-    }
-
-    .iamUl li:not(:last-of-type) {
-        margin-bottom: 0;
-        margin-right: 2rem;
     }
 }
