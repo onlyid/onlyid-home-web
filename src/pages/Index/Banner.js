@@ -28,6 +28,10 @@ class Banner extends PureComponent {
         this.initTouchEvent();
     }
 
+    componentWillUnmount() {
+        this.stopLoop();
+    }
+
     initTouchEvent = () => {
         const hammer = new Hammer(this.myRef.current);
 

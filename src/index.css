@@ -58,6 +58,10 @@ pre .color2 {
     margin-top: 0;
 }
 
+.p2 {
+    font-size: 1rem;
+}
+
 .img-tip {
     margin-bottom: 0;
     color: #7f7f7f;
@@ -66,6 +70,15 @@ pre .color2 {
 
 .border1 {
     border: 1px solid #e8e8e8;
+}
+
+.banner {
+    margin: 0;
+    padding: 2rem 0;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
 }
 
 @media (max-width: 599px) {
@@ -81,8 +94,17 @@ pre .color2 {
         font-size: 1.1rem;
     }
 
+    .p2 {
+        font-size: 0.95rem;
+    }
+
     .hide-xs {
         display: none;
+    }
+
+    .banner {
+        background-size: 600px;
+        font-size: 1.7rem;
     }
 }
 

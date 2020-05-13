@@ -30,7 +30,7 @@ export default function() {
                             <NavLink to="/downloads">下载中心</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/prices">套餐价格</NavLink>
+                            <NavLink to="/pricing">套餐价格</NavLink>
                         </li>
                     </ul>
                 </div>

@@ -5,7 +5,7 @@ import Index from "pages/Index";
 import Docs from "pages/Docs";
 import Trial from "pages/Trial";
 import Downloads from "pages/Downloads";
-import Prices from "pages/Prices";
+import Pricing from "pages/Pricing";
 import About from "pages/About";
 
 class App extends PureComponent {
@@ -36,8 +36,8 @@ class App extends PureComponent {
                         <Route path="/downloads">
                             <Downloads />
                         </Route>
-                        <Route path="/prices">
-                            <Prices />
+                        <Route path="/pricing">
+                            <Pricing />
                         </Route>
                         <Route path="/about">
                             <About />

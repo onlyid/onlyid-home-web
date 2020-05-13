@@ -51,7 +51,7 @@ export default function() {
                             src={logoLight}
                             alt="logo"
                             className={styles.logo}
-                            onClick={() => history.push("/")}
+                            onClick={() => go("/")}
                         />
                         <IconButton onClick={toggleMenu}>
                             <Close className={styles.toggleMenu} />
@@ -84,7 +84,7 @@ export default function() {
                             <ListItemText primary="下载中心" />
                         </ListItem>
                         <Divider />
-                        <ListItem className={styles.menuItem} button onClick={() => go("/prices")}>
+                        <ListItem className={styles.menuItem} button onClick={() => go("/pricing")}>
                             <ListItemIcon>
                                 <Link />
                             </ListItemIcon>

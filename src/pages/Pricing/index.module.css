@@ -1,0 +1,17 @@
+.root :global .banner {
+    background-image: url("../../assets/banner4-bg.png"),
+        linear-gradient(223.56deg, #6ceca2 0, #005eff 100%);
+}
+
+.envelop {
+    background-image: url("../../assets/envelope-bg.png"), url("../../assets/envelope-bg.png");
+    background-position: top, bottom;
+    background-repeat: repeat-x;
+    background-size: 8rem;
+}
+
+@media (max-width: 599px) {
+    .envelop {
+        background-size: 4rem;
+    }
+}
