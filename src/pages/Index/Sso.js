@@ -7,7 +7,7 @@ import classNames from "classnames";
 
 export default function() {
     return (
-        <section className="section-bg">
+        <section className="section-bg" id="sso">
             <div className="section">
                 <p className="section-title">唯ID &nbsp; SSO</p>
                 <div className="section-card">

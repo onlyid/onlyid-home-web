@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 import Layout from "components/Layout";
 import Index from "pages/Index";
 import Docs from "pages/Docs";
@@ -11,7 +11,25 @@ class App extends PureComponent {
     componentDidMount() {
         this.setFontSize();
         window.addEventListener("resize", this.setFontSize);
+
+        this.listenHistory();
     }
+
+    listenHistory = () => {
+        const { history } = this.props;
+
+        history.listen(location => {
+            const { hash } = location;
+            if (!hash) return;
+
+            setTimeout(() => {
+                const element = document.getElementById(hash.substr(1));
+                if (!element) return;
+
+                element.scrollIntoView();
+            }, 100);
+        });
+    };
 
     setFontSize = () => {
         const fontSize = window.innerWidth > 600 ? 16 : (window.innerWidth / 400) * 16;
@@ -20,32 +38,30 @@ class App extends PureComponent {
 
     render() {
         return (
-            <BrowserRouter basename="/home">
-                <Layout>
-                    <Switch>
-                        <Route path="/" exact>
-                            <Index />
-                        </Route>
-                        <Route path="/docs">
-                            <Docs />
-                        </Route>
-                        <Route path="/trial">
-                            <Trial />
-                        </Route>
-                        <Route path="/pricing">
-                            <Pricing />
-                        </Route>
-                        <Route path="/about">
-                            <About />
-                        </Route>
-                        <Route path="/">
-                            <Redirect to="/" />
-                        </Route>
-                    </Switch>
-                </Layout>
-            </BrowserRouter>
+            <Layout>
+                <Switch>
+                    <Route path="/" exact>
+                        <Index />
+                    </Route>
+                    <Route path="/docs">
+                        <Docs />
+                    </Route>
+                    <Route path="/trial">
+                        <Trial />
+                    </Route>
+                    <Route path="/pricing">
+                        <Pricing />
+                    </Route>
+                    <Route path="/about">
+                        <About />
+                    </Route>
+                    <Route path="/">
+                        <Redirect to="/" />
+                    </Route>
+                </Switch>
+            </Layout>
         );
     }
 }
 
-export default App;
+export default withRouter(App);

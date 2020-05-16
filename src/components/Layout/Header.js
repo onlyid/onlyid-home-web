@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Header.module.css";
 import logo from "assets/logo.svg";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useHistory, Link } from "react-router-dom";
 import classNames from "classnames";
-import { Button } from "@material-ui/core";
+import { Button, Menu, MenuItem, ListItemIcon, ListItemText } from "@material-ui/core";
+import { ExpandMore, Sms, Dashboard, AccountBox } from "@material-ui/icons";
 
 export default function() {
+    const [anchorEl, setAnchorEl] = useState(null);
     const history = useHistory();
+
+    const openProductMenu = event => {
+        event.preventDefault();
+        setAnchorEl(event.currentTarget);
+    };
+
+    const closeProductMenu = () => {
+        setAnchorEl(null);
+    };
+
+    const productMenuGo = url => {
+        history.push(url);
+        closeProductMenu();
+    };
 
     return (
         <header className={styles.headerBg}>
@@ -20,6 +36,12 @@ export default function() {
                         onClick={() => history.push("/")}
                     />
                     <ul className={styles.menu}>
+                        <li>
+                            <Link to="/" onClick={openProductMenu}>
+                                产品与服务
+                                <ExpandMore className={styles.expandIcon} />
+                            </Link>
+                        </li>
                         <li>
                             <NavLink to="/docs">开发文档</NavLink>
                         </li>
@@ -46,6 +68,33 @@ export default function() {
                     </Button>
                 </div>
             </div>
+            <Menu
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={closeProductMenu}
+                className={styles.productMenu}
+            >
+                <span className={styles.tip}>验证码服务</span>
+                <MenuItem onClick={() => productMenuGo("/#otp")}>
+                    <ListItemIcon>
+                        <Sms />
+                    </ListItemIcon>
+                    <ListItemText>唯ID &nbsp; OTP</ListItemText>
+                </MenuItem>
+                <span className={styles.tip}>IDaaS解决方案</span>
+                <MenuItem onClick={() => productMenuGo("/#sso")}>
+                    <ListItemIcon>
+                        <AccountBox />
+                    </ListItemIcon>
+                    <ListItemText>唯ID &nbsp; SSO</ListItemText>
+                </MenuItem>
+                <MenuItem onClick={() => productMenuGo("/#iam")}>
+                    <ListItemIcon>
+                        <Dashboard />
+                    </ListItemIcon>
+                    <ListItemText>唯ID &nbsp; IAM</ListItemText>
+                </MenuItem>
+            </Menu>
         </header>
     );
 }

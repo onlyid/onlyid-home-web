@@ -2,15 +2,25 @@ import React, { useState } from "react";
 import logo from "assets/logo.svg";
 import logoLight from "assets/logo-light.svg";
 import {
+    Button,
+    Collapse,
+    Divider,
     IconButton,
     List,
     ListItem,
     ListItemIcon,
-    ListItemText,
-    Divider,
-    Button
+    ListItemText
 } from "@material-ui/core";
-import { Close, Menu, Link } from "@material-ui/icons";
+import {
+    AccountBox,
+    Close,
+    Dashboard,
+    ExpandLess,
+    ExpandMore,
+    Link,
+    Menu,
+    Sms
+} from "@material-ui/icons";
 import { useHistory } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./HeaderM.module.css";
@@ -19,11 +29,16 @@ export default function() {
     const history = useHistory();
 
     const [state, setState] = useState({
-        menuVisible: false
+        menuVisible: false,
+        productMenuVisible: false
     });
 
     const toggleMenu = () => {
         setState({ ...state, menuVisible: !state.menuVisible });
+    };
+
+    const toggleProductMenu = () => {
+        setState({ ...state, productMenuVisible: !state.productMenuVisible });
     };
 
     const go = route => {
@@ -59,6 +74,48 @@ export default function() {
                     </div>
                     <List style={{ paddingTop: 0 }}>
                         <Divider />
+                        <ListItem className={styles.menuItem} button onClick={toggleProductMenu}>
+                            <ListItemIcon>
+                                <Link />
+                            </ListItemIcon>
+                            <ListItemText primary="产品与服务" />
+                            {state.productMenuVisible ? <ExpandLess /> : <ExpandMore />}
+                        </ListItem>
+                        <Collapse in={state.productMenuVisible}>
+                            <List disablePadding>
+                                <ListItem
+                                    button
+                                    className={styles.productMenuItem}
+                                    onClick={() => go("/#otp")}
+                                >
+                                    <ListItemIcon>
+                                        <Sms />
+                                    </ListItemIcon>
+                                    <ListItemText>唯ID &nbsp; OTP</ListItemText>
+                                </ListItem>
+                                <ListItem
+                                    button
+                                    className={styles.productMenuItem}
+                                    onClick={() => go("/#sso")}
+                                >
+                                    <ListItemIcon>
+                                        <AccountBox />
+                                    </ListItemIcon>
+                                    <ListItemText>唯ID &nbsp; SSO</ListItemText>
+                                </ListItem>
+                                <ListItem
+                                    button
+                                    className={styles.productMenuItem}
+                                    onClick={() => go("/#iam")}
+                                >
+                                    <ListItemIcon>
+                                        <Dashboard />
+                                    </ListItemIcon>
+                                    <ListItemText>唯ID &nbsp; IAM</ListItemText>
+                                </ListItem>
+                            </List>
+                        </Collapse>
+                        <Divider />
                         <ListItem className={styles.menuItem} button onClick={() => go("/docs")}>
                             <ListItemIcon>
                                 <Link />
@@ -71,17 +128,6 @@ export default function() {
                                 <Link />
                             </ListItemIcon>
                             <ListItemText primary="在线体验" />
-                        </ListItem>
-                        <Divider />
-                        <ListItem
-                            className={styles.menuItem}
-                            button
-                            onClick={() => go("/downloads")}
-                        >
-                            <ListItemIcon>
-                                <Link />
-                            </ListItemIcon>
-                            <ListItemText primary="下载中心" />
                         </ListItem>
                         <Divider />
                         <ListItem className={styles.menuItem} button onClick={() => go("/pricing")}>

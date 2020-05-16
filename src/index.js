@@ -6,6 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import { createMuiTheme, CssBaseline } from "@material-ui/core";
 import { ThemeProvider, StylesProvider } from "@material-ui/core/styles";
 import { zhCN } from "@material-ui/core/locale";
+import { BrowserRouter } from "react-router-dom";
 import VConsole from "vconsole";
 
 // const vConsole = new VConsole();
@@ -17,7 +18,9 @@ const content = (
         <StylesProvider injectFirst>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <App />
+                <BrowserRouter basename="/home">
+                    <App />
+                </BrowserRouter>
             </ThemeProvider>
         </StylesProvider>
     </React.StrictMode>

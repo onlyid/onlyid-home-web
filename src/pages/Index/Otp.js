@@ -6,7 +6,7 @@ import styles from "./index.module.css";
 
 export default function() {
     return (
-        <section className="section-bg">
+        <section className="section-bg" id="otp">
             <div className="section">
                 <p className="section-title">唯ID &nbsp; OTP</p>
                 <div className="section-card">
