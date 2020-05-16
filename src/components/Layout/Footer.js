@@ -68,7 +68,7 @@ export default class extends PureComponent {
                                     <Link to="/docs">开发接入文档</Link>
                                 </li>
                                 <li>
-                                    <Link to="/prices">套餐价格和功能</Link>
+                                    <Link to="/pricing">套餐价格与部署方式</Link>
                                 </li>
                                 <li>
                                     <Link to="/docs/faq">常见问题 FAQ</Link>

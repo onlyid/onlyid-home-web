@@ -27,9 +27,6 @@ export default function() {
                             <NavLink to="/trial">在线体验</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/downloads">下载中心</NavLink>
-                        </li>
-                        <li>
                             <NavLink to="/pricing">套餐价格</NavLink>
                         </li>
                     </ul>

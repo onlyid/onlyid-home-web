@@ -4,7 +4,6 @@ import Layout from "components/Layout";
 import Index from "pages/Index";
 import Docs from "pages/Docs";
 import Trial from "pages/Trial";
-import Downloads from "pages/Downloads";
 import Pricing from "pages/Pricing";
 import About from "pages/About";
 
@@ -32,9 +31,6 @@ class App extends PureComponent {
                         </Route>
                         <Route path="/trial">
                             <Trial />
-                        </Route>
-                        <Route path="/downloads">
-                            <Downloads />
                         </Route>
                         <Route path="/pricing">
                             <Pricing />
