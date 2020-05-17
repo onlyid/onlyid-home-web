@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css";
 import logo from "assets/logo.svg";
-import { NavLink, useHistory, Link } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import classNames from "classnames";
-import { Button, Menu, MenuItem, ListItemIcon, ListItemText } from "@material-ui/core";
-import { ExpandMore, Sms, Dashboard, AccountBox } from "@material-ui/icons";
+import { Button, ListItemIcon, ListItemText, Menu, MenuItem } from "@material-ui/core";
+import { AccountBox, Dashboard, ExpandMore, Sms } from "@material-ui/icons";
 
-export default function() {
+export default function({ onOpenTrialDialog }) {
     const [anchorEl, setAnchorEl] = useState(null);
     const history = useHistory();
 
@@ -24,6 +24,11 @@ export default function() {
         closeProductMenu();
     };
 
+    const openTrialDialog = event => {
+        event.preventDefault();
+        onOpenTrialDialog();
+    };
+
     return (
         <header className={styles.headerBg}>
             <div className={styles.header}>
@@ -37,7 +42,7 @@ export default function() {
                     />
                     <ul className={styles.menu}>
                         <li>
-                            <Link to="/" onClick={openProductMenu}>
+                            <Link to="" onClick={openProductMenu}>
                                 产品与服务
                                 <ExpandMore className={styles.expandIcon} />
                             </Link>
@@ -46,7 +51,9 @@ export default function() {
                             <NavLink to="/docs">开发文档</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/trial">在线体验</NavLink>
+                            <Link to="" onClick={openTrialDialog}>
+                                在线体验
+                            </Link>
                         </li>
                         <li>
                             <NavLink to="/pricing">套餐价格</NavLink>

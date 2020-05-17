@@ -3,7 +3,6 @@ import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 import Layout from "components/Layout";
 import Index from "pages/Index";
 import Docs from "pages/Docs";
-import Trial from "pages/Trial";
 import Pricing from "pages/Pricing";
 import About from "pages/About";
 
@@ -45,9 +44,6 @@ class App extends PureComponent {
                     </Route>
                     <Route path="/docs">
                         <Docs />
-                    </Route>
-                    <Route path="/trial">
-                        <Trial />
                     </Route>
                     <Route path="/pricing">
                         <Pricing />

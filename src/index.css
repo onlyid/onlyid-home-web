@@ -81,6 +81,21 @@ pre .color2 {
     font-size: 2rem;
 }
 
+@keyframes breath-animate {
+    0% {
+        transform: scale(0.95);
+        transform-origin: center;
+    }
+    50% {
+        transform: scale(1.05);
+        transform-origin: center;
+    }
+    100% {
+        transform: scale(0.95);
+        transform-origin: center;
+    }
+}
+
 @media (max-width: 599px) {
     .section {
         overflow-x: hidden;

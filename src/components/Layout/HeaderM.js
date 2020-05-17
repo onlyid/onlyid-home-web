@@ -25,7 +25,7 @@ import { useHistory } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./HeaderM.module.css";
 
-export default function() {
+export default function({ onOpenTrialDialog }) {
     const history = useHistory();
 
     const [state, setState] = useState({
@@ -43,6 +43,11 @@ export default function() {
 
     const go = route => {
         history.push(route);
+        setState({ ...state, menuVisible: false });
+    };
+
+    const openTrialDialog = () => {
+        onOpenTrialDialog();
         setState({ ...state, menuVisible: false });
     };
 
@@ -123,7 +128,7 @@ export default function() {
                             <ListItemText primary="开发文档" />
                         </ListItem>
                         <Divider />
-                        <ListItem className={styles.menuItem} button onClick={() => go("/trial")}>
+                        <ListItem className={styles.menuItem} button onClick={openTrialDialog}>
                             <ListItemIcon>
                                 <Link />
                             </ListItemIcon>
