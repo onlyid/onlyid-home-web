@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import { Switch, Route, Link, useRouteMatch, useLocation } from "react-router-dom";
 import Home from "./Home";
@@ -108,10 +108,28 @@ function Menu() {
 }
 
 export default function() {
+    const [menuContainerTop, setMenuContainerTop] = useState(0);
     const match = useRouteMatch();
     const location = useLocation();
 
     const showBanner = location.pathname === "/docs";
+
+    useEffect(() => {
+        const calcMenuContainerTop = () => {
+            let top = 0;
+            if (showBanner) top += 110;
+
+            const offset = window.pageYOffset > 50 ? 50 : window.pageYOffset;
+            top += 50 - offset;
+            setMenuContainerTop(top);
+        };
+
+        calcMenuContainerTop();
+        window.addEventListener("scroll", calcMenuContainerTop);
+        return () => {
+            window.removeEventListener("scroll", calcMenuContainerTop);
+        };
+    }, [showBanner]);
 
     return (
         <>
@@ -121,7 +139,10 @@ export default function() {
             <div className={styles.root}>
                 <div
                     className={styles.menuContainer}
-                    style={showBanner ? { maxHeight: "calc(100% - 160px)" } : null}
+                    style={{
+                        maxHeight: `calc(100% - ${menuContainerTop}px)`,
+                        top: menuContainerTop
+                    }}
                 >
                     <Menu />
                 </div>

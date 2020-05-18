@@ -8,13 +8,28 @@
     padding: 0 1rem;
 }
 
+.root :global .MuiTypography-h5 {
+    margin-top: 2em;
+}
+
 .root :global .MuiTypography-gutterBottom {
     margin-bottom: 1em;
 }
 
+.root :global .MuiAlert-root {
+    margin-bottom: 2em;
+}
+
+.root ul {
+    list-style: circle;
+}
+
+.root ul li:not(:last-of-type) {
+    margin-bottom: 0.2em;
+}
+
 .menuContainer {
     position: fixed;
-    max-height: calc(100% - 50px);
     overflow-y: auto;
 }
 
@@ -27,7 +42,7 @@
 .right {
     float: right;
     width: 910px;
-    padding-top: 3rem;
+    padding: 3rem 0;
 }
 
 .nestedList :global .MuiListItem-root {
