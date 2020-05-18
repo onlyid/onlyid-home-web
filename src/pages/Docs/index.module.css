@@ -1,0 +1,48 @@
+.banner {
+    background-image: url("../../assets/banner5-bg.png");
+    background-position: center center;
+    background-size: 2000px;
+}
+
+.root {
+    padding: 0 1rem;
+}
+
+.root :global .MuiTypography-gutterBottom {
+    margin-bottom: 1em;
+}
+
+.menuContainer {
+    position: fixed;
+    max-height: calc(100% - 50px);
+    overflow-y: auto;
+}
+
+.menu {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    min-width: 220px;
+}
+
+.right {
+    float: right;
+    width: 910px;
+    padding-top: 3rem;
+}
+
+.nestedList :global .MuiListItem-root {
+    padding-left: 2rem;
+}
+
+.leftHand {
+    transform: rotate3d(1, 1, 0, 180deg);
+    display: inline-block;
+    vertical-align: -10%;
+}
+
+@media (min-width: 600px) {
+    .root {
+        width: 1200px;
+        margin: 0 auto;
+    }
+}

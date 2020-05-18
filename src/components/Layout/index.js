@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import styles from "./Header.module.css";
 import { Close } from "@material-ui/icons";
 import logoLight from "../../assets/logo-light.svg";
+import { withRouter } from "react-router-dom";
 
 class Layout extends PureComponent {
     state = {
@@ -21,8 +22,9 @@ class Layout extends PureComponent {
     };
 
     render() {
-        const { children } = this.props;
+        const { children, location } = this.props;
         const { dialog1Visible } = this.state;
+        const showFooter = !location.pathname.startsWith("/docs");
 
         return (
             <>
@@ -33,7 +35,7 @@ class Layout extends PureComponent {
                     <Header onOpenTrialDialog={this.toggleDialog} />
                 </Hidden>
                 {children}
-                <Footer />
+                {showFooter && <Footer />}
                 <Dialog onClose={this.toggleDialog} open={dialog1Visible}>
                     <DialogTitle>
                         在线体验
@@ -64,4 +66,4 @@ class Layout extends PureComponent {
     }
 }
 
-export default Layout;
+export default withRouter(Layout);
