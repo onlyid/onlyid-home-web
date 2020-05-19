@@ -52,8 +52,6 @@
 }
 
 .right {
-    float: right;
-    width: 910px;
     padding: 3rem 0;
 }
 
@@ -71,7 +69,24 @@
     width: 768px;
 }
 
+.imgBox img {
+    border: 1px solid #e8e8e8;
+}
+
 @media (max-width: 599px) {
+    .menu {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .menu :global .MuiListItem-root {
+        padding-left: 4rem;
+    }
+
+    .nestedList :global .MuiListItem-root {
+        padding-left: 6rem;
+    }
+
     .img1 {
         width: 100%;
     }
@@ -83,12 +98,16 @@
         margin: 0 auto;
     }
 
+    .right {
+        float: right;
+        width: 910px;
+    }
+
     .imgBox {
         text-align: center;
     }
 
     .imgBox img {
-        border: 1px solid #e8e8e8;
-        border-radius: 5px;
+        border-radius: 4px;
     }
 }

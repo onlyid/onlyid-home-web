@@ -22,11 +22,14 @@
     position: fixed;
     background-color: #fafafa;
     z-index: 1;
+
+    overflow-y: auto;
 }
 
 .consoleBox {
     text-align: center;
     margin-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .menuItem {

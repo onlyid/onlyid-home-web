@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "assets/logo.svg";
 import logoLight from "assets/logo-light.svg";
 import {
@@ -21,16 +21,19 @@ import {
     Menu,
     Sms
 } from "@material-ui/icons";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./HeaderM.module.css";
+import DocsMenu from "pages/Docs/Menu";
 
 export default function({ onOpenTrialDialog }) {
     const history = useHistory();
+    const location = useLocation();
 
     const [state, setState] = useState({
         menuVisible: false,
-        productMenuVisible: false
+        productMenuVisible: false,
+        docsMenuVisible: false
     });
 
     const toggleMenu = () => {
@@ -41,10 +44,18 @@ export default function({ onOpenTrialDialog }) {
         setState({ ...state, productMenuVisible: !state.productMenuVisible });
     };
 
+    const toggleDocsMenu = () => {
+        setState({ ...state, docsMenuVisible: !state.docsMenuVisible });
+    };
+
     const go = route => {
         history.push(route);
         setState({ ...state, menuVisible: false });
     };
+
+    useEffect(() => {
+        setState({ ...state, menuVisible: false });
+    }, [location.pathname]);
 
     const openTrialDialog = () => {
         onOpenTrialDialog();
@@ -121,12 +132,16 @@ export default function({ onOpenTrialDialog }) {
                             </List>
                         </Collapse>
                         <Divider />
-                        <ListItem className={styles.menuItem} button onClick={() => go("/docs")}>
+                        <ListItem className={styles.menuItem} button onClick={toggleDocsMenu}>
                             <ListItemIcon>
                                 <Link />
                             </ListItemIcon>
                             <ListItemText primary="开发文档" />
+                            {state.docsMenuVisible ? <ExpandLess /> : <ExpandMore />}
                         </ListItem>
+                        <Collapse in={state.docsMenuVisible}>
+                            <DocsMenu />
+                        </Collapse>
                         <Divider />
                         <ListItem className={styles.menuItem} button onClick={openTrialDialog}>
                             <ListItemIcon>
@@ -135,7 +150,11 @@ export default function({ onOpenTrialDialog }) {
                             <ListItemText primary="在线体验" />
                         </ListItem>
                         <Divider />
-                        <ListItem className={styles.menuItem} button onClick={() => go("/pricing")}>
+                        <ListItem
+                            className={styles.menuItem}
+                            button
+                            onClick={() => history.push("/pricing")}
+                        >
                             <ListItemIcon>
                                 <Link />
                             </ListItemIcon>
