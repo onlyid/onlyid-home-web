@@ -23,7 +23,7 @@ export default function() {
                 OTP（一次性密码）不需要集成SDK，让你通过简单调一个HTTP接口，就可以快速发送短信、邮箱验证码。
             </Typography>
             <Typography variant="h5" gutterBottom>
-                发送验证码请求
+                发送验证码
             </Typography>
             <Typography variant="body1">POST方式请求：</Typography>
             <pre>https://www.onlyid.net/api/open/send-otp</pre>
@@ -71,6 +71,13 @@ export default function() {
                 </Typography>
             </Alert>
             <Typography variant="h5" gutterBottom>
+                自定义设置
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+                默认发送的验证码是6位数字，你可以登录控制台 -> 应用管理 -> 验证码设置
+                自定义包括长度、类型、短信模板在内的选项，以更符合你的应用需求。
+            </Typography>
+            <Typography variant="h5" gutterBottom>
                 注意事项
             </Typography>
             <Typography variant="body1" gutterBottom>
@@ -82,7 +89,7 @@ export default function() {
             </Typography>
             <Alert severity="error">
                 <Typography variant="subtitle1">
-                    唯ID有完善的风控机制，滥用短信资源、频繁打扰用户的恶意开发者将被纳入黑名单，面临从封禁单个违规应用一个月到最高封禁开发者账号一年的处罚！
+                    唯ID有完善的风控机制，滥用短信资源、频繁打扰用户的恶意开发者将被纳入黑名单，面临从封禁单个违规应用一个月到最高封禁开发者账号一年的处罚。
                 </Typography>
             </Alert>
         </>

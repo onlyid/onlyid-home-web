@@ -4,6 +4,7 @@ import { Link, Route, Switch, useLocation, useRouteMatch } from "react-router-do
 import Home from "./Home";
 import Background from "./Background";
 import Otp from "./Otp";
+import SsoOAuth from "./sso/OAuth";
 import { Collapse, List, ListItem, ListItemText } from "@material-ui/core";
 import classNames from "classnames";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
@@ -99,9 +100,6 @@ function Menu() {
                     <MyListItem to={`${match.url}/other/faq`}>
                         <ListItemText primary="常见问题" />
                     </MyListItem>
-                    <MyListItem to={`${match.url}/other/terminology`}>
-                        <ListItemText primary="名词解释" />
-                    </MyListItem>
                 </List>
             </Collapse>
         </List>
@@ -132,6 +130,10 @@ export default function() {
         };
     }, [showBanner]);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location.pathname]);
+
     return (
         <>
             {showBanner && (
@@ -154,6 +156,9 @@ export default function() {
                         </Route>
                         <Route path={`${match.path}/otp`}>
                             <Otp />
+                        </Route>
+                        <Route path={`${match.path}/sso/oauth`}>
+                            <SsoOAuth />
                         </Route>
                         <Route path={match.path}>
                             <Home />

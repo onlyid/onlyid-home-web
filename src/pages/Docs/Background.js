@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Link } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 
 export default function() {
@@ -38,9 +38,9 @@ export default function() {
                 </li>
                 <li>
                     <b>开源、自由</b>，自豪地采用GPLv3协议，托管在&nbsp;
-                    <a href="https://github.com/onlyid" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://github.com/onlyid" target="_blank">
                         GitHub
-                    </a>
+                    </Link>
                     ，所有人可参与贡献，不受大公司控制。
                 </li>
                 <li>
@@ -77,13 +77,12 @@ export default function() {
                 </li>
                 <li>
                     唯ID是中立的平台，和你的应用没有竞争关系，永远不会出现&nbsp;
-                    <a
+                    <Link
                         href="http://finance.eastmoney.com/a/201901281035452049.html"
                         target="_blank"
-                        rel="noopener noreferrer"
                     >
                         抖音不能用微信登录
-                    </a>
+                    </Link>
                     &nbsp;的破事。
                 </li>
             </Typography>

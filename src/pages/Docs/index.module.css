@@ -28,6 +28,18 @@
     margin-bottom: 0.2em;
 }
 
+.root dt {
+    font-weight: bold;
+}
+
+.root dt:not(:first-of-type) {
+    margin-top: 0.8em;
+}
+
+.root dd {
+    margin-left: 0;
+}
+
 .menuContainer {
     position: fixed;
     overflow-y: auto;
@@ -55,9 +67,28 @@
     vertical-align: -10%;
 }
 
+.img1 {
+    width: 768px;
+}
+
+@media (max-width: 599px) {
+    .img1 {
+        width: 100%;
+    }
+}
+
 @media (min-width: 600px) {
     .root {
         width: 1200px;
         margin: 0 auto;
+    }
+
+    .imgBox {
+        text-align: center;
+    }
+
+    .imgBox img {
+        border: 1px solid #e8e8e8;
+        border-radius: 5px;
     }
 }
