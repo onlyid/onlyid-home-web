@@ -53,7 +53,7 @@
 }
 
 .itemBox1 .title {
-    font-size: 48px;
+    font-size: 2.5rem;
     margin-top: 0;
 }
 
@@ -61,7 +61,7 @@
     padding: 0;
     margin: 0;
     list-style: none;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .itemBox1 .detail li {
@@ -81,7 +81,7 @@
 
 .itemBox2 .title,
 .itemBox3 .title {
-    font-size: 2.7rem;
+    font-size: 2.2rem;
     margin-top: 0;
 }
 
@@ -90,7 +90,7 @@
     padding: 0;
     margin: 0;
     list-style: none;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
 }
 
 .itemBox2 .detail li,
@@ -98,19 +98,36 @@
     line-height: 3.5em;
 }
 
-.buttonBox {
-    margin-right: 1rem;
+.button {
+    border-radius: 1.5rem;
 }
 
-.icon {
-    font-size: 2rem;
+.itemBox2 .detail :global .MuiSvgIcon-root,
+.itemBox3 .detail :global .MuiSvgIcon-root {
+    font-size: 1.5rem;
     vertical-align: -9%;
     margin-right: 1rem;
 }
 
 .githubIcon {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     margin-right: 1rem;
+}
+
+@media (max-width: 599px) {
+    .item {
+        padding: 1rem;
+    }
+
+    .itemBox2 .detail,
+    .itemBox3 .detail {
+        font-size: 1rem;
+    }
+
+    .itemBox2 .detail li,
+    .itemBox3 .detail li {
+        line-height: 3em;
+    }
 }
 
 @media (min-width: 600px) {
@@ -130,42 +147,5 @@
         width: 1200px;
         padding: 0 40px;
         margin: 0 auto;
-    }
-
-    .button {
-        font-size: 1.1rem;
-        border-radius: 2rem;
-    }
-}
-
-@media (max-width: 599px) {
-    .item {
-        padding: 1rem;
-    }
-
-    .itemBox1 .title {
-        font-size: 2.4rem;
-    }
-
-    .itemBox1 .detail {
-        font-size: 1.2rem;
-    }
-
-    .itemBox2 .title,
-    .itemBox3 .title {
-        font-size: 1.9rem;
-    }
-
-    .itemBox2 .detail,
-    .itemBox3 .detail {
-        font-size: 1rem;
-    }
-
-    .icon {
-        font-size: 1.4rem;
-    }
-
-    .githubIcon {
-        font-size: 1.2rem;
     }
 }

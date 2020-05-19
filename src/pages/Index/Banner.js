@@ -148,8 +148,13 @@ class Banner extends PureComponent {
                         </Grid>
                     </div>
                     <div className={classNames(styles.itemBox, styles.itemBox2)}>
-                        <Grid container alignItems="center" className={styles.item} spacing={3}>
-                            <Grid item xs={12} sm={6}>
+                        <Grid
+                            container
+                            alignItems="center"
+                            justify="space-between"
+                            className={styles.item}
+                        >
+                            <Grid item xs={12} sm={5}>
                                 <p className={styles.title}>
                                     适合所有网站和APP的
                                     <br />
@@ -164,14 +169,14 @@ class Banner extends PureComponent {
                                     开始使用
                                 </Button>
                             </Grid>
-                            <Grid item xs={12} sm={6}>
+                            <Grid item xs={12} sm={5}>
                                 <ul className={styles.detail}>
                                     <li>
-                                        <MonetizationOn className={styles.icon} />
+                                        <MonetizationOn />
                                         成本极低：每个开发者每年只需支付 200 元
                                     </li>
                                     <li>
-                                        <Textsms className={styles.icon} />
+                                        <Textsms />
                                         无限短信：提供不限量的手机号验证码短信
                                     </li>
                                     <li>
@@ -185,7 +190,12 @@ class Banner extends PureComponent {
                         </Grid>
                     </div>
                     <div className={classNames(styles.itemBox, styles.itemBox3)}>
-                        <Grid container alignItems="center" className={styles.item} spacing={3}>
+                        <Grid
+                            container
+                            alignItems="center"
+                            justify="space-between"
+                            className={styles.item}
+                        >
                             <Grid item xs={12} sm={6}>
                                 <p className={styles.title}>
                                     适合所有企业的
@@ -204,15 +214,15 @@ class Banner extends PureComponent {
                             <Grid item xs={12} sm={6}>
                                 <ul className={styles.detail}>
                                     <li>
-                                        <VerifiedUser className={styles.icon} />
+                                        <VerifiedUser />
                                         安全可靠：我们始终把安全、稳定放在首位
                                     </li>
                                     <li>
-                                        <Dashboard className={styles.icon} />
+                                        <Dashboard />
                                         灵活好用：覆盖各行各业所有 IAM 需求
                                     </li>
                                     <li>
-                                        <Build className={styles.icon} />
+                                        <Build />
                                         支持定制：大企业支持源码级定制和专有部署
                                     </li>
                                 </ul>
