@@ -31,12 +31,12 @@
 .menuContainer {
     position: fixed;
     overflow-y: auto;
+    min-width: 220px;
 }
 
 .menu {
     padding-top: 50px;
     padding-bottom: 50px;
-    min-width: 220px;
 }
 
 .right {

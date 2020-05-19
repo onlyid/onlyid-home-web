@@ -10,7 +10,7 @@ export default function() {
             </Typography>
             <Alert>
                 <Typography variant="subtitle1">
-                    我们坚信：账号和言论自由、互联网安全一样，是人民的基本权利。所有网站、APP，不管规模大小，都应该能够平等的被人访问和使用。
+                    我们坚信：账号和言论自由、互联网安全一样，是人民的基本权利；所有网站和APP，不管规模大小，都应该能够平等的让所有人访问和使用。
                 </Typography>
             </Alert>
             <Typography variant="body1" gutterBottom>
@@ -34,7 +34,7 @@ export default function() {
             </Typography>
             <Typography variant="body1" gutterBottom component="ul">
                 <li>
-                    稳定、可靠，唯ID作为账号系统，对接入的应用非常重要。所以在开发唯ID时，我们始终把安全、稳定、可靠放在首位。
+                    稳定、可靠，唯ID作为账号系统，对接入的应用非常重要。所以在开发时，我们始终把安全、稳定、可靠放在首位。
                 </li>
                 <li>
                     <b>开源、自由</b>，自豪地采用GPLv3协议，托管在&nbsp;
@@ -55,7 +55,7 @@ export default function() {
                     <b>唯ID的开发初衷就是替代应用的自有登录</b>。
                 </li>
                 <li>
-                    用户只需要在一个接入唯ID的应用注册，即可在所有应用使用。应用可以获取手机号、昵称、头像等基础用户信息。
+                    用户只需要在一个接入唯ID的应用注册，即可在所有应用使用；应用可以获取手机号、昵称、头像等基础用户信息。
                 </li>
                 <li>用户端有APP，一站式管理用户信息、登录设备、授权应用等。</li>
                 <li>开发者控制台有完善的应用管理、用户管理、数据统计等功能。</li>
@@ -69,10 +69,11 @@ export default function() {
                     <b>你可以放心的把唯ID作为你的应用唯一的登录方式</b>。
                 </li>
                 <li>
-                    我们是专业的IDaaS解决方案提供商，而不只是社交平台开放的登录功能，企业也可以放心选择我们。
+                    我们是专业的IDaaS解决方案，而不是社交平台开放的一小部分能力，企业也可以放心选择我们。
                 </li>
                 <li>
-                    返回用户真实登录账号，而不只是平台绑定的open id，更加开放，可自由接入或迁出。
+                    唯ID返回用户真实登录账号，而不只是平台绑定的open
+                    id，更加开放，可自由接入或迁出。
                 </li>
                 <li>
                     唯ID是中立的平台，和你的应用没有竞争关系，永远不会出现&nbsp;
@@ -83,7 +84,7 @@ export default function() {
                     >
                         抖音不能用微信登录
                     </a>
-                    &nbsp;的怪事。
+                    &nbsp;的破事。
                 </li>
             </Typography>
         </>

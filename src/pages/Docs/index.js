@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.css";
-import { Switch, Route, Link, useRouteMatch, useLocation } from "react-router-dom";
+import { Link, Route, Switch, useLocation, useRouteMatch } from "react-router-dom";
 import Home from "./Home";
 import Background from "./Background";
+import Otp from "./Otp";
 import { Collapse, List, ListItem, ListItemText } from "@material-ui/core";
 import classNames from "classnames";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
@@ -150,6 +151,9 @@ export default function() {
                     <Switch>
                         <Route path={`${match.path}/background`}>
                             <Background />
+                        </Route>
+                        <Route path={`${match.path}/otp`}>
+                            <Otp />
                         </Route>
                         <Route path={match.path}>
                             <Home />
