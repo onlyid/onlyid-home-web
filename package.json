@@ -22,8 +22,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "postbuild": "react-snap"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -31,8 +30,5 @@
   "browserslist": [
     ">1%"
   ],
-  "devDependencies": {
-    "react-snap": "^1.23.0"
-  },
   "homepage": "https://www.onlyid.net/home"
 }

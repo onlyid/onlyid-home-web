@@ -116,8 +116,8 @@
 }
 
 .hr1 {
-    color: #7f7f7f;
     border-top: none;
+    border-bottom: 1px solid #7f7f7f;
     margin-top: 2rem;
 }
 
