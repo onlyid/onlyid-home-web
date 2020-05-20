@@ -11,15 +11,18 @@ export default function() {
                 OAuth 2.0入门
             </Typography>
             <Alert severity="info">
-                <Typography variant="subtitle1">
+                <Typography variant="body1">
                     如果你已经使用过类似的基于OAuth的登录认证方案（如微信、微博等），可跳过本节。
                 </Typography>
             </Alert>
+            <Typography variant="h5" gutterBottom>
+                前言
+            </Typography>
             <Typography variant="body1" gutterBottom>
                 <Link href="http://oauth.net/2" target="_blank">
                     OAuth 2.0
-                </Link>
-                &nbsp;是一个开放标准，允许第三方访问用户在某一网站上存储的私密资源，而无需将用户名和密码提供给第三方。唯ID的账号和认证解决方案基于OAuth
+                </Link>{" "}
+                是一个开放标准，允许第三方访问用户在某一网站上存储的私密资源，而无需将用户名和密码提供给第三方。唯ID的账号和认证解决方案基于OAuth
                 2.0构建，可以让用户安全地在第三方应用验证身份信息。
             </Typography>
             <Typography variant="body1" gutterBottom>

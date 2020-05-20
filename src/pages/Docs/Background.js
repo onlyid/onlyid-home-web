@@ -9,10 +9,13 @@ export default function() {
                 项目背景和特点
             </Typography>
             <Alert>
-                <Typography variant="subtitle1">
-                    我们坚信：账号和言论自由、互联网安全一样，是人民的基本权利；所有网站和APP，不管规模大小，都应该能够平等的让所有人访问和使用。
+                <Typography variant="body1">
+                    我们坚信：账号和言论自由、互联网安全一样，是人民的基本权利；所有网站和APP，不管规模大小，都应该能够平等的接受所有人访问和使用。
                 </Typography>
             </Alert>
+            <Typography variant="h5" gutterBottom>
+                项目背景
+            </Typography>
             <Typography variant="body1" gutterBottom>
                 一直以来，人们习惯在每个用到的应用都注册一个账号，设置单独的密码。这导致了一些问题：
             </Typography>
@@ -37,7 +40,7 @@ export default function() {
                     稳定、可靠，唯ID作为账号系统，对接入的应用非常重要。所以在开发时，我们始终把安全、稳定、可靠放在首位。
                 </li>
                 <li>
-                    <b>开源、自由</b>，自豪地采用GPLv3协议，托管在&nbsp;
+                    <b>开源、自由</b>，自豪地采用GPLv3协议，托管在{" "}
                     <Link href="https://github.com/onlyid" target="_blank">
                         GitHub
                     </Link>
@@ -76,14 +79,14 @@ export default function() {
                     id，更加开放，可自由接入或迁出。
                 </li>
                 <li>
-                    唯ID是中立的平台，和你的应用没有竞争关系，永远不会出现&nbsp;
+                    唯ID是中立的平台，和你的应用没有竞争关系，永远不会出现{" "}
                     <Link
                         href="http://finance.eastmoney.com/a/201901281035452049.html"
                         target="_blank"
                     >
                         抖音不能用微信登录
-                    </Link>
-                    &nbsp;的破事。
+                    </Link>{" "}
+                    的破事。
                 </li>
             </Typography>
         </>
