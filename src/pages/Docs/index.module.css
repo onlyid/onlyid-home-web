@@ -12,6 +12,10 @@
     margin-top: 2em;
 }
 
+.root :global .MuiTypography-h6 {
+    margin-top: 1.8em;
+}
+
 .root :global .MuiTypography-gutterBottom {
     margin-bottom: 1em;
 }

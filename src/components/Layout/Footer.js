@@ -34,7 +34,7 @@ export default class extends PureComponent {
                             <p className={styles.title}>联系我们</p>
                             <ul>
                                 <li>
-                                    客户咨询专线：15521312099（微信同号）
+                                    商务咨询专线：15521312099（微信同号）
                                     <i
                                         className="iconfont hide-xs"
                                         onMouseEnter={this.showWeChat}
@@ -71,7 +71,7 @@ export default class extends PureComponent {
                                     <Link to="/pricing">套餐价格与部署方式</Link>
                                 </li>
                                 <li>
-                                    <Link to="/docs/faq">常见问题 FAQ</Link>
+                                    <Link to="/docs/other/faq">常见问题 FAQ</Link>
                                 </li>
                                 <li>
                                     <a href="https://github.com/onlyid">GitHub 仓库</a>
