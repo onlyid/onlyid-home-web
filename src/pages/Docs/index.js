@@ -6,6 +6,7 @@ import Background from "./Background";
 import Otp from "./Otp";
 import SsoOAuth from "./sso/OAuth";
 import SsoWeb from "./sso/Web";
+import SsoOther from "./sso/Other";
 import { Hidden } from "@material-ui/core";
 import classNames from "classnames";
 import Menu from "./Menu";
@@ -68,6 +69,9 @@ export default function() {
                         </Route>
                         <Route path={`${match.path}/sso/web`}>
                             <SsoWeb />
+                        </Route>
+                        <Route path={`${match.path}/sso/other`}>
+                            <SsoOther />
                         </Route>
                         <Route path={match.path}>
                             <Home />

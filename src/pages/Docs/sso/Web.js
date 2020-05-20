@@ -47,7 +47,7 @@ export default function() {
                 授权页引导用户完成验证，然后带上code GET方式重定向到你的redirect uri，成功示例：
             </Typography>
             <pre>你的redirect uri?code=596c441eced7220159a3c0616e4de248e9223c9d</pre>
-            <Typography variant="h5" gutterBottom>
+            <Typography variant="h5" gutterBottom id="access-token">
                 获取access token
             </Typography>
             <Alert severity="warning">
