@@ -1,10 +1,18 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, Suspense } from "react";
 import { Redirect, Route, Switch, withRouter } from "react-router-dom";
 import Layout from "components/Layout";
-import Index from "pages/Index";
-import Docs from "pages/Docs";
-import Pricing from "pages/Pricing";
-import About from "pages/About";
+import { CircularProgress } from "@material-ui/core";
+
+const Index = React.lazy(() => import("pages/Index"));
+const Docs = React.lazy(() => import("pages/Docs"));
+const Pricing = React.lazy(() => import("pages/Pricing"));
+const About = React.lazy(() => import("pages/About"));
+
+const loading = (
+    <div style={{ padding: "35vh 0", textAlign: "center" }}>
+        <CircularProgress />
+    </div>
+);
 
 class App extends PureComponent {
     componentDidMount() {
@@ -38,23 +46,25 @@ class App extends PureComponent {
     render() {
         return (
             <Layout>
-                <Switch>
-                    <Route path="/" exact>
-                        <Index />
-                    </Route>
-                    <Route path="/docs">
-                        <Docs />
-                    </Route>
-                    <Route path="/pricing">
-                        <Pricing />
-                    </Route>
-                    <Route path="/about">
-                        <About />
-                    </Route>
-                    <Route path="/">
-                        <Redirect to="/" />
-                    </Route>
-                </Switch>
+                <Suspense fallback={loading}>
+                    <Switch>
+                        <Route path="/" exact>
+                            <Index />
+                        </Route>
+                        <Route path="/docs">
+                            <Docs />
+                        </Route>
+                        <Route path="/pricing">
+                            <Pricing />
+                        </Route>
+                        <Route path="/about">
+                            <About />
+                        </Route>
+                        <Route path="/">
+                            <Redirect to="/" />
+                        </Route>
+                    </Switch>
+                </Suspense>
             </Layout>
         );
     }
