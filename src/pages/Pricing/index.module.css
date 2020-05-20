@@ -47,8 +47,8 @@
 
 .recommend {
     position: absolute;
-    width: 6rem;
-    height: 6rem;
+    width: 5.5rem;
+    height: 5.5rem;
     right: 0;
     top: 0;
     transform-origin: 0 0;
@@ -57,7 +57,7 @@
 
 .recommendBg {
     width: 0;
-    border-width: 3rem;
+    border-width: 2.75rem;
     border-style: solid;
     border-color: #f56c6c #f56c6c transparent transparent;
     position: absolute;
@@ -68,10 +68,10 @@
 .recommendText {
     transform: rotate(45deg);
     position: absolute;
-    right: 1.1rem;
+    right: 0.9rem;
     top: 1.4rem;
     color: white;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: bold;
 }
 
@@ -83,29 +83,6 @@
 @media (max-width: 599px) {
     .envelop {
         background-size: 4rem;
-    }
-
-    .card {
-        height: 22rem;
-    }
-
-    .ul1 li {
-        font-size: 0.95rem;
-        line-height: 2.2rem;
-    }
-
-    .recommend {
-        width: 5.5rem;
-        height: 5.5rem;
-    }
-
-    .recommendBg {
-        border-width: 2.75rem;
-    }
-
-    .recommendText {
-        font-size: 0.95rem;
-        right: 0.9rem;
     }
 }
 
