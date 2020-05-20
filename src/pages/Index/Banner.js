@@ -196,7 +196,7 @@ class Banner extends PureComponent {
                             justify="space-between"
                             className={styles.item}
                         >
-                            <Grid item xs={12} sm={6}>
+                            <Grid item xs={12} sm={5}>
                                 <p className={styles.title}>
                                     适合所有企业的
                                     <br />
@@ -211,7 +211,7 @@ class Banner extends PureComponent {
                                     开始使用
                                 </Button>
                             </Grid>
-                            <Grid item xs={12} sm={6}>
+                            <Grid item xs={12} sm={5}>
                                 <ul className={styles.detail}>
                                     <li>
                                         <VerifiedUser />

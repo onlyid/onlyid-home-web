@@ -1,9 +1,5 @@
 .tab {
-    font-size: 1.2rem;
-}
-
-.tab1 {
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 .img1 {
@@ -23,11 +19,13 @@
 
 .ul1 li {
     font-size: 1rem;
+    display: flex;
 }
 
 .ul1 li :global .MuiSvgIcon-root {
     vertical-align: -15%;
     margin-right: 0.5rem;
+    font-size: 1.3rem;
 }
 
 .ul1 li:not(:last-of-type) {
@@ -55,19 +53,20 @@
 }
 
 .compare {
+    font-size: 0.9rem;
     margin-top: 4rem;
     margin-bottom: 1.5rem;
     color: #3f51b5;
 }
 
 .iamTitle1 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     text-align: center;
     margin-top: 0;
     margin-bottom: 0.5rem;
 }
 
-.iamP1 {
+.explore {
     font-size: 1.1rem;
     margin-top: 2.2rem;
     margin-bottom: 0;
@@ -111,7 +110,7 @@
 }
 
 .missionBox p {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     color: white;
 }
 
@@ -122,19 +121,6 @@
 }
 
 @media (max-width: 599px) {
-    .tab {
-        font-size: 1.1rem;
-    }
-
-    .tab1 {
-        font-size: 0.9rem;
-    }
-
-    .ul1 li {
-        font-size: 0.95rem;
-        display: flex;
-    }
-
     .ul1 li:not(:last-of-type) {
         margin-bottom: 0.7rem;
     }
@@ -143,32 +129,13 @@
         margin-bottom: 0.4rem;
     }
 
-    .ul1 :global .MuiSvgIcon-root {
-        font-size: 1.2rem;
-    }
-
     .compare {
         margin-top: 2rem;
-    }
-
-    .iamTitle1 {
-        font-size: 1rem;
-    }
-
-    .iamP1 {
-        font-size: 1rem;
-    }
-
-    .missionBox p {
-        font-size: 1.15rem;
     }
 }
 
 @media (min-width: 600px) {
     .hr1 {
         width: 1200px;
-    }
-    .compare {
-        font-size: 0.9rem;
     }
 }

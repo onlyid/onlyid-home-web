@@ -20,6 +20,7 @@
 pre {
     padding: 1.5rem;
     background-color: #f7f8f9;
+    font-size: 0.9rem;
     overflow-x: auto;
 }
 
@@ -39,6 +40,7 @@ pre .color2 {
     margin: 0 auto;
     padding-top: 2rem;
     padding-bottom: 2rem;
+    overflow-x: hidden;
 }
 
 .section-card {
@@ -48,7 +50,7 @@ pre .color2 {
 }
 
 .section-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin: 0;
     text-align: center;
 }
@@ -78,7 +80,7 @@ pre .color2 {
     background-size: cover;
     color: white;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 @keyframes breath-animate {
@@ -97,24 +99,8 @@ pre .color2 {
 }
 
 @media (max-width: 599px) {
-    .section {
-        overflow-x: hidden;
-    }
-
     .section-card {
         padding: 1.5rem;
-    }
-
-    .section-title {
-        font-size: 1.7rem;
-    }
-
-    .p1 {
-        font-size: 1.1rem;
-    }
-
-    .p2 {
-        font-size: 0.95rem;
     }
 
     .hide-xs {
@@ -123,7 +109,6 @@ pre .color2 {
 
     .banner {
         background-size: 600px;
-        font-size: 1.7rem;
     }
 }
 
@@ -137,9 +122,5 @@ pre .color2 {
     .section-card {
         border-radius: 0.3rem;
         border: 1px solid #e8e8e8;
-    }
-
-    pre {
-        font-size: 0.9rem;
     }
 }

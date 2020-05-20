@@ -91,7 +91,7 @@ export default function() {
                             </ul>
                         </Grid>
                     </Grid>
-                    <p className={styles.iamP1}>
+                    <p className={styles.explore}>
                         更多好用功能（统计数据、审计日志）等你亲自探索。。。
                     </p>
                 </div>
