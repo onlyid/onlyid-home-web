@@ -37,7 +37,7 @@
     font-size: 1rem;
 }
 
-.root ul {
+.root :global ul:not(.MuiList-root) {
     list-style: circle;
     padding-left: 2em;
     font-size: 1rem;

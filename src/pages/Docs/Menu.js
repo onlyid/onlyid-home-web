@@ -62,24 +62,27 @@ export default function() {
             </ListItem>
             <Collapse in={iamVisible}>
                 <List disablePadding className={styles.nestedList}>
-                    <MyListItem to="/docs/iam/user">
-                        <ListItemText primary="用户管理" />
+                    <MyListItem to="/docs/iam/intro">
+                        <ListItemText primary="简介" />
                     </MyListItem>
-                    <MyListItem to="/docs/iam/org">
-                        <ListItemText primary="组织机构管理" />
-                    </MyListItem>
-                    <MyListItem to="/docs/iam/res">
-                        <ListItemText primary="权限管理" />
-                    </MyListItem>
-                    <MyListItem to="/docs/iam/role">
-                        <ListItemText primary="角色管理" />
-                    </MyListItem>
-                    <MyListItem to="/docs/iam/statistics">
-                        <ListItemText primary="统计数据" />
-                    </MyListItem>
-                    <MyListItem to="/docs/iam/audit">
-                        <ListItemText primary="审计日志" />
-                    </MyListItem>
+                    {/*<MyListItem to="/docs/iam/user">*/}
+                    {/*    <ListItemText primary="用户管理" />*/}
+                    {/*</MyListItem>*/}
+                    {/*<MyListItem to="/docs/iam/org">*/}
+                    {/*    <ListItemText primary="组织机构管理" />*/}
+                    {/*</MyListItem>*/}
+                    {/*<MyListItem to="/docs/iam/res">*/}
+                    {/*    <ListItemText primary="权限管理" />*/}
+                    {/*</MyListItem>*/}
+                    {/*<MyListItem to="/docs/iam/role">*/}
+                    {/*    <ListItemText primary="角色管理" />*/}
+                    {/*</MyListItem>*/}
+                    {/*<MyListItem to="/docs/iam/statistics">*/}
+                    {/*    <ListItemText primary="统计数据" />*/}
+                    {/*</MyListItem>*/}
+                    {/*<MyListItem to="/docs/iam/audit">*/}
+                    {/*    <ListItemText primary="审计日志" />*/}
+                    {/*</MyListItem>*/}
                 </List>
             </Collapse>
             <ListItem button onClick={() => setOtherVisible(!otherVisible)}>

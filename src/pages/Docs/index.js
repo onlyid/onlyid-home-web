@@ -7,6 +7,7 @@ import Otp from "./Otp";
 import SsoOAuth from "./sso/OAuth";
 import SsoWeb from "./sso/Web";
 import SsoOther from "./sso/Other";
+import IamIntro from "./iam/Intro";
 import OtherSecurity from "./other/Security";
 import OtherFaq from "./other/Faq";
 import { Hidden } from "@material-ui/core";
@@ -74,6 +75,9 @@ export default function() {
                         </Route>
                         <Route path={`${match.path}/sso/other`}>
                             <SsoOther />
+                        </Route>
+                        <Route path={`${match.path}/iam/intro`}>
+                            <IamIntro />
                         </Route>
                         <Route path={`${match.path}/other/security`}>
                             <OtherSecurity />
