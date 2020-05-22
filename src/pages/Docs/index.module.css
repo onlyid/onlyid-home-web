@@ -8,16 +8,28 @@
     padding: 0 1rem;
 }
 
-.root :global .MuiTypography-h5 {
-    margin-top: 2em;
-}
-
-.root :global .MuiTypography-h6 {
-    margin-top: 1.8em;
-}
-
-.root :global .MuiTypography-gutterBottom {
+.root h1 {
+    font-size: 2.125rem;
+    font-weight: normal;
+    margin-top: 0;
     margin-bottom: 1em;
+}
+
+.root h2 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.root h3 {
+    margin-top: 1.8em;
+    font-weight: normal;
+    font-size: 1.2rem;
+}
+
+.root p {
+    font-size: 1rem;
 }
 
 .root :global .MuiAlert-root {
@@ -26,6 +38,8 @@
 
 .root ul {
     list-style: circle;
+    padding-left: 2em;
+    font-size: 1rem;
 }
 
 .root ul li:not(:last-of-type) {
