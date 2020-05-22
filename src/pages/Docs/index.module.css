@@ -34,6 +34,7 @@
 
 .root :global .MuiAlert-root {
     margin-bottom: 1em;
+    font-size: 1rem;
 }
 
 .root ul {
@@ -48,6 +49,7 @@
 
 .root dt {
     font-weight: bold;
+    margin-bottom: 0.4em;
 }
 
 .root dt:not(:first-of-type) {
