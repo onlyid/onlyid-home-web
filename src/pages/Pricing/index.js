@@ -43,7 +43,7 @@ export default function() {
             <section className="section-bg">
                 <div className="section">
                     <p className="section-title">价格与部署</p>
-                    <p className={classNames("p1", styles.p1)}>
+                    <p className="p3">
                         如果唯ID现有功能满足不了贵公司的需求，欢迎联系我们，定制你的企业专属版本。
                     </p>
                     <Grid container spacing={6}>
@@ -124,7 +124,7 @@ export default function() {
                             </div>
                         </Grid>
                     </Grid>
-                    <p className={classNames("p1", styles.p1)}>
+                    <p className="p3" style={{ fontSize: "1.1rem" }}>
                         不管你是普通开发者还是各类企业、政府机构或者教育组织，有任何疑问，欢迎联系客户经理为你服务（官网左下角）。
                     </p>
                 </div>

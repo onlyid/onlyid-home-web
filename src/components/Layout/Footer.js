@@ -85,13 +85,13 @@ export default class extends PureComponent {
                                     <Link to="/about">唯ID介绍（团队介绍）</Link>
                                 </li>
                                 <li>
-                                    <Link to="/about#join">加入我们（工作机会）</Link>
+                                    <Link to="/about/careers">加入我们（工作机会）</Link>
                                 </li>
                                 <li>
-                                    <Link to="/user-agreement">用户协议</Link>
+                                    <Link to="/about/agreement">用户协议</Link>
                                 </li>
                                 <li>
-                                    <Link to="/privacy-policy">隐私权政策</Link>
+                                    <Link to="/about/privacy">隐私权政策</Link>
                                 </li>
                             </ul>
                         </Grid>

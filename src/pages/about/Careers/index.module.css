@@ -1,0 +1,92 @@
+.banner {
+    background-image: url("../../../assets/banner1-bg.jpg");
+}
+
+.positionType {
+    text-align: center;
+    cursor: pointer;
+}
+
+.positionType .imgBox {
+    background-color: #f4f5f6;
+    padding: 2rem;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto;
+    box-sizing: content-box;
+}
+
+.positionType .imgBox:hover {
+    background-color: #eee;
+}
+
+.positionType .imgBox img {
+    width: 4rem;
+}
+
+.positionType .title {
+    font-size: 0.95rem;
+    margin: 1rem 0 0 0;
+}
+
+.positionType .count {
+    color: #7f7f7f;
+    margin-top: 0.625rem;
+    margin-bottom: 0;
+}
+
+.benefit .iconBox {
+    float: left;
+    vertical-align: middle;
+    background-color: #4b5056;
+    width: 3.25rem;
+    height: 3.25rem;
+    font-size: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.benefit .title {
+    font-size: 1.15rem;
+    margin: 0;
+}
+
+.benefit .detail {
+    font-size: 0.95rem;
+    color: #7f7f7f;
+    margin-top: 0.5em;
+}
+
+.positionDetail {
+    min-height: 25rem;
+}
+
+.positionDetail .title {
+    color: #7f7f7f;
+    font-size: 1.1rem;
+}
+
+.positionDetail p {
+    font-size: 1rem;
+    line-height: 1.6em;
+}
+
+.positionList img {
+    width: 2rem;
+    margin-right: 1rem;
+}
+
+.positionList .nestedList :global .MuiListItem-root {
+    padding-left: 4rem;
+}
+
+@media (min-width: 600px) {
+    .positionDetail {
+        padding-left: 2rem;
+        border-left: 1px solid #e8e8e8;
+        margin-left: 2rem;
+    }
+}

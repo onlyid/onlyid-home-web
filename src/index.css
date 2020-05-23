@@ -48,7 +48,7 @@ pre .color2 {
 }
 
 .section-card {
-    padding: 3rem;
+    padding: 2.5rem 3rem;
     margin-top: 1.5rem;
     background-color: white;
 }
@@ -66,6 +66,12 @@ pre .color2 {
 
 .p2 {
     font-size: 1rem;
+}
+
+.p3 {
+    margin-top: 2rem;
+    padding: 0 1.5rem;
+    font-size: 1.2rem;
 }
 
 .img-tip {

@@ -1,0 +1,16 @@
+.banner {
+    background-color: #f7f8f9;
+    color: #303133;
+}
+
+.content {
+    padding: 2rem;
+    margin: 0 auto;
+    font-size: 0.95rem;
+}
+
+@media (min-width: 600px) {
+    .content {
+        width: 1200px;
+    }
+}

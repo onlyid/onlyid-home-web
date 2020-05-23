@@ -6,7 +6,10 @@ import { CircularProgress } from "@material-ui/core";
 const Index = React.lazy(() => import("pages/Index"));
 const Docs = React.lazy(() => import("pages/Docs"));
 const Pricing = React.lazy(() => import("pages/Pricing"));
-const About = React.lazy(() => import("pages/About"));
+const About = React.lazy(() => import("pages/about/About"));
+const Agreement = React.lazy(() => import("pages/about/Agreement"));
+const Privacy = React.lazy(() => import("pages/about/Privacy"));
+const Careers = React.lazy(() => import("pages/about/Careers"));
 
 const loading = (
     <div style={{ padding: "35vh 0", textAlign: "center" }}>
@@ -25,16 +28,18 @@ class App extends PureComponent {
     listenHistory = () => {
         const { history } = this.props;
 
-        history.listen(location => {
+        history.listen((location, action) => {
             const { hash } = location;
-            if (!hash) return;
+            if (hash) {
+                setTimeout(() => {
+                    const element = document.getElementById(hash.substr(1));
+                    if (!element) return;
 
-            setTimeout(() => {
-                const element = document.getElementById(hash.substr(1));
-                if (!element) return;
-
-                element.scrollIntoView();
-            }, 100);
+                    element.scrollIntoView();
+                }, 100);
+            } else {
+                if (action !== "POP") window.scrollTo(0, 0);
+            }
         });
     };
 
@@ -56,6 +61,15 @@ class App extends PureComponent {
                         </Route>
                         <Route path="/pricing">
                             <Pricing />
+                        </Route>
+                        <Route path="/about/agreement">
+                            <Agreement />
+                        </Route>
+                        <Route path="/about/privacy">
+                            <Privacy />
+                        </Route>
+                        <Route path="/about/careers">
+                            <Careers />
                         </Route>
                         <Route path="/about">
                             <About />
