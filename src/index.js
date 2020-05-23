@@ -7,6 +7,7 @@ import { createMuiTheme, CssBaseline } from "@material-ui/core";
 import { ThemeProvider, StylesProvider } from "@material-ui/core/styles";
 import { zhCN } from "@material-ui/core/locale";
 import { BrowserRouter } from "react-router-dom";
+// eslint-disable-next-line no-unused-vars
 import VConsole from "vconsole";
 
 // const vConsole = new VConsole();

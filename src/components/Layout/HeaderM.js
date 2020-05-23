@@ -55,6 +55,7 @@ export default function({ onOpenTrialDialog }) {
 
     useEffect(() => {
         setState({ ...state, menuVisible: false });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location.pathname]);
 
     const openTrialDialog = () => {
