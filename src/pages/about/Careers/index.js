@@ -36,6 +36,7 @@ export default function() {
 
     const goType = index => {
         setCurrentType(index);
+        setCurrent(POSITIONS[index][0]);
         history.push("#positions");
     };
 
@@ -48,9 +49,9 @@ export default function() {
                     <p className="p3">
                         我们永远在寻找聪明、创新的高素质人才，哪个角色让你游刃有余？
                     </p>
-                    <Grid container style={{ marginTop: "1.5rem" }}>
+                    <Grid container style={{ marginTop: "0" }} spacing={4}>
                         {TYPES.map((type, index) => (
-                            <Grid item xs={12} sm={3} key={type}>
+                            <Grid item xs={6} sm={3} key={type}>
                                 <PositionType
                                     count={POSITIONS[index].length}
                                     title={type}
@@ -67,7 +68,7 @@ export default function() {
                 <div className="section">
                     <p className="section-title">待遇和福利</p>
                     <p className="p3">为优秀的人才提供应有的待遇。</p>
-                    <Grid container style={{ marginTop: "1rem" }} spacing={3}>
+                    <Grid container style={{ marginTop: "1rem", padding: "0 1.5rem" }} spacing={3}>
                         <Grid item xs={12} sm={6}>
                             <Benefit
                                 title="极具竞争力的总体薪酬"
