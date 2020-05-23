@@ -82,7 +82,7 @@ export default class extends PureComponent {
                             <p className={styles.title}>关于唯ID</p>
                             <ul>
                                 <li>
-                                    <Link to="/about">唯ID介绍（团队介绍）</Link>
+                                    <Link to="/about">关于我们（团队介绍）</Link>
                                 </li>
                                 <li>
                                     <Link to="/about/careers">加入我们（工作机会）</Link>

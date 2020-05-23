@@ -1,0 +1,76 @@
+.banner {
+    background-color: #303133;
+    background-image: url("../../assets/banner6-bg.png");
+    background-position: center center;
+}
+
+.imgBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.imgBox img {
+    width: 5rem;
+}
+
+.imgBox p {
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.card1 {
+    background-color: white;
+    padding: 0.5rem 2rem 1rem;
+    font-size: 1rem;
+}
+
+.card1 .title {
+    font-size: 1.25rem;
+}
+
+.card1 ul {
+    padding-left: 1em;
+    list-style: circle;
+}
+
+.card1 ul li:not(:first-of-type) {
+    margin-top: 0.5rem;
+}
+
+.economicItem p {
+    font-size: 1.15rem;
+    color: #7f7f7f;
+}
+
+.economicItem ul {
+    padding-left: 1.5em;
+    font-size: 1rem;
+}
+
+.economicItem ul li:not(:first-of-type) {
+    margin-top: 0.5rem;
+}
+
+.pros {
+    list-style-image: url("../../assets/complete.png");
+}
+
+.cons {
+    list-style-image: url("../../assets/close.png");
+}
+
+@media (max-width: 599px) {
+    .card1 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 600px) {
+    .card1 {
+        border-radius: 0.3rem;
+        border: 1px solid #e8e8e8;
+    }
+}
