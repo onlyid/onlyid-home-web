@@ -47,6 +47,10 @@
     margin-bottom: 0.2em;
 }
 
+.root dl {
+    font-size: 1rem;
+}
+
 .root dt {
     font-weight: bold;
     margin-bottom: 0.4em;
