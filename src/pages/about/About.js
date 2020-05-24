@@ -24,10 +24,10 @@ export default function() {
                         </Grid>
                         <Grid item xs={12} sm={8}>
                             <div className={styles.card1}>
-                                <p className={styles.title}>唯ID由 梁庭宾 于 2017年6月12日 创立</p>
+                                <p className={styles.title}>唯ID由 梁庭宾 于 2015年6月12日 创立</p>
                                 <p>个人履历：</p>
                                 <ul>
-                                    <li>2010年毕业于中山大学软件工程专业</li>
+                                    <li>2012年毕业于中山大学软件工程专业</li>
                                     <li>前招商银行IT中心信用卡团队高级大数据风控工程师</li>
                                     <li>
                                         前平安集团智慧城市统一用户平台PAI（Ping An
