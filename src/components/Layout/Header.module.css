@@ -54,6 +54,10 @@
     align-items: center;
 }
 
+.headerRight a {
+    text-decoration: none;
+}
+
 .githubIcon {
     cursor: pointer;
     color: #c0c4cc;

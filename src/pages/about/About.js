@@ -24,7 +24,7 @@ export default function() {
                         </Grid>
                         <Grid item xs={12} sm={8}>
                             <div className={styles.card1}>
-                                <p className={styles.title}>唯ID由 梁庭宾 于 2015年6月12日 创立</p>
+                                <p className={styles.title}>唯ID由 梁庭宾 于 2017年6月12日 创立</p>
                                 <p>个人履历：</p>
                                 <ul>
                                     <li>2012年毕业于中山大学软件工程专业</li>

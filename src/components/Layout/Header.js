@@ -33,13 +33,15 @@ export default function({ onOpenTrialDialog }) {
         <header className={styles.headerBg}>
             <div className={styles.header}>
                 <div className={styles.headerLeft}>
-                    <img
-                        src={logo}
-                        alt="logo"
-                        height="33"
-                        className={styles.logo}
-                        onClick={() => history.push("/")}
-                    />
+                    <div style={{ fontSize: 0 }}>
+                        <img
+                            src={logo}
+                            alt="logo"
+                            height="33"
+                            className={styles.logo}
+                            onClick={() => history.push("/")}
+                        />
+                    </div>
                     <ul className={styles.menu}>
                         <li>
                             <Link to="" onClick={openProductMenu}>
