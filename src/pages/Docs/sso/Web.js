@@ -10,9 +10,14 @@ export default function() {
                 如果你还没配置应用回调uri，请先到控制台 -> 应用管理 -> OAuth设置 配置好再继续。
             </Alert>
             <h2>获取authorization code</h2>
-            <p>用户需要登录时，打开授权页：</p>
+            <p>
+                展示登录链接引导用户点击打开授权页，根据业务场景，使用不同文案提示用户，如果你的应用把唯ID作为唯一登录方式，可直接提示
+                "登录"，否则可以提示 "用唯ID登录"：
+            </p>
             <pre>
-                https://www.onlyid.net/oauth?client-id=你的应用id&redirect-uri=你的应用回调uri
+                {
+                    '<a href="https://www.onlyid.net/oauth?client-id=你的应用id&redirect-uri=你的应用回调uri">登录</a>'
+                }
             </pre>
             <Alert severity="info">
                 redirect uri应使用{" "}
@@ -33,7 +38,9 @@ export default function() {
             </Alert>
             <p>示例：</p>
             <pre>
-                https://www.onlyid.net/oauth?client-id=07c9770f22b1460398d44b4a3543db79&redirect-uri=https%3A%2F%2Fwww.example.com%2Fmy-app%2Foauth-callback
+                {
+                    '<a href="https://www.onlyid.net/oauth?client-id=07c9770f22b1460398d44b4a3543db79&redirect-uri=https%3A%2F%2Fwww.example.com%2Fmy-app%2Foauth-callback">登录</a>'
+                }
             </pre>
             <p>授权页引导用户完成验证，然后带上code GET方式重定向到你的redirect uri，成功示例：</p>
             <pre>你的redirect uri?code=596c441eced7220159a3c0616e4de248e9223c9d</pre>
