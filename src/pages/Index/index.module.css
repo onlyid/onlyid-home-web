@@ -48,8 +48,9 @@
     color: #f57f17;
 }
 
-.pre1 {
+:global #otp .pre1 {
     height: 13.5rem;
+    padding: 1.5em;
 }
 
 .compare {

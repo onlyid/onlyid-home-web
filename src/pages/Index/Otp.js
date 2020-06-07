@@ -35,7 +35,7 @@ export default function() {
                             <img src={otp1} alt="otp1" className={styles.img1} />
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <pre className={styles.pre1}>
+                            <pre className="pre1">
                                 <span className="color1">POST </span>
                                 https://www.onlyid.net/api/open/send-otp
                                 <br />
@@ -50,7 +50,7 @@ export default function() {
                             <p className="img-tip">发送请求</p>
                         </Grid>
                         <Grid item xs={12} sm={6}>
-                            <pre className={styles.pre1}>
+                            <pre className="pre1">
                                 <span className="color1">HTTP/1.1 200</span>
                                 {`
 {

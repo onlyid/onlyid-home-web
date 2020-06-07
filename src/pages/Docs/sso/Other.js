@@ -21,10 +21,11 @@ export default function() {
                 code，简单说，是通过平台原生的WebView打开授权页，待用户认证授权后，重定向到redirect
                 uri时，拦截这个请求，并从中取出authorization code。
             </p>
-            <h2>认证流程</h2>
+            <h2>获取authorization code</h2>
             <p>用户需要登录时，通过平台原生WebView打开授权页：</p>
-            <pre>
-                https://www.onlyid.net/oauth?client-id=你的应用id&redirect-uri=你的应用回调uri
+            <pre className="pre1">
+                https://www.onlyid.net/oauth?
+                <span className="color2">client-id=你的应用id&redirect-uri=你的应用回调uri</span>
             </pre>
             <Alert severity="info">
                 此时redirect uri并无实际意义，建议设置成http://localhost，同时应使用{" "}
@@ -37,12 +38,19 @@ export default function() {
                 方法转码后再使用。
             </Alert>
             <p>示例：</p>
-            <pre>
-                https://www.onlyid.net/oauth?client-id=07c9770f22b1460398d44b4a3543db79&redirect-uri=http%3A%2F%2Flocalhost
+            <pre className="pre1">
+                https://www.onlyid.net/oauth?
+                <span className="color2">
+                    client-id=07c9770f22b1460398d44b4a3543db79&redirect-uri=http%3A%2F%2Flocalhost
+                </span>
             </pre>
             <p>授权页引导用户完成验证，然后带上code GET方式重定向到你的redirect uri，成功示例：</p>
-            <pre>你的redirect uri?code=596c441eced7220159a3c0616e4de248e9223c9d</pre>
+            <pre className="pre1">
+                你的redirect uri?
+                <span className="color2">code=596c441eced7220159a3c0616e4de248e9223c9d</span>
+            </pre>
             <p>此时通过WebView提供的相关拦截方法拦截请求，并从中取出authorization code。</p>
+            <h2>获取access token和用户信息</h2>
             <p>
                 之后的流程（通过authorization code换取access token和通过access
                 token换取用户信息）与网站接入时并无区别，请直接参阅{" "}

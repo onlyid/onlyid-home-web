@@ -7,17 +7,22 @@ export default function() {
         <>
             <h1>网站快速接入</h1>
             <Alert severity="info">
+                如果你还没创建应用，请先到控制台 -> 应用管理 新建一个得到应用id和应用secret再继续。
+            </Alert>
+            <Alert severity="info">
                 如果你还没配置应用回调uri，请先到控制台 -> 应用管理 -> OAuth设置 配置好再继续。
             </Alert>
             <h2>获取authorization code</h2>
             <p>
-                展示登录链接引导用户点击打开授权页，根据业务场景，使用不同文案提示用户，如果你的应用把唯ID作为唯一登录方式，可直接提示
-                "登录"，否则可以提示 "用唯ID登录"：
+                展示登录链接（如果你的应用把唯ID作为唯一登录方式，链接文案可写 "登录"，否则可以写
+                "用唯ID登录"）引导用户点击打开授权页：
             </p>
             <pre>
-                {
-                    '<a href="https://www.onlyid.net/oauth?client-id=你的应用id&redirect-uri=你的应用回调uri">登录</a>'
-                }
+                <code className="lang-html">
+                    {
+                        '<a href="https://www.onlyid.net/oauth?client-id=你的应用id&redirect-uri=你的应用回调uri">登录</a>'
+                    }
+                </code>
             </pre>
             <Alert severity="info">
                 redirect uri应使用{" "}
@@ -38,18 +43,23 @@ export default function() {
             </Alert>
             <p>示例：</p>
             <pre>
-                {
-                    '<a href="https://www.onlyid.net/oauth?client-id=07c9770f22b1460398d44b4a3543db79&redirect-uri=https%3A%2F%2Fwww.example.com%2Fmy-app%2Foauth-callback">登录</a>'
-                }
+                <code className="lang-html">
+                    {
+                        '<a href="https://www.onlyid.net/oauth?client-id=07c9770f22b1460398d44b4a3543db79&redirect-uri=https%3A%2F%2Fwww.example.com%2Fmy-app%2Foauth-callback">登录</a>'
+                    }
+                </code>
             </pre>
             <p>授权页引导用户完成验证，然后带上code GET方式重定向到你的redirect uri，成功示例：</p>
-            <pre>你的redirect uri?code=596c441eced7220159a3c0616e4de248e9223c9d</pre>
+            <pre className="pre1">
+                你的redirect uri?
+                <span className="color2">code=596c441eced7220159a3c0616e4de248e9223c9d</span>
+            </pre>
             <h2 id="access-token">获取access token</h2>
             <Alert severity="warning">
                 获取access token应在服务端进行，以防泄露你的应用secret。
             </Alert>
             <p>得到authorization code后，POST方式请求：</p>
-            <pre>
+            <pre className="pre1">
                 <span className="color1">POST </span>
                 https://www.onlyid.net/api/oauth/access-token
                 <br />
@@ -61,7 +71,7 @@ export default function() {
 }`}
             </pre>
             <p>获取access token，示例：</p>
-            <pre>
+            <pre className="pre1">
                 <span className="color1">POST </span>
                 https://www.onlyid.net/api/oauth/access-token
                 <br />
@@ -73,7 +83,7 @@ export default function() {
 }`}
             </pre>
             <p>请求成功，响应报文示例：</p>
-            <pre>
+            <pre className="pre1">
                 <span className="color1">HTTP/1.1 200</span>
                 {`
 {
@@ -82,7 +92,7 @@ export default function() {
 }`}
             </pre>
             <p>请求失败，响应报文示例：</p>
-            <pre>
+            <pre className="pre1">
                 <span className="color1">HTTP/1.1 400</span>
                 {`
 {
@@ -94,7 +104,7 @@ export default function() {
                 获取用户信息也应在服务端进行，以防泄露你的access token。
             </Alert>
             <p>得到access token后，以GET方式请求（注意Authorization请求头字段）：</p>
-            <pre>
+            <pre className="pre1">
                 <span className="color1">GET </span>
                 https://www.onlyid.net/api/open/user-info
                 <br />
@@ -103,7 +113,7 @@ export default function() {
                 <span className="color2">Authorization</span>: 获取到的access token
             </pre>
             <p>获取用户信息，示例：</p>
-            <pre>
+            <pre className="pre1">
                 <span className="color1">GET </span>
                 https://www.onlyid.net/api/open/user-info
                 <br />
@@ -112,7 +122,7 @@ export default function() {
                 <span className="color2">Authorization</span>: 27fb7b817a4244a2a51ad7948d4a2d4e
             </pre>
             <p>请求成功，响应报文示例：</p>
-            <pre>
+            <pre className="pre1">
                 <span className="color1">HTTP/1.1 200</span>
                 {`
 {
@@ -133,7 +143,7 @@ export default function() {
                 当需要唯一标识用户时，应使用uid字段。用户uid跨应用统一：同一个用户在你的应用和其他所有应用的uid是一样的。
             </Alert>
             <p>请求失败，响应报文示例：</p>
-            <pre>
+            <pre className="pre1">
                 <span className="color1">HTTP/1.1 400</span>
                 {`
 {

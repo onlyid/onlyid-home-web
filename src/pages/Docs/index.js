@@ -6,6 +6,7 @@ import Background from "./Background";
 import Otp from "./Otp";
 import SsoOAuth from "./sso/OAuth";
 import SsoWeb from "./sso/Web";
+import SsoAndroid from "./sso/Android";
 import SsoOther from "./sso/Other";
 import IamIntro from "./iam/Intro";
 import OtherSecurity from "./other/Security";
@@ -38,6 +39,10 @@ export default function() {
         };
     }, [showBanner]);
 
+    useEffect(() => {
+        window.Prism.highlightAll();
+    }, [location.pathname]);
+
     return (
         <>
             {showBanner && (
@@ -68,6 +73,9 @@ export default function() {
                         </Route>
                         <Route path={`${match.path}/sso/web`}>
                             <SsoWeb />
+                        </Route>
+                        <Route path={`${match.path}/sso/android`}>
+                            <SsoAndroid />
                         </Route>
                         <Route path={`${match.path}/sso/other`}>
                             <SsoOther />

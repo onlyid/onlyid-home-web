@@ -15,7 +15,7 @@ export default function() {
             </p>
             <h2>发送验证码</h2>
             <p>POST方式请求：</p>
-            <pre>
+            <pre className="pre1">
                 <span className="color1">POST </span>
                 https://www.onlyid.net/api/open/send-otp
                 <br />
@@ -28,7 +28,7 @@ export default function() {
 }`}
             </pre>
             <p>即可发送验证码，示例：</p>
-            <pre>
+            <pre className="pre1">
                 <span className="color1">POST </span>
                 https://www.onlyid.net/api/open/send-otp
                 <br />
@@ -41,7 +41,7 @@ export default function() {
 }`}
             </pre>
             <p>发送成功，响应报文示例：</p>
-            <pre>
+            <pre className="pre1">
                 <span className="color1">HTTP/1.1 200</span>
                 {`
 {
@@ -53,7 +53,7 @@ export default function() {
 }`}
             </pre>
             <p>发送失败，响应报文示例：</p>
-            <pre>
+            <pre className="pre1">
                 <span className="color1">HTTP/1.1 400</span>
                 {`
 {

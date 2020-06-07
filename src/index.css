@@ -21,19 +21,23 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-pre {
-    padding: 1.5rem;
+.pre1 {
+    padding: 1em;
     background-color: #f7f8f9;
     font-size: 0.9rem;
     overflow-x: auto;
 }
 
-pre .color1 {
+.pre1 .color1 {
     color: #000080;
 }
 
-pre .color2 {
+.pre1 .color2 {
     color: #660e7a;
+}
+
+pre[class*="language-"] {
+    background-color: #f7f8f9;
 }
 
 .section-bg {
