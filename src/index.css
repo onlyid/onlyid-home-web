@@ -26,6 +26,7 @@ body {
     background-color: #f7f8f9;
     font-size: 0.9rem;
     overflow-x: auto;
+    margin: 0.5em 0;
 }
 
 .pre1 .color1 {

@@ -8,6 +8,7 @@ import SsoOAuth from "./sso/OAuth";
 import SsoWeb from "./sso/Web";
 import SsoAndroid from "./sso/Android";
 import SsoOther from "./sso/Other";
+import SsoCustom from "./sso/Custom";
 import IamIntro from "./iam/Intro";
 import OtherSecurity from "./other/Security";
 import OtherFaq from "./other/Faq";
@@ -79,6 +80,9 @@ export default function() {
                         </Route>
                         <Route path={`${match.path}/sso/other`}>
                             <SsoOther />
+                        </Route>
+                        <Route path={`${match.path}/sso/custom`}>
+                            <SsoCustom />
                         </Route>
                         <Route path={`${match.path}/iam/intro`}>
                             <IamIntro />
