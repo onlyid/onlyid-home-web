@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styles from "./index.module.css";
 import { Grid, Hidden, Tab, Tabs } from "@material-ui/core";
 import { SentimentVeryDissatisfied, SentimentVerySatisfied } from "@material-ui/icons";
-import intro1 from "assets/intro1.png";
+import intro1 from "assets/intro1.jpg";
 import intro2 from "assets/intro2.png";
-import intro3 from "assets/intro3.png";
+import intro3 from "assets/intro3.jpg";
 
 export default function() {
     const [value, setValue] = useState(0);

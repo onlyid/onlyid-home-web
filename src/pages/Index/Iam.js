@@ -3,6 +3,8 @@ import { Grid } from "@material-ui/core";
 import styles from "./index.module.css";
 import iam1 from "assets/iam1.png";
 import iam2 from "assets/iam2.png";
+import iam3 from "assets/iam3.png";
+import iam4 from "assets/iam4.png";
 import { SentimentVerySatisfied } from "@material-ui/icons";
 import classNames from "classnames";
 
@@ -57,7 +59,7 @@ export default function() {
                         <Grid item xs={12} sm={6}>
                             <p className={styles.iamTitle1}>权限管理</p>
                             <img
-                                src={iam2}
+                                src={iam3}
                                 alt="iam3"
                                 className={classNames("border1", styles.img1)}
                             />
@@ -75,7 +77,7 @@ export default function() {
                         <Grid item xs={12} sm={6}>
                             <p className={styles.iamTitle1}>角色管理</p>
                             <img
-                                src={iam1}
+                                src={iam4}
                                 alt="iam4"
                                 className={classNames("border1", styles.img1)}
                             />
