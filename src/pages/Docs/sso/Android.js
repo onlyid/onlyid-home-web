@@ -36,7 +36,7 @@ export default function() {
                 <code className="lang-java">
                     {`dependencies {
     ...
-    implementation 'com.github.onlyid:onlyid-sdk-android:1.0.1'
+    implementation 'com.github.onlyid:onlyid-sdk-android:1.0.2'
 }`}
                 </code>
             </pre>
