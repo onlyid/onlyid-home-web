@@ -7,6 +7,7 @@ import Otp from "./Otp";
 import SsoOAuth from "./sso/OAuth";
 import SsoWeb from "./sso/Web";
 import SsoAndroid from "./sso/Android";
+import SsoiOS from "./sso/iOS";
 import SsoOther from "./sso/Other";
 import SsoCustom from "./sso/Custom";
 import IamIntro from "./iam/Intro";
@@ -77,6 +78,9 @@ export default function() {
                         </Route>
                         <Route path={`${match.path}/sso/android`}>
                             <SsoAndroid />
+                        </Route>
+                        <Route path={`${match.path}/sso/ios`}>
+                            <SsoiOS />
                         </Route>
                         <Route path={`${match.path}/sso/other`}>
                             <SsoOther />

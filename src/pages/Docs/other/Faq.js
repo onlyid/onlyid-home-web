@@ -23,8 +23,8 @@ export default function() {
             <h3>可在哪些平台上使用唯ID？</h3>
             <p>iOS、Android 和网页均支持使用唯ID。</p>
             <ul>
-                <li>对于iOS，支持iOS 9或更高版本。</li>
-                <li>对于Android，支持Android 4.4或更高版本。</li>
+                <li>对于iOS，支持iOS 10或更高版本。</li>
+                <li>对于Android，支持Android 5.0或更高版本。</li>
                 <li>对于网页，支持IE 11、Firefox和Chrome等现代浏览器。</li>
             </ul>
             <h3>短信是否收费？</h3>
