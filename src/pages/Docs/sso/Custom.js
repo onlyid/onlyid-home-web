@@ -30,7 +30,14 @@ OnlyID.oauth(this, config, new OnlyID.OAuthListener() ...`}
             );
             break;
         default:
-        // TODO
+            tabs1Content = (
+                <pre>
+                    <code className="lang-swift">
+                        {`let config = OnlyIDOAuthConfig(clientId: clientId, theme: "dark")
+OnlyID.oauth(config: config, fromController: self, delegate: self)`}
+                    </code>
+                </pre>
+            );
     }
 
     let tabs2Content;
@@ -55,7 +62,14 @@ OnlyID.oauth(this, config, new OnlyID.OAuthListener() ...`}
             );
             break;
         default:
-        // TODO
+            tabs2Content = (
+                <pre>
+                    <code className="lang-swift">
+                        {`let config = OnlyIDOAuthConfig(clientId: clientId, view: "zoomed")
+OnlyID.oauth(config: config, fromController: self, delegate: self)`}
+                    </code>
+                </pre>
+            );
     }
 
     useEffect(() => {
