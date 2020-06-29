@@ -30,8 +30,9 @@ export default function() {
             <h2>获取authorization code</h2>
             <p>
                 展示登录按钮（如果你的应用把唯ID作为唯一登录方式，按钮文案可写 "登录"，否则可以写
-                "用唯ID登录"）引导用户点击，使用OnlyID.oauth方法发起请求打开授权页。代码示例：
+                "用唯ID登录"）引导用户点击。
             </p>
+            <p>使用OnlyID.oauth方法打开授权页。代码示例：</p>
             <pre>
                 <code className="language-swift">
                     {`let config = OnlyIDOAuthConfig(clientId: "你的应用id")
