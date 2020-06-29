@@ -18,6 +18,8 @@ const loading = (
 );
 
 class App extends PureComponent {
+    unlisten = null;
+
     componentDidMount() {
         this.setFontSize();
         window.addEventListener("resize", this.setFontSize);
@@ -25,10 +27,17 @@ class App extends PureComponent {
         this.listenHistory();
     }
 
+    componentWillUnmount() {
+        this.unlisten();
+    }
+
     listenHistory = () => {
         const { history } = this.props;
 
-        history.listen((location, action) => {
+        this.unlisten = history.listen((location, action) => {
+            // 如果是返回 则让浏览器自动处理
+            if (action === "POP") return;
+
             const { hash } = location;
             if (hash) {
                 setTimeout(() => {
@@ -38,7 +47,7 @@ class App extends PureComponent {
                     element.scrollIntoView();
                 }, 100);
             } else {
-                if (action !== "POP") window.scrollTo(0, 0);
+                window.scrollTo(0, 0);
             }
         });
     };
