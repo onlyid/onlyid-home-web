@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import Header from "./Header";
 import HeaderM from "./HeaderM";
-import { Button, Dialog, DialogTitle, Hidden, IconButton } from "@material-ui/core";
+import { Button, Dialog, DialogTitle, Divider, Hidden, IconButton } from "@material-ui/core";
 import Footer from "./Footer";
 import styles from "./Header.module.css";
 import { Close } from "@material-ui/icons";
@@ -15,10 +15,6 @@ class Layout extends PureComponent {
 
     toggleDialog = () => {
         this.setState(state => ({ dialog1Visible: !state.dialog1Visible }));
-    };
-
-    goConsole = () => {
-        window.location.assign("https://www.onlyid.net/console");
     };
 
     render() {
@@ -54,9 +50,23 @@ class Layout extends PureComponent {
                                 variant="contained"
                                 size="large"
                                 color="primary"
-                                onClick={this.goConsole}
+                                onClick={() =>
+                                    window.location.assign("https://www.onlyid.net/console")
+                                }
+                                style={{ animation: "breath-animate 3s infinite ease" }}
                             >
                                 开始使用
+                            </Button>
+                        </div>
+                        <Divider style={{ margin: "1.5rem 0" }} />
+                        <p className="p2">你也可以访问网页版示例Demo，查看效果。</p>
+                        <div className={styles.buttonBox}>
+                            <Button
+                                variant="contained"
+                                size="large"
+                                onClick={() => window.open("https://www.onlyid.net/demo")}
+                            >
+                                在线体验
                             </Button>
                         </div>
                     </div>

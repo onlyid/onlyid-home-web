@@ -15,9 +15,9 @@ function MyListItem({ to, children }) {
 }
 
 export default function() {
-    const [ssoVisible, setSsoVisible] = useState(false);
-    const [iamVisible, setIamVisible] = useState(false);
-    const [otherVisible, setOtherVisible] = useState(false);
+    const [ssoVisible, setSsoVisible] = useState(true);
+    const [iamVisible, setIamVisible] = useState(true);
+    const [otherVisible, setOtherVisible] = useState(true);
 
     return (
         <List component="nav" className={styles.menu}>

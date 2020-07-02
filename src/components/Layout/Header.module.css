@@ -107,7 +107,3 @@
     top: 0.2rem;
     color: #7f7f7f;
 }
-
-.dialog1 .buttonBox :global .MuiButton-root {
-    animation: breath-animate 3s infinite ease;
-}
