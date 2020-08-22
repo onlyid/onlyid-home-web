@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { Grid, Popper, Paper } from "@material-ui/core";
+import { Grid, Popper, Paper, Hidden } from "@material-ui/core";
 import styles from "./Footer.module.css";
 import weChat155 from "assets/wechat-155.jpeg";
 import { Link } from "react-router-dom";
@@ -34,24 +34,30 @@ export default class extends PureComponent {
                             <p className={styles.title}>联系我们</p>
                             <ul>
                                 <li>
-                                    商务咨询专线：15521312099（微信同号）
-                                    <i
-                                        className="iconfont hide-xs"
-                                        onMouseEnter={this.showWeChat}
-                                        onMouseLeave={this.closeWeChat}
-                                    >
-                                        &#xe7e5;
-                                    </i>
+                                    商务咨询专线：15521312099
+                                    <Hidden smUp>（微信同号）</Hidden>
+                                    <Hidden xsDown>
+                                        <i
+                                            className="iconfont"
+                                            onMouseEnter={this.showWeChat}
+                                            onMouseLeave={this.closeWeChat}
+                                        >
+                                            &#xe7e5;
+                                        </i>
+                                    </Hidden>
                                 </li>
                                 <li>
-                                    技术支持电话：15521312099（微信同号）
-                                    <i
-                                        className="iconfont hide-xs"
-                                        onMouseEnter={this.showWeChat}
-                                        onMouseLeave={this.closeWeChat}
-                                    >
-                                        &#xe7e5;
-                                    </i>
+                                    技术支持电话：15521312099
+                                    <Hidden smUp>（微信同号）</Hidden>
+                                    <Hidden xsDown>
+                                        <i
+                                            className="iconfont"
+                                            onMouseEnter={this.showWeChat}
+                                            onMouseLeave={this.closeWeChat}
+                                        >
+                                            &#xe7e5;
+                                        </i>
+                                    </Hidden>
                                 </li>
                                 <li>技术支持QQ：452391310</li>
                                 <li>开发者QQ群：23831587</li>
