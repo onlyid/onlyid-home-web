@@ -12,7 +12,6 @@
 
 .card {
     background-color: white;
-    height: 24rem;
     padding: 1.5rem 2rem;
     position: relative;
     overflow: hidden;
@@ -33,6 +32,12 @@
     line-height: 2.5rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.ul1 li :global .MuiSvgIcon-root {
+    color: #52c41a;
+    font-size: 1.7rem;
 }
 
 .span1 {
@@ -85,5 +90,6 @@
     .card {
         border-radius: 0.3rem;
         border: 1px solid #e8e8e8;
+        height: 35.5rem;
     }
 }

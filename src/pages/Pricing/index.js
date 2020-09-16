@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./index.module.css";
 import classNames from "classnames";
 import { Grid } from "@material-ui/core";
+import { Check } from "@material-ui/icons";
 
 export default function() {
     return (
@@ -69,22 +70,25 @@ export default function() {
                                     </li>
                                     <li>
                                         <span>目标用户群</span>
-                                        <span className={styles.span1}>普通开发者、中小企业</span>
-                                    </li>
-                                    <li>
-                                        <span>客服支持时间</span>
-                                        <span className={styles.span1}>每天 9:00-19:00</span>
+                                        <span className={styles.span1}>普通开发者、所有企业</span>
                                     </li>
                                     <li>
                                         <span>开通方式</span>
                                         <span className={styles.span1}>默认开通</span>
                                     </li>
                                 </ul>
+                                <hr className={styles.hr1} />
+                                <ul className={styles.ul1}>
+                                    <li>
+                                        <span>客服支持时间</span>
+                                        <span className={styles.span1}>每天 9:00-19:00</span>
+                                    </li>
+                                </ul>
                             </div>
                         </Grid>
                         <Grid item xs={12} sm={6}>
                             <div className={styles.card}>
-                                <p className="p1">企业定制、专有部署</p>
+                                <p className="p1">企业定制、私有部署</p>
                                 <hr className={styles.hr1} />
                                 <ul className={styles.ul1}>
                                     <li>
@@ -94,32 +98,55 @@ export default function() {
                                         </span>
                                     </li>
                                     <li>
-                                        <span>计算节点和数据库</span>
-                                        <span className={styles.span1}>以合同为准</span>
-                                    </li>
-                                    <li>
-                                        <span>定制费用</span>
-                                        <span className={styles.span1}>以合同为准</span>
-                                    </li>
-                                    <li>
-                                        <span>其他费用</span>
+                                        <span>定制和其他费用</span>
                                         <span className={styles.span1}>以合同为准</span>
                                     </li>
                                     <li>
                                         <span>目标用户群</span>
                                         <span className={styles.span1}>
-                                            超过1000人的大企业或政府机构
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span>客服支持时间</span>
-                                        <span className={styles.span1}>
-                                            专有客服 7 * 24 小时随时响应
+                                            需要功能定制或私有部署的企业
                                         </span>
                                     </li>
                                     <li>
                                         <span>开通方式</span>
                                         <span className={styles.span1}>请联系客户经理</span>
+                                    </li>
+                                </ul>
+                                <hr className={styles.hr1} />
+                                <ul className={styles.ul1}>
+                                    <li>
+                                        <span className={styles.span1}>
+                                            专有客服 7 * 24 小时随时响应
+                                        </span>
+                                        <Check />
+                                    </li>
+                                    <li>
+                                        <span className={styles.span1}>成本价功能定制开发</span>
+                                        <Check />
+                                    </li>
+                                    <li>
+                                        <span className={styles.span1}>替换成您的品牌标识</span>
+                                        <Check />
+                                    </li>
+                                    <li>
+                                        <span className={styles.span1}>交付全套项目源代码</span>
+                                        <Check />
+                                    </li>
+                                    <li>
+                                        <span className={styles.span1}>一年内三次免费版本升级</span>
+                                        <Check />
+                                    </li>
+                                    <li>
+                                        <span className={styles.span1}>
+                                            所有数据存储在自己的服务器
+                                        </span>
+                                        <Check />
+                                    </li>
+                                    <li>
+                                        <span className={styles.span1}>
+                                            源码和功能培训讲解（以方便二次开发）
+                                        </span>
+                                        <Check />
                                     </li>
                                 </ul>
                             </div>
