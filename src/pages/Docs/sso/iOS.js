@@ -57,6 +57,9 @@ extension ViewController: OnlyIDOAuthDelegate {
                 </Link>
                 的OnlyID_Demo_Objc项目。
             </Alert>
+            <Alert severity="info">
+                如果用户安装了唯ID APP，会唤起APP完成授权，否则通过WebView打开授权页完成授权。
+            </Alert>
             <h2>获取access token和用户信息</h2>
             <p>
                 之后的流程（通过authorization code换取access token和通过access

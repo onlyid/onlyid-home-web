@@ -16,9 +16,14 @@ export default function() {
             <h2>集成SDK</h2>
             <p>
                 已改用gradle形式，发布到{" "}
-                <Link href="https://jitpack.io/" target="_blank">
-                    JitPack
+                <Link href="https://jitpack.io/#onlyid/onlyid-sdk-android" target="_blank">
+                    <img
+                        src="https://jitpack.io/v/onlyid/onlyid-sdk-android.svg"
+                        alt="jitpack"
+                        style={{ verticalAlign: "middle", height: "1.5rem" }}
+                    />
                 </Link>
+                （绿色数字是当前最新版本）
                 ，请开发者使用gradle来编译、更新SDK。在项目全局的build.gradle添加：
             </p>
             <pre>
@@ -36,7 +41,7 @@ export default function() {
                 <code className="lang-java">
                     {`dependencies {
     ...
-    implementation 'com.github.onlyid:onlyid-sdk-android:1.0.4'
+    implementation 'com.github.onlyid:onlyid-sdk-android:最新版本'
 }`}
                 </code>
             </pre>
@@ -49,19 +54,31 @@ export default function() {
             <p>使用OnlyID.oauth方法打开授权页。代码示例：</p>
             <pre>
                 <code className="language-java">
-                    {`OnlyID.OAuthConfig config = new OnlyID.OAuthConfig("你的应用id");
-OnlyID.oauth(this, config, new OnlyID.OAuthListener() {
-    @Override
-    public void onComplete(String code, String state) { // 获得authorization code }
-    
-    @Override
-    public void onError(OnlyID.ErrCode errCode) { // 发生错误 }
-    
-    @Override
-    public void onCancel() { // 用户取消 }
-});`}
+                    {`static final int REQUEST_OAUTH = 1;
+...
+OAuthConfig config = new OAuthConfig("你的应用id");
+OnlyID.oauth(this, config, REQUEST_OAUTH);
+...
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if (requestCode != REQUEST_OAUTH) return;
+
+    if (resultCode == RESULT_OK) {
+        // 获得authorization code
+        String code = data.getStringExtra(OnlyID.EXTRA_CODE);
+    } else if (resultCode == RESULT_CANCELED) {
+        // 用户取消（拒绝）
+    } else if (resultCode == OnlyID.RESULT_ERROR) {
+        // 发生错误
+        Exception exception = (Exception) data.getSerializableExtra(OnlyID.EXTRA_EXCEPTION);
+    }
+}`}
                 </code>
             </pre>
+            <Alert severity="info">
+                如果用户安装了唯ID APP，会唤起APP完成授权，否则通过WebView打开授权页完成授权。
+            </Alert>
             <h2>获取access token和用户信息</h2>
             <p>
                 之后的流程（通过authorization code换取access token和通过access
