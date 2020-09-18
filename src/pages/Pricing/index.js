@@ -73,15 +73,12 @@ export default function() {
                                         <span className={styles.span1}>普通开发者、所有企业</span>
                                     </li>
                                     <li>
+                                        <span>客服支持时间</span>
+                                        <span className={styles.span1}>每天 9:00-21:00</span>
+                                    </li>
+                                    <li>
                                         <span>开通方式</span>
                                         <span className={styles.span1}>默认开通</span>
-                                    </li>
-                                </ul>
-                                <hr className={styles.hr1} />
-                                <ul className={styles.ul1}>
-                                    <li>
-                                        <span>客服支持时间</span>
-                                        <span className={styles.span1}>每天 9:00-19:00</span>
                                     </li>
                                 </ul>
                             </div>
@@ -108,6 +105,10 @@ export default function() {
                                         </span>
                                     </li>
                                     <li>
+                                        <span>客服支持时间</span>
+                                        <span className={styles.span1}>每天 9:00-21:00</span>
+                                    </li>
+                                    <li>
                                         <span>开通方式</span>
                                         <span className={styles.span1}>请联系客户经理</span>
                                     </li>
@@ -115,17 +116,11 @@ export default function() {
                                 <hr className={styles.hr1} />
                                 <ul className={styles.ul1}>
                                     <li>
-                                        <span className={styles.span1}>
-                                            专有客服 7 * 24 小时随时响应
-                                        </span>
+                                        <span>成本价功能定制开发</span>
                                         <Check />
                                     </li>
                                     <li>
-                                        <span className={styles.span1}>成本价功能定制开发</span>
-                                        <Check />
-                                    </li>
-                                    <li>
-                                        <span className={styles.span1}>替换成您的品牌标识</span>
+                                        <span>替换成你的品牌标识</span>
                                         <Check />
                                     </li>
                                     <li>
@@ -133,19 +128,15 @@ export default function() {
                                         <Check />
                                     </li>
                                     <li>
-                                        <span className={styles.span1}>一年内三次免费版本升级</span>
+                                        <span>每年三次免费版本升级</span>
                                         <Check />
                                     </li>
                                     <li>
-                                        <span className={styles.span1}>
-                                            所有数据存储在自己的服务器
-                                        </span>
+                                        <span>数据存储在自己的服务器</span>
                                         <Check />
                                     </li>
                                     <li>
-                                        <span className={styles.span1}>
-                                            源码和功能培训讲解（以方便二次开发）
-                                        </span>
+                                        <span>源码和功能培训讲解（以方便二次开发）</span>
                                         <Check />
                                     </li>
                                 </ul>

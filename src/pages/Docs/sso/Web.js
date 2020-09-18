@@ -134,7 +134,7 @@ export default function() {
   "email": null,
   "gender": null,
   "createDate": "2020-04-13T18:07:45",
-  "passwordUpdateDate": null,
+  "updatePasswordDate": null,
   "description": null,
   "creator": null
 }`}
