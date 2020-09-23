@@ -6,7 +6,7 @@ export default function() {
         <>
             <h1>使用唯ID OTP</h1>
             <Alert severity="info">
-                如果你还没创建应用，请先到控制台 -> 应用管理 新建一个得到应用id和应用secret再继续。
+                如果你还没创建应用，请先到控制台 -> 应用管理 新建一个得到应用ID和应用Secret再继续。
             </Alert>
             <h2>前言</h2>
             <p>
@@ -23,8 +23,8 @@ export default function() {
                 {`
 {
     "recipient": 手机号或电子邮箱,
-    "clientId": 你的应用id,
-    "clientSecret": 你的应用secret
+    "clientId": 你的应用ID,
+    "clientSecret": 你的应用Secret
 }`}
             </pre>
             <p>即可发送验证码，示例：</p>
@@ -61,7 +61,7 @@ export default function() {
 }`}
             </pre>
             <Alert severity="info">
-                唯ID所有OPEN
+                唯ID所有Open
                 API，请求成功返回HTTP状态码200，请求失败返回40X（一般是400），然后通过error字段给出具体错误原因。
             </Alert>
             <h2>自定义设置</h2>

@@ -68,7 +68,7 @@ export default function() {
                         <Grid item xs={12} sm={8}>
                             <div className={styles.card1}>
                                 <p className={styles.title}>The OnlyID for you</p>
-                                <p>浪漫的词 only，寓意我们：</p>
+                                <p>浪漫的词 Only，寓意我们：</p>
                                 <ul>
                                     <li>专注IDaaS行业并提供相关服务</li>
                                     <li>期盼未来使用一个账号畅游互联网</li>
@@ -87,7 +87,7 @@ export default function() {
                             <ul className={styles.cons}>
                                 <li>用户的账号和认证体验不一致。</li>
                                 <li>无法简单实现两步验证、验证码发送。</li>
-                                <li>网站和app不够安全。</li>
+                                <li>网站和APP不够安全。</li>
                                 <li>用户转化率低。</li>
                                 <li>开发、管理、安全、审计成本高。</li>
                                 <li>产品推向市场时间慢。</li>

@@ -47,11 +47,11 @@ export default function({ current }) {
                 <p>
                     本科及以上学历，相关工作经验1年及以上；
                     <br />
-                    扎实的java编程基础，熟悉Spring、MySQL等常用技术栈，具备软件架构设计能力；
+                    扎实的Java编程基础，熟悉Spring、MySQL等常用技术栈，具备软件架构设计能力；
                     <br />
                     熟悉nginx常用配置
                     <br />
-                    熟悉LINUX操作系统及常用的LINUX操作命令，熟悉网络编程；
+                    熟悉Linux操作系统及常用的Linux操作命令，熟悉网络编程；
                     <br />
                     Github使用者、有开源项目贡献者优先考虑。
                 </p>

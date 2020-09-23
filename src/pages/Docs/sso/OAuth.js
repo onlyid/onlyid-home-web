@@ -21,17 +21,17 @@ export default function() {
             </p>
             <p>本节不论述OAuth 2.0的协议细节，只介绍开发者接入时涉及到的概念和流程。</p>
             <h2>授权流程</h2>
-            <p>支持authorization code授权方式，适用于拥有server端的应用授权。整体流程：</p>
+            <p>支持Authorization Code授权方式，适用于拥有Server端的应用授权。整体流程：</p>
             <ul>
                 <li>
-                    第三方发起验证请求，用户在授权页完成账号验证，唯ID带上authorization
-                    code返回第三方应用；
+                    第三方发起验证请求，用户在授权页完成账号验证，唯ID带上Authorization
+                    Code返回第三方应用；
                 </li>
                 <li>
-                    使用authorization code、client id和client secret进行RESTful API调用，获取access
-                    token；
+                    使用Authorization Code、Client ID和Client Secret进行RESTful API调用，获取Access
+                    Token；
                 </li>
-                <li>使用access token进行RESTful API调用，获取用户信息。</li>
+                <li>使用Access Token进行RESTful API调用，获取用户信息。</li>
             </ul>
             <p>授权时序图：</p>
             <div className={styles.imgBox}>
@@ -39,19 +39,19 @@ export default function() {
             </div>
             <h2>名词解释</h2>
             <dl>
-                <dt>client id和client secret</dt>
+                <dt>Client ID和Client Secret</dt>
                 <dd>
-                    也叫应用id和应用secret，分别相当于你的应用在唯ID的帐号和密码，是SDK连接服务器所必需的标识。
+                    也叫应用ID和应用Secret，分别相当于你的应用在唯ID的帐号和密码，是SDK连接服务器所必需的标识。
                 </dd>
-                <dt>authorization code</dt>
+                <dt>Authorization Code</dt>
                 <dd>
-                    第三方使用authorization code获取access
-                    token，code的超时时间为5分钟，一个code只能获取一次access token即失效。
+                    第三方使用Authorization Code获取Access
+                    Token，Code的超时时间为5分钟，一个Code只能获取一次Access Token即失效。
                 </dd>
-                <dt>access token</dt>
+                <dt>Access Token</dt>
                 <dd>
-                    第三方使用access
-                    token获取用户信息，token的超时时间为1小时，一个token可多次获取用户信息。
+                    第三方使用Access
+                    Token获取用户信息，Token的超时时间为1小时，一个Token可多次获取用户信息。
                 </dd>
             </dl>
         </>

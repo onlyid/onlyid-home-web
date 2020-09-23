@@ -22,9 +22,9 @@ export default function() {
             tabs1Content = (
                 <pre>
                     <code className="lang-java">
-                        {`OnlyID.OAuthConfig config = new OnlyID.OAuthConfig("你的应用id"); 
+                        {`OAuthConfig config = new OAuthConfig("你的应用ID"); 
 config.theme = "dark"; 
-OnlyID.oauth(this, config, new OnlyID.OAuthListener() ...`}
+OnlyID.oauth(this, config, REQUEST_OAUTH)`}
                     </code>
                 </pre>
             );
@@ -54,9 +54,9 @@ OnlyID.oauth(config: config, fromController: self, delegate: self)`}
             tabs2Content = (
                 <pre>
                     <code className="lang-java">
-                        {`OnlyID.OAuthConfig config = new OnlyID.OAuthConfig("你的应用id"); 
+                        {`OAuthConfig config = new OAuthConfig("你的应用ID"); 
 config.view = "zoomed"; 
-OnlyID.oauth(this, config, new OnlyID.OAuthListener() ...`}
+OnlyID.oauth(this, config, REQUEST_OAUTH)`}
                     </code>
                 </pre>
             );
@@ -92,12 +92,17 @@ OnlyID.oauth(config: config, fromController: self, delegate: self)`}
                     <td>两种（标准、放大）</td>
                 </tr>
             </table>
-            <p>使用方式类似：对于网站，通过授权页的query参数设置；对于APP，通过SDK传参设置。</p>
+            <p>使用方式类似：对于网站，通过授权页的Query参数设置；对于APP，通过SDK传参设置。</p>
             <h2>主题样式</h2>
             <p>
                 提供日间、夜间两种主题样式，通过theme=dark设置展示夜间主题，否则默认日间主题，示例如下：
             </p>
-            <Tabs value={tabs1} onChange={(_, value) => setTabs1(value)} indicatorColor="primary">
+            <Tabs
+                className={styles.platformTab}
+                value={tabs1}
+                onChange={(_, value) => setTabs1(value)}
+                indicatorColor="primary"
+            >
                 <Tab label="网站" />
                 <Tab label="Android" />
                 <Tab label="iOS" />
@@ -127,7 +132,12 @@ OnlyID.oauth(config: config, fromController: self, delegate: self)`}
             <p>
                 提供标准、放大两种显示界面，通过view=zoomed设置放大显示，否则默认正常显示，示例如下：
             </p>
-            <Tabs value={tabs2} onChange={(_, value) => setTabs2(value)} indicatorColor="primary">
+            <Tabs
+                className={styles.platformTab}
+                value={tabs2}
+                onChange={(_, value) => setTabs2(value)}
+                indicatorColor="primary"
+            >
                 <Tab label="网站" />
                 <Tab label="Android" />
                 <Tab label="iOS" />

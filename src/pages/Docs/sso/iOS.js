@@ -8,7 +8,7 @@ export default function() {
         <>
             <h1>iOS快速接入</h1>
             <Alert severity="info">
-                如果你还没创建应用，请先到控制台 -> 应用管理 新建一个得到应用id和应用secret再继续。
+                如果你还没创建应用，请先到控制台 -> 应用管理 新建一个得到应用ID和应用Secret再继续。
             </Alert>
             <Alert severity="info">
                 如果你还没配置应用Bundle ID，请先到控制台 -> 应用管理 -> OAuth设置 配置好再继续。
@@ -27,7 +27,7 @@ export default function() {
             <Alert severity="info">
                 如果使用源码集成方式，建议定期更新最新代码文件，以免错过新的产品功能和安全、错误方面的更新。
             </Alert>
-            <h2>获取authorization code</h2>
+            <h2>获取Authorization Code</h2>
             <p>
                 展示登录按钮（如果你的应用把唯ID作为唯一登录方式，按钮文案可写 "登录"，否则可以写
                 "用唯ID登录"）引导用户点击。
@@ -35,11 +35,11 @@ export default function() {
             <p>使用OnlyID.oauth方法打开授权页。代码示例：</p>
             <pre>
                 <code className="language-swift">
-                    {`let config = OnlyIDOAuthConfig(clientId: "你的应用id")
+                    {`let config = OnlyIDOAuthConfig(clientId: "你的应用ID")
 OnlyID.oauth(config: config, fromController: self, delegate: self)
 ...
 extension ViewController: OnlyIDOAuthDelegate {
-    func onComplete(code: String, state: String?) { // 获得authorization code }
+    func onComplete(code: String, state: String?) { // 获得Authorization Code }
 
     func onError(error: NSError) { // 发生错误 }
 
@@ -60,10 +60,10 @@ extension ViewController: OnlyIDOAuthDelegate {
             <Alert severity="info">
                 如果用户安装了唯ID APP，会唤起APP完成授权，否则通过WebView打开授权页完成授权。
             </Alert>
-            <h2>获取access token和用户信息</h2>
+            <h2>获取Access Token和用户信息</h2>
             <p>
-                之后的流程（通过authorization code换取access token和通过access
-                token换取用户信息）与网站接入时并无区别，请直接参阅{" "}
+                之后的流程（通过Authorization Code换取Access Token和通过Access
+                Token换取用户信息）与网站接入时并无区别，请直接参阅{" "}
                 <Link component={RRLink} to="/docs/sso/web#access-token">
                     相关小节
                 </Link>

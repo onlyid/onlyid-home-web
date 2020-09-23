@@ -223,7 +223,7 @@ class Banner extends PureComponent {
                                     </li>
                                     <li>
                                         <Build />
-                                        支持定制：大企业支持源码级定制和专有部署
+                                        支持定制：大企业支持源码级定制和私有部署
                                     </li>
                                 </ul>
                             </Grid>
