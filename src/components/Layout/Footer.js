@@ -115,7 +115,7 @@ export default class extends PureComponent {
                             className="hide-xs"
                             rel="noopener noreferrer"
                         >
-                            粤ICP备16120960号-3
+                            粤ICP备16120960号
                         </a>
                     </div>
                 </div>
