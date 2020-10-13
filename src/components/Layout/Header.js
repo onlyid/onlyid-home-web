@@ -79,9 +79,12 @@ export default function({ onOpenTrialDialog }) {
             </div>
             <Menu
                 anchorEl={anchorEl}
+                anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                transformOrigin={{ vertical: "top", horizontal: "center" }}
                 open={Boolean(anchorEl)}
                 onClose={closeProductMenu}
                 className={styles.productMenu}
+                getContentAnchorEl={null}
             >
                 <span className={styles.tip}>验证码服务</span>
                 <MenuItem onClick={() => productMenuGo("/#otp")}>
