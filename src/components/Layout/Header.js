@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css";
-import logo from "assets/logo.svg";
+import { ReactComponent as Logo } from "assets/logo.svg";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import classNames from "classnames";
 import { Button, ListItemIcon, ListItemText, Menu, MenuItem } from "@material-ui/core";
@@ -34,12 +34,10 @@ export default function({ onOpenTrialDialog }) {
             <div className={styles.header}>
                 <div className={styles.headerLeft}>
                     <div style={{ fontSize: 0 }}>
-                        <img
-                            src={logo}
-                            alt="logo"
-                            height="33"
+                        <Logo
                             className={styles.logo}
                             onClick={() => history.push("/")}
+                            style={{ fill: "#e8e8e8", width: 80, verticalAlign: "middle" }}
                         />
                     </div>
                     <ul className={styles.menu}>

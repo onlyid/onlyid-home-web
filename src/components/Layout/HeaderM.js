@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "assets/logo.svg";
+import { ReactComponent as Logo } from "assets/logo.svg";
 import logoLight from "assets/logo-light.svg";
 import {
     Button,
@@ -66,11 +66,10 @@ export default function({ onOpenTrialDialog }) {
     return (
         <>
             <header className={styles.header} style={{ backgroundColor: "#001529" }}>
-                <img
-                    src={logo}
-                    alt="logo"
+                <Logo
                     className={styles.logo}
                     onClick={() => history.push("/")}
+                    style={{ fill: "#e8e8e8", verticalAlign: "middle" }}
                 />
                 <IconButton onClick={toggleMenu}>
                     <Menu className={styles.toggleMenu} style={{ color: "white" }} />
