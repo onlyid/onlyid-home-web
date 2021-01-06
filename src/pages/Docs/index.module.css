@@ -33,6 +33,7 @@
 }
 
 .root :global .MuiAlert-root {
+    margin-top: 1em;
     margin-bottom: 1em;
     font-size: 1rem;
 }
@@ -44,6 +45,15 @@
 }
 
 .root ul li:not(:last-of-type) {
+    margin-bottom: 0.2em;
+}
+
+.root ol {
+    font-size: 1rem;
+    padding-left: 2em;
+}
+
+.root ol li:not(:last-of-type) {
     margin-bottom: 0.2em;
 }
 
@@ -113,6 +123,10 @@
 
 .table1 tr {
     border-bottom: 1px solid #e4e7ed;
+}
+
+.table1 tr:first-of-type {
+    border-top: 1px solid #e4e7ed;
 }
 
 .table1 tr:hover {

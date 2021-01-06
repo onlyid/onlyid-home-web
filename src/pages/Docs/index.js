@@ -3,7 +3,8 @@ import styles from "./index.module.css";
 import { Route, Switch, useLocation, useRouteMatch } from "react-router-dom";
 import Home from "./Home";
 import Background from "./Background";
-import Otp from "./Otp";
+import OtpIntro from "./otp/Intro";
+import OtpIntegrate from "./otp/Integrate";
 import SsoOAuth from "./sso/OAuth";
 import SsoWeb from "./sso/Web";
 import SsoAndroid from "./sso/Android";
@@ -67,8 +68,11 @@ export default function() {
                         <Route path={`${match.path}/background`}>
                             <Background />
                         </Route>
-                        <Route path={`${match.path}/otp`}>
-                            <Otp />
+                        <Route path={`${match.path}/otp/intro`}>
+                            <OtpIntro />
+                        </Route>
+                        <Route path={`${match.path}/otp/integrate`}>
+                            <OtpIntegrate />
                         </Route>
                         <Route path={`${match.path}/sso/oauth`}>
                             <SsoOAuth />

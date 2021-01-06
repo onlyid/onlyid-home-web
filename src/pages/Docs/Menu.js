@@ -15,6 +15,7 @@ function MyListItem({ to, children }) {
 }
 
 export default function() {
+    const [otpVisible, setOtpVisible] = useState(true);
     const [ssoVisible, setSsoVisible] = useState(true);
     const [iamVisible, setIamVisible] = useState(true);
     const [otherVisible, setOtherVisible] = useState(true);
@@ -27,9 +28,20 @@ export default function() {
             <MyListItem to="/docs/background">
                 <ListItemText primary="项目背景和特点" />
             </MyListItem>
-            <MyListItem to="/docs/otp">
+            <ListItem button onClick={() => setOtpVisible(!otpVisible)}>
                 <ListItemText primary="使用唯ID OTP" />
-            </MyListItem>
+                {otpVisible ? <ExpandLess /> : <ExpandMore />}
+            </ListItem>
+            <Collapse in={otpVisible}>
+                <List disablePadding className={styles.nestedList}>
+                    <MyListItem to="/docs/otp/intro">
+                        <ListItemText primary="简介" />
+                    </MyListItem>
+                    <MyListItem to="/docs/otp/integrate">
+                        <ListItemText primary="使用" />
+                    </MyListItem>
+                </List>
+            </Collapse>
             <ListItem button onClick={() => setSsoVisible(!ssoVisible)}>
                 <ListItemText primary="接入唯ID SSO" />
                 {ssoVisible ? <ExpandLess /> : <ExpandMore />}

@@ -34,7 +34,7 @@ export default function() {
                                 </li>
                                 <li>
                                     <SentimentVerySatisfied className={styles.satisfied} />
-                                    管理员可编辑昵称、头像、密码等用户信息
+                                    多维度数据（最近新增、最近活跃等）直观展现
                                 </li>
                             </ul>
                         </Grid>

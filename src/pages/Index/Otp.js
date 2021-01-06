@@ -54,11 +54,11 @@ export default function() {
                                 <span className="color1">HTTP/1.1 200</span>
                                 {`
 {
-    "otp": "581305",
-    "expireMin": 10,
-    "maxFailCount": 10,
-    "length": 6,
-    "type": "NUMBER"
+    "recipient": "13612345678",
+    "code": "581305",
+    "createDate": "2021-01-05T19:45:30",
+    "expireDate": "2021-01-05T19:55:30",
+    "maxFailCount": 10
 }`}
                             </pre>
                             <p className="img-tip">响应报文</p>

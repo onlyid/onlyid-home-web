@@ -1,0 +1,23 @@
+.root {
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 1rem;
+    min-width: 40rem;
+    width: 100%;
+}
+
+.root thead {
+    background-color: #eee;
+}
+
+.root td {
+    padding: 0.6rem 1rem;
+}
+
+.root tr {
+    border-bottom: 1px solid #e4e7ed;
+}
+
+.root .c1 {
+    min-width: 10rem;
+}

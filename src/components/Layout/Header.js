@@ -84,14 +84,14 @@ export default function({ onOpenTrialDialog }) {
                 className={styles.productMenu}
                 getContentAnchorEl={null}
             >
-                <span className={styles.tip}>验证码服务</span>
+                <span className={styles.tip}>无密码 轻认证</span>
                 <MenuItem onClick={() => productMenuGo("/#otp")}>
                     <ListItemIcon>
                         <Sms />
                     </ListItemIcon>
                     <ListItemText>唯ID &nbsp; OTP</ListItemText>
                 </MenuItem>
-                <span className={styles.tip}>IDaaS解决方案</span>
+                <span className={styles.tip}>IDaaS 解决方案</span>
                 <MenuItem onClick={() => productMenuGo("/#sso")}>
                     <ListItemIcon>
                         <AccountBox />

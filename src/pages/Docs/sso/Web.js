@@ -103,23 +103,15 @@ export default function() {
             <Alert severity="warning">
                 获取用户信息也应在服务端进行，以防泄露你的Access Token。
             </Alert>
-            <p>得到Access Token后，以GET方式请求（注意Authorization请求头字段）：</p>
+            <p>得到Access Token后，以GET方式请求：</p>
             <pre className="pre1">
                 <span className="color1">GET </span>
-                https://www.onlyid.net/api/open/user-info
-                <br />
-                <span className="color2">Content-Type</span>: application/json
-                <br />
-                <span className="color2">Authorization</span>: 获取到的Access Token
+                https://www.onlyid.net/api/open/user-info?accessToken=获取到的Access Token
             </pre>
             <p>获取用户信息，示例：</p>
             <pre className="pre1">
                 <span className="color1">GET </span>
-                https://www.onlyid.net/api/open/user-info
-                <br />
-                <span className="color2">Content-Type</span>: application/json
-                <br />
-                <span className="color2">Authorization</span>: 27fb7b817a4244a2a51ad7948d4a2d4e
+                https://www.onlyid.net/api/open/user-info?accessToken=27fb7b817a4244a2a51ad7948d4a2d4e
             </pre>
             <p>请求成功，响应报文示例：</p>
             <pre className="pre1">
