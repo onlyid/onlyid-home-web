@@ -24,7 +24,7 @@ export default function() {
                                 </li>
                                 <li>
                                     <SentimentVerySatisfied className={styles.satisfied} />
-                                    验证码复用唯ID OTP设置，同样无限手机短信验证码。
+                                    和唯ID OTP一样，同样无限量手机短信验证码。
                                 </li>
                                 <li>
                                     <SentimentVerySatisfied className={styles.satisfied} />

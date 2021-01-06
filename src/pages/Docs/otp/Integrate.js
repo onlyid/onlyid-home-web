@@ -50,7 +50,7 @@ export default function() {
         { name: "code", type: "字符串", desc: "验证码" },
         { name: "createDate", type: "时间字符串", desc: "创建时间" },
         { name: "expireDate", type: "时间字符串", desc: "过期时间" },
-        { name: "maxFailCount", type: "整数", desc: "最大失败次数" }
+        { name: "maxFailCount", type: "整数", desc: "最多失败次数" }
     ];
 
     const param3 = [
