@@ -14,7 +14,7 @@ export default class extends PureComponent {
             <table className={styles.root}>
                 <thead>
                     <tr>
-                        <td>参数</td>
+                        <td>{type === "request" ? "参数" : "字段"}</td>
                         <td>{type === "request" && "必填，"}类型</td>
                         <td>含义</td>
                     </tr>
@@ -22,7 +22,7 @@ export default class extends PureComponent {
                 <tbody>
                     {data.map(item => (
                         <tr>
-                            <td>{item.name}</td>
+                            <td className={styles.c1}>{item.name}</td>
                             <td className={styles.c1}>{item.type}</td>
                             <td>{item.desc}</td>
                         </tr>
