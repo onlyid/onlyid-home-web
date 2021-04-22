@@ -61,7 +61,7 @@ export default function() {
             <p>得到Authorization Code后，POST方式请求：</p>
             <pre className="pre1">
                 <span className="color1">POST </span>
-                https://www.onlyid.net/api/oauth/access-token
+                https://www.onlyid.net/api/open/access-token
                 <br />
                 <span className="color2">Content-Type</span>: application/json
                 {`
@@ -73,7 +73,7 @@ export default function() {
             <p>获取Access Token，示例：</p>
             <pre className="pre1">
                 <span className="color1">POST </span>
-                https://www.onlyid.net/api/oauth/access-token
+                https://www.onlyid.net/api/open/access-token
                 <br />
                 <span className="color2">Content-Type</span>: application/json
                 {`
@@ -118,21 +118,23 @@ export default function() {
                 <span className="color1">HTTP/1.1 200</span>
                 {`
 {
-  "id": 69,
-  "uid": "96710e363b814ddf888fba57e1c4c5fe",
+  "id": "96710e363b814ddf888fba57e1c4c5fe",
   "avatarUrl": "https://www.onlyid.net/static/user-avatars/2f7004135c254db2832a43b1527b8e11.png",
   "nickname": "王语嫣",
   "mobile": "18588000048",
   "email": null,
   "gender": null,
+  "birthDate": "2001-04-21",
+  "province": "广东省",
+  "city": "广州市",
+  "bio": null,
   "createDate": "2020-04-13T18:07:45",
   "updatePasswordDate": null,
-  "description": null,
-  "creator": null
+  "extra": null
 }`}
             </pre>
             <Alert severity="info">
-                当需要唯一标识用户时，应使用uid字段。用户uid跨应用统一：同一个用户在你的应用和其他所有应用的uid是一样的。
+                当需要唯一标识用户时，应使用id字段。用户id跨应用统一：同一个用户在你的应用和其他所有应用的id是一样的。
             </Alert>
             <p>请求失败，响应报文示例：</p>
             <pre className="pre1">
