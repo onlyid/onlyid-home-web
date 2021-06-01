@@ -104,10 +104,7 @@ export default class extends PureComponent {
                     </Grid>
                     <div className={styles.copyright}>
                         &copy; 2015 - {new Date().getFullYear()}
-                        <span style={{ marginLeft: "1.5rem" }}>深圳市友全科技有限公司</span>
-                        <span style={{ marginLeft: "1.5rem" }} className="hide-xs">
-                            All rights reserved.
-                        </span>
+                        <span style={{ marginLeft: "1.5rem" }}>爱达斯科技 IDaaS Tech</span>
                         <a
                             style={{ marginLeft: "1.5rem" }}
                             href="http://beian.miit.gov.cn/"
