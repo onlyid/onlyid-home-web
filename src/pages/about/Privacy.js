@@ -56,7 +56,7 @@ export default function() {
                 <p>* 因不可抗力导致的任何后果；</p>
                 <p>* 唯ID在各服务条款及声明中列明的使用方式或免责情形。</p>
                 <p style={{ marginTop: "2.5rem" }}>唯ID</p>
-                <p>深圳市友全科技有限公司</p>
+                <p>佛山市爱达斯科技有限公司</p>
             </div>
         </>
     );

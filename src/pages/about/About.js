@@ -15,7 +15,7 @@ export default function() {
                 <div className="section" style={{ paddingTop: "3rem" }}>
                     <p className="section-title">关于我们</p>
                     <p className="p3" style={{ fontSize: "1.1rem" }}>
-                        唯ID隶属深圳市友全科技有限公司，是国内领先的IDaaS提供商，主要产品为企业IDaaS解决方案、账号和认证服务。我们打造了可扩展、易集成的平台以解决复杂的账号和认证问题，也率先利用OAuth协议解决手机号登录成本高问题。引领着账号和认证领域的革命与创新，深受广大开发者和企业客户的信赖。
+                        唯ID隶属佛山市爱达斯科技有限公司，是国内领先的IDaaS提供商，主要产品为企业IDaaS解决方案、账号和认证服务。我们打造了可扩展、易集成的平台以解决复杂的账号和认证问题，也率先利用OAuth协议解决手机号登录成本高问题。引领着账号和认证领域的革命与创新，深受广大开发者和企业客户的信赖。
                     </p>
                     <Grid container justify="space-around" spacing={4}>
                         <Grid item xs={12} sm={3} className={styles.imgBox}>
@@ -35,7 +35,7 @@ export default function() {
                                     </li>
                                 </ul>
                                 <p>
-                                    现任友全科技特别技术顾问、唯ID项目总负责人，推进唯ID建立全球统一的账号和认证体系。
+                                    现任爱达斯科技特别技术顾问、唯ID项目总负责人，推进唯ID建立全球统一的账号和认证体系。
                                 </p>
                             </div>
                         </Grid>
