@@ -63,9 +63,6 @@ export default function() {
                     <MyListItem to="/docs/sso/other">
                         <ListItemText primary="其他平台接入" />
                     </MyListItem>
-                    <MyListItem to="/docs/sso/custom">
-                        <ListItemText primary="自定义选项" />
-                    </MyListItem>
                 </List>
             </Collapse>
             <ListItem button onClick={() => setIamVisible(!iamVisible)}>
