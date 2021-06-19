@@ -107,7 +107,7 @@ export default class extends PureComponent {
                         <span style={{ marginLeft: "1.5rem" }}>爱达斯科技 IDaaS Tech</span>
                         <a
                             style={{ marginLeft: "1.5rem" }}
-                            href="http://beian.miit.gov.cn/"
+                            href="https://beian.miit.gov.cn"
                             target="_blank"
                             className="hide-xs"
                             rel="noopener noreferrer"

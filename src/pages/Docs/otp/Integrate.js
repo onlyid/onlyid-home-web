@@ -14,24 +14,6 @@ export default function() {
         },
         { name: "expireMin", type: "可选，整数", desc: "验证码有效期（分钟），要 >= 1 且 <= 20" },
         {
-            name: "template",
-            type: "可选，整数",
-            desc: (
-                <>
-                    验证码模板，要 >= 1 且 &lt;= 4
-                    <ol style={{ paddingLeft: "1em" }}>
-                        <li>APP的验证码为：Y，该验证码X分钟内有效，请勿泄露于他人</li>
-                        <li>
-                            (Y)APP验证码。工作人员不会向您索要，请勿向任何人泄露，以免造成账户或资金损失
-                        </li>
-                        <li>您的验证码是：Y。此验证码用于[APP]，有效期X分钟</li>
-                        <li>(Y)APP验证码，X分钟内有效</li>
-                    </ol>
-                    其中，APP指代你的应用名，X是有效期，Y是验证码，发送时会替换成具体的值。
-                </>
-            )
-        },
-        {
             name: "maxFailCount",
             type: "可选，整数",
             desc:
