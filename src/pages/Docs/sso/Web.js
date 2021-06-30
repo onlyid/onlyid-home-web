@@ -87,8 +87,9 @@ export default function() {
                 <span className="color1">HTTP/1.1 200</span>
                 {`
 {
-    "accessToken": "27fb7b817a4244a2a51ad7948d4a2d4e",
-    "expireMin": 60
+    "token": "27fb7b817a4244a2a51ad7948d4a2d4e",
+    "userId": "96710e363b814ddf888fba57e1c4c5fe",
+    "expireDate": "2021-06-30T12:45:59",
 }`}
             </pre>
             <p>请求失败，响应报文示例：</p>
@@ -96,7 +97,7 @@ export default function() {
                 <span className="color1">HTTP/1.1 400</span>
                 {`
 {
-    "error": "Client Secret错误，请检查"
+    "error": "应用Secret错误，请检查"
 }`}
             </pre>
             <h2>获取用户信息</h2>
@@ -129,7 +130,6 @@ export default function() {
   "city": "广州市",
   "bio": null,
   "createDate": "2020-04-13T18:07:45",
-  "updatePasswordDate": null,
   "extra": null
 }`}
             </pre>

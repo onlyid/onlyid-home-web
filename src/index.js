@@ -14,7 +14,12 @@ import VConsole from "vconsole";
 
 // const vConsole = new VConsole();
 
-const theme = createMuiTheme({ zhCN });
+const theme = createMuiTheme({
+    zhCN,
+    typography: {
+        fontFamily: ["Roboto", "Noto Sans SC", "sans-serif"].join(",")
+    }
+});
 
 const content = (
     <React.StrictMode>
